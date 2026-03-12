@@ -1,6 +1,16 @@
 import GameServer
 -- import Mathlib.Tactic.Common
 
+open Lean Elab Tactic
+
+syntax "by_contra" (ppSpace binderIdent)? : tactic
+
+macro_rules
+  | `(tactic| by_contra $h:binderIdent) =>
+      `(tactic| false_or_by_contra; rename _ => F; rename_i $h:binderIdent) --hack
+  | `(tactic| by_contra) =>
+      `(tactic| false_or_by_contra; rename _ => F) --hack
+
 /-! Use this file to add things that should be available in all levels.
 
 For example, this demo imports the mathlib tactics

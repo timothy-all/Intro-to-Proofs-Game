@@ -1,41 +1,124 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-23\n"
+"POT-Creation-Date: 2026-03-12\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
-#: GameServer.RpcHandlers
-msgid "level completed with warnings… 🎭"
-msgstr ""
-
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "Hello World"
-msgstr ""
-
 #: Game
 msgid "This text appears on the starting page where one selects the world/level to play.\n"
 "You can use **markdown**."
+msgstr ""
+
+#: Game.Levels.TimWorld.L01_Tim
+#: Game.Levels.TimWorld.L02_Tim
+#: Game.Levels.TimWorld.L03_Tim
+#: Game.Levels.TimWorld.L04_Tim
+#: Game.Levels.TimWorld.L05_Tim
+#: Game.Levels.TimWorld.L06_Tim
+#: Game.Levels.TimWorld.L07_Tim
+#: Game.Levels.TimWorld.L08_Tim
+#: Game.Levels.TimWorld.L09_Tim
+#: Game.Levels.TimWorld.L10_Tim
+#: Game.Levels.TimWorld.L11_Tim
+msgid ""
+msgstr ""
+
+#: Game.Levels.TimWorld.L11_Tim
+msgid "### **🤔 Level 11?**"
 msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "level completed! 🎉"
 msgstr ""
 
+#: GameServer.RpcHandlers
+msgid "intermediate goal solved! 🎉"
+msgstr ""
+
+#: Game.Levels.TimWorld.L04_Tim
+msgid "### **🤔 Level 4?**"
+msgstr ""
+
+#: Game.Levels.TimWorld.L09_Tim
+msgid "### **🤔 Level 9?**"
+msgstr ""
+
+#. §0: $P$
+#. §1: $Q$
+#. §2: $P$
+#. §3: $P → Q$
+#. §4: $Q$
+#: Game.Levels.TimWorld.L05_Tim
+msgid "Suppose §0 and §1 are propositions. If §2 is true and §3 is true, then §4 is true."
+msgstr ""
+
+#. §0: $P$
+#. §1: $Q$
+#. §2: $P$
+#. §3: $Q$
+#. §4: $P ∧ Q$
+#. §5: `∧`
+#. §6: `And.intro`
+#. §7: ```
+#. And.intro (P Q : Prop) : P → Q → (P ∧ Q)
+#. ```
+#: Game.Levels.TimWorld.L07_Tim
+msgid "Suppose §0 and §1 are propositions. If §2 and §3 are true, then §4 is true. The **constructor** for the §5 connective is §6. Specifically:\n"
+"§7"
+msgstr ""
+
+#: Game.Levels.TimWorld.L01_Tim
+msgid "### **🤔 Level 1?**"
+msgstr ""
+
+#: Game.Levels.TimWorld.L01_Tim
+#: Game.Levels.TimWorld.L02_Tim
+#: Game.Levels.TimWorld.L03_Tim
+#: Game.Levels.TimWorld.L04_Tim
+#: Game.Levels.TimWorld.L05_Tim
+#: Game.Levels.TimWorld.L06_Tim
+#: Game.Levels.TimWorld.L07_Tim
+#: Game.Levels.TimWorld.L08_Tim
+#: Game.Levels.TimWorld.L09_Tim
+#: Game.Levels.TimWorld.L10_Tim
+#: Game.Levels.TimWorld.L11_Tim
+msgid "Test"
+msgstr ""
+
+#: Game.Levels.TimWorld.L05_Tim
+msgid "### **🤔 Level 5?**\n"
+"Implications as functions."
+msgstr ""
+
+#. §0: $P$
+#. §1: $Q$
+#. §2: $R$
+#. §3: $P → Q → R$
+#. §4: $(P ∧ Q) → R$
+#: Game.Levels.TimWorld.L06_Tim
+#: Game.Levels.TimWorld.L07_Tim
+#: Game.Levels.TimWorld.L08_Tim
+msgid "Suppose §0, §1, and §2 are propositions. If §3 is true, then §4 is true."
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "level completed with warnings… 🎭"
+msgstr ""
+
+#: Game.Levels.TimWorld.L02_Tim
+msgid "### **🤔 Level 2?**"
+msgstr ""
+
 #: Game
 msgid "Hello World Game"
 msgstr ""
 
-#. §0: `«{g}»`
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "You should use §0 now."
-msgstr ""
-
-#: GameServer.RpcHandlers
-msgid "intermediate goal solved! 🎉"
+#: Game.Levels.TimWorld.L06_Tim
+msgid "### **🤔 Level 6?**"
 msgstr ""
 
 #: Game
@@ -51,28 +134,42 @@ msgid "Here you can put additional information about the game. It is accessible\
 "Use **markdown**."
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "This last message appears if the level is solved."
+#: Game.Levels.TimWorld.L07_Tim
+msgid "### **🤔 Level 7?**"
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "This text is shown as first message when the level is played.\n"
-"You can insert hints in the proof below. They will appear in this side panel\n"
-"depending on the proof a user provides."
+#: Game.Levels.TimWorld.L10_Tim
+msgid "### **🤔 Level 10?**"
 msgstr ""
 
-#: Game.Levels.DemoWorld
-msgid "This introduction is shown before one enters level 1 of the demo world. Use markdown."
+#: Game.Levels.TimWorld
+msgid "### ***What a world!***"
 msgstr ""
 
-#. §0: `«{h}»`
-#. §1: `«{g}»`
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "You can either start using §0 or §1."
+#. §0: $P$
+#. §1: $Q$
+#. §2: $P ∧ Q$
+#. §3: $P$
+#: Game.Levels.TimWorld.L01_Tim
+#: Game.Levels.TimWorld.L02_Tim
+#: Game.Levels.TimWorld.L03_Tim
+#: Game.Levels.TimWorld.L04_Tim
+#: Game.Levels.TimWorld.L09_Tim
+#: Game.Levels.TimWorld.L10_Tim
+#: Game.Levels.TimWorld.L11_Tim
+msgid "Suppose §0 and §1 are propositions. If §2 is true, then §3 is true."
 msgstr ""
 
-#: Game.Levels.DemoWorld
-msgid "Demo World"
+#: Game.Levels.TimWorld.L03_Tim
+msgid "### **🤔 Level 3?**"
+msgstr ""
+
+#: Game.Levels.TimWorld.L08_Tim
+msgid "### **🤔 Level 8?**"
+msgstr ""
+
+#: Game.Levels.TimWorld
+msgid "Tim's Test World"
 msgstr ""
 
 #: Game
