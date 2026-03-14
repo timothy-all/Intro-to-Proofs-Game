@@ -13,9 +13,9 @@ Introduction "
 /--
 Suppose $P$ and $Q$ are propositions. If $P ∧ Q$ is true, then $P$ is true.
 -/
-TheoremDoc and_left as "and_left"
+--TheoremDoc and_left as "and_left"
 
-Statement and_left (P Q : Prop) : (P ∧ Q) → P := by
+Statement (P Q : Prop) : (P ∧ Q) → P := by
   intro h
   exact h.left
 

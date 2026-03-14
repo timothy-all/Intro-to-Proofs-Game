@@ -1,128 +1,75 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12\n"
+"POT-Creation-Date: 2026-03-13\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
-#: Game
-msgid "This text appears on the starting page where one selects the world/level to play.\n"
-"You can use **markdown**."
-msgstr ""
-
-#: Game.Levels.TimWorld.L01_Tim
-#: Game.Levels.TimWorld.L02_Tim
-#: Game.Levels.TimWorld.L03_Tim
-#: Game.Levels.TimWorld.L04_Tim
-#: Game.Levels.TimWorld.L05_Tim
-#: Game.Levels.TimWorld.L06_Tim
-#: Game.Levels.TimWorld.L07_Tim
-#: Game.Levels.TimWorld.L08_Tim
-#: Game.Levels.TimWorld.L09_Tim
-#: Game.Levels.TimWorld.L10_Tim
-#: Game.Levels.TimWorld.L11_Tim
-msgid ""
-msgstr ""
-
-#: Game.Levels.TimWorld.L11_Tim
-msgid "### **🤔 Level 11?**"
-msgstr ""
-
-#: GameServer.RpcHandlers
-msgid "level completed! 🎉"
-msgstr ""
-
-#: GameServer.RpcHandlers
-msgid "intermediate goal solved! 🎉"
-msgstr ""
-
-#: Game.Levels.TimWorld.L04_Tim
-msgid "### **🤔 Level 4?**"
-msgstr ""
-
-#: Game.Levels.TimWorld.L09_Tim
-msgid "### **🤔 Level 9?**"
-msgstr ""
-
-#. §0: $P$
-#. §1: $Q$
-#. §2: $P$
-#. §3: $P → Q$
-#. §4: $Q$
-#: Game.Levels.TimWorld.L05_Tim
-msgid "Suppose §0 and §1 are propositions. If §2 is true and §3 is true, then §4 is true."
-msgstr ""
-
-#. §0: $P$
-#. §1: $Q$
-#. §2: $P$
-#. §3: $Q$
-#. §4: $P ∧ Q$
-#. §5: `∧`
-#. §6: `And.intro`
-#. §7: ```
-#. And.intro (P Q : Prop) : P → Q → (P ∧ Q)
-#. ```
-#: Game.Levels.TimWorld.L07_Tim
-msgid "Suppose §0 and §1 are propositions. If §2 and §3 are true, then §4 is true. The **constructor** for the §5 connective is §6. Specifically:\n"
-"§7"
-msgstr ""
-
-#: Game.Levels.TimWorld.L01_Tim
-msgid "### **🤔 Level 1?**"
-msgstr ""
-
-#: Game.Levels.TimWorld.L01_Tim
-#: Game.Levels.TimWorld.L02_Tim
-#: Game.Levels.TimWorld.L03_Tim
-#: Game.Levels.TimWorld.L04_Tim
-#: Game.Levels.TimWorld.L05_Tim
-#: Game.Levels.TimWorld.L06_Tim
-#: Game.Levels.TimWorld.L07_Tim
-#: Game.Levels.TimWorld.L08_Tim
-#: Game.Levels.TimWorld.L09_Tim
-#: Game.Levels.TimWorld.L10_Tim
-#: Game.Levels.TimWorld.L11_Tim
-msgid "Test"
-msgstr ""
-
-#: Game.Levels.TimWorld.L05_Tim
-msgid "### **🤔 Level 5?**\n"
-"Implications as functions."
-msgstr ""
-
-#. §0: $P$
-#. §1: $Q$
-#. §2: $R$
-#. §3: $P → Q → R$
-#. §4: $(P ∧ Q) → R$
-#: Game.Levels.TimWorld.L06_Tim
-#: Game.Levels.TimWorld.L07_Tim
-#: Game.Levels.TimWorld.L08_Tim
-msgid "Suppose §0, §1, and §2 are propositions. If §3 is true, then §4 is true."
+#: Game.Levels.EquivWorld
+msgid "### **Logical Equivalences**"
 msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
-#: Game.Levels.TimWorld.L02_Tim
-msgid "### **🤔 Level 2?**"
+#: Game
+msgid "This text appears on the starting page where one selects the world/level to play.\n"
+"You can use **markdown**."
+msgstr ""
+
+#. §0: `∨`
+#. §1: $$ (P ∨ Q) ↔ (Q ∨ P) $$
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "This is the **Commutative Law** for §0. It says that\n"
+"\n"
+"§1"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "level completed! 🎉"
+msgstr ""
+
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "We should now rewrite the left-hand side of our goal using the **Conditional Law**..."
 msgstr ""
 
 #: Game
 msgid "Hello World Game"
 msgstr ""
 
-#: Game.Levels.TimWorld.L06_Tim
-msgid "### **🤔 Level 6?**"
+#: GameServer.RpcHandlers
+msgid "intermediate goal solved! 🎉"
+msgstr ""
+
+#. §0: `P → Q`
+#. §1: `¬ P ∨ Q`
+#. §2: `rewrite`
+#. §3: `rewrite`
+#. §4: `rewrite`
+#. §5: ```
+#. rewrite[or_comm]
+#. ```
+#. §6: `∨`
+#. §7: `or_comm`
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "The conditional law says that §0 is logically equivalent to §1. This looks *very* close to that statement. We might start by ***rewriting*** the right-hand side of our goal...\n"
+"### ❯ The §2 tactic\n"
+"In order to apply ***rewrites*** (or substitutions) in Lean, we use the §3 tactic. 🔍 Check out the entry for §4 in the **Tactics** tab for details. 👉 In this specific case, try\n"
+"§5\n"
+"This will apply the **Commutative Law** for §6 at the first instance in the goal where it is applicable (namely, the right-hand side in this case). 🔍 Check out the entry for §7 in the **Theorems** tab.\n"
+""
 msgstr ""
 
 #: Game
 msgid "You should use this game as a template for your own game and add your own levels."
+msgstr ""
+
+#: Game.Levels.EquivWorld
+msgid "Logical Equivalence World"
 msgstr ""
 
 #: Game
@@ -134,42 +81,95 @@ msgid "Here you can put additional information about the game. It is accessible\
 "Use **markdown**."
 msgstr ""
 
-#: Game.Levels.TimWorld.L07_Tim
-msgid "### **🤔 Level 7?**"
+#. §0: `rfl`
+#. §1: `(P → Q) ↔ (P → Q)`
+#. §2: `rfl`
+#. §3: `rfl`
+#. §4: ```
+#. rfl
+#. ```
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "\n"
+"### ❯ The §0 tactic\n"
+"Our goal is currently §1 ... this is true by reflexitivity! The tactic that clears the goal is §2. 🔍 Check out the entry for §3 in the **Tactics** tab. 👉 In our case, try:\n"
+"§4\n"
+""
 msgstr ""
 
-#: Game.Levels.TimWorld.L10_Tim
-msgid "### **🤔 Level 10?**"
+#. §0: `or_comm`
+#. §1: `not_or_imp`
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "### **🤔 Level 1?**\n"
+"We've unlocked two theorems for this first level, namely: §0 and §1. 🔍 Check out the entries for these theorems in the **Theorems** tab."
 msgstr ""
 
-#: Game.Levels.TimWorld
-msgid "### ***What a world!***"
+#. §0: $$ (¬ P ∨ Q) ↔ (P → Q) $$
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "This theorem is the so-called **Conditional Law**. It says that\n"
+"\n"
+"§0"
 msgstr ""
 
-#. §0: $P$
-#. §1: $Q$
-#. §2: $P ∧ Q$
-#. §3: $P$
-#: Game.Levels.TimWorld.L01_Tim
-#: Game.Levels.TimWorld.L02_Tim
-#: Game.Levels.TimWorld.L03_Tim
-#: Game.Levels.TimWorld.L04_Tim
-#: Game.Levels.TimWorld.L09_Tim
-#: Game.Levels.TimWorld.L10_Tim
-#: Game.Levels.TimWorld.L11_Tim
-msgid "Suppose §0 and §1 are propositions. If §2 is true, then §3 is true."
+#. §0: `x = x`
+#. §1: `P ↔ P`
+#. §2: `x ~ x`
+#. §3: `∼`
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "This tactic clears a goal whose target has the form §0 or §1 (or §2 where §3 is any relation that has a reflexivity lemma tagged with the attribute @[refl] -- we'll talk more about relations later)."
 msgstr ""
 
-#: Game.Levels.TimWorld.L03_Tim
-msgid "### **🤔 Level 3?**"
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "### ***🥳 Congrats!***\n"
+"You beat the first level! We'll add more **Theorems** (known logical equivalences) as we progress through the world."
 msgstr ""
 
-#: Game.Levels.TimWorld.L08_Tim
-msgid "### **🤔 Level 8?**"
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "Test"
 msgstr ""
 
-#: Game.Levels.TimWorld
-msgid "Tim's Test World"
+#. §0: `rewrite[e]`
+#. §1: `e`
+#. §2: `e`
+#. §3: `←`
+#. §4: `<-`
+#. §5: `e : a = b`
+#. §6: `rewrite[e]`
+#. §7: `a`
+#. §8: `b`
+#. §9: `rewrite[← e]`
+#. §10: `b`
+#. §11: `a`
+#. §12: `e₁`
+#. §13: `e₂`
+#. §14: `eₙ`
+#. §15: ```
+#. rewrite [e₁, ..., eₙ]
+#. ```
+#. §16: `rewrite [e] at l`
+#. §17: `e`
+#. §18: `l`
+#. §19: `l`
+#. §20: `⊢`
+#. §21: `|-`
+#. §22: `←`
+#. §23: `\\left`
+#. §24: `⊢`
+#. §25: `\\vdash`
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "The tactic §0 applies the identity/equivalence §1 as a **rewrite** rule to the target.\n"
+"\n"
+"If §2 is preceded by left arrow (§3 or §4), the rewrite is applied in the reverse direction. For example, if §5 then ...\n"
+"* §6 replaces all instances of §7 with §8 in the target\n"
+"* §9 replaces all instances of §10 with §11 in the target\n"
+"\n"
+"If §12,§13,...,§14 is a sequence of identities then\n"
+"§15\n"
+"applies the given rules sequentially.\n"
+"\n"
+"Finally, §16 rewrites §17 at location(s) §18, where §19 is a list of hypotheses in the local context or the main goal §20 (or §21).\n"
+"\n"
+"### **⌨ Typesetting tip**\n"
+"To pretty print the left-arrow §22 use §23. To pretty print the symbol §24 use §25."
 msgstr ""
 
 #: Game
