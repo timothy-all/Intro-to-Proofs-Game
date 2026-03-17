@@ -1,12 +1,17 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-13\n"
+"POT-Creation-Date: 2026-03-17\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
+
+#: Game
+msgid "# **Welcome**\n"
+"The *Intro to Proofs Game* should do some really really neat stuff."
+msgstr ""
 
 #: Game.Levels.EquivWorld
 msgid "### **Logical Equivalences**"
@@ -16,9 +21,8 @@ msgstr ""
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
-#: Game
-msgid "This text appears on the starting page where one selects the world/level to play.\n"
-"You can use **markdown**."
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "### **🤔 Level 2?**"
 msgstr ""
 
 #. §0: `∨`
@@ -29,16 +33,16 @@ msgid "This is the **Commutative Law** for §0. It says that\n"
 "§1"
 msgstr ""
 
+#: Game.Levels.EquivWorld.L02_equiv
+msgid ""
+msgstr ""
+
 #: GameServer.RpcHandlers
 msgid "level completed! 🎉"
 msgstr ""
 
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "We should now rewrite the left-hand side of our goal using the **Conditional Law**..."
-msgstr ""
-
-#: Game
-msgid "Hello World Game"
 msgstr ""
 
 #: GameServer.RpcHandlers
@@ -51,10 +55,10 @@ msgstr ""
 #. §3: `rewrite`
 #. §4: `rewrite`
 #. §5: ```
-#. rewrite[or_comm]
+#. rewrite[Or_comm]
 #. ```
 #. §6: `∨`
-#. §7: `or_comm`
+#. §7: `Or_comm`
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "The conditional law says that §0 is logically equivalent to §1. This looks *very* close to that statement. We might start by ***rewriting*** the right-hand side of our goal...\n"
 "### ❯ The §2 tactic\n"
@@ -81,6 +85,11 @@ msgid "Here you can put additional information about the game. It is accessible\
 "Use **markdown**."
 msgstr ""
 
+#: Game.Levels.EquivWorld.L02_equiv
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "Doc"
+msgstr ""
+
 #. §0: `rfl`
 #. §1: `(P → Q) ↔ (P → Q)`
 #. §2: `rfl`
@@ -94,6 +103,10 @@ msgid "\n"
 "Our goal is currently §1 ... this is true by reflexitivity! The tactic that clears the goal is §2. 🔍 Check out the entry for §3 in the **Tactics** tab. 👉 In our case, try:\n"
 "§4\n"
 ""
+msgstr ""
+
+#: Game
+msgid "Intro to Proofs Game"
 msgstr ""
 
 #. §0: `or_comm`
@@ -124,6 +137,7 @@ msgid "### ***🥳 Congrats!***\n"
 msgstr ""
 
 #: Game.Levels.EquivWorld.L01_equiv
+#: Game.Levels.EquivWorld.L02_equiv
 msgid "Test"
 msgstr ""
 
