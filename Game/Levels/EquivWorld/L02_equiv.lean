@@ -18,6 +18,9 @@ TheoremDoc Or_assoc as "Or_assoc"
 /-- Doc -/
 TheoremDoc Not_and as "Not_and"
 
+/-- Rewrite stuff-/
+TacticDoc rw
+
 theorem test1 (P Q R : Prop) : (P → (Q ∨ R)) ↔ (¬ R → (P → Q)) := by
   rw[← Or_imp,← Or_imp]
   rw[Not_not]
