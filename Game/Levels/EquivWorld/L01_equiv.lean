@@ -40,14 +40,14 @@ This theorem is the so-called **Conditional Law**. It says that
 
 $$ (¬ P ∨ Q) ↔ (P → Q) $$
 -/
-TheoremDoc not_or_imp as "not_or_imp"
+TheoremDoc Or_imp as "Or_imp"
 
 /--
 This is the **Commutative Law** for `∨`. It says that
 
 $$ (P ∨ Q) ↔ (Q ∨ P) $$
 -/
-TheoremDoc or_comm as "or_comm"
+TheoremDoc Or_comm as "Or_comm"
 
 
 Statement (P Q : Prop) : (P → Q) ↔ Q ∨ ¬ P := by
@@ -55,13 +55,13 @@ Statement (P Q : Prop) : (P → Q) ↔ Q ∨ ¬ P := by
   ### ❯ The `rewrite` tactic
   In order to apply ***rewrites*** (or substitutions) in Lean, we use the `rewrite` tactic. 🔍 Check out the entry for `rewrite` in the **Tactics** tab for details. 👉 In this specific case, try
   ```
-  rewrite[or_comm]
+  rewrite[Or_comm]
   ```
-  This will apply the **Commutative Law** for `∨` at the first instance in the goal where it is applicable (namely, the right-hand side in this case). 🔍 Check out the entry for `or_comm` in the **Theorems** tab.
+  This will apply the **Commutative Law** for `∨` at the first instance in the goal where it is applicable (namely, the right-hand side in this case). 🔍 Check out the entry for `Or_comm` in the **Theorems** tab.
   "
-  rewrite[or_comm]
+  rewrite[Or_comm]
   Hint "We should now rewrite the left-hand side of our goal using the **Conditional Law**..."
-  rewrite[not_or_imp]
+  rewrite[Or_imp]
   Hint "
   ### ❯ The `rfl` tactic
   Our goal is currently `(P → Q) ↔ (P → Q)` ... this is true by reflexitivity! The tactic that clears the goal is `rfl`. 🔍 Check out the entry for `rfl` in the **Tactics** tab. 👉 In our case, try:
@@ -77,4 +77,4 @@ You beat the first level! We'll add more **Theorems** (known logical equivalence
 "
 
 NewTactic rewrite rfl
-NewTheorem not_or_imp or_comm
+NewTheorem Or_imp Or_comm

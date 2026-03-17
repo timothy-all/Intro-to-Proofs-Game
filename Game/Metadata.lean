@@ -4,64 +4,55 @@ import GameServer
 open Classical
 
 @[simp]
-theorem not_or_imp (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q) := by
-  constructor
-  intro h hP
-  rcases h with nP | hQ
-  contradiction
-  exact hQ
-  intro h
-  by_cases hP : P
-  exact Or.inr (h hP)
-  exact Or.inl hP
+theorem Or_imp (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q) := by
+  rw[Classical.or_iff_not_imp_left]
+  rw[Classical.not_not]
 
-theorem contra (P Q : Prop) : (P → Q) ↔ (¬ Q → ¬ P) := by
-  constructor
-  intro h nQ
-  by_cases hP : P
-  exfalso
-  exact nQ (h hP)
-  exact hP
-  intro h hP
-  by_cases hQ : Q
-  exact hQ
-  exfalso
-  exact (h hQ) hP
+theorem Contra (P Q : Prop) : (P → Q) ↔ (¬ Q → ¬ P) := by
+  repeat rw[← Or_imp]
+  rw[Classical.not_not]
+  rw[Or.comm]
 
-theorem DeMorgan_not_and (P Q : Prop) : ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q) := by
-  simp -- not_and : ¬ (p ∧ q) ↔ (p → ¬ q)
+theorem Not_and (P Q : Prop) : ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q) := by
+  simp -- not_and_of_not_or_not
 
-theorem DeMorgan_not_or (P Q : Prop) : ¬ (P ∨ Q) ↔ (¬ P ∧ ¬ Q) := by
-  simp -- not_or :
+theorem Not_or (P Q : Prop) : ¬ (P ∨ Q) ↔ (¬ P ∧ ¬ Q) := by
+  simp
 
-/- Commutativity/Associativity is already defined via :
-* and_comm/And.comm is already defined
-* or_comm/Or.comm is already defined
-* and_assoc
-* or_assoc
--/
+theorem Or_comm (P Q : Prop) : P ∨ Q ↔ Q ∨ P := by
+  exact Or.comm
 
-/- Distributive laws are already defined as
-* and_or_left
-* and_or_right
-* or_and_left
-* or_and_right
--/
+theorem And_comm (P Q : Prop) : P ∧ Q ↔ Q ∧ P := by
+  exact And.comm
 
-/- Double negation is already defined as Classical.not_not -/
+theorem And_assoc (P Q R : Prop) : ((P ∧ Q) ∧ R) ↔ (P ∧ (Q ∧ R)) := by
+  exact and_assoc
 
-/- Classical.not_imp : ¬ (a → b) ↔ (a ∧ ¬ b) -/
+theorem Or_assoc (P Q R : Prop) : ((P ∨ Q) ∨ R) ↔ (P ∨ (Q ∨ R)) := by
+  exact or_assoc
 
-/- Idempotent laws are also define `and_self` and `or_self` -/
+theorem And_or_left (P Q R : Prop) : (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R)) := by
+  exact and_or_left
 
-/- Tautology/Contradiction laws are:
-* and_true
-* or_true
-* and_false
-* or_false
--/
+theorem Or_and_left (P Q R : Prop) : (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R)) := by
+  exact or_and_left
 
-theorem or_not_self (P : Prop) : P ∨ ¬ P ↔ True := by
+theorem Not_not (P : Prop) : ¬ ¬ P ↔ P := by
+  exact Classical.not_not
+
+theorem And_self (P : Prop) : (P ∧ P) ↔ P := by
+  simp
+
+theorem Or_self (P : Prop) : (P ∨ P) ↔ P := by
+  simp
+
+theorem And_true (P : Prop) : P ∧ True ↔ P := by
+  simp
+
+theorem Or_true (P : Prop) : P ∨ True ↔ True := by
+  simp
+
+theorem Or_not_self (P : Prop) : P ∨ ¬ P ↔ True := by
   constructor
   intro h
   simp
@@ -70,13 +61,9 @@ theorem or_not_self (P : Prop) : P ∨ ¬ P ↔ True := by
   exact Or.inl hP
   exact Or.inr hP
 
-theorem not_self_or (P : Prop) : ¬ P ∨ P ↔ True := by
+theorem Not_self_or (P : Prop) : ¬ P ∨ P ↔ True := by
   rw[or_comm]
-  rw[or_not_self]
-
-theorem not_not (P : Prop) : ¬ ¬ P ↔ P := by
-  simp
-
+  rw[Or_not_self]
 
 open Lean Elab Tactic
 
