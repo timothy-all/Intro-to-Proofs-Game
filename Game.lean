@@ -2,11 +2,11 @@
 import Game.Levels.EquivWorld
 
 -- Here's what we'll put on the title screen
-Title "Hello World Game"
+Title "Intro to Proofs Game"
 Introduction
 "
-This text appears on the starting page where one selects the world/level to play.
-You can use **markdown**.
+# **Welcome**
+The *Intro to Proofs Game* should do some really really neat stuff.
 "
 
 Info "

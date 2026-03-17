@@ -12,6 +12,12 @@ Introduction "
 
 set_option pp.parens true
 
+/-- Doc-/
+TheoremDoc Or_assoc as "Or_assoc"
+
+/-- Doc -/
+TheoremDoc Not_and as "Not_and"
+
 theorem test1 (P Q R : Prop) : (P → (Q ∨ R)) ↔ (¬ R → (P → Q)) := by
   rw[← Or_imp,← Or_imp]
   rw[Not_not]
@@ -43,13 +49,13 @@ theorem test3 (P Q R : Prop) : ((P ∨ Q) → R) ↔ ((P → R) ∧ (Q → R)) :
   rw[Or_comm]
   rw[Or_imp]
 
-theorem test4 (P Q R : Prop) : ((P ∧ Q) → R) ↔ (P → (Q → R)) := by --currying
+Statement (P Q R : Prop) : ((P ∧ Q) → R) ↔ (P → (Q → R)) := by --currying
   rw[← Or_imp,← Or_imp,← Or_imp]
   rw[Not_and]
   rw[Or_assoc]
 
 
-Statement (P Q : Prop) : (P → Q) ↔ (P ∧ Q) ∨ ¬ P := by
+theorem test5 (P Q : Prop) : (P → Q) ↔ (P ∧ Q) ∨ ¬ P := by
   rw[← Or_imp]
   rw[Or_comm _ (¬ P)]
   rw[Or_and_left]
@@ -60,3 +66,5 @@ Statement (P Q : Prop) : (P → Q) ↔ (P ∧ Q) ∨ ¬ P := by
 
 
 Conclusion ""
+
+NewTheorem Not_and Or_assoc
