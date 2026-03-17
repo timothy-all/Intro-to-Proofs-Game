@@ -68,3 +68,4 @@ theorem test5 (P Q : Prop) : (P → Q) ↔ (P ∧ Q) ∨ ¬ P := by
 Conclusion ""
 
 NewTheorem Not_and Or_assoc
+NewTactic rw
