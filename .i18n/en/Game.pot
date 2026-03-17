@@ -22,6 +22,10 @@ msgid "level completed with warnings… 🎭"
 msgstr ""
 
 #: Game.Levels.EquivWorld.L02_equiv
+msgid "Rewrite stuff"
+msgstr ""
+
+#: Game.Levels.EquivWorld.L02_equiv
 msgid "### **🤔 Level 2?**"
 msgstr ""
 
