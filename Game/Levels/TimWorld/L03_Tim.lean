@@ -9,18 +9,17 @@ Introduction "
 ### **🤔 Level 3?**
 "
 
+set_option pp.parens true
+
 /--
-Suppose $P$ and $Q$ are propositions. If $P$ is true, then $P ∨ Q$ is true.
+Tactic intro
 -/
-TheoremDoc or_left as "or_left"
+TacticDoc intro
 
-Statement or_left (P Q : Prop) : P → (P ∨ Q) := by
-  intro hP
-  left
-  exact hP
-
-
+Statement (P Q R : Prop) (h1 : P → Q) ( h2 : Q → R) : (P → R) := by
+  intro h3
+  exact h2 (h1 h3)
 
 Conclusion ""
 
-NewTactic left
+NewTactic intro

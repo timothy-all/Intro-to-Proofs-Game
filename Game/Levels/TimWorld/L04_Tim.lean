@@ -9,18 +9,10 @@ Introduction "
 ### **🤔 Level 4?**
 "
 
-/--
-Suppose $P$ and $Q$ are propositions. If $P ∧ Q$ is true, then $Q$ is true.
--/
-TheoremDoc or_right as "or_right"
 
-Statement or_right (P Q : Prop) : Q → (P ∨ Q) := by
-  intro hQ
-  right
-  exact hQ
-
-
+Statement (P Q : Prop) (h1 : P ∨ Q) (h2 : ¬ P) : Q := by
+  rw[← Not_not P] at h1
+  rw[Or_imp] at h1
+  exact h1 h2
 
 Conclusion ""
-
-NewTactic right

@@ -9,17 +9,9 @@ Introduction "
 ### **🤔 Level 6?**
 "
 
-/--
-Suppose $P$, $Q$, and $R$ are propositions. If $P → Q → R$ is true, then $(P ∧ Q) → R$ is true.
--/
-TheoremDoc curry_right as "curry_right"
 
-Statement curry_right (P Q R : Prop) : (P → Q → R) → ((P ∧ Q) → R) := by
-  intro h hPQ
-  obtain h1 := h hPQ.left
-  exact h1 hPQ.right
-
+Statement (P Q R: Prop) (h1 : P ∧ Q) (h2 : P → (Q → R)) : R := by
+  rw[← curry] at h2
+  exact h2 h1
 
 Conclusion ""
-
-NewTactic obtain

@@ -50,21 +50,38 @@ theorem Or_self (P : Prop) : (P ∨ P) ↔ P := by
 theorem And_true (P : Prop) : P ∧ True ↔ P := by
   simp
 
+theorem True_and (P : Prop) : True ∧ P ↔ P := by
+  simp
+
 theorem Or_true (P : Prop) : P ∨ True ↔ True := by
   simp
 
-theorem Or_not_self (P : Prop) : P ∨ ¬ P ↔ True := by
-  constructor
-  intro h
+theorem True_or (P : Prop) : True ∨ P ↔ True := by
   simp
-  intro h
-  by_cases hP : P
-  exact Or.inl hP
-  exact Or.inr hP
+
+theorem And_false (P : Prop) : P ∧ False ↔ False := by
+  simp
+
+theorem False_and (P : Prop) : False ∧ P ↔ False := by
+  simp
+
+theorem Or_false (P : Prop) : P ∨ False ↔ P := by
+  simp
+
+theorem False_or (P : Prop) : False ∨ P ↔ P := by
+  simp
+
+theorem Or_not_self (P : Prop) : P ∨ ¬ P ↔ True := by
+  simp
+  by_cases h : P
+  repeat simp[h]
 
 theorem Not_self_or (P : Prop) : ¬ P ∨ P ↔ True := by
   rw[or_comm]
   rw[Or_not_self]
+
+theorem And_not_self (P : Prop) : P ∧ ¬ P ↔ False := by
+  simp
 
 open Lean Elab Tactic
 

@@ -9,23 +9,18 @@ Introduction "
 ### **🤔 Level 7?**
 "
 
+set_option pp.parens true
+
 /--
-Suppose $P$ and $Q$ are propositions. If $P$ and $Q$ are true, then $P ∧ Q$ is true. The **constructor** for the `∧` connective is `And.intro`. Specifically:
-```
-And.intro (P Q : Prop) : P → Q → (P ∧ Q)
-```
+And.intro doc
 -/
 DefinitionDoc And.intro as "And.intro"
 
-/--
-Suppose $P$, $Q$, and $R$ are propositions. If $P → Q → R$ is true, then $(P ∧ Q) → R$ is true.
--/
-TheoremDoc curry_left as "curry_left"
-
-Statement curry_left (P Q R : Prop) : ((P ∧ Q) → R) → (P → Q → R) := by
-  intro hPQ hP hQ
-  obtain h := And.intro hP hQ
-  exact hPQ h
+Statement (P Q R: Prop) (h1 : P → R) (h2 : Q → R) : (P ∨ Q) → R := by
+  rw[← Or_imp,Not_or]
+  rw[and_or_right]
+  rw[Or_imp,Or_imp]
+  exact And.intro h1 h2
 
 
 

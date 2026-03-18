@@ -11,16 +11,27 @@ Introduction "
 
 set_option pp.parens true
 
+/--
+Not_or doc
+-/
+TheoremDoc Not_or as "Not_or"
 
+/--
+Or_and_left doc
+-/
+TheoremDoc Or_and_left as "Or_and_left"
 
-Statement (P Q R : Prop) : (P → (Q ∨ R)) ↔ (¬ R → (P → Q)) := by
-  rw[← Or_imp,← Or_imp]
-  rw[Not_not]
+Statement (P Q R : Prop) : ((P ∨ Q) → R) ↔ ((P → R) ∧ (Q → R)) := by
   rw[← Or_imp]
-  rw[Or_comm Q] -- tricky since or_comm has implicit arguments
-  rw[← Or_assoc]
-  rw[Or_comm (¬ P)] -- ditto
-  rw[Or_assoc]
+  rw[Not_or]
+  rw[Or_comm]
+  rw[Or_and_left]
+  rw[Or_comm]
+  rw[Or_imp]
+  rw[Or_comm]
+  rw[Or_imp]
 
 
 Conclusion ""
+
+NewTheorem Not_or Or_and_left

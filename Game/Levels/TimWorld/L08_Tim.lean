@@ -9,17 +9,19 @@ Introduction "
 ### **🤔 Level 8?**
 "
 
-
 /--
-Suppose $P$, $Q$, and $R$ are propositions. If $P → Q → R$ is true, then $(P ∧ Q) → R$ is true.
+obtain doc
 -/
-TheoremDoc curry_left as "curry_left"
+TacticDoc obtain
 
-Statement (P Q R : Prop) : ((P ∧ Q) → R) → (P → Q → R) := by
-  intro hPQ hP hQ
-  obtain h := And.intro hP hQ
-  exact hPQ h
-
-
+Statement (P Q R S T: Prop) (h1 : P → (Q → R)) (h2 : P ∨ S) (h3 : T → Q) (h4 : ¬ S) : ¬ R → ¬ T := by
+  rw[← Not_not S,Or_comm,Or_imp] at h2
+  obtain hP := h2 h4
+  obtain hQR := h1 hP
+  rw[Contrapos] at hQR h3
+  intro hR
+  exact h3 (hQR hR)
 
 Conclusion ""
+
+NewTactic obtain

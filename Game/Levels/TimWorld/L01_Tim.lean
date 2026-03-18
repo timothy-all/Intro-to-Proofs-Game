@@ -1,4 +1,4 @@
-import Game.Metadata
+import Game.Levels.EquivWorld
 
 World "TimWorld"
 Level 1
@@ -11,16 +11,13 @@ Introduction "
 "
 
 /--
-Suppose $P$ and $Q$ are propositions. If $P ∧ Q$ is true, then $P$ is true.
+Exact doc
 -/
---TheoremDoc and_left as "and_left"
+TacticDoc exact
 
-Statement (P Q : Prop) : (P ∧ Q) → P := by
-  intro h
-  exact h.left
-
-
+Statement (P Q : Prop) (h1 : P) (h2 : P → Q) : Q := by
+  exact h2 h1
 
 Conclusion ""
 
-NewTactic intro exact
+NewTactic exact
