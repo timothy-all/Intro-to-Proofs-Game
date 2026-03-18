@@ -1,4 +1,5 @@
 --import Game.Levels.TimWorld
+import Game.Levels.TylerWorld
 import Game.Levels.EquivWorld
 
 -- Here's what we'll put on the title screen
