@@ -1,4 +1,6 @@
 import GameServer
+import Mathlib.Tactic.Common
+import Mathlib.Data.Set.Defs
 -- import Mathlib.Tactic.Common
 -- Hello
 
@@ -83,12 +85,4 @@ theorem Not_self_or (P : Prop) : ¬ P ∨ P ↔ True := by
 theorem And_not_self (P : Prop) : P ∧ ¬ P ↔ False := by
   simp
 
-open Lean Elab Tactic
-
-syntax "by_contra" (ppSpace binderIdent)? : tactic
-
-macro_rules
-  | `(tactic| by_contra $h:binderIdent) =>
-      `(tactic| false_or_by_contra; rename _ => F; rename_i $h:binderIdent) --hack
-  | `(tactic| by_contra) =>
-      `(tactic| false_or_by_contra; rename _ => F) --hack
+/- Set structure -/
