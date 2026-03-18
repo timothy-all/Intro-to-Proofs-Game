@@ -7,7 +7,7 @@ Title "Test"
 
 Introduction "
 ### **🤔 Level 1?**
-We've unlocked two theorems for this first level, namely: `or_comm` and `not_or_imp`. 🔍 Check out the entries for these theorems in the **Theorems** tab.
+We've unlocked two theorems for this first level, namely: `or_comm` and `Or_imp`. 🔍 Check out the entries for these theorems in the **Theorems** tab.
 "
 
 /--
