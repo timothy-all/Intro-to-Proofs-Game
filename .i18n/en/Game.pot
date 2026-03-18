@@ -17,6 +17,10 @@ msgstr ""
 msgid "### **Logical Equivalences**"
 msgstr ""
 
+#: Game.Levels.TylerWorld.L02_modusponens
+msgid "Hello World"
+msgstr ""
+
 #. §0: `∨`
 #. §1: $$ (P ∨ Q) ↔ (Q ∨ P) $$
 #: Game.Levels.EquivWorld.L01_equiv
@@ -26,16 +30,15 @@ msgid "This is the **Commutative Law** for §0. It says that\n"
 msgstr ""
 
 #: Game.Levels.EquivWorld.L02_equiv
-#: Game.Levels.EquivWorld.L03_equiv
-#: Game.Levels.EquivWorld.L04_equiv
-#: Game.Levels.EquivWorld.L05_equiv
-#: Game.Levels.EquivWorld.L06_equiv
-#: Game.Levels.EquivWorld.L07_equiv
 msgid ""
 msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "level completed! 🎉"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "intermediate goal solved! 🎉"
 msgstr ""
 
 #. §0: `P → Q`
@@ -57,35 +60,31 @@ msgid "The conditional law says that §0 is logically equivalent to §1. This lo
 ""
 msgstr ""
 
-#: GameServer.RpcHandlers
-msgid "intermediate goal solved! 🎉"
-msgstr ""
-
-#: Game.Levels.EquivWorld.L04_equiv
-msgid "### **🤔 Level 4?**"
-msgstr ""
-
 #: Game
 msgid "Intro to Proofs Game"
 msgstr ""
 
-#. §0: `or_comm`
+#. §0: `Or_comm`
 #. §1: `Or_imp`
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "### **🤔 Level 1?**\n"
 "We've unlocked two theorems for this first level, namely: §0 and §1. 🔍 Check out the entries for these theorems in the **Theorems** tab."
 msgstr ""
 
-#: Game.Levels.EquivWorld.L07_equiv
-msgid "True_and doc"
+#: Game.Levels.TylerWorld.L01_provingimplications_alt
+msgid "This matches, line by line, with the following proof of the statement in English:\n"
+"\n"
+"Suppose n = 0. We will prove 0 = n.\n"
+"Since n = 0 and equality is symmetric, 0 = n.\n"
+"QED."
 msgstr ""
 
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "Notnot doc"
-msgstr ""
-
-#: Game.Levels.EquivWorld.L06_equiv
-msgid "Not_and doc"
+#. §0: `n = 0`
+#. §1: `n`
+#. §2: `0`
+#. §3: `rw h`
+#: Game.Levels.TylerWorld.L01_provingimplications
+msgid "Since we know §0, we can substitute the §1 in the goal with §2 by using §3."
 msgstr ""
 
 #: Game.Levels.EquivWorld.L01_equiv
@@ -93,46 +92,42 @@ msgid "### ***🥳 Congrats!***\n"
 "You beat the first level! We'll add more **Theorems** (known logical equivalences) as we progress through the world."
 msgstr ""
 
-#: Game.Levels.EquivWorld.L06_equiv
-msgid "Or_not_self"
-msgstr ""
-
-#: Game.Levels.EquivWorld.L04_equiv
-msgid "Or_and_left doc"
+#. §0: `P`
+#. §1: `P → Q`
+#. §2: `Q`
+#: Game.Levels.TylerWorld.L02_modusponens
+msgid "To be able to use implications as givens, we can apply **Modus Ponens**. Modus ponens is a fancy name for the fact that if you know §0 and you know §1, then §2 must also be true.\n"
+"In this level, we will see how to apply modus ponens."
 msgstr ""
 
 #: Game.Levels.EquivWorld.L01_equiv
 #: Game.Levels.EquivWorld.L02_equiv
-#: Game.Levels.EquivWorld.L03_equiv
-#: Game.Levels.EquivWorld.L04_equiv
-#: Game.Levels.EquivWorld.L05_equiv
-#: Game.Levels.EquivWorld.L06_equiv
-#: Game.Levels.EquivWorld.L07_equiv
 msgid "Test"
+msgstr ""
+
+#: Game.Levels.TylerWorld
+msgid "Tyler's Test World"
 msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "### **🤔 Level 2?**"
+#: Game.Levels.TylerWorld
+msgid "### ***Lean :)***"
 msgstr ""
 
-#: Game.Levels.EquivWorld.L03_equiv
+#: Game.Levels.EquivWorld.L02_equiv
 msgid "Rewrite stuff"
+msgstr ""
+
+#. §0: `0 = 0`
+#: Game.Levels.TylerWorld.L01_provingimplications
+msgid "Lean obviously knows that §0, so the theorem is proved."
 msgstr ""
 
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "We should now rewrite the left-hand side of our goal using the **Conditional Law**..."
-msgstr ""
-
-#: Game.Levels.EquivWorld.L06_equiv
-msgid "### **🤔 Level 6?**"
-msgstr ""
-
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "rw doc"
 msgstr ""
 
 #: Game
@@ -152,6 +147,11 @@ msgid "Here you can put additional information about the game. It is accessible\
 "Use **markdown**."
 msgstr ""
 
+#: Game.Levels.EquivWorld.L02_equiv
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "Doc"
+msgstr ""
+
 #. §0: `rfl`
 #. §1: `(P → Q) ↔ (P → Q)`
 #. §2: `rfl`
@@ -167,13 +167,19 @@ msgid "\n"
 ""
 msgstr ""
 
-#: Game.Levels.EquivWorld.L03_equiv
-#: Game.Levels.EquivWorld.L03_equiv
-msgid "Doc"
+#: Game.Levels.TylerWorld.L02_modusponens
+msgid "This last message appears if the level is solved."
 msgstr ""
 
-#: Game.Levels.EquivWorld.L07_equiv
-msgid "### **🤔 Level 7?**"
+#. §0: `P → Q`
+#: Game.Levels.TylerWorld.L01_provingimplications
+#: Game.Levels.TylerWorld.L01_provingimplications_alt
+msgid "Proving statements of the form §0"
+msgstr ""
+
+#. §0: `symm`
+#: Game.Levels.TylerWorld.L01_provingimplications_alt
+msgid "We know that we can write equalities in any order; this is the **symmetric** property of equality. Lean calls this §0 - write that to flip the equality's order."
 msgstr ""
 
 #. §0: $$ (¬ P ∨ Q) ↔ (P → Q) $$
@@ -196,7 +202,7 @@ msgstr ""
 #. §8: ```
 #. rw[← Or_imp,← Or_imp]
 #. ```
-#: Game.Levels.EquivWorld.L03_equiv
+#: Game.Levels.EquivWorld.L02_equiv
 msgid "That was a good first step. You might want to apply the **Conditional Law** codified in §0 two more times. You can do this in one step with:\n"
 "§1\n"
 "Or even better ...\n"
@@ -214,35 +220,31 @@ msgstr ""
 msgid "This tactic clears a goal whose target has the form §0 or §1 (or §2 where §3 is any relation that has a reflexivity lemma tagged with the attribute @[refl] -- we'll talk more about relations later)."
 msgstr ""
 
-#. §0: ```
-#. (H₁ ∧ H₂) → P
-#. ```
-#. §1: ```
-#. H₁ → (H₂ → P)
-#. ```
-#: Game.Levels.EquivWorld.L03_equiv
-msgid "### **🤔 Level 3?**\n"
-"Oftentimes, we'll have implications of the form\n"
-"§0\n"
-"For programmatic purposes, this kind of proposition is better expressed in the following way:\n"
-"§1\n"
-"This exercise demonstrates that this process of translating the first form into the second (called **currying**) is logically valid."
+#. §0: `P → Q`
+#. §1: `P → Q`
+#. §2: `P`
+#. §3: `Q`
+#. §4: `intro`
+#. §5: `P`
+#: Game.Levels.TylerWorld.L01_provingimplications
+#: Game.Levels.TylerWorld.L01_provingimplications_alt
+msgid "The most fundamental proof technique is how to directly address goals of the form §0. To prove §1, we can assume §2 and try to deduce §3.\n"
+"\n"
+"The §4 tactic lets us assume §5 in this case."
 msgstr ""
 
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "Contrapos doc"
+#. §0: `h`
+#. §1: `exact h`
+#: Game.Levels.TylerWorld.L01_provingimplications_alt
+msgid "We now have to observe that we've proven what has been asked of us. §0 is now the goal, so by writing §1, we tell Lean that we've established the goal."
 msgstr ""
 
-#: Game.Levels.EquivWorld.L03_equiv
-msgid "Doc on currying"
-msgstr ""
-
-#: Game.Levels.EquivWorld.L04_equiv
-msgid "Not_or doc"
-msgstr ""
-
-#: Game.Levels.EquivWorld.L06_equiv
-msgid "And_true"
+#. §0: `intro h`
+#. §1: `n = 0`
+#. §2: `h`
+#: Game.Levels.TylerWorld.L01_provingimplications
+#: Game.Levels.TylerWorld.L01_provingimplications_alt
+msgid "Write §0 to assume that §1. Lean will give this statement the name §2."
 msgstr ""
 
 #. §0: `rewrite[e]`
@@ -290,7 +292,7 @@ msgid "The tactic §0 applies the identity/equivalence §1 as a **rewrite** rule
 "To pretty print the left-arrow §22 use §23. To pretty print the symbol §24 use §25."
 msgstr ""
 
-#: Game.Levels.EquivWorld.L03_equiv
+#: Game.Levels.EquivWorld.L02_equiv
 msgid "🔍 Check out two freshly unlocked laws of logic in the **Theorems** tab."
 msgstr ""
 
@@ -298,6 +300,17 @@ msgstr ""
 msgid "Game Template"
 msgstr ""
 
-#: Game.Levels.EquivWorld.L05_equiv
-msgid "### **🤔 Level 5?**"
+#. §0: ```
+#. (H₁ ∧ H₂) → P
+#. ```
+#. §1: ```
+#. H₁ → (H₂ → P)
+#. ```
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "### **🤔 Level 2?**\n"
+"Oftentimes, we'll have implications of the form\n"
+"§0\n"
+"For programmatic purposes, this kind of proposition is better expressed in the following way:\n"
+"§1\n"
+"This exercise demonstrates that this process of translating the first form into the second (called **currying**) is logically valid."
 msgstr ""
