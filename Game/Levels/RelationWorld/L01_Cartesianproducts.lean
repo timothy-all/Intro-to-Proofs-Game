@@ -11,7 +11,7 @@ The terms `x.fst` and `x.snd` showing up in the goal are how Lean denotes the fi
 
 
 
-Statement (u: Type) (A B: Set u) (x: (u × u)) (h: x ∉ (A ×ˢ B)) : x.1 ∉ A ∨ x.2 ∉ B := by
+Statement (u: Type) (A B: Set u) (x y : u) (h: (x,y) ∉ (A ×ˢ B)) : x ∉ A ∨ y ∉ B := by
   Hint "Let's start by unpacking what it means for `x` to be in a Cartesian product (so we can negate it).
   Try rewriting the set membership using its definition: `rw [mem_prod] at h`."
   rw [mem_prod] at h
@@ -20,9 +20,8 @@ Statement (u: Type) (A B: Set u) (x: (u × u)) (h: x ∉ (A ×ˢ B)) : x.1 ∉ A
   exact h
 
 
-Conclusion "Lean obviously knows that `0 = 0`, so the theorem is proved.
-
-**Warning:** Ending up at `0 = 0` here is only fine because `rw` applies a logical equivalence (or equality). Applying one-directional implications works differently, as we will see in the next level."
+Conclusion "As a proof in English, our steps here translate to:
+Since `x ∉ A × B`, we know that it's not true that the first coordinate of `x` is in `A` and the second coordinate of `x` is in B."
 
 /- Use these commands to add items to the game's inventory. -/
 
