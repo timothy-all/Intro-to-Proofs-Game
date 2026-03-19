@@ -5,14 +5,19 @@ Level 1
 
 Title "Cartesian products"
 
-Introduction "Verify what it means for `x` to **not** be in a Cartesian product"
+Introduction "As a tutorial for how to work with Cartesian products of sets in Lean, we will verify what it means for `x` to **not** be in a Cartesian product. We'll assume we have sets `A` and `B` coming from a universe `U`.
+
+The terms `x.fst` and `x.snd` showing up in the goal are how Lean denotes the first and second coordinates of `x`."
 
 
-Statement {x} (hxA : ¬ (x ∈ A ∪ B)) : ¬ x ∈ A ∧ ¬ x ∈ B := by
-  Hint "Write `intro h` to assume that `n = 0`. Lean will give this statement the name `h`."
-  intro h
-  Hint "Since we know `n = 0`, we can substitute the `n` in the goal with `0` by using `rw h`."
-  rw [h]
+
+Statement (u: Type) (A B: Set u) (x: (u × u)) (h: x ∉ (A ×ˢ B)) : x.1 ∉ A ∨ x.2 ∉ B := by
+  Hint "Let's start by unpacking what it means for `x` to be in a Cartesian product (so we can negate it).
+  Try rewriting the set membership using its definition: `rw [mem_prod] at h`."
+  rw [mem_prod] at h
+  Hint "You should be able to finish it from here!"
+  rw [Not_and] at h
+  exact h
 
 
 Conclusion "Lean obviously knows that `0 = 0`, so the theorem is proved.
@@ -21,6 +26,11 @@ Conclusion "Lean obviously knows that `0 = 0`, so the theorem is proved.
 
 /- Use these commands to add items to the game's inventory. -/
 
-NewTactic rw rfl intro apply symm
+--DefinitionDoc Set.Prod as "×ˢ"
+
+TheoremDoc mem_prod as "mem_prod"
+
+NewTactic rw rfl intro apply symm Or.inl obtain
+NewTheorem mem_prod Not_and
 -- NewTheorem Nat.add_comm Nat.add_assoc
--- NewDefinition Nat Add Eq
+NewDefinition Set.Prod

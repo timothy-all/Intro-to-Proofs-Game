@@ -1,8 +1,7 @@
 import Game.Metadata
---import Game.Levels.TylerWorld.L01_provingimplications
+import Game.Levels.RelationWorld.L01_Cartesianproducts
 
-import data.set
-open set as Set
+
 
 
 World "RelationWorld"

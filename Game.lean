@@ -1,6 +1,7 @@
 --import Game.Levels.TimWorld
 import Game.Levels.TylerWorld
 import Game.Levels.EquivWorld
+import Game.Levels.RelationWorld
 
 -- Here's what we'll put on the title screen
 Title "Intro to Proofs Game"

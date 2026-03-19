@@ -8,8 +8,6 @@ import Game.Levels.TimWorld.L06_Tim
 import Game.Levels.TimWorld.L07_Tim
 import Game.Levels.TimWorld.L08_Tim
 import Game.Levels.TimWorld.L09_Tim
-import Game.Levels.TimWorld.L10_Tim
-import Game.Levels.TimWorld.L11_Tim
 
 
 World "TimWorld"

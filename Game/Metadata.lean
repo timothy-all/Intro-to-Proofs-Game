@@ -1,6 +1,7 @@
 import GameServer
 import Mathlib.Tactic.Common
 import Mathlib.Data.Set.Defs
+import Mathlib.Data.Set.Operations
 -- import Mathlib.Tactic.Common
 -- Hello
 
@@ -86,3 +87,6 @@ theorem And_not_self (P : Prop) : P ∧ ¬ P ↔ False := by
   simp
 
 /- Set structure -/
+
+theorem mem_prod {α : Type u} {β : Type v} {s : Set α} {t : Set β} {p : α × β} : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
+  exact Set.mem_prod
