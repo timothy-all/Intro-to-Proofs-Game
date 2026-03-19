@@ -11,10 +11,7 @@ The `intro` tactic lets us assume `P` in this case."
 
 
 Statement (P Q : Prop) : (P ∧ Q) → P := by
-  Hint "Write `intro h` to assume that `n = 0`. Lean will give this statement the name `h`."
-  intro h
-  Hint "Since we know `n = 0`, we can substitute the `n` in the goal with `0` by using `rw h`."
-  rw [h]
+  sorry
 
 
 Conclusion "Lean obviously knows that `0 = 0`, so the theorem is proved.

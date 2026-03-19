@@ -1,16 +1,14 @@
 import Game.Metadata
 
-World "TylerWorld"
+World "RelationWorld"
 Level 1
 
-Title "Proving statements of the form `P → Q`"
+Title "Cartesian products"
 
-Introduction "The most fundamental proof technique is how to directly address goals of the form `P → Q`. To prove `P → Q`, we can assume `P` and try to deduce `Q`.
-
-The `intro` tactic lets us assume `P` in this case."
+Introduction "Verify what it means for `x` to **not** be in a Cartesian product"
 
 
-Statement (n : Nat) : (n = 0) → 0 = n := by
+Statement {x} (hxA : ¬ (x ∈ A ∪ B)) : ¬ x ∈ A ∧ ¬ x ∈ B := by
   Hint "Write `intro h` to assume that `n = 0`. Lean will give this statement the name `h`."
   intro h
   Hint "Since we know `n = 0`, we can substitute the `n` in the goal with `0` by using `rw h`."
