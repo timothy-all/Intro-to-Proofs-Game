@@ -3,10 +3,10 @@ import Game.Levels.EquivWorld.L02_equiv
 World "EquivWorld"
 Level 3
 
-Title "Test"
+Title "Currying"
 
 Introduction "
-### **🤔 Level 3?**
+## **Level 3**
 Oftentimes, we'll have implications of the form
 ```
 (H₁ ∧ H₂) → P
@@ -37,12 +37,6 @@ TheoremDoc curry as "curry"
 Statement curry (P Q R : Prop) : ((P ∧ Q) → R) ↔ (P → (Q → R)) := by --currying
   rw[← Or_imp]
   Hint "That was a good first step. You might want to apply the **Conditional Law** codified in `Or_imp` two more times. You can do this in one step with:
-  ```
-  rewrite[← Or_imp,← Or_imp]
-  ```
-  Or even better ...
-  ### **❯ The `rw` tactic**
-  The `rw` tactic is the same as `rewrite` but it tries to apply `rfl` at the end to clear the goal. For this reason, we **almost always** use `rw` instead of `rewrite`. 👉 Try:
   ```
   rw[← Or_imp,← Or_imp]
   ```

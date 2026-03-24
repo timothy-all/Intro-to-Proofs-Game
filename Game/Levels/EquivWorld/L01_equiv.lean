@@ -3,12 +3,22 @@ import Game.Metadata
 World "EquivWorld"
 Level 1
 
-Title "Test"
+Title "Intro to Lean"
 
 Introduction "
-### **🤔 Level 1?**
+## **Level 1**
 We've unlocked two theorems for this first level, namely: `Or_comm` and `Or_imp`. 🔍 Check out the entries for these theorems in the **Theorems** tab.
+
+The conditional law says that `P → Q` is logically equivalent to `¬ P ∨ Q`. This looks *very* close to that statement. We might start by ***rewriting*** the right-hand side of our goal...
+  ### **❯ The `rewrite` tactic**
+  In order to apply ***rewrites*** (or substitutions) in Lean, we use the `rewrite` tactic. 🔍 Check out the entry for `rewrite` in the **Tactics** tab for details. 👉 In this specific case, try
+  ```
+  rewrite[Or_comm]
+  ```
+  This will apply the **Commutative Law** for `∨` at the first instance in the goal where it is applicable (namely, the right-hand side in this case).
 "
+
+set_option pp.parens true
 
 /--
 The tactic `rewrite[e]` applies the identity/equivalence `e` as a **rewrite** rule to the target.
@@ -39,6 +49,11 @@ TacticDoc rfl
 This theorem is the so-called **Conditional Law**. It says that
 
 $$ (¬ P ∨ Q) ↔ (P → Q) $$
+
+Here's what it looks like in Lean:
+```
+Or_imp (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q) := by
+```
 -/
 TheoremDoc Or_imp as "Or_imp"
 
@@ -46,24 +61,21 @@ TheoremDoc Or_imp as "Or_imp"
 This is the **Commutative Law** for `∨`. It says that
 
 $$ (P ∨ Q) ↔ (Q ∨ P) $$
+
+Here's what it looks like in Lean:
+```
+Or_comm (P Q : Prop) : P ∨ Q ↔ Q ∨ P
+```
 -/
 TheoremDoc Or_comm as "Or_comm"
 
 
-Statement (P Q : Prop) : (P → Q) ↔ Q ∨ ¬ P := by
-  Hint "The conditional law says that `P → Q` is logically equivalent to `¬ P ∨ Q`. This looks *very* close to that statement. We might start by ***rewriting*** the right-hand side of our goal...
-  ### ❯ The `rewrite` tactic
-  In order to apply ***rewrites*** (or substitutions) in Lean, we use the `rewrite` tactic. 🔍 Check out the entry for `rewrite` in the **Tactics** tab for details. 👉 In this specific case, try
-  ```
-  rewrite[Or_comm]
-  ```
-  This will apply the **Commutative Law** for `∨` at the first instance in the goal where it is applicable (namely, the right-hand side in this case). 🔍 Check out the entry for `Or_comm` in the **Theorems** tab.
-  "
+Statement (P Q : Prop) : (P → Q) ↔ (Q ∨ ¬ P) := by
   rewrite[Or_comm]
   Hint "We should now rewrite the left-hand side of our goal using the **Conditional Law**..."
   rewrite[Or_imp]
   Hint "
-  ### ❯ The `rfl` tactic
+  ### **❯ The `rfl` tactic**
   Our goal is currently `(P → Q) ↔ (P → Q)` ... this is true by reflexitivity! The tactic that clears the goal is `rfl`. 🔍 Check out the entry for `rfl` in the **Tactics** tab. 👉 In our case, try:
   ```
   rfl
