@@ -1,12 +1,12 @@
-import Game.Levels.EquivWorld.L05_equiv
+import Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
 
-World "EquivWorld"
-Level 6
+World "EquivWorld_eg"
+Level 3
 
-Title "Test"
+Title "Example 3"
 
 Introduction "
-### **🤔 Level 6?**
+### **Level 3**
 
 "
 

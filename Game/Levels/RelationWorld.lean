@@ -1,11 +1,11 @@
-import Game.Metadata
+import Game.Levels.EquivWorld
 import Game.Levels.RelationWorld.L01_Cartesianproducts
 
 
 
 
 World "RelationWorld"
-Title "RelationWorld"
+Title "Relation World"
 
 Introduction "
 ### ***Lean :)***

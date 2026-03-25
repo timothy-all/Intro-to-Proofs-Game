@@ -1,12 +1,12 @@
-import Game.Levels.EquivWorld.L04_equiv
+import Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
 
-World "EquivWorld"
-Level 5
+World "EquivWorld_eg"
+Level 2
 
-Title "Test"
+Title "Example 2"
 
 Introduction "
-### **🤔 Level 5?**
+### **Level 2?**
 "
 
 set_option pp.parens true

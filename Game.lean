@@ -31,11 +31,3 @@ CaptionLong "You should use this game as a template for your own game and add yo
 
 /-! Build the game. Show's warnings if it found a problem with your game. -/
 MakeGame
-
-theorem test4 {u : Type} (A B : Set u) : (A ∪ B)ᶜ = (Aᶜ ∩ Bᶜ) := by
-  ext
-  rw[Set.mem_compl_iff]
-  rw[Set.mem_union]
-  rw[Not_or]
-  rw[Set.mem_inter_iff]
-  rw[Set.mem_compl_iff,Set.mem_compl_iff]

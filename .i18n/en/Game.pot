@@ -8,20 +8,20 @@ msgstr "Project-Id-Version: Game v4.23.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
-#: Game
-msgid "# **Welcome**\n"
-"The *Intro to Proofs Game* should do some really really neat stuff."
-msgstr ""
-
-#. §0: `rw`
-#. §1: `rw`
-#. §2: `rewrite`
-#. §3: `rfl`
 #: Game.Levels.EquivWorld.L02_equiv
-msgid "We're almost home. Let's introduce a new tactic ...\n"
-"### **❯ The §0 tactic**\n"
-"The §1 tactic is identical to §2 except that it automatically attempts to clear the goal with §3 at the end. This can often save us a line of Lean code. Give it a try!\n"
-""
+#: Game.Levels.EquivWorld.L03_equiv
+#: Game.Levels.EquivWorld.L04_equiv
+#: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
+#: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
+#: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
+#: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
+#: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
+#: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
+#: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
+#: Game.Levels.RelationWorld.L01_Cartesianproducts
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+msgid ""
 msgstr ""
 
 #. §0: `∨`
@@ -38,86 +38,21 @@ msgid "This is the **Commutative Law** for §0. It says that\n"
 "§2"
 msgstr ""
 
-#: Game.Levels.EquivWorld.L02_equiv
-#: Game.Levels.EquivWorld.L03_equiv
-#: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
-#: Game.Levels.RelationWorld.L01_Cartesianproducts
-msgid ""
-msgstr ""
-
-#: GameServer.RpcHandlers
-msgid "level completed! 🎉"
-msgstr ""
-
-#. §0: `Or_comm`
-#. §1: `Or_imp`
-#. §2: `P → Q`
-#. §3: `¬ P ∨ Q`
-#. §4: `rewrite`
-#. §5: `rewrite`
-#. §6: `rewrite`
-#. §7: ```
-#.   rewrite[Or_comm]
-#.   ```
-#. §8: `∨`
-#: Game.Levels.EquivWorld.L01_equiv
-msgid "## **Level 1**\n"
-"We've unlocked two theorems for this first level, namely: §0 and §1. 🔍 Check out the entries for these theorems in the **Theorems** tab.\n"
-"\n"
-"The conditional law says that §2 is logically equivalent to §3. This looks *very* close to that statement. We might start by ***rewriting*** the right-hand side of our goal...\n"
-"  ### **❯ The §4 tactic**\n"
-"  In order to apply ***rewrites*** (or substitutions) in Lean, we use the §5 tactic. 🔍 Check out the entry for §6 in the **Tactics** tab for details. 👉 In this specific case, try\n"
-"  §7\n"
-"  This will apply the **Commutative Law** for §8 at the first instance in the goal where it is applicable (namely, the right-hand side in this case)."
-msgstr ""
-
-#. §0: ```
-#. rewrite[Or_imp]
-#. ```
-#. §1: `Or_imp`
-#. §2: ```
-#. Or_imp (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q)
-#. ```
-#. §3: `P → Q`
-#. §4: `¬ P ∨ Q`
-#. §5: ```
-#. rewrite[← Or_imp]
-#. ```
-#. §6: `←`
-#. §7: `\\left`
-#. §8: `<-`
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "Maybe we tried\n"
-"§0\n"
-"and it didn't work. Why? Check the entry for §1 in the **Theorems** tab. Note that\n"
-"§2\n"
-"We want to apply this law ***in reverse***. In other words, we want to rewrite §3 to §4. 👉 In order to do this, try the syntax:\n"
-"§5\n"
-"### **⌨ Typesetting Tip**\n"
-"In order to get the pretty printed left arrow §6 use §7. You can also use §8 instead."
-msgstr ""
-
 #: GameServer.RpcHandlers
 msgid "intermediate goal solved! 🎉"
 msgstr ""
 
-#. §0: `Or_imp`
-#. §1: ```
-#. rw[← Or_imp,← Or_imp]
-#. ```
-#: Game.Levels.EquivWorld.L03_equiv
-msgid "That was a good first step. You might want to apply the **Conditional Law** codified in §0 two more times. You can do this in one step with:\n"
-"§1\n"
-""
+#: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
+msgid "### **Level 3**"
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg
 msgid "# **Logical Equivalences Examples**\n"
-"LLet's get more practice with logical equivalences!"
+"Let's get more practice with logical equivalences!"
 msgstr ""
 
-#: Game
-msgid "Intro to Proofs Game"
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+msgid "Double inclusion exercise involving Cartesian products."
 msgstr ""
 
 #. §0: `rw`
@@ -127,20 +62,12 @@ msgstr ""
 msgid "The tactic §0 is the same as §1 except it automatically attempts to clear the goal with §2 at the end. This can often save us a line."
 msgstr ""
 
-#. §0: `x ∉ A × B`
-#. §1: `x`
-#. §2: `A`
-#. §3: `x`
-#: Game.Levels.RelationWorld.L01_Cartesianproducts
-msgid "As a proof in English, our steps here translate to:\n"
-"Since §0, we know that it's not true that the first coordinate of §1 is in §2 and the second coordinate of §3 is in B."
+#: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
+msgid "True_and doc"
 msgstr ""
 
-#. §0: `x`
-#. §1: `rw [mem_prod] at h`
-#: Game.Levels.RelationWorld.L01_Cartesianproducts
-msgid "Let's start by unpacking what it means for §0 to be in a Cartesian product (so we can negate it).\n"
-"Try rewriting the set membership using its definition: §1."
+#: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
+msgid "Not_and doc"
 msgstr ""
 
 #. §0: `P`
@@ -174,13 +101,37 @@ msgid "# **Logical Equivalences**\n"
 "The purpose of this world is to practice writing proofs of logical equivalences *using* known logical equivalences (like those above and others we'll learn about). Let's get started!"
 msgstr ""
 
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "Contrapositives"
-msgstr ""
-
-#: Game.Levels.EquivWorld.L01_equiv
-msgid "### ***🥳 Congrats!***\n"
-"You beat the first level! We'll add more **Theorems** (known logical equivalences) as we progress through the world."
+#. §0: ```
+#. Q ∧ (_ ∧ _)
+#. ```
+#. §1: `R`
+#. §2: `S`
+#. §3: `← And_assoc`
+#. §4: `(Q ∧ R) ∧ S`
+#. §5: `Q ∧ (R ∧ S)`
+#. §6: `(Q ∧ R) ∧ S`
+#. §7: `S ∧ (Q ∧ R)`
+#. §8: ```
+#. rw[And_comm (Q ∧ R)]
+#. ```
+#. §9: ```
+#. rw[And_comm (Q ∧ R) S]
+#. ```
+#. §10: ```
+#. rw[And_comm _ S]
+#. ```
+#: Game.Levels.EquivWorld.L04_equiv
+msgid "**Here's what happened.** Lean searched for the **first instance** of\n"
+"§0\n"
+"where the underscores are wildcards. The first underscore was matched with §1, the second with §2. Lean then applied §3 to this instance. In particular, Lean substituted §4 for §5.\n"
+"\n"
+"Now we'd like to **commute** the expression §6 to get §7. 👉 We can accomplish this with either:\n"
+"§8\n"
+"or\n"
+"§9\n"
+"or even\n"
+"§10\n"
+"This last form is slightly dangerous in this case though; 🤔 can you tell why?"
 msgstr ""
 
 #. §0: $$ (¬ P ∨ Q) ↔ (P → Q) $$
@@ -196,10 +147,6 @@ msgid "This theorem is the so-called **Conditional Law**. It says that\n"
 "§1"
 msgstr ""
 
-#: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
-msgid "Proof-by-cases"
-msgstr ""
-
 #. §0: `Not_not`
 #. §1: `Not_not`
 #: Game.Levels.EquivWorld.L02_equiv
@@ -207,12 +154,8 @@ msgid "## **Level 2**\n"
 "Let's use the laws of logic to prove that the **contrapositive** of an implication is logically equivalent to the original implication. We'll need the **Double Negation Law** (the theorem §0). 🔍 Check out the unlocked entry for §1 in the **Theorems** tab."
 msgstr ""
 
-#: Game.Levels.RelationWorld
-msgid "RelationWorld"
-msgstr ""
-
-#: Game.Levels.RelationWorld
-msgid "### ***Lean :)***"
+#: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
+msgid "Proof-by-cases"
 msgstr ""
 
 #: GameServer.RpcHandlers
@@ -232,10 +175,6 @@ msgid "As a tutorial for how to work with Cartesian products of sets in Lean, we
 "The terms §4 and §5 showing up in the goal are how Lean denotes the first and second coordinates of §6."
 msgstr ""
 
-#: Game.Levels.EquivWorld.L03_equiv
-msgid "Rewrite stuff"
-msgstr ""
-
 #. §0: $$¬ (P ∨ Q) ↔ (¬ P ∧ ¬ Q)$$
 #: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
 msgid "This is half of **DeMorgan's Law**. It says that\n"
@@ -243,20 +182,257 @@ msgid "This is half of **DeMorgan's Law**. It says that\n"
 "§0"
 msgstr ""
 
+#. §0: `Not_or`
+#. §1: `Or_and_left`
+#: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
+msgid "### **Level 1**\n"
+"This logical equivalence is sometimes called **Proof by cases**. We'll use this a lot in the future. It basically tells us how to approach proofs where we have a hypothesis in the form a disjunction. We'll need two new laws of logic to pass this level. 🔍 Check out the entries for §0 and §1."
+msgstr ""
+
+#. §0: ```
+#. (H₁ ∧ H₂) → P
+#. ```
+#. §1: ```
+#. H₁ → (H₂ → P)
+#. ```
+#: Game.Levels.EquivWorld.L03_equiv
+msgid "## **Level 3**\n"
+"Oftentimes, we'll have implications of the form\n"
+"§0\n"
+"For programmatic purposes, this kind of proposition is better expressed in the following way:\n"
+"§1\n"
+"This exercise demonstrates that this process of translating the first form into the second (called **currying**) is logically valid."
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
+msgid "Example 3"
+msgstr ""
+
+#: Game.Levels.RelationWorld.RelationWorldExamples
+msgid "Relation World Examples"
+msgstr ""
+
+#. §0: `∧`
+#. §1: $$ (P ∧ Q) ∧ R ↔ P ∧ (Q ∧ R) $$
+#: Game.Levels.EquivWorld.L04_equiv
+msgid "The **and** connective §0 is associative. This means that\n"
+"\n"
+"§1"
+msgstr ""
+
+#: Game.Levels.RelationWorld.RelationWorldExamples
+msgid "### ***In-class examples and HW problems***"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
+msgid "Example 5"
+msgstr ""
+
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "An implication is logically equivalent to its contrapositive."
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
+msgid "Example 7"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
+msgid "And_true"
+msgstr ""
+
+#. §0: ```
+#. rw[And_assoc]
+#. ```
+#: Game.Levels.EquivWorld.L04_equiv
+msgid "## **Level 4**\n"
+"The goal of this level is intuitively clear. But in order to prove it formally, we'll need some **targeted rewrites**. 👉 To get started, try:\n"
+"§0"
+msgstr ""
+
+#: Game
+msgid "Game Template"
+msgstr ""
+
+#. §0: `x ∉ A × B`
+#. §1: `x`
+#. §2: `A`
+#. §3: `x`
+#: Game.Levels.RelationWorld.L01_Cartesianproducts
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+msgid "As a proof in English, our steps here translate to:\n"
+"Since §0, we know that it's not true that the first coordinate of §1 is in §2 and the second coordinate of §3 is in B.\n"
+"unfinished"
+msgstr ""
+
+#: Game
+msgid "# **Welcome**\n"
+"The *Intro to Proofs Game* should do some really really neat stuff."
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
+msgid "Example 2"
+msgstr ""
+
+#. §0: `rw`
+#. §1: `rw`
+#. §2: `rewrite`
+#. §3: `rfl`
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "We're almost home. Let's introduce a new tactic ...\n"
+"### **❯ The §0 tactic**\n"
+"The §1 tactic is identical to §2 except that it automatically attempts to clear the goal with §3 at the end. This can often save us a line of Lean code. Give it a try!\n"
+""
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
+msgid "### **Level 5**"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "level completed! 🎉"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
+msgid "### **Level 2?**"
+msgstr ""
+
+#. §0: ```
+#. rewrite[Or_imp]
+#. ```
+#. §1: `Or_imp`
+#. §2: ```
+#. Or_imp (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q)
+#. ```
+#. §3: `P → Q`
+#. §4: `¬ P ∨ Q`
+#. §5: ```
+#. rewrite[← Or_imp]
+#. ```
+#. §6: `←`
+#. §7: `\\left`
+#. §8: `<-`
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "Maybe we tried\n"
+"§0\n"
+"and it didn't work. Why? Check the entry for §1 in the **Theorems** tab. Note that\n"
+"§2\n"
+"We want to apply this law ***in reverse***. In other words, we want to rewrite §3 to §4. 👉 In order to do this, try the syntax:\n"
+"§5\n"
+"### **⌨ Typesetting Tip**\n"
+"In order to get the pretty printed left arrow §6 use §7. You can also use §8 instead."
+msgstr ""
+
+#. §0: `Or_comm`
+#. §1: `Or_imp`
+#. §2: `P → Q`
+#. §3: `¬ P ∨ Q`
+#. §4: `rewrite`
+#. §5: `rewrite`
+#. §6: `rewrite`
+#. §7: ```
+#.   rewrite[Or_comm]
+#.   ```
+#. §8: `∨`
 #: Game.Levels.EquivWorld.L01_equiv
-msgid "We should now rewrite the left-hand side of our goal using the **Conditional Law**..."
+msgid "## **Level 1**\n"
+"We've unlocked two theorems for this first level, namely: §0 and §1. 🔍 Check out the entries for these theorems in the **Theorems** tab.\n"
+"\n"
+"The conditional law says that §2 is logically equivalent to §3. This looks *very* close to that statement. We might start by ***rewriting*** the right-hand side of our goal...\n"
+"  ### **❯ The §4 tactic**\n"
+"  In order to apply ***rewrites*** (or substitutions) in Lean, we use the §5 tactic. 🔍 Check out the entry for §6 in the **Tactics** tab for details. 👉 In this specific case, try\n"
+"  §7\n"
+"  This will apply the **Commutative Law** for §8 at the first instance in the goal where it is applicable (namely, the right-hand side in this case)."
+msgstr ""
+
+#. §0: `∧`
+#. §1: $$ P ∧ Q ↔ Q ∧ P $$
+#: Game.Levels.EquivWorld.L04_equiv
+msgid "The **and** connective §0 is commutative. This means that\n"
+"\n"
+"§1"
+msgstr ""
+
+#: Game.Levels.RelationWorld
+msgid "Relation World"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
+msgid "Nand_self"
+msgstr ""
+
+#. §0: `Or_imp`
+#. §1: ```
+#. rw[← Or_imp,← Or_imp]
+#. ```
+#: Game.Levels.EquivWorld.L03_equiv
+msgid "That was a good first step. You might want to apply the **Conditional Law** codified in §0 two more times. You can do this in one step with:\n"
+"§1\n"
+""
+msgstr ""
+
+#: Game
+msgid "Intro to Proofs Game"
+msgstr ""
+
+#. §0: `x`
+#. §1: `rw [mem_prod] at h`
+#: Game.Levels.RelationWorld.L01_Cartesianproducts
+msgid "Let's start by unpacking what it means for §0 to be in a Cartesian product (so we can negate it).\n"
+"Try rewriting the set membership using its definition: §1."
+msgstr ""
+
+#: Game.Levels.EquivWorld.L04_equiv
+msgid "Great, we're almost home. Try to to finish this level off on your own."
+msgstr ""
+
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "### ***🥳 Congrats!***\n"
+"You beat the first level! We'll add more **Theorems** (known logical equivalences) as we progress through the world."
+msgstr ""
+
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "Contrapositives"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
+msgid "Or_not_self"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
+msgid "Example 4"
+msgstr ""
+
+#: Game.Levels.RelationWorld
+msgid "### ***Lean :)***"
+msgstr ""
+
+#. §0: `(x,y).1`
+#. §1: `x`
+#. §2: `x`
+#. §3: `x`
+#: Game.Levels.RelationWorld.L01_Cartesianproducts
+msgid "Lean treats §0 as the same thing as §1 - no need to rewrite it further to use it just like §2, though in proofs written by hand we certainly would write just §3.\n"
+"You should be able to finish it from here!"
+msgstr ""
+
+#: Game.Levels.EquivWorld.L03_equiv
+msgid "Rewrite stuff"
 msgstr ""
 
 #: Game.Levels.EquivWorld.L03_equiv
 msgid "Currying"
 msgstr ""
 
-#: Game.Levels.RelationWorld.L01_Cartesianproducts
-msgid "You should be able to finish it from here!"
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "We should now rewrite the left-hand side of our goal using the **Conditional Law**..."
 msgstr ""
 
 #: Game
 msgid "You should use this game as a template for your own game and add your own levels."
+msgstr ""
+
+#: Game.Levels.EquivWorld
+msgid "Logical Equivalence World"
 msgstr ""
 
 #. §0: $$(P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))$$
@@ -264,17 +440,6 @@ msgstr ""
 msgid "This is half of the **Distributive Law**. It says that\n"
 "\n"
 "§0"
-msgstr ""
-
-#: Game.Levels.EquivWorld
-msgid "Logical Equivalence World"
-msgstr ""
-
-#. §0: `Not_or`
-#. §1: `Or_and_left`
-#: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
-msgid "### **Level 1**\n"
-"This logical equivalence is sometimes called **Proof by cases**. We'll use this a lot in the future. It basically tells us how to approach proofs where we have a hypothesis in the form a disjunction. We'll need two new laws of logic to pass this level. 🔍 Check out the entries for §0 and §1."
 msgstr ""
 
 #: Game
@@ -291,23 +456,24 @@ msgstr ""
 msgid "Doc"
 msgstr ""
 
+#: Game.Levels.EquivWorld.L04_equiv
+msgid "Targeted Rewrites"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
+msgid "### **Level 7**"
+msgstr ""
+
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "Intro to Lean"
 msgstr ""
 
-#. §0: ```
-#. (H₁ ∧ H₂) → P
-#. ```
-#. §1: ```
-#. H₁ → (H₂ → P)
-#. ```
-#: Game.Levels.EquivWorld.L03_equiv
-msgid "## **Level 3**\n"
-"Oftentimes, we'll have implications of the form\n"
-"§0\n"
-"For programmatic purposes, this kind of proposition is better expressed in the following way:\n"
-"§1\n"
-"This exercise demonstrates that this process of translating the first form into the second (called **currying**) is logically valid."
+#: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
+msgid "### **Level 6**"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
+msgid "Example 6"
 msgstr ""
 
 #. §0: `rfl`
@@ -339,10 +505,6 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.L03_equiv
 msgid "Doc on currying"
-msgstr ""
-
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "An implication is logically equivalent to its contrapositive."
 msgstr ""
 
 #. §0: `rewrite[e]`
@@ -394,12 +556,13 @@ msgstr ""
 msgid "🔍 Check out two freshly unlocked laws of logic in the **Theorems** tab."
 msgstr ""
 
-#: Game
-msgid "Game Template"
+#: Game.Levels.RelationWorld.L01_Cartesianproducts
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+msgid "Cartesian products"
 msgstr ""
 
-#: Game.Levels.RelationWorld.L01_Cartesianproducts
-msgid "Cartesian products"
+#: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
+msgid "### **Level 4**"
 msgstr ""
 
 #. §0: $$ ¬ ¬ P ↔ P $$
@@ -407,6 +570,40 @@ msgstr ""
 msgid "This is the **Double Negation Law**. It says that\n"
 "\n"
 "§0"
+msgstr ""
+
+#. §0: `And_assoc`
+#. §1: ```
+#. _ ∧ (_ ∧ _)
+#. ```
+#. §2: `P`
+#. §3: `Q`
+#. §4: `R ∧ S`
+#. §5: `And_assoc`
+#. §6: ```
+#. P ∧ (Q ∧ (R ∧ S))
+#. ```
+#. §7: ```
+#. P ∧ ((Q ∧ R) ∧ S)
+#. ```
+#. §8: ```
+#. rw[← And_assoc]
+#. ```
+#. §9: ```
+#. rw[← And_assoc Q]
+#. ```
+#: Game.Levels.EquivWorld.L04_equiv
+msgid "In this case, §0 was applied to the **first instance** encountered where it could be applied. Specifically, Lean searched for the first instance of\n"
+"§1\n"
+"where the underscores are wildcards. The first underscore was matched to §2, the second to §3 and the third to §4. Lean then applied §5 to this instance. In particular, the left-hand side of our goal is now:\n"
+"§6\n"
+"It would be good to get this in the form:\n"
+"§7\n"
+"*☠ We might be tempted to try...*\n"
+"§8\n"
+"***But this will not work!*** Try it anyway, and notice what happens -- we get right back where we started! Don't worry, afterwards you can get back to this spot just by clicking **⌫ Retry**. 💡 Here's what actually works:\n"
+"§9\n"
+""
 msgstr ""
 
 #: Game.Levels.EquivWorld.L02_equiv

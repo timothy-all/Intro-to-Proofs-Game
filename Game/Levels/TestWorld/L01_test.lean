@@ -16,5 +16,13 @@ theorem test2 {u : Type} (A B : Set u) (p : u → Prop) (q : u → Prop) (h : �
   intro a ha
   exact h a ha
 
+theorem test4 {u : Type} (A B : Set u) : (A ∪ B)ᶜ = (Aᶜ ∩ Bᶜ) := by
+  ext
+  rw[Set.mem_compl_iff]
+  rw[Set.mem_union]
+  rw[Not_or]
+  rw[Set.mem_inter_iff]
+  rw[Set.mem_compl_iff,Set.mem_compl_iff]
+
 Conclusion "
 "

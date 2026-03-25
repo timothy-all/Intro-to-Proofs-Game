@@ -30,7 +30,7 @@ TheoremDoc Set.Subset.antisymm as "double_inclusion"
 
 --TheoremDoc Set.eq_of_subset_of_subset as "double_inclusion"
 
-NewTactic rw rfl intro apply symm Or.inl obtain
+--NewTactic intro apply symm Or.inl obtain
 NewTheorem mem_prod Not_and Set.Subset.antisymm
 -- NewTheorem Nat.add_comm Nat.add_assoc
 NewDefinition Set.Prod

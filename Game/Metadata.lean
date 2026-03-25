@@ -99,3 +99,8 @@ exact h₂
 
 theorem subset_def {α : Type u} {s t : Set α} : (s ⊆ t) = ∀ x ∈ s, x ∈ t := by
   exact Set.subset_def
+
+/- Logic -/
+
+def Nand (P Q : Prop) : Prop := ¬ (P ∧ Q)
+infix:70 " ⊼ " => Nand  -- standard NAND symbol
