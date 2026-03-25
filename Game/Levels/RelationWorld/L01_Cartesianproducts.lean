@@ -29,7 +29,7 @@ Since `x ∉ A × B`, we know that it's not true that the first coordinate of `x
 
 TheoremDoc mem_prod as "mem_prod"
 
-NewTactic rw rfl intro apply symm Or.inl obtain
+NewTactic intro apply symm Or.inl obtain
 NewTheorem mem_prod Not_and
 -- NewTheorem Nat.add_comm Nat.add_assoc
 NewDefinition Set.Prod
