@@ -91,3 +91,11 @@ theorem And_not_self (P : Prop) : P ∧ ¬ P ↔ False := by
 
 theorem mem_prod {α : Type u} {β : Type v} {s : Set α} {t : Set β} {p : α × β} : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
   exact Set.mem_prod
+
+theorem double_inclusion {α : Type u} {a b : Set α} (h₁ : a ⊆ b) (h₂ : b ⊆ a) : a = b := by
+apply Set.Subset.antisymm
+exact h₁
+exact h₂
+
+theorem subset_def {α : Type u} {s t : Set α} : (s ⊆ t) = ∀ x ∈ s, x ∈ t := by
+  exact Set.subset_def
