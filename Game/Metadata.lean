@@ -89,15 +89,31 @@ theorem And_not_self (P : Prop) : P ∧ ¬ P ↔ False := by
 
 /- Set structure -/
 
+theorem mem_union.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∪ b ↔ x ∈ a ∨ x ∈ b := by
+  rw[Set.mem_union]
+
+theorem mem_inter.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∩ b ↔ x ∈ a ∧ x ∈ b := by
+  rw [Set.mem_inter_iff]
+
 theorem mem_prod {α : Type u} {β : Type v} {s : Set α} {t : Set β} {p : α × β} : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
   exact Set.mem_prod
+
+-- Theorem below should be unlocked following level 2 of Cartesian products since we prove the fst version
+theorem snd_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: y ∉ B) : (x,y) ∉ (A ×ˢ B) := by
+  rw [mem_prod,Not_and]
+  apply Or.intro_right
+  exact h
+
+theorem mem_diff.{u} {α : Type u} {s t : Set α} (x : α) : x ∈ s \ t ↔ x ∈ s ∧ x ∉ t := by
+  rw[Set.mem_diff]
+
 
 theorem double_inclusion {α : Type u} {a b : Set α} (h₁ : a ⊆ b) (h₂ : b ⊆ a) : a = b := by
 apply Set.Subset.antisymm
 exact h₁
 exact h₂
 
-theorem subset_def {α : Type u} {s t : Set α} : (s ⊆ t) = ∀ x ∈ s, x ∈ t := by
+theorem subset_def {α : Type u} (s t : Set α) : (s ⊆ t) = ∀ x ∈ s, x ∈ t := by
   exact Set.subset_def
 
 /- Logic -/
