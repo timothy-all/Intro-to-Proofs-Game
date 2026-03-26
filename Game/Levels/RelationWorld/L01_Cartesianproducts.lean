@@ -11,7 +11,7 @@ The terms `x.fst` and `x.snd` showing up in the goal are how Lean denotes the fi
 
 
 
-Statement (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: (x,y) ∉ (A ×ˢ B)) : x ∉ A ∨ y ∉ B := by
+Statement not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: (x,y) ∉ (A ×ˢ B)) : x ∉ A ∨ y ∉ B := by
   Hint "Let's start by unpacking what it means for `x` to be in a Cartesian product (so we can negate it).
   Try rewriting the set membership using its definition: `rw [mem_prod] at h`."
   rw [mem_prod] at h
