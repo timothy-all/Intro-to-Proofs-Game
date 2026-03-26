@@ -17,7 +17,7 @@ Nand_self
 TheoremDoc Nand_self as "Nand_self"
 
 Statement Nand_self (P : Prop) : (P ⊼ P) ↔ ¬ P := by
-  rw[Nand]
+  rw[nand_def]
   rw[Not_and]
   rw[Or_self]
 

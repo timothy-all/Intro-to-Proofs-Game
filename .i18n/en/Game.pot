@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-25\n"
+"POT-Creation-Date: 2026-03-26\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -18,6 +18,7 @@ msgstr "Project-Id-Version: Game v4.23.0\n"
 #: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
 #: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
 #: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
+#: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
 #: Game.Levels.RelationWorld.L01_Cartesianproducts
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
@@ -156,6 +157,10 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
 msgid "Proof-by-cases"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
+msgid "Example 8"
 msgstr ""
 
 #: GameServer.RpcHandlers
@@ -383,6 +388,10 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.L04_equiv
 msgid "Great, we're almost home. Try to to finish this level off on your own."
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
+msgid "### **Level 8**"
 msgstr ""
 
 #: Game.Levels.EquivWorld.L01_equiv

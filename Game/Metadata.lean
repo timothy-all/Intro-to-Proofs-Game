@@ -10,8 +10,7 @@ open Classical
 
 @[simp]
 theorem Or_imp (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q) := by
-  rw[Classical.or_iff_not_imp_left]
-  rw[Classical.not_not]
+  rw[imp_iff_not_or]
 
 theorem Contra (P Q : Prop) : (P → Q) ↔ (¬ Q → ¬ P) := by
   repeat rw[← Or_imp]
@@ -104,3 +103,8 @@ theorem subset_def {α : Type u} {s t : Set α} : (s ⊆ t) = ∀ x ∈ s, x ∈
 
 def Nand (P Q : Prop) : Prop := ¬ (P ∧ Q)
 infix:70 " ⊼ " => Nand  -- standard NAND symbol
+
+theorem nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q) := Iff.rfl
+
+-- xor_def : P ⊻ Q ↔  (P ∧ ¬Q) ∨ (Q ∧ ¬P) weird that Xor is known but not Nand
+infix:70 " ⊻ " => Xor'
