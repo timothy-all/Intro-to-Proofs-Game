@@ -28,4 +28,3 @@ TheoremDoc mem_prod as "mem_prod"
 NewTactic intro apply symm Or.inl obtain
 NewTheorem mem_prod Not_and
 -- NewTheorem Nat.add_comm Nat.add_assoc
-NewDefinition Set.Prod

@@ -94,7 +94,7 @@ theorem mem_union.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∪ b ↔ 
 theorem mem_inter.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∩ b ↔ x ∈ a ∧ x ∈ b := by
   rw [Set.mem_inter_iff]
 
-theorem mem_prod {α : Type u} {β : Type v} {s : Set α} {t : Set β} {p : α × β} : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
+theorem mem_prod {α : Type u} {β : Type v} (s : Set α) (t : Set β) (p : α × β) : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
   exact Set.mem_prod
 
 -- Theorem below should be unlocked following level 2 of Cartesian products since we prove the fst version

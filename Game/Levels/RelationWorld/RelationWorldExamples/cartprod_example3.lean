@@ -10,7 +10,6 @@ Introduction "Cartesian products: What does it mean for `A × B` and `C × D` to
 In the statement of the theorem below, we're assuming `A` and `C` come from the same universe; similar for `B` and `D`. Of course, if either fails, the conclusion is automatically true."
 
 
-
 Statement (u v: Type) (A C: Set u) (B D: Set v) (h: ((A ×ˢ B) ∩ (C ×ˢ D) = ∅)): (A ∩ C = ∅) ∨ (B ∩ D = ∅) := by
   rw[or_iff_not_imp_left]
   intro k
@@ -56,3 +55,20 @@ TheoremDoc Set.Subset.antisymm as "double_inclusion"
 NewTheorem mem_prod Not_and Set.Subset.antisymm
 -- NewTheorem Nat.add_comm Nat.add_assoc
 NewDefinition Set.Prod
+
+
+theorem test (u v: Type) (A C: Set u) (B D: Set v) (h: ((A ×ˢ B) ∩ (C ×ˢ D) = ∅)): (A ∩ C = ∅) ∨ (B ∩ D = ∅) := by
+  by_cases hAC : A ∩ C = ∅
+  left
+  exact hAC
+  right
+  by_contra F
+  push_neg at F hAC
+  rw[Set.nonempty_def] at F hAC
+  rcases hAC with ⟨x,hx⟩
+  rcases F with ⟨y,hy⟩
+  obtain hAB : (x,y) ∈ A ×ˢ B := And.intro hx.left hy.left
+  obtain hCD : (x,y) ∈ C ×ˢ D := And.intro hx.right hy.right
+  obtain F : (x,y) ∈ (A ×ˢ B) ∩ (C ×ˢ D) := And.intro hAB hCD
+  rw[h] at F
+  contradiction
