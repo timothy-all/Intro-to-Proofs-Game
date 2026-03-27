@@ -1,12 +1,12 @@
 import Game.Levels.ArgWorld
 
 World "ArgWorld_eg"
-Level 5
+Level 1
 
 Title "Rule of Contradiction"
 
 Introduction "
-### **Level 5**
+### **Level 1**
 "
 
 Statement (P : Prop) (h : ¬ P → False) : P := by
@@ -16,3 +16,5 @@ Statement (P : Prop) (h : ¬ P → False) : P := by
   exact h
 
 Conclusion ""
+
+NewTheorem Or_false

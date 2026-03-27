@@ -1,6 +1,6 @@
 import Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
 
-World "ArgWorld"
+World "ArgWorld_eg"
 Level 4
 
 Title "Test"

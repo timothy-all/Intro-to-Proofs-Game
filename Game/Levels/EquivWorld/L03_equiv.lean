@@ -20,19 +20,7 @@ This exercise demonstrates that this process of translating the first form into 
 
 set_option pp.parens true
 
-/-- Doc-/
-TheoremDoc Or_assoc as "Or_assoc"
 
-/-- Doc -/
-TheoremDoc Not_and as "Not_and"
-
-/-- Rewrite stuff-/
-TacticDoc rw
-
-/--
-Doc on currying
--/
-TheoremDoc curry as "curry"
 
 Statement curry (P Q R : Prop) : ((P ∧ Q) → R) ↔ (P → (Q → R)) := by --currying
   rw[Imp_iff_not_or]
@@ -46,8 +34,6 @@ Statement curry (P Q R : Prop) : ((P ∧ Q) → R) ↔ (P → (Q → R)) := by -
   rw[Not_and]
   rw[Or_assoc]
 
-
 Conclusion ""
 
 NewTheorem Not_and Or_assoc
-NewTactic rw

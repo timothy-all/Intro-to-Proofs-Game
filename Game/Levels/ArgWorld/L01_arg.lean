@@ -1,6 +1,6 @@
 import Game.Levels.EquivWorld
 
-World "ArgWrold"
+World "ArgWorld"
 Level 1
 
 Title "Modus Ponens"

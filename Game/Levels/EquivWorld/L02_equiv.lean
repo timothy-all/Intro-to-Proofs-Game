@@ -12,22 +12,7 @@ Let's use the laws of logic to prove that the **contrapositive** of an implicati
 
 set_option pp.parens true
 
-/--
-This is the **Double Negation Law**. It says that
 
-$$ ¬ ¬ P ↔ P $$
--/
-TheoremDoc Not_not as "Not_not"
-
-/--
-An implication is logically equivalent to its contrapositive.
--/
-TheoremDoc contrapositive as "contrapositive"
-
-/--
-The tactic `rw` is the same as `rewrite` except it automatically attempts to clear the goal with `rfl` at the end. This can often save us a line.
--/
-TacticDoc rw
 
 Statement contrapositive (P Q : Prop) : (P → Q) ↔ (¬ Q → ¬ P) := by
   rewrite[Imp_iff_not_or, Imp_iff_not_or]

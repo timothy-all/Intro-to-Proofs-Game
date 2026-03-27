@@ -15,19 +15,7 @@ rw[And_assoc]
 
 set_option pp.parens true
 
-/--
-The **and** connective `∧` is associative. This means that
 
-$$ (P ∧ Q) ∧ R ↔ P ∧ (Q ∧ R) $$
--/
-TheoremDoc And_assoc as "And_assoc"
-
-/--
-The **and** connective `∧` is commutative. This means that
-
-$$ P ∧ Q ↔ Q ∧ P $$
--/
-TheoremDoc And_comm as "And_comm"
 
 Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q) := by
   rw[And_assoc]
@@ -75,4 +63,4 @@ Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q)
 Conclusion "
 "
 
-NewTheorem And_assoc And_comm
+NewTheorem And_assoc And_comm Not_and

@@ -9,6 +9,10 @@ Introduction "The previous level suggests that we can conclude that an element f
 Let's prove it."
 
 
+/--
+doc
+-/
+TheoremDoc fst_not_mem_not_mem_prod as "fst_not_mem_not_mem_prod"
 
 Statement fst_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: x ∉ A) : (x,y) ∉ (A ×ˢ B) := by
   Hint "Use the previous level to simplify, then you'll need to use known facts about `or` statements."
@@ -22,9 +26,3 @@ Conclusion "Include a proof in English"
 /- Use these commands to add items to the game's inventory. -/
 
 --DefinitionDoc Set.Prod as "×ˢ"
-
-TheoremDoc mem_prod as "mem_prod"
-
-NewTactic intro apply symm Or.inl obtain
-NewTheorem mem_prod Not_and
--- NewTheorem Nat.add_comm Nat.add_assoc

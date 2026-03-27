@@ -1,12 +1,12 @@
 import Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
 
-World "ArgWorld"
-Level 6
+World "ArgWorld_eg"
+Level 2
 
 Title "Conditional Proof"
 
 Introduction "
-### **Level 6**
+### **Level 2**
 "
 
 

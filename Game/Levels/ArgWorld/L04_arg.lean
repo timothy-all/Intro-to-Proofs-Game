@@ -27,3 +27,4 @@ Statement (P Q R: Prop) (h1 : P → R) (h2 : Q → R) : (P ∨ Q) → R := by
 Conclusion ""
 
 NewDefinition And.intro
+NewTheorem Not_or and_or_right

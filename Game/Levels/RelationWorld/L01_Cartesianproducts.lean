@@ -9,7 +9,10 @@ Introduction "As a tutorial for how to work with Cartesian products of sets in L
 
 The terms `x.fst` and `x.snd` showing up in the goal are how Lean denotes the first and second coordinates of `x`."
 
-
+/--
+doc
+-/
+TheoremDoc not_mem_prod as "not_mem_prod"
 
 Statement not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: (x,y) ∉ (A ×ˢ B)) : x ∉ A ∨ y ∉ B := by
   Hint "Let's start by unpacking what it means for `x` to be in a Cartesian product (so we can negate it).
@@ -29,9 +32,10 @@ unfinished"
 
 --DefinitionDoc Set.Prod as "×ˢ"
 
+/--
+Doc
+-/
 TheoremDoc mem_prod as "mem_prod"
 
-NewTactic intro apply symm Or.inl obtain
-NewTheorem mem_prod Not_and
+NewTheorem mem_prod
 -- NewTheorem Nat.add_comm Nat.add_assoc
-NewDefinition Set.Prod

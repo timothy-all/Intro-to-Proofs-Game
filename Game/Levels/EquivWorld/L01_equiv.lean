@@ -1,4 +1,5 @@
 import Game.Metadata
+import Game.Levels.EquivWorld.equiv_docs
 
 World "EquivWorld"
 Level 1
@@ -19,56 +20,6 @@ The conditional law says that `P → Q` is logically equivalent to `¬ P ∨ Q`.
 "
 
 set_option pp.parens true
-
-/--
-The tactic `rewrite[e]` applies the identity/equivalence `e` as a **rewrite** rule to the target.
-
-If `e` is preceded by left arrow (`←` or `<-`), the rewrite is applied in the reverse direction. For example, if `e : a = b` then ...
-* `rewrite[e]` replaces all instances of `a` with `b` in the target
-* `rewrite[← e]` replaces all instances of `b` with `a` in the target
-
-If `e₁`,`e₂`,...,`eₙ` is a sequence of identities then
-```
-rewrite [e₁, ..., eₙ]
-```
-applies the given rules sequentially.
-
-Finally, `rewrite [e] at l` rewrites `e` at location(s) `l`, where `l` is a list of hypotheses in the local context or the main goal `⊢` (or `|-`).
-
-### **⌨ Typesetting tip**
-To pretty print the left-arrow `←` use `\\left`. To pretty print the symbol `⊢` use `\\vdash`.
--/
-TacticDoc rewrite
-
-/--
-This tactic clears a goal whose target has the form `x = x` or `P ↔ P` (or `x ~ x` where `∼` is any relation that has a reflexivity lemma tagged with the attribute @[refl] -- we'll talk more about relations later).
--/
-TacticDoc rfl
-
-/--
-This theorem is the so-called **Conditional Law**. It says that
-
-$$ (¬ P ∨ Q) ↔ (P → Q) $$
-
-Here's what it looks like in Lean:
-```
-Imp_iff_not_or (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q) := by
-```
--/
-TheoremDoc Imp_iff_not_or as "Imp_iff_not_or"
-
-/--
-This is the **Commutative Law** for `∨`. It says that
-
-$$ (P ∨ Q) ↔ (Q ∨ P) $$
-
-Here's what it looks like in Lean:
-```
-Or_comm (P Q : Prop) : P ∨ Q ↔ Q ∨ P
-```
--/
-TheoremDoc Or_comm as "Or_comm"
-
 
 Statement (P Q : Prop) : (P → Q) ↔ (Q ∨ ¬ P) := by
   rewrite[Or_comm]
