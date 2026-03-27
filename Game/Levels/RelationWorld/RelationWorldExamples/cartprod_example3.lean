@@ -11,6 +11,33 @@ In the statement of the theorem below, we're assuming `A` and `C` come from the 
 
 
 Statement (u v: Type) (A C: Set u) (B D: Set v) (h: ((A ×ˢ B) ∩ (C ×ˢ D) = ∅)): (A ∩ C = ∅) ∨ (B ∩ D = ∅) := by
+  by_contra! F
+  rw[Set.nonempty_def,Set.nonempty_def] at F
+  rcases F with ⟨⟨x,hx⟩,⟨y,hy⟩⟩
+  obtain hAB : (x,y) ∈ A ×ˢ B := And.intro hx.left hy.left
+  obtain hCD : (x,y) ∈ C ×ˢ D := And.intro hx.right hy.right
+  obtain F : (x,y) ∈ (A ×ˢ B) ∩ (C ×ˢ D) := And.intro hAB hCD
+  rw[h] at F
+  contradiction
+
+Conclusion "Proof in English?"
+
+/- Use these commands to add items to the game's inventory. -/
+
+--DefinitionDoc Set.Prod as "×ˢ"
+
+TheoremDoc mem_prod as "mem_prod"
+TheoremDoc Set.Subset.antisymm as "double_inclusion"
+
+--TheoremDoc Set.eq_of_subset_of_subset as "double_inclusion"
+
+--NewTactic intro apply symm Or.inl obtain
+NewTheorem mem_prod Not_and Set.Subset.antisymm
+-- NewTheorem Nat.add_comm Nat.add_assoc
+NewDefinition Set.Prod
+
+/- Original proof; avoid using `have`
+theorem test (u v: Type) (A C: Set u) (B D: Set v) (h: ((A ×ˢ B) ∩ (C ×ˢ D) = ∅)): (A ∩ C = ∅) ∨ (B ∩ D = ∅) := by
   rw[or_iff_not_imp_left]
   intro k
   rw [←ne_eq,←Set.nonempty_iff_ne_empty,Set.nonempty_def] at k
@@ -39,30 +66,4 @@ Statement (u v: Type) (A C: Set u) (B D: Set v) (h: ((A ×ˢ B) ∩ (C ×ˢ D) =
     exact prod2
   rw [h, Set.mem_empty_iff_false] at both_prod
   exact both_prod
-
-Conclusion "Proof in English?"
-
-/- Use these commands to add items to the game's inventory. -/
-
---DefinitionDoc Set.Prod as "×ˢ"
-
-TheoremDoc mem_prod as "mem_prod"
-TheoremDoc Set.Subset.antisymm as "double_inclusion"
-
---TheoremDoc Set.eq_of_subset_of_subset as "double_inclusion"
-
---NewTactic intro apply symm Or.inl obtain
-NewTheorem mem_prod Not_and Set.Subset.antisymm
--- NewTheorem Nat.add_comm Nat.add_assoc
-NewDefinition Set.Prod
-
-
-theorem test (u v: Type) (A C: Set u) (B D: Set v) (h: ((A ×ˢ B) ∩ (C ×ˢ D) = ∅)): (A ∩ C = ∅) ∨ (B ∩ D = ∅) := by
-  by_contra! F
-  rw[Set.nonempty_def,Set.nonempty_def] at F
-  rcases F with ⟨⟨x,hx⟩,⟨y,hy⟩⟩
-  obtain hAB : (x,y) ∈ A ×ˢ B := And.intro hx.left hy.left
-  obtain hCD : (x,y) ∈ C ×ˢ D := And.intro hx.right hy.right
-  obtain F : (x,y) ∈ (A ×ˢ B) ∩ (C ×ˢ D) := And.intro hAB hCD
-  rw[h] at F
-  contradiction
+-/
