@@ -3,16 +3,27 @@ import Game.Levels.ArgWorld.L03_arg
 World "ArgWorld"
 Level 4
 
-Title "Disjunctive Syllogism"
+Title "Test"
 
 Introduction "
-### **Level 4**
+### **🤔 Level 4?**
 "
 
+set_option pp.parens true
 
-Statement (P Q : Prop) (h1 : P ∨ Q) (h2 : ¬ P) : Q := by
-  rw[← Not_not P] at h1
-  rw[Imp_iff_not_or] at h1
-  exact h1 h2
+/--
+And.intro doc
+-/
+DefinitionDoc And.intro as "And.intro"
+
+Statement (P Q R: Prop) (h1 : P → R) (h2 : Q → R) : (P ∨ Q) → R := by
+  rw[Imp_iff_not_or,Not_or]
+  rw[and_or_right]
+  rw[← Imp_iff_not_or,← Imp_iff_not_or]
+  exact And.intro h1 h2
+
+
 
 Conclusion ""
+
+NewDefinition And.intro

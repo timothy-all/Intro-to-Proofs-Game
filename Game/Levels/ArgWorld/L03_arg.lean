@@ -3,23 +3,16 @@ import Game.Levels.ArgWorld.L02_arg
 World "ArgWorld"
 Level 3
 
-Title "Law of the syllogism"
+Title "Disjunctive Syllogism"
 
 Introduction "
-### **🤔 Level 3?**
+### **Level 3**
 "
 
-set_option pp.parens true
 
-/--
-Tactic intro
--/
-TacticDoc intro
-
-Statement (P Q R : Prop) (h1 : P → Q) ( h2 : Q → R) : (P → R) := by
-  intro h3
-  exact h2 (h1 h3)
+Statement (P Q : Prop) (h1 : P ∨ Q) (h2 : ¬ P) : Q := by
+  rw[← Not_not P] at h1
+  rw[← Imp_iff_not_or] at h1
+  exact h1 h2
 
 Conclusion ""
-
-NewTactic intro

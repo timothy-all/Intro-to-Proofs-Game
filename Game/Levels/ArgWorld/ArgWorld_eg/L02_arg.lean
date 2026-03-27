@@ -1,12 +1,12 @@
-import Game.Levels.TimWorld.L05_Tim
+import Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
 
-World "TimWorld"
+World "ArgWorld"
 Level 6
 
-Title "Test"
+Title "Conditional Proof"
 
 Introduction "
-### **🤔 Level 6?**
+### **Level 6**
 "
 
 

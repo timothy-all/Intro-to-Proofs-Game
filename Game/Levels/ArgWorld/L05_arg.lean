@@ -1,18 +1,25 @@
-import Game.Levels.TimWorld.L04_Tim
+import Game.Levels.ArgWorld.L04_arg
 
-World "TimWorld"
+World "ArgWorld"
 Level 5
 
-Title "Test"
+Title "Law of the syllogism"
 
 Introduction "
-### **🤔 Level 5?**
+### **Level 5**
 "
 
-Statement (P : Prop) (h : ¬ P → False) : P := by
-  rw[← Or_imp] at h
-  rw[Not_not] at h
-  rw[Or_false] at h
-  exact h
+set_option pp.parens true
+
+/--
+Tactic intro
+-/
+TacticDoc intro
+
+Statement (P Q R : Prop) (h1 : P → Q) ( h2 : Q → R) : (P → R) := by
+  intro h3
+  exact h2 (h1 h3)
 
 Conclusion ""
+
+NewTactic intro
