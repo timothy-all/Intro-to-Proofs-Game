@@ -1,18 +1,18 @@
-import Game.Levels.TimWorld.L03_Tim
+import Game.Levels.ArgWorld.L03_arg
 
-World "TimWorld"
+World "ArgWorld"
 Level 4
 
-Title "Test"
+Title "Disjunctive Syllogism"
 
 Introduction "
-### **🤔 Level 4?**
+### **Level 4**
 "
 
 
 Statement (P Q : Prop) (h1 : P ∨ Q) (h2 : ¬ P) : Q := by
   rw[← Not_not P] at h1
-  rw[Or_imp] at h1
+  rw[Imp_iff_not_or] at h1
   exact h1 h2
 
 Conclusion ""

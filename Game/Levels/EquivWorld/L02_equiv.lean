@@ -30,21 +30,7 @@ The tactic `rw` is the same as `rewrite` except it automatically attempts to cle
 TacticDoc rw
 
 Statement contrapositive (P Q : Prop) : (P → Q) ↔ (¬ Q → ¬ P) := by
-  Hint (hidden := true) "Maybe we tried
-  ```
-  rewrite[Or_imp]
-  ```
-  and it didn't work. Why? Check the entry for `Or_imp` in the **Theorems** tab. Note that
-  ```
-  Or_imp (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q)
-  ```
-  We want to apply this law ***in reverse***. In other words, we want to rewrite `P → Q` to `¬ P ∨ Q`. 👉 In order to do this, try the syntax:
-  ```
-  rewrite[← Or_imp]
-  ```
-  ### **⌨ Typesetting Tip**
-  In order to get the pretty printed left arrow `←` use `\\left`. You can also use `<-` instead."
-  rewrite[← Or_imp, ← Or_imp]
+  rewrite[Imp_iff_not_or, Imp_iff_not_or]
   Hint "Here's where our newly unlocked theorem can be handy."
   rw[Not_not]
   Hint "We're almost home. Let's introduce a new tactic ...

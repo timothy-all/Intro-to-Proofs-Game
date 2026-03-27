@@ -14,9 +14,9 @@ set_option pp.parens true
 
 
 Statement (P Q R : Prop) : (P → (Q ∨ R)) ↔ (¬ R → (P → Q)) := by
-  rw[← Or_imp,← Or_imp]
+  rw[Imp_iff_not_or,Imp_iff_not_or]
   rw[Not_not]
-  rw[← Or_imp]
+  rw[Imp_iff_not_or]
   rw[Or_comm Q] -- tricky since or_comm has implicit arguments
   rw[← Or_assoc]
   rw[Or_comm (¬ P)] -- ditto

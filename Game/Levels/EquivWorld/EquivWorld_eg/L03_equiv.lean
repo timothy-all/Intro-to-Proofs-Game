@@ -23,7 +23,7 @@ TheoremDoc And_true as "And_true"
 
 Statement (P Q : Prop) : (¬ ((P ∨ Q) ∧ (¬ P ∧ (Q → P)))) ↔ True := by
   rw[Not_and]
-  rw[← Or_imp]
+  rw[Imp_iff_not_or]
   rw[Not_and]
   rw[Not_or (¬ Q)]
   rw[Not_not,Not_not]

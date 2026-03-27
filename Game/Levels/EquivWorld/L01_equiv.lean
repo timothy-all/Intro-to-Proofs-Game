@@ -7,7 +7,7 @@ Title "Intro to Lean"
 
 Introduction "
 ## **Level 1**
-We've unlocked two theorems for this first level, namely: `Or_comm` and `Or_imp`. 🔍 Check out the entries for these theorems in the **Theorems** tab.
+We've unlocked two theorems for this first level, namely: `Or_comm` and `Imp_iff_not_or`. 🔍 Check out the entries for these theorems in the **Theorems** tab.
 
 The conditional law says that `P → Q` is logically equivalent to `¬ P ∨ Q`. This looks *very* close to that statement. We might start by ***rewriting*** the right-hand side of our goal...
   ### **❯ The `rewrite` tactic**
@@ -52,10 +52,10 @@ $$ (¬ P ∨ Q) ↔ (P → Q) $$
 
 Here's what it looks like in Lean:
 ```
-Or_imp (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q) := by
+Imp_iff_not_or (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q) := by
 ```
 -/
-TheoremDoc Or_imp as "Or_imp"
+TheoremDoc Imp_iff_not_or as "Imp_iff_not_or"
 
 /--
 This is the **Commutative Law** for `∨`. It says that
@@ -73,7 +73,7 @@ TheoremDoc Or_comm as "Or_comm"
 Statement (P Q : Prop) : (P → Q) ↔ (Q ∨ ¬ P) := by
   rewrite[Or_comm]
   Hint "We should now rewrite the left-hand side of our goal using the **Conditional Law**..."
-  rewrite[Or_imp]
+  rewrite[Imp_iff_not_or]
   Hint "
   ### **❯ The `rfl` tactic**
   Our goal is currently `(P → Q) ↔ (P → Q)` ... this is true by reflexitivity! The tactic that clears the goal is `rfl`. 🔍 Check out the entry for `rfl` in the **Tactics** tab. 👉 In our case, try:
@@ -89,4 +89,4 @@ You beat the first level! We'll add more **Theorems** (known logical equivalence
 "
 
 NewTactic rewrite rfl
-NewTheorem Or_imp Or_comm
+NewTheorem Imp_iff_not_or Or_comm

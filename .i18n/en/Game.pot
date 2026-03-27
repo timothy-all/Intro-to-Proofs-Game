@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-26\n"
+"POT-Creation-Date: 2026-03-27\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -20,8 +20,13 @@ msgstr "Project-Id-Version: Game v4.23.0\n"
 #: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
 #: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
 #: Game.Levels.RelationWorld.L01_Cartesianproducts
+#: Game.Levels.RelationWorld.L02_Cartesianproducts
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
 msgid ""
 msgstr ""
 
@@ -39,6 +44,14 @@ msgid "This is the **Commutative Law** for §0. It says that\n"
 "§2"
 msgstr ""
 
+#. §0: `apply double_inclusion`
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
+msgid "Double inclusion exercise involving Cartesian products.\n"
+"\n"
+"Note: It is possible to prove this just using rewrites, but the intent is to get double inclusion practice. Start with §0 to set up your double inclusion proof."
+msgstr ""
+
 #: GameServer.RpcHandlers
 msgid "intermediate goal solved! 🎉"
 msgstr ""
@@ -52,15 +65,15 @@ msgid "# **Logical Equivalences Examples**\n"
 "Let's get more practice with logical equivalences!"
 msgstr ""
 
-#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
-msgid "Double inclusion exercise involving Cartesian products."
-msgstr ""
-
 #. §0: `rw`
 #. §1: `rewrite`
 #. §2: `rfl`
 #: Game.Levels.EquivWorld.L02_equiv
 msgid "The tactic §0 is the same as §1 except it automatically attempts to clear the goal with §2 at the end. This can often save us a line."
+msgstr ""
+
+#: Game.Levels.RelationWorld.L02_Cartesianproducts
+msgid "Include a proof in English"
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
@@ -137,7 +150,7 @@ msgstr ""
 
 #. §0: $$ (¬ P ∨ Q) ↔ (P → Q) $$
 #. §1: ```
-#. Or_imp (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q) := by
+#. Imp_iff_not_or (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q) := by
 #. ```
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "This theorem is the so-called **Conditional Law**. It says that\n"
@@ -146,6 +159,12 @@ msgid "This theorem is the so-called **Conditional Law**. It says that\n"
 "\n"
 "Here's what it looks like in Lean:\n"
 "§1"
+msgstr ""
+
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
+msgid "Proof in English?"
 msgstr ""
 
 #. §0: `Not_not`
@@ -185,6 +204,18 @@ msgstr ""
 msgid "This is half of **DeMorgan's Law**. It says that\n"
 "\n"
 "§0"
+msgstr ""
+
+#. §0: `A × B`
+#. §1: `C × D`
+#. §2: `A`
+#. §3: `C`
+#. §4: `B`
+#. §5: `D`
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
+msgid "Cartesian products: What does it mean for §0 and §1 to be disjoint?\n"
+"\n"
+"In the statement of the theorem below, we're assuming §2 and §3 come from the same universe; similar for §4 and §5. Of course, if either fails, the conclusion is automatically true."
 msgstr ""
 
 #. §0: `Not_or`
@@ -229,6 +260,11 @@ msgstr ""
 msgid "### ***In-class examples and HW problems***"
 msgstr ""
 
+#. §0: `or`
+#: Game.Levels.RelationWorld.L02_Cartesianproducts
+msgid "Use the previous level to simplify, then you'll need to use known facts about §0 statements."
+msgstr ""
+
 #: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
 msgid "Example 5"
 msgstr ""
@@ -263,7 +299,6 @@ msgstr ""
 #. §2: `A`
 #. §3: `x`
 #: Game.Levels.RelationWorld.L01_Cartesianproducts
-#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
 msgid "As a proof in English, our steps here translate to:\n"
 "Since §0, we know that it's not true that the first coordinate of §1 is in §2 and the second coordinate of §3 is in B.\n"
 "unfinished"
@@ -301,34 +336,8 @@ msgstr ""
 msgid "### **Level 2?**"
 msgstr ""
 
-#. §0: ```
-#. rewrite[Or_imp]
-#. ```
-#. §1: `Or_imp`
-#. §2: ```
-#. Or_imp (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q)
-#. ```
-#. §3: `P → Q`
-#. §4: `¬ P ∨ Q`
-#. §5: ```
-#. rewrite[← Or_imp]
-#. ```
-#. §6: `←`
-#. §7: `\\left`
-#. §8: `<-`
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "Maybe we tried\n"
-"§0\n"
-"and it didn't work. Why? Check the entry for §1 in the **Theorems** tab. Note that\n"
-"§2\n"
-"We want to apply this law ***in reverse***. In other words, we want to rewrite §3 to §4. 👉 In order to do this, try the syntax:\n"
-"§5\n"
-"### **⌨ Typesetting Tip**\n"
-"In order to get the pretty printed left arrow §6 use §7. You can also use §8 instead."
-msgstr ""
-
 #. §0: `Or_comm`
-#. §1: `Or_imp`
+#. §1: `Imp_iff_not_or`
 #. §2: `P → Q`
 #. §3: `¬ P ∨ Q`
 #. §4: `rewrite`
@@ -365,9 +374,9 @@ msgstr ""
 msgid "Nand_self"
 msgstr ""
 
-#. §0: `Or_imp`
+#. §0: `Imp_iff_not_or`
 #. §1: ```
-#. rw[← Or_imp,← Or_imp]
+#. rw[← Imp_iff_not_or,← Imp_iff_not_or]
 #. ```
 #: Game.Levels.EquivWorld.L03_equiv
 msgid "That was a good first step. You might want to apply the **Conditional Law** codified in §0 two more times. You can do this in one step with:\n"
@@ -485,6 +494,11 @@ msgstr ""
 msgid "Example 6"
 msgstr ""
 
+#: Game.Levels.RelationWorld.L02_Cartesianproducts
+msgid "The previous level suggests that we can conclude that an element fails to be in a Cartesian product as long as at least one coordinate fails to be in the required set.\n"
+"Let's prove it."
+msgstr ""
+
 #. §0: `rfl`
 #. §1: `(P → Q) ↔ (P → Q)`
 #. §2: `rfl`
@@ -566,12 +580,11 @@ msgid "🔍 Check out two freshly unlocked laws of logic in the **Theorems** tab
 msgstr ""
 
 #: Game.Levels.RelationWorld.L01_Cartesianproducts
+#: Game.Levels.RelationWorld.L02_Cartesianproducts
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
 msgid "Cartesian products"
-msgstr ""
-
-#: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
-msgid "### **Level 4**"
 msgstr ""
 
 #. §0: $$ ¬ ¬ P ↔ P $$
@@ -579,6 +592,10 @@ msgstr ""
 msgid "This is the **Double Negation Law**. It says that\n"
 "\n"
 "§0"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
+msgid "### **Level 4**"
 msgstr ""
 
 #. §0: `And_assoc`

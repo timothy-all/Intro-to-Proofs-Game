@@ -35,13 +35,13 @@ Doc on currying
 TheoremDoc curry as "curry"
 
 Statement curry (P Q R : Prop) : ((P ∧ Q) → R) ↔ (P → (Q → R)) := by --currying
-  rw[← Or_imp]
-  Hint "That was a good first step. You might want to apply the **Conditional Law** codified in `Or_imp` two more times. You can do this in one step with:
+  rw[Imp_iff_not_or]
+  Hint "That was a good first step. You might want to apply the **Conditional Law** codified in `Imp_iff_not_or` two more times. You can do this in one step with:
   ```
-  rw[← Or_imp,← Or_imp]
+  rw[← Imp_iff_not_or,← Imp_iff_not_or]
   ```
   "
-  rw[← Or_imp,← Or_imp]
+  rw[Imp_iff_not_or,Imp_iff_not_or]
   Hint "🔍 Check out two freshly unlocked laws of logic in the **Theorems** tab."
   rw[Not_and]
   rw[Or_assoc]

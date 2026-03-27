@@ -17,7 +17,7 @@ TheoremDoc True_and as "True_and"
 
 
 Statement (P Q : Prop) : (P → Q) ↔ (P ∧ Q) ∨ ¬ P := by
-  rw[← Or_imp]
+  rw[Imp_iff_not_or]
   rw[Or_comm _ (¬ P)]
   rw[Or_and_left]
   rw[Or_comm (¬ P) P]

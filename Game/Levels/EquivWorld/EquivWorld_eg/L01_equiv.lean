@@ -27,14 +27,14 @@ $$(P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))$$
 TheoremDoc Or_and_left as "Or_and_left"
 
 Statement (P Q R : Prop) : ((P ∨ Q) → R) ↔ ((P → R) ∧ (Q → R)) := by
-  rw[← Or_imp]
+  rw[Imp_iff_not_or]
   rw[Not_or]
   rw[Or_comm]
   rw[Or_and_left]
   rw[Or_comm]
-  rw[Or_imp]
+  rw[← Imp_iff_not_or]
   rw[Or_comm]
-  rw[Or_imp]
+  rw[← Imp_iff_not_or]
 
 
 Conclusion ""

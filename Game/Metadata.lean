@@ -9,11 +9,11 @@ import Mathlib.Data.Set.Lattice
 open Classical
 
 @[simp]
-theorem Or_imp (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q) := by
+theorem Imp_iff_not_or (P Q : Prop) : (P → Q) ↔ (¬ P ∨ Q) := by
   rw[imp_iff_not_or]
 
 theorem Contra (P Q : Prop) : (P → Q) ↔ (¬ Q → ¬ P) := by
-  repeat rw[← Or_imp]
+  repeat rw[Imp_iff_not_or]
   rw[Classical.not_not]
   rw[Or.comm]
 
@@ -118,7 +118,7 @@ theorem subset_def {α : Type u} (s t : Set α) : (s ⊆ t) = ∀ x ∈ s, x ∈
 /- Logic -/
 
 def Nand (P Q : Prop) : Prop := ¬ (P ∧ Q)
-infix:70 " ⊼ " => Nand  -- standard NAND symbol
+infix:70 " ⊼ " => Nand
 
 theorem nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q) := Iff.rfl
 

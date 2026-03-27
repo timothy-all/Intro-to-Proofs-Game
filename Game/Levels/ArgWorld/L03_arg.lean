@@ -1,9 +1,9 @@
-import Game.Levels.TimWorld.L02_Tim
+import Game.Levels.ArgWorld.L02_arg
 
-World "TimWorld"
+World "ArgWorld"
 Level 3
 
-Title "Test"
+Title "Law of the syllogism"
 
 Introduction "
 ### **🤔 Level 3?**
