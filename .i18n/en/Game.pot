@@ -1,12 +1,23 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-27\n"
+"POT-Creation-Date: 2026-03-31\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
+
+#. §0: `hPQ : P → Q`
+#. §1: `P`
+#. §2: `Q`
+#. §3: `hQ : Q`
+#: Game.Levels.ArgWorld.L01_arg
+msgid "## **Level 1**\n"
+"Lean natively is aware of the valid argument known as **modus ponens**. In fact, Lean has a funny way of interpreting...\n"
+"## **Implications as functions**\n"
+"We have §0. We can think of this implication as being a function, whose input is (a proof of) §1 and whose output is (a proof of) §2. So we should be able to obtain a new hypothesis in our situation here, namely §3. But how to do this?"
+msgstr ""
 
 #. §0: `∧`
 #. §1: $$ P ∧ Q ↔ Q ∧ P $$
@@ -56,12 +67,6 @@ msgstr ""
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
 msgid ""
-msgstr ""
-
-#: Game.Levels.ArgWorld.L01_arg
-msgid "### **Level 1**\n"
-"Lean natively is aware of the valid argument known as **modus ponens**. In fact, Lean has a funny way of interpreting...\n"
-"### **Implications as functions**"
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
@@ -236,6 +241,10 @@ msgstr ""
 msgid "Nand_self"
 msgstr ""
 
+#: Game.Levels.ArgWorld.L01_arg
+msgid "Obtain doc"
+msgstr ""
+
 #: Game.Levels.ArgWorld.L04_arg
 msgid "And.intro doc"
 msgstr ""
@@ -292,6 +301,25 @@ msgstr ""
 #: Game.Levels.ArgWorld.L04_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
 msgid "Test"
+msgstr ""
+
+#. §0: `obtain`
+#. §1: `obtain`
+#. §2: ```
+#. obtain hQ := hPQ (hP)
+#. ```
+#. §3: `hPQ`
+#. §4: `hP`
+#. §5: ```
+#. obtain hQ := hPQ hP
+#. ```
+#: Game.Levels.ArgWorld.L01_arg
+msgid "### **❯ The §0 tactic**\n"
+"The §1 tactic allows us to introduce new hypotheses into our current proof *as long as* we supply proofs of those hypotheses. 👉 Try the following basic usage:\n"
+"§2\n"
+"**Note:** the space between §3 (the *function*) and §4 (the *input*). Since the argument here is atomic, the parentheses are optional. So even the following ought to work:\n"
+"§5\n"
+""
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
@@ -584,6 +612,21 @@ msgid "**Here's what happend:** §0 was applied to the **first instance** encoun
 "§7\n"
 "### **⌨ Typesetting Tip**\n"
 "To prety print the left arrow §8 use §9. You can also use §10 if you're not interested in pretty printing.\n"
+""
+msgstr ""
+
+#. §0: `hQ : Q`
+#. §1: `exact`
+#. §2: `exact e`
+#. §3: `e`
+#. §4: ```
+#. exact hQ
+#. ```
+#: Game.Levels.ArgWorld.L01_arg
+msgid "Notice that we now have §0 as a hypothesis. But this is our goal too! What finishing tactic will clear the level?\n"
+"### **❯ The §1 tactic**\n"
+"The tactic §2 will clear the goal if the goal matches the type of §3. 👉 In our case, try\n"
+"§4\n"
 ""
 msgstr ""
 
