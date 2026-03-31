@@ -6,7 +6,7 @@ Level 4
 Title "Test"
 
 Introduction "
-### **🤔 Level 4?**
+### **Level 4**
 "
 
 set_option pp.parens true
