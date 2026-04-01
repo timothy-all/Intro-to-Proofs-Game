@@ -112,26 +112,129 @@ apply Set.Subset.antisymm
 exact h₁
 exact h₂
 
+
+/- Theorem below isn't needed; using `intro x` will just unpack a subset statement directly -/
 theorem subset_def {α : Type u} (s t : Set α) : (s ⊆ t) = ∀ x ∈ s, x ∈ t := by
   exact Set.subset_def
 
+
+
+
 /- Relations -/
 
+def Rel (u v: Type) := u → v → Prop
+
+def Rel.set (R: Rel u v) := {(a,b) | R a b}
+
+--infix test below
+namespace Rel
+
+scoped notation:50 a:50 " ~[" R "] " b:50 => (a, b) ∈ Rel.set R
+
+def exrel : Rel ℕ ℕ := fun (a: ℕ) (b: ℕ) => (a=b)
+
+#check (2,2) ∈ exrel.set
+#check 2 ~[exrel] 2
+
+end Rel
+
+def Rel.inv {u v : Type} (R: Rel u v) : Rel v u := fun (b : v) (a : u) => R a b
+
+def Rel_subrel (R: Rel u v) (S: Rel u v) : Prop := ∀ a b, R a b → S a b
+
+def Rel.dom {u v : Type} (R: Rel u v) := {a | ∃ b, R a b}
+
+def Rel.range {u v : Type} (R: Rel u v) := {b | ∃ a, R a b}
+
+def Rel.comp {u v w: Type} (S: Rel v w) (R: Rel u v) : Rel u w :=
+  fun (a: u) (c: w) => ∃ b, (R a b) ∧ (S b c)
+infix:70 " ∘ " => Rel.comp
+
+def Rel.on (u : Type) := Rel u u
+
+def Rel_id (u : Type) : Rel.on u := fun (u1: u) (u2: u) => u1 = u2
+
+def isReflexive {u : Type} (R: Rel.on u) := ∀ a, R a a
+
+def isSymmetric {u : Type} (R: Rel.on u) := ∀ a b, (R a b) → (R b a)
+
+def isAntisymmetric {u : Type} (R: Rel.on u) := ∀ a b, ((R a b) ∧ (R b a)) → a = b
+
+def isTransitive {u : Type} (R: Rel.on u) := ∀ a b c, (R a b) → (R b c) → (R a c)
+
+def isPartialOrder {u : Type} (R: Rel.on u) := isReflexive R ∧ isAntisymmetric R ∧ isTransitive R
+
+def isEquivalence {u : Type} (R: Rel.on u) := isReflexive R ∧ isSymmetric R ∧ isTransitive R
+
+theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
+  intro x
+  intro h1
+  apply h at h1
+  exact h1
+
+theorem Rel_double_inclusion {u v: Type} (R: Rel u v) (S: Rel u v) : R = S ↔ R.set = S.set := by
+  constructor
+  intro h
+  rw [h]
+  intro h
+  funext x y
+  simp
+  constructor
+  intro h1
+  obtain h2 : (x,y) ∈ R.set := by exact h1
+  rw [h] at h2
+  exact h2
+  intro h1
+  obtain h2 : (x,y) ∈ S.set := h1
+  rw [← h] at h1
+  exact h1
 
 /- Defines `R a b` for a relates to b under R -/
-def Rel {u v: Type} (A: Set u) (B: Set v) := A → B → Prop
+def Rel'' {u: Type} {v: Type} (A: Set u) (B: Set v) := A → B → Prop
 
-def Rel_inv {u v : Type} {A : Set u} {B : Set v} (R: Rel A B) := B → A → (Rel A B)
+def Rel''.inv {u v : Type} {A : Set u} {B : Set v} (R: Rel'' A B) : Rel'' B A := fun (b : B) (a : A) => R a b
 
 /- Set of ordered pairs in a relation -/
-def Rel_set {u v : Type} (A: Set u) (B: Set v) (R: Rel A B) := {(a,b) | R a b}
 
-def Rel_dom {u v : Type} {A : Set u} {B: Set v} (R: Rel A B) := {a | ∃ b : B, R a b}
+def Rel''.set {u v : Type} {A : Set u} {B : Set v} (R : Rel'' A B) :
+  Set (u × v) :=
+{ p | ∃ (a : ↑A) (b : ↑B), p = ((a : u), (b : v)) ∧ R a b }
 
-def Rel_range {u v : Type} {A : Set u} {B: Set v} (R: Rel A B) := {b | ∃ a : A, R a b}
+def Rel''.dom {u v : Type} {A : Set u} {B: Set v} (R: Rel'' A B) := {a | ∃ b, (a,b) ∈ R.set}
 
-def Rel_comp {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel B C) (R: Rel A B) := {(a,c) | ∃ b : B, (R a b) ∧ (S b c)}
-infix:70 " ∘ " => Rel_comp
+def Rel''.range {u v : Type} {A : Set u} {B: Set v} (R: Rel'' A B) := {b | ∃ a, (a,b) ∈ R.set}
+
+def Rel''.comp {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel'' B C) (R: Rel'' A B) : Rel'' A C :=
+  fun (a: A) (c: C) => ∃ b, (R a b) ∧ (S b c)
+--infix:70 " ∘ " => Rel.comp
+
+/- Type for relation on a single set. Relevant definitions follow -/
+def Rel''.on {u : Type} (A: Set u) := Rel'' A A
+
+def isReflexive'' {u : Type} {A: Set u} (R: Rel''.on A) := ∀ a, R a a
+
+def isSymmetric'' {u : Type} {A: Set u}  (R: Rel''.on A) := ∀ a b, (R a b) → (R b a)
+
+def isAntisymmetric'' {u : Type} {A: Set u}  (R: Rel''.on A) := ∀ a b, ((R a b) ∧ (R b a)) → a = b
+
+def isTransitive'' {u : Type} {A: Set u} (R: Rel''.on A) := ∀ a b c, (R a b) → (R b c) → (R a c)
+
+def isPartialOrder'' {u : Type} {A: Set u} (R: Rel''.on A) := isReflexive'' R ∧ isAntisymmetric'' R ∧ isTransitive'' R
+
+def isEquivalence'' {u : Type} {A: Set u} (R: Rel''.on A) := isReflexive'' R ∧ isSymmetric'' R ∧ isTransitive'' R
+
+
+
+
+/- Developer only, maybe? -/
+theorem Rel''_subset (A : Set u) (B : Set v) (R : Rel'' A B) : R.set ⊆ A ×ˢ B := by
+  intro p hp
+  rcases hp with ⟨a,b,hp,aRb⟩
+  constructor
+  rw[hp]
+  simp
+  rw[hp]
+  simp
 
 /- Possible alternative relation structure -/
 structure Rel' {u v: Type} (A: Set u) (B: Set v) where
@@ -170,6 +273,7 @@ theorem Rel_comp_proof' {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel' 
   exact hy2.right
 
 def Rel_comp' {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel' B C) (R: Rel' A B) : Rel' A C := {pairs := {(a,c) | ∃ b, (a,b) ∈ R.pairs ∧ (b,c) ∈ S.pairs}, subset := Rel_comp_proof' S R}
+
 /- Logic -/
 
 def Nand (P Q : Prop) : Prop := ¬ (P ∧ Q)
