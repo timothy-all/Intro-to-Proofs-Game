@@ -12,12 +12,20 @@ Let's go through a few basic examples."
 
 Statement {u : Type} (R: Rel_on u) : (Rel_id u).set ⊆ R.set ↔ isReflexive R := by
   constructor
-  intro x y
-  rw [Rel_id_set] at x
-  sorry
-  sorry
+  intro k y
+  rw [Rel_id_set] at k
+  obtain l: (y,y) ∈ R.set
+  apply k
+  use y
+  exact l
+  intro k y l
+  rw [Rel_id_set] at l
+  obtain ⟨a,ha⟩ := l
+  rw [← ha]
+  apply k
 
-Conclusion "You don't need to use unfold first to unpack the existential quantifier in `(S ∘ R).dom`; we could grab it directly too. The English analog of this is how we don't write the existential quantifier in ''indexed'' set builder notation."
+
+Conclusion "English proof?"
 
 /- Use these commands to add items to the game's inventory. -/
 

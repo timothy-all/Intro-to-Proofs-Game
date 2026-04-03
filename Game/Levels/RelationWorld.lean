@@ -5,6 +5,8 @@ import Game.Levels.RelationWorld.L03_Relations
 import Game.Levels.RelationWorld.L04_Relations
 import Game.Levels.RelationWorld.L05_Relations
 import Game.Levels.RelationWorld.L06_Relations
+import Game.Levels.RelationWorld.L07_Relations
+import Game.Levels.RelationWorld.L08_Relations
 
 
 
