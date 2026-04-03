@@ -121,17 +121,23 @@ theorem subset_def {α : Type u} (s t : Set α) : (s ⊆ t) = ∀ x ∈ s, x ∈
 /- Defines `R a b` for a relates to b under R -/
 def Rel {u v: Type} (A: Set u) (B: Set v) := A → B → Prop
 
-def Rel_inv {u v : Type} {A : Set u} {B : Set v} (R: Rel A B) := B → A → (Rel A B)
+def Rel.inv {u v : Type} {A : Set u} {B : Set v} (R: Rel A B) : Rel B A :=
+  fun (b : B) (a : A) => R a b
 
 /- Set of ordered pairs in a relation -/
-def Rel_set {u v : Type} (A: Set u) (B: Set v) (R: Rel A B) := {(a,b) | R a b}
+def Rel.set {u v : Type} {A : Set u} {B : Set v} (R : Rel A B) :
+  Set (u × v) :=
+{ p | ∃ (a : A) (b : B), p = ((a : u), (b : v)) ∧ R a b }
 
-def Rel_dom {u v : Type} {A : Set u} {B: Set v} (R: Rel A B) := {a | ∃ b : B, R a b}
+def Rel.dom {u v : Type} {A : Set u} {B: Set v} (R: Rel A B) := {a | ∃ b, (a,b) ∈ R.set}
 
-def Rel_range {u v : Type} {A : Set u} {B: Set v} (R: Rel A B) := {b | ∃ a : A, R a b}
+def Rel.range {u v : Type} {A : Set u} {B: Set v} (R: Rel A B) := {b | ∃ a, (a,b) ∈ R.set}
 
-def Rel_comp {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel B C) (R: Rel A B) := {(a,c) | ∃ b : B, (R a b) ∧ (S b c)}
-infix:70 " ∘ " => Rel_comp
+def Rel.comp {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel B C) (R: Rel A B) : Rel A C :=
+ fun (a : A) (c : C) => ∃ b : B, R a b ∧ S b c
+
+notation:50 S " ∘ " R => Rel.comp S R
+
 
 /- Possible alternative relation structure -/
 structure Rel' {u v: Type} (A: Set u) (B: Set v) where
@@ -179,3 +185,31 @@ theorem nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q) := Iff.rfl
 
 -- xor_def : P ⊻ Q ↔  (P ∧ ¬Q) ∨ (Q ∧ ¬P) weird that Xor is known but not Nand
 infix:70 " ⊻ " => Xor'
+
+example (A : Set u) (B : Set v) (R : Rel A B) : R.set ⊆ A ×ˢ B := by
+  intro p hp
+  rcases hp with ⟨a,b,hp,aRb⟩
+  constructor
+  rw[hp]
+  simp
+  rw[hp]
+  simp
+
+example (A : Set u) (B : Set v) (C : Set w) (R : Rel A B) (S : Rel B C) : (S ∘ R).set ⊆ A ×ˢ C := by
+  intro p hp
+  rcases hp with ⟨a,c,hp,aRc⟩
+  sorry
+
+def Rela (u v: Type) := u → v → Prop
+
+def Rela.set (R: Rela u v) := {(a,b) | R a b}
+
+namespace Rela
+
+scoped notation:50 a:50 " [" R "] " b:50 => R a b
+
+def exrel : Rela ℕ ℕ := fun a b => a = b
+
+example : 2 [exrel] 2 := by
+  unfold exrel
+  rfl

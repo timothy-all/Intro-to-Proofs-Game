@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-31\n"
+"POT-Creation-Date: 2026-04-01\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -53,7 +53,6 @@ msgstr ""
 #: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
 #: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
 #: Game.Levels.ArgWorld.L01_arg
-#: Game.Levels.ArgWorld.L02_arg
 #: Game.Levels.ArgWorld.L03_arg
 #: Game.Levels.ArgWorld.L04_arg
 #: Game.Levels.ArgWorld.L05_arg
@@ -70,7 +69,6 @@ msgid ""
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
-#: Game.Levels.ArgWorld.L03_arg
 msgid "### **Level 3**"
 msgstr ""
 
@@ -163,6 +161,23 @@ msgid "This is half of **DeMorgan's Law**. It says that\n"
 "§0"
 msgstr ""
 
+#. §0: `P → R`
+#. §1: `P`
+#. §2: `P → Q`
+#. §3: `intro`
+#. §4: `intro`
+#. §5: `intro`
+#. §6: ```
+#. intro hP
+#. ```
+#: Game.Levels.ArgWorld.L05_arg
+msgid "We wish to prove that §0 -- o ur goal, itself, is an implication. We know that implications are true by default if the hypothesis is false. So we might as well assume that §1 is true (otherwise §2 is definitely true). How do we do this in Lean?\n"
+"### **❯ The §3 tactic**\n"
+"To *introduce* the hypothesis of an implication as a goal, we use the §4 tactic. 🔍 Check out the entry for §5 in the **Tactics** tab. 👉 In our specific situation, try:\n"
+"§6\n"
+""
+msgstr ""
+
 #. §0: `Not_or`
 #. §1: `Or_and_left`
 #: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
@@ -192,6 +207,11 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
 msgid "Example 7"
+msgstr ""
+
+#. §0: `«{hP}» : P`
+#: Game.Levels.ArgWorld.L05_arg
+msgid "We now have the hypothesis §0. We can clear the level in one line now if we're clever..."
 msgstr ""
 
 #. §0: `∨`
@@ -247,6 +267,12 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.L04_arg
 msgid "And.intro doc"
+msgstr ""
+
+#. §0: `hPQ`
+#: Game.Levels.ArgWorld.L03_arg
+msgid "## **Level 3**\n"
+"This valid argument is sometimes referred to as the law of the **disjunctive syllogism**. Using some laws of logical equivalence, try to rewrite the hypothesis §0 in a form that is more similar to the hypotheses of the last couple levels."
 msgstr ""
 
 #. §0: ```
@@ -347,6 +373,10 @@ msgstr ""
 msgid "Currying"
 msgstr ""
 
+#: Game.Levels.ArgWorld.L04_arg
+msgid "## **Level 4**"
+msgstr ""
+
 #: Game
 msgid "You should use this game as a template for your own game and add your own levels."
 msgstr ""
@@ -402,6 +432,17 @@ msgstr ""
 #. §3: `∼`
 #: Game.Levels.EquivWorld.equiv_docs
 msgid "This tactic clears a goal whose target has the form §0 or §1 (or §2 where §3 is any relation that has a reflexivity lemma tagged with the attribute @[refl] -- we'll talk more about relations later)."
+msgstr ""
+
+#. §0: `hPQ`
+#. §1: `contrapositive`
+#. §2: ```
+#. rw[contrapositive] at hPQ
+#. ```
+#: Game.Levels.ArgWorld.L02_arg
+msgid "## **Level 2**\n"
+"This valid argument is sometimes referred to as **modus tolens**. Let's use a logical equivalence to make this problem look more like the last one. If we wish to *rewrite* a hypothesis, say §0 😉, using a known logical equivalence from the **Theorems** tab, say §1 😉, we can use the syntax:\n"
+"§2"
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg
@@ -493,17 +534,21 @@ msgid "# **Logical Equivalences Examples**\n"
 "Let's get more practice with logical equivalences!"
 msgstr ""
 
+#: Game.Levels.ArgWorld.L05_arg
+msgid "### **Level 5**\n"
+"The valid argument of this level is sometimes called the law of the **syllogism**."
+msgstr ""
+
 #: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
 msgid "### **Level 1**"
 msgstr ""
 
-#: Game.Levels.ArgWorld.L02_arg
-#: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
-msgid "### **Level 2**"
-msgstr ""
-
 #: Game.Levels.RelationWorld.L02_Cartesianproducts
 msgid "Include a proof in English"
+msgstr ""
+
+#: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
+msgid "### **Level 2**"
 msgstr ""
 
 #: Game.Levels.ArgWorld.L05_arg
@@ -525,6 +570,15 @@ msgid "This theorem is the so-called **Conditional Law**. It says that\n"
 "\n"
 "Here's what it looks like in Lean:\n"
 "§1"
+msgstr ""
+
+#. §0: `obtain`
+#. §1: `obtain`
+#. §2: `obtain`
+#. §3: `exact`
+#: Game.Levels.ArgWorld.L02_arg
+msgid "### **💡 Pro-tip**\n"
+"The §0 tactic is *very* handy especially when you'll need to use the hypothesis introduced by §1 in more intricate ways. But if you find yourself using §2 to introduce a hypothesis to only then call the tactic §3 on that hypothesis, then you probably could have made your work a little shorter like we've done in this level."
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
@@ -551,10 +605,6 @@ msgid "As a tutorial for how to work with Cartesian products of sets in Lean, we
 "The terms §4 and §5 showing up in the goal are how Lean denotes the first and second coordinates of §6."
 msgstr ""
 
-#: Game.Levels.ArgWorld.L03_arg
-msgid "Disjunctive Syllogism"
-msgstr ""
-
 #. §0: `A × B`
 #. §1: `C × D`
 #. §2: `A`
@@ -565,6 +615,10 @@ msgstr ""
 msgid "Cartesian products: What does it mean for §0 and §1 to be disjoint?\n"
 "\n"
 "In the statement of the theorem below, we're assuming §2 and §3 come from the same universe; similar for §4 and §5. Of course, if either fails, the conclusion is automatically true."
+msgstr ""
+
+#: Game.Levels.ArgWorld.L03_arg
+msgid "Disjunctive Syllogism"
 msgstr ""
 
 #. §0: ```
@@ -665,8 +719,24 @@ msgid "As a proof in English, our steps here translate to:\n"
 "unfinished"
 msgstr ""
 
+#. §0: ```
+#. hPQ : ¬ Q → ¬ P
+#. ```
+#. §1: `hnQ : ¬ Q`
+#. §2: `obtain`
+#. §3: `exact`
+#. §4: ```
+#. exact hPQ hnQ
+#. ```
+#: Game.Levels.ArgWorld.L02_arg
+msgid "Great! We now have\n"
+"§0\n"
+"and §1. We can now use the tactics §2 and §3 the same way we did in the last level. Or we can take a shortcut! 👉 Try:\n"
+"§4\n"
+""
+msgstr ""
+
 #: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
-#: Game.Levels.ArgWorld.L05_arg
 msgid "### **Level 5**"
 msgstr ""
 
@@ -694,10 +764,6 @@ msgid "## **Level 1**\n"
 "  In order to apply ***rewrites*** (or substitutions) in Lean, we use the §5 tactic. 🔍 Check out the entry for §6 in the **Tactics** tab for details. 👉 In this specific case, try\n"
 "  §7\n"
 "  This will apply the **Commutative Law** for §8 at the first instance in the goal where it is applicable (namely, the right-hand side in this case)."
-msgstr ""
-
-#: Game.Levels.ArgWorld.L04_arg
-msgid "### **🤔 Level 4?**"
 msgstr ""
 
 #: Game.Levels.RelationWorld
