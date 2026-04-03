@@ -150,21 +150,34 @@ def Rel.comp {u v w: Type} (S: Rel v w) (R: Rel u v) : Rel u w :=
   fun (a: u) (c: w) => ∃ b, (R a b) ∧ (S b c)
 infix:70 " ∘ " => Rel.comp
 
-def Rel.on (u : Type) := Rel u u
+def Rel_on (u : Type) := Rel u u
 
-def Rel_id (u : Type) : Rel.on u := fun (u1: u) (u2: u) => u1 = u2
+def Rel_id (u : Type) : Rel_on u := fun (u1: u) (u2: u) => u1 = u2
 
-def isReflexive {u : Type} (R: Rel.on u) := ∀ a, R a a
+/- This is a level in relation world -/
+theorem Rel_id_set {u : Type} : (Rel_id u).set = {(a,a) | a : u} := by
+  apply double_inclusion
+  intros x hx
+  unfold Rel.set at hx
+  simp at hx --Unsure how to not use simp here
+  use x.1
+  nth_rw 2 [hx]
+  intros x hx
+  obtain ⟨a,ha⟩ := hx
+  rw [←ha]
+  rfl
 
-def isSymmetric {u : Type} (R: Rel.on u) := ∀ a b, (R a b) → (R b a)
+def isReflexive {u : Type} (R: Rel_on u) := ∀ a, R a a
 
-def isAntisymmetric {u : Type} (R: Rel.on u) := ∀ a b, ((R a b) ∧ (R b a)) → a = b
+def isSymmetric {u : Type} (R: Rel_on u) := ∀ a b, (R a b) → (R b a)
 
-def isTransitive {u : Type} (R: Rel.on u) := ∀ a b c, (R a b) → (R b c) → (R a c)
+def isAntisymmetric {u : Type} (R: Rel_on u) := ∀ a b, ((R a b) ∧ (R b a)) → a = b
 
-def isPartialOrder {u : Type} (R: Rel.on u) := isReflexive R ∧ isAntisymmetric R ∧ isTransitive R
+def isTransitive {u : Type} (R: Rel_on u) := ∀ a b c, (R a b) → (R b c) → (R a c)
 
-def isEquivalence {u : Type} (R: Rel.on u) := isReflexive R ∧ isSymmetric R ∧ isTransitive R
+def isPartialOrder {u : Type} (R: Rel_on u) := isReflexive R ∧ isAntisymmetric R ∧ isTransitive R
+
+def isEquivalence {u : Type} (R: Rel_on u) := isReflexive R ∧ isSymmetric R ∧ isTransitive R
 
 theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
   intro x

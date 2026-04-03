@@ -10,15 +10,19 @@ The names for our familiar definitions are `isReflexive`, `isSymmetric`, `isAnti
 
 Let's go through a few basic examples."
 
-Statement {u : Type} (R: Rel.on u) (h: isReflexive R) : true := by
+Statement {u : Type} (R: Rel_on u) : (Rel_id u).set ⊆ R.set ↔ isReflexive R := by
+  constructor
+  intro x y
+  rw [Rel_id_set] at x
+  sorry
   sorry
 
 Conclusion "You don't need to use unfold first to unpack the existential quantifier in `(S ∘ R).dom`; we could grab it directly too. The English analog of this is how we don't write the existential quantifier in ''indexed'' set builder notation."
 
 /- Use these commands to add items to the game's inventory. -/
 
-/-- `Rel.on A` is the same thing as `Rel A A`. Shorthand for a relation on a single set. --/
-DefinitionDoc Rel.on as "Rel.on"
+/-- `Rel_on A` is the same thing as `Rel A A`. Shorthand for a relation on a single set. --/
+DefinitionDoc Rel_on as "Rel_on"
 
 /-- Makes a relation `R` reflexive. --/
 DefinitionDoc isReflexive as "isReflexive"
