@@ -11,10 +11,6 @@ Introduction "
 
 set_option pp.parens true
 
-/--
-obtain doc
--/
-TacticDoc obtain
 
 Statement (P Q R S T U: Prop) (h1 : (¬ P ∨ Q) → R) (h2 : R → (S ∨ T)) (h3: ¬ S ∧ ¬ U) (h4 : ¬ U → ¬ T) : P ∧ ¬ Q:= by
   obtain nT := h4 h3.right
@@ -24,5 +20,3 @@ Statement (P Q R S T U: Prop) (h1 : (¬ P ∨ Q) → R) (h2 : R → (S ∨ T)) (
   exact (h1 nR)
 
 Conclusion ""
-
-NewTactic obtain

@@ -59,6 +59,7 @@ msgstr ""
 #: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
+#: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
@@ -428,6 +429,7 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.L04_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
+#: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
 msgid "Test"
 msgstr ""
 
@@ -911,6 +913,10 @@ msgstr ""
 
 #: Game.Levels.RelationWorld
 msgid "Relation World"
+msgstr ""
+
+#: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
+msgid "### **🤔 Level 4?**"
 msgstr ""
 
 #: Game
