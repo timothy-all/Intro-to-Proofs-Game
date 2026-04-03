@@ -1,0 +1,333 @@
+import GameServer
+import Mathlib.Tactic.Common
+import Mathlib.Data.Set.Defs
+import Mathlib.Data.Set.Operations
+import Mathlib.Data.Set.Lattice
+-- import Mathlib.Tactic.Common
+-- Hello
+
+open Classical
+
+@[simp]
+theorem Imp_iff_not_or (P Q : Prop) : (P → Q) ↔ (¬ P ∨ Q) := by
+  rw[imp_iff_not_or]
+
+theorem Contra (P Q : Prop) : (P → Q) ↔ (¬ Q → ¬ P) := by
+  repeat rw[Imp_iff_not_or]
+  rw[Classical.not_not]
+  rw[Or.comm]
+
+theorem Not_and (P Q : Prop) : ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q) := by
+  simp -- not_and_of_not_or_not
+
+theorem Not_or (P Q : Prop) : ¬ (P ∨ Q) ↔ (¬ P ∧ ¬ Q) := by
+  simp
+
+theorem Or_comm (P Q : Prop) : P ∨ Q ↔ Q ∨ P := by
+  exact Or.comm
+
+theorem And_comm (P Q : Prop) : P ∧ Q ↔ Q ∧ P := by
+  exact And.comm
+
+theorem And_assoc (P Q R : Prop) : ((P ∧ Q) ∧ R) ↔ (P ∧ (Q ∧ R)) := by
+  exact and_assoc
+
+theorem Or_assoc (P Q R : Prop) : ((P ∨ Q) ∨ R) ↔ (P ∨ (Q ∨ R)) := by
+  exact or_assoc
+
+theorem And_or_left (P Q R : Prop) : (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R)) := by
+  exact and_or_left
+
+theorem Or_and_left (P Q R : Prop) : (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R)) := by
+  exact or_and_left
+
+theorem Not_not (P : Prop) : ¬ ¬ P ↔ P := by
+  exact Classical.not_not
+
+theorem And_self (P : Prop) : (P ∧ P) ↔ P := by
+  simp
+
+theorem Or_self (P : Prop) : (P ∨ P) ↔ P := by
+  simp
+
+theorem And_true (P : Prop) : P ∧ True ↔ P := by
+  simp
+
+theorem True_and (P : Prop) : True ∧ P ↔ P := by
+  simp
+
+theorem Or_true (P : Prop) : P ∨ True ↔ True := by
+  simp
+
+theorem True_or (P : Prop) : True ∨ P ↔ True := by
+  simp
+
+theorem And_false (P : Prop) : P ∧ False ↔ False := by
+  simp
+
+theorem False_and (P : Prop) : False ∧ P ↔ False := by
+  simp
+
+theorem Or_false (P : Prop) : P ∨ False ↔ P := by
+  simp
+
+theorem False_or (P : Prop) : False ∨ P ↔ P := by
+  simp
+
+theorem Or_not_self (P : Prop) : P ∨ ¬ P ↔ True := by
+  simp
+  by_cases h : P
+  repeat simp[h]
+
+theorem Not_self_or (P : Prop) : ¬ P ∨ P ↔ True := by
+  rw[or_comm]
+  rw[Or_not_self]
+
+theorem And_not_self (P : Prop) : P ∧ ¬ P ↔ False := by
+  simp
+
+/- Set structure -/
+
+theorem mem_union.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∪ b ↔ x ∈ a ∨ x ∈ b := by
+  rw[Set.mem_union]
+
+theorem mem_inter.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∩ b ↔ x ∈ a ∧ x ∈ b := by
+  rw [Set.mem_inter_iff]
+
+theorem mem_prod {α : Type u} {β : Type v} (s : Set α) (t : Set β) (p : α × β) : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
+  exact Set.mem_prod
+
+-- Theorem below should be unlocked following level 2 of Cartesian products since we prove the fst version
+theorem snd_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: y ∉ B) : (x,y) ∉ (A ×ˢ B) := by
+  rw [mem_prod,Not_and]
+  apply Or.intro_right
+  exact h
+
+theorem mem_diff.{u} {α : Type u} {s t : Set α} (x : α) : x ∈ s \ t ↔ x ∈ s ∧ x ∉ t := by
+  rw[Set.mem_diff]
+
+
+theorem double_inclusion {α : Type u} {a b : Set α} (h₁ : a ⊆ b) (h₂ : b ⊆ a) : a = b := by
+apply Set.Subset.antisymm
+exact h₁
+exact h₂
+
+
+/- Theorem below isn't needed; using `intro x` will just unpack a subset statement directly -/
+theorem subset_def {α : Type u} (s t : Set α) : (s ⊆ t) = ∀ x ∈ s, x ∈ t := by
+  exact Set.subset_def
+
+
+
+
+/- Relations -/
+
+def Rel (u v: Type) := u → v → Prop
+
+def Rel.set (R: Rel u v) := {(a,b) | R a b}
+
+--infix test below
+namespace Rel
+
+scoped notation:50 a:50 " ~[" R "] " b:50 => (a, b) ∈ Rel.set R
+
+def exrel : Rel ℕ ℕ := fun (a: ℕ) (b: ℕ) => (a=b)
+
+#check (2,2) ∈ exrel.set
+#check 2 ~[exrel] 2
+
+end Rel
+
+def Rel.inv {u v : Type} (R: Rel u v) : Rel v u := fun (b : v) (a : u) => R a b
+
+def Rel_subrel (R: Rel u v) (S: Rel u v) : Prop := ∀ a b, R a b → S a b
+
+def Rel.dom {u v : Type} (R: Rel u v) := {a | ∃ b, R a b}
+
+def Rel.range {u v : Type} (R: Rel u v) := {b | ∃ a, R a b}
+
+def Rel.comp {u v w: Type} (S: Rel v w) (R: Rel u v) : Rel u w :=
+  fun (a: u) (c: w) => ∃ b, (R a b) ∧ (S b c)
+infix:70 " ∘ " => Rel.comp
+
+def Rel.on (u : Type) := Rel u u
+
+def Rel_id (u : Type) : Rel.on u := fun (u1: u) (u2: u) => u1 = u2
+
+def isReflexive {u : Type} (R: Rel.on u) := ∀ a, R a a
+
+def isSymmetric {u : Type} (R: Rel.on u) := ∀ a b, (R a b) → (R b a)
+
+def isAntisymmetric {u : Type} (R: Rel.on u) := ∀ a b, ((R a b) ∧ (R b a)) → a = b
+
+def isTransitive {u : Type} (R: Rel.on u) := ∀ a b c, (R a b) → (R b c) → (R a c)
+
+def isPartialOrder {u : Type} (R: Rel.on u) := isReflexive R ∧ isAntisymmetric R ∧ isTransitive R
+
+def isEquivalence {u : Type} (R: Rel.on u) := isReflexive R ∧ isSymmetric R ∧ isTransitive R
+
+theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
+  intro x
+  intro h1
+  apply h at h1
+  exact h1
+
+theorem Rel_double_inclusion {u v: Type} (R: Rel u v) (S: Rel u v) : R = S ↔ R.set = S.set := by
+  constructor
+  intro h
+  rw [h]
+  intro h
+  funext x y
+  simp
+  constructor
+  intro h1
+  obtain h2 : (x,y) ∈ R.set := by exact h1
+  rw [h] at h2
+  exact h2
+  intro h1
+  obtain h2 : (x,y) ∈ S.set := h1
+  rw [← h] at h1
+  exact h1
+
+/- Defines `R a b` for a relates to b under R -/
+def Rel'' {u: Type} {v: Type} (A: Set u) (B: Set v) := A → B → Prop
+
+<<<<<<< HEAD
+def Rel.inv {u v : Type} {A : Set u} {B : Set v} (R: Rel A B) : Rel B A :=
+  fun (b : B) (a : A) => R a b
+
+/- Set of ordered pairs in a relation -/
+def Rel.set {u v : Type} {A : Set u} {B : Set v} (R : Rel A B) :
+  Set (u × v) :=
+{ p | ∃ (a : A) (b : B), p = ((a : u), (b : v)) ∧ R a b }
+
+def Rel.dom {u v : Type} {A : Set u} {B: Set v} (R: Rel A B) := {a | ∃ b, (a,b) ∈ R.set}
+
+def Rel.range {u v : Type} {A : Set u} {B: Set v} (R: Rel A B) := {b | ∃ a, (a,b) ∈ R.set}
+
+def Rel.comp {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel B C) (R: Rel A B) : Rel A C :=
+ fun (a : A) (c : C) => ∃ b : B, R a b ∧ S b c
+
+notation:50 S " ∘ " R => Rel.comp S R
+
+=======
+def Rel''.inv {u v : Type} {A : Set u} {B : Set v} (R: Rel'' A B) : Rel'' B A := fun (b : B) (a : A) => R a b
+
+/- Set of ordered pairs in a relation -/
+
+def Rel''.set {u v : Type} {A : Set u} {B : Set v} (R : Rel'' A B) :
+  Set (u × v) :=
+{ p | ∃ (a : ↑A) (b : ↑B), p = ((a : u), (b : v)) ∧ R a b }
+
+def Rel''.dom {u v : Type} {A : Set u} {B: Set v} (R: Rel'' A B) := {a | ∃ b, (a,b) ∈ R.set}
+
+def Rel''.range {u v : Type} {A : Set u} {B: Set v} (R: Rel'' A B) := {b | ∃ a, (a,b) ∈ R.set}
+
+def Rel''.comp {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel'' B C) (R: Rel'' A B) : Rel'' A C :=
+  fun (a: A) (c: C) => ∃ b, (R a b) ∧ (S b c)
+--infix:70 " ∘ " => Rel.comp
+
+/- Type for relation on a single set. Relevant definitions follow -/
+def Rel''.on {u : Type} (A: Set u) := Rel'' A A
+
+def isReflexive'' {u : Type} {A: Set u} (R: Rel''.on A) := ∀ a, R a a
+
+def isSymmetric'' {u : Type} {A: Set u}  (R: Rel''.on A) := ∀ a b, (R a b) → (R b a)
+
+def isAntisymmetric'' {u : Type} {A: Set u}  (R: Rel''.on A) := ∀ a b, ((R a b) ∧ (R b a)) → a = b
+
+def isTransitive'' {u : Type} {A: Set u} (R: Rel''.on A) := ∀ a b c, (R a b) → (R b c) → (R a c)
+
+def isPartialOrder'' {u : Type} {A: Set u} (R: Rel''.on A) := isReflexive'' R ∧ isAntisymmetric'' R ∧ isTransitive'' R
+
+def isEquivalence'' {u : Type} {A: Set u} (R: Rel''.on A) := isReflexive'' R ∧ isSymmetric'' R ∧ isTransitive'' R
+
+
+
+
+/- Developer only, maybe? -/
+theorem Rel''_subset (A : Set u) (B : Set v) (R : Rel'' A B) : R.set ⊆ A ×ˢ B := by
+  intro p hp
+  rcases hp with ⟨a,b,hp,aRb⟩
+  constructor
+  rw[hp]
+  simp
+  rw[hp]
+  simp
+>>>>>>> 7b89f825ffff31f145ed447e3e3d59695a4cde1f
+
+/- Possible alternative relation structure -/
+structure Rel' {u v: Type} (A: Set u) (B: Set v) where
+  pairs : Set (u × v)
+  subset : pairs ⊆ A ×ˢ B
+
+/- User would use Rel_inv' -/
+theorem Rel_swap' {u v: Type} {A: Set u} {B: Set v} (R: Rel' A B) : {(b,a) | (a,b) ∈ R.pairs} ⊆ B ×ˢ A := by
+  intro x
+  intro s
+  simp at s
+  apply R.subset at s
+  rw [mem_prod] at s
+  rw [mem_prod, and_comm]
+  exact s
+
+def Rel_inv' {u v : Type} {A: Set u} {B: Set v} (R: Rel' A B) : Rel' B A := { pairs := {(b,a) | (a,b) ∈ R.pairs}, subset := Rel_swap' R}
+
+def Rel_dom' {u v : Type} {A : Set u} {B: Set v} (R: Rel' A B) : Set u := { a | ∃ b, (a,b) ∈ R.pairs}
+
+def Rel_range' {u v : Type} {A : Set u} {B: Set v} (R: Rel' A B) : Set u := { b | ∃ a, (b,a) ∈ R.pairs}
+
+/- Used to build a composite relation -/
+theorem Rel_comp_proof' {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel' B C) (R: Rel' A B) : {(a,c) | ∃ b, (a,b) ∈ R.pairs ∧ (b,c) ∈ S.pairs} ⊆ A ×ˢ C := by
+  intro x
+  intro s
+  simp at s
+  rcases s with ⟨y, ⟨hy1,hy2⟩⟩
+  apply R.subset at hy1
+  apply S.subset at hy2
+  rw [mem_prod] at hy1
+  rw [mem_prod] at hy2
+  rw [mem_prod]
+  constructor
+  exact hy1.left
+  exact hy2.right
+
+def Rel_comp' {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel' B C) (R: Rel' A B) : Rel' A C := {pairs := {(a,c) | ∃ b, (a,b) ∈ R.pairs ∧ (b,c) ∈ S.pairs}, subset := Rel_comp_proof' S R}
+
+/- Logic -/
+
+def Nand (P Q : Prop) : Prop := ¬ (P ∧ Q)
+infix:70 " ⊼ " => Nand
+
+theorem nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q) := Iff.rfl
+
+-- xor_def : P ⊻ Q ↔  (P ∧ ¬Q) ∨ (Q ∧ ¬P) weird that Xor is known but not Nand
+infix:70 " ⊻ " => Xor'
+
+example (A : Set u) (B : Set v) (R : Rel A B) : R.set ⊆ A ×ˢ B := by
+  intro p hp
+  rcases hp with ⟨a,b,hp,aRb⟩
+  constructor
+  rw[hp]
+  simp
+  rw[hp]
+  simp
+
+example (A : Set u) (B : Set v) (C : Set w) (R : Rel A B) (S : Rel B C) : (S ∘ R).set ⊆ A ×ˢ C := by
+  intro p hp
+  rcases hp with ⟨a,c,hp,aRc⟩
+  sorry
+
+def Rela (u v: Type) := u → v → Prop
+
+def Rela.set (R: Rela u v) := {(a,b) | R a b}
+
+namespace Rela
+
+scoped notation:50 a:50 " [" R "] " b:50 => R a b
+
+def exrel : Rela ℕ ℕ := fun a b => a = b
+
+example : 2 [exrel] 2 := by
+  unfold exrel
+  rfl

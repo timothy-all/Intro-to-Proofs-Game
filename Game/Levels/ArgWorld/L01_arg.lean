@@ -45,4 +45,4 @@ Statement (P Q : Prop) (hP : P) (hPQ : P → Q) : Q := by
 
 Conclusion ""
 
-NewTactic exact obtain apply
+NewTactic exact obtain

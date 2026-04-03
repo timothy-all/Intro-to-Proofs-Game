@@ -6,11 +6,8 @@ Level 2
 Title "Modus Tolens"
 
 Introduction "
-## **Level 2**
-This valid argument is sometimes referred to as **modus tolens**. Let's use a logical equivalence to make this problem look more like the last one. If we wish to *rewrite* a hypothesis, say `hPQ` 😉, using a known logical equivalence from the **Theorems** tab, say `contrapositive` 😉, we can use the syntax:
-```
-rw[contrapositive] at hPQ
-```
+### **Level 2**
+This valid argument is sometimes referred to as **modus tolens**. Let's use a logical equivalence to make this problem look more like the last one...
 "
 
 
