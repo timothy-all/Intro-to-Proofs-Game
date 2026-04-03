@@ -2,6 +2,7 @@
 import Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
 import Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
 import Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
+import Game.Levels.RelationWorld.RelationWorldExamples.relation_example1
 
 
 World "RelationWorldExamples"

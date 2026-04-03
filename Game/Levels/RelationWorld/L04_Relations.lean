@@ -1,0 +1,33 @@
+import Game.Metadata
+
+World "RelationWorld"
+Level 4
+
+Title "Relations 2"
+
+Introduction "Composite relations are tricky to work with, but are super important.
+Let's get some practice with composites by proving the theorem in this level.
+You also have the domain and range for a relation added to your inventory - check out their definitions before proceeding."
+
+Statement {u v w : Type} (R: Rel u v) (S: Rel v w) : (S ∘ R).dom ⊆ R.dom := by
+  Hint "Start with `intros x h` to grab an arbitrary element of `(S ∘ R).dom`."
+  intros x h
+  Hint "Use `unfold Rel.dom at h` to see what it means to be in the domain of `S ∘ R`."
+  unfold Rel.dom at h
+  Hint "Use `obtain ⟨b,hb⟩ := h` to unpack the existential quantified given."
+  obtain ⟨b,hb⟩ := h
+  Hint "`hb` is also existentially quantified! Use `obtain <c,hc> := hb` to unpack it. This is typically how we'll work with composites."
+  obtain ⟨c,hc⟩ := hb
+  Hint "Can you finish from here? The goal is existentially quantified, even if the quantifier isn't written explicitly."
+  use c
+  exact hc.left
+
+Conclusion "You don't need to use unfold first to unpack the existential quantifier in `(S ∘ R).dom`; we could grab it directly too. The English analog of this is how we don't write the existential quantifier in ''indexed'' set builder notation."
+
+/- Use these commands to add items to the game's inventory. -/
+
+/-- `R.dom` is the domain of the relation `R`. --/
+DefinitionDoc Rel.dom as "Rel.dom"
+
+/-- `R.range` is the domain of the relation `R`. --/
+DefinitionDoc Rel.range as "Rel.range"
