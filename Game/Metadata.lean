@@ -189,10 +189,9 @@ theorem Rel_double_inclusion {u v: Type} (R: Rel u v) (S: Rel u v) : R = S ↔ R
   rw [← h] at h1
   exact h1
 
-/- Defines `R a b` for a relates to b under R -/
+/-
 def Rel'' {u: Type} {v: Type} (A: Set u) (B: Set v) := A → B → Prop
 
-<<<<<<< HEAD
 def Rel.inv {u v : Type} {A : Set u} {B : Set v} (R: Rel A B) : Rel B A :=
   fun (b : B) (a : A) => R a b
 
@@ -210,51 +209,6 @@ def Rel.comp {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel B C) (R: Rel
 
 notation:50 S " ∘ " R => Rel.comp S R
 
-=======
-def Rel''.inv {u v : Type} {A : Set u} {B : Set v} (R: Rel'' A B) : Rel'' B A := fun (b : B) (a : A) => R a b
-
-/- Set of ordered pairs in a relation -/
-
-def Rel''.set {u v : Type} {A : Set u} {B : Set v} (R : Rel'' A B) :
-  Set (u × v) :=
-{ p | ∃ (a : ↑A) (b : ↑B), p = ((a : u), (b : v)) ∧ R a b }
-
-def Rel''.dom {u v : Type} {A : Set u} {B: Set v} (R: Rel'' A B) := {a | ∃ b, (a,b) ∈ R.set}
-
-def Rel''.range {u v : Type} {A : Set u} {B: Set v} (R: Rel'' A B) := {b | ∃ a, (a,b) ∈ R.set}
-
-def Rel''.comp {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel'' B C) (R: Rel'' A B) : Rel'' A C :=
-  fun (a: A) (c: C) => ∃ b, (R a b) ∧ (S b c)
---infix:70 " ∘ " => Rel.comp
-
-/- Type for relation on a single set. Relevant definitions follow -/
-def Rel''.on {u : Type} (A: Set u) := Rel'' A A
-
-def isReflexive'' {u : Type} {A: Set u} (R: Rel''.on A) := ∀ a, R a a
-
-def isSymmetric'' {u : Type} {A: Set u}  (R: Rel''.on A) := ∀ a b, (R a b) → (R b a)
-
-def isAntisymmetric'' {u : Type} {A: Set u}  (R: Rel''.on A) := ∀ a b, ((R a b) ∧ (R b a)) → a = b
-
-def isTransitive'' {u : Type} {A: Set u} (R: Rel''.on A) := ∀ a b c, (R a b) → (R b c) → (R a c)
-
-def isPartialOrder'' {u : Type} {A: Set u} (R: Rel''.on A) := isReflexive'' R ∧ isAntisymmetric'' R ∧ isTransitive'' R
-
-def isEquivalence'' {u : Type} {A: Set u} (R: Rel''.on A) := isReflexive'' R ∧ isSymmetric'' R ∧ isTransitive'' R
-
-
-
-
-/- Developer only, maybe? -/
-theorem Rel''_subset (A : Set u) (B : Set v) (R : Rel'' A B) : R.set ⊆ A ×ˢ B := by
-  intro p hp
-  rcases hp with ⟨a,b,hp,aRb⟩
-  constructor
-  rw[hp]
-  simp
-  rw[hp]
-  simp
->>>>>>> 7b89f825ffff31f145ed447e3e3d59695a4cde1f
 
 /- Possible alternative relation structure -/
 structure Rel' {u v: Type} (A: Set u) (B: Set v) where
@@ -293,6 +247,7 @@ theorem Rel_comp_proof' {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel' 
   exact hy2.right
 
 def Rel_comp' {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel' B C) (R: Rel' A B) : Rel' A C := {pairs := {(a,c) | ∃ b, (a,b) ∈ R.pairs ∧ (b,c) ∈ S.pairs}, subset := Rel_comp_proof' S R}
+-/
 
 /- Logic -/
 
@@ -304,19 +259,6 @@ theorem nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q) := Iff.rfl
 -- xor_def : P ⊻ Q ↔  (P ∧ ¬Q) ∨ (Q ∧ ¬P) weird that Xor is known but not Nand
 infix:70 " ⊻ " => Xor'
 
-example (A : Set u) (B : Set v) (R : Rel A B) : R.set ⊆ A ×ˢ B := by
-  intro p hp
-  rcases hp with ⟨a,b,hp,aRb⟩
-  constructor
-  rw[hp]
-  simp
-  rw[hp]
-  simp
-
-example (A : Set u) (B : Set v) (C : Set w) (R : Rel A B) (S : Rel B C) : (S ∘ R).set ⊆ A ×ˢ C := by
-  intro p hp
-  rcases hp with ⟨a,c,hp,aRc⟩
-  sorry
 
 def Rela (u v: Type) := u → v → Prop
 
