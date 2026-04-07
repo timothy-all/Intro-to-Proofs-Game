@@ -29,23 +29,23 @@ Conclusion "English proof?"
 
 /- Use these commands to add items to the game's inventory. -/
 
-/-- `Rel_on A` is the same thing as `Rel A A`. Shorthand for a relation on a single set. --/
+/-- `Rel_on A` is the same thing as `Rel A A`. Shorthand for a relation on a single set. -/
 DefinitionDoc Rel_on as "Rel_on"
 
-/-- Makes a relation `R` reflexive. --/
+/-- Makes a relation `R` reflexive. -/
 DefinitionDoc isReflexive as "isReflexive"
 
-/-- Makes a relation `R` symmetric. --/
+/-- Makes a relation `R` symmetric. -/
 DefinitionDoc isSymmetric as "isSymmetric"
 
-/-- Makes a relation `R` anti-symmetric. --/
+/-- Makes a relation `R` anti-symmetric. -/
 DefinitionDoc isAntisymmetric as "isAntiymmetric"
 
-/-- Makes a relation `R` transitive. --/
+/-- Makes a relation `R` transitive. -/
 DefinitionDoc isTransitive as "isTransitive"
 
-/-- Makes a relation `R` a partial order. --/
+/-- Makes a relation `R` a partial order. -/
 DefinitionDoc isPartialOrder as "isPartialOrder"
 
-/-- Makes a relation `R` an equivalence relation. --/
+/-- Makes a relation `R` an equivalence relation. -/
 DefinitionDoc isEquivalence as "isEquivalence"
