@@ -1,4 +1,4 @@
-import Game.Metadata
+import Game.Levels.RelationWorld.L06_Relations
 
 World "RelationWorld"
 Level 7

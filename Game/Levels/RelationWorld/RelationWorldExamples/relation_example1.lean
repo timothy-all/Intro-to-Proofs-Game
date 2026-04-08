@@ -1,4 +1,4 @@
-import Game.Levels.RelationWorld
+import Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
 
 World "RelationWorldExamples"
 Level 4

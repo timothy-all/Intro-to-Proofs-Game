@@ -1,4 +1,4 @@
-import Game.Metadata
+import Game.Levels.RelationWorld.L03_Relations
 
 World "RelationWorld"
 Level 4

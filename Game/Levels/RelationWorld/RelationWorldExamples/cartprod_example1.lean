@@ -1,3 +1,4 @@
+import Game.Metadata
 import Game.Levels.RelationWorld
 
 World "RelationWorldExamples"
@@ -30,8 +31,6 @@ Conclusion "Proof in English?"
 
 --DefinitionDoc Set.Prod as "×ˢ"
 
-TheoremDoc mem_prod as "mem_prod"
-TheoremDoc Set.Subset.antisymm as "double_inclusion"
 
 --TheoremDoc Set.eq_of_subset_of_subset as "double_inclusion"
 

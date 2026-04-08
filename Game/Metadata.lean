@@ -155,17 +155,8 @@ def Rel_on (u : Type) := Rel u u
 def Rel_id (u : Type) : Rel_on u := fun (u1: u) (u2: u) => u1 = u2
 
 /- This is a level in relation world -/
-theorem Rel_id_set {u : Type} : (Rel_id u).set = {(a,a) | a : u} := by
-  apply double_inclusion
-  intros x hx
-  unfold Rel.set at hx
-  simp at hx --Unsure how to not use simp here
-  use x.1
-  nth_rw 2 [hx]
-  intros x hx
-  obtain ⟨a,ha⟩ := hx
-  rw [←ha]
-  rfl
+--theorem Rel_id_set {u : Type} : (Rel_id u).set = {(a,a) | a : u} := by
+
 
 def isReflexive {u : Type} (R: Rel_on u) := ∀ a, R a a
 

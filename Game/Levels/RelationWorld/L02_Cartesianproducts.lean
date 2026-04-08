@@ -1,4 +1,4 @@
-import Game.Metadata
+import Game.Levels.RelationWorld.L01_Cartesianproducts
 
 World "RelationWorld"
 Level 2
