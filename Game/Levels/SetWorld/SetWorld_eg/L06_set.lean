@@ -11,10 +11,16 @@ Introduction "
 
 set_option pp.parens true
 
-Statement {u : Type} (A : Set u) (F : Set (Set u)) (h : A ∈ F) : ⋂₀ F ⊆ A := by
-  intro a ha
-  /- ⋂₀ F is sugar for InfSet F; the membership proposition x ∈ ⋂₀ F unpacks to ∀ (t : Set (Set u)), t ∈ F → x ∈ t. -/
-  exact ha A h
+Statement {u : Type} (A B : Set u) : A ⊆ B → A \ B = ∅ := by
+  intro h
+  rw[Set.eq_empty_iff_forall_notMem]
+  intro
+  rw[Set.mem_diff]
+  rw[Not_and]
+  rw[← Imp_iff_not_or]
+  rw[Not_not]
+  intro hx
+  exact h hx
 
 
 Conclusion ""

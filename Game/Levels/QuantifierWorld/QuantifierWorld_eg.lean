@@ -1,19 +1,19 @@
 import Game.Metadata
 
-import Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
-import Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
-import Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
-import Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
-import Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
-import Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
-import Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
-import Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
+import Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
+import Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
+import Game.Levels.QuantifierWorld.QuantifierWorld_eg.L03_quant
+import Game.Levels.QuantifierWorld.QuantifierWorld_eg.L04_quant
+import Game.Levels.QuantifierWorld.QuantifierWorld_eg.L05_quant
+import Game.Levels.QuantifierWorld.QuantifierWorld_eg.L06_quant
+import Game.Levels.QuantifierWorld.QuantifierWorld_eg.L07_quant
+import Game.Levels.QuantifierWorld.QuantifierWorld_eg.L08_quant
 
-World "EquivWorld_eg"
-Title "Logical Equivalence World Examples"
+World "QuantifierWorld_eg"
+Title "Quantifier World Examples"
 
 Introduction "
-# **Logical Equivalences Examples**
-Let's get more practice with logical equivalences!
+# **Quantifier Examples**
+Let's get more practice with quantifiers!
 "
 Image "images/pic0.png"

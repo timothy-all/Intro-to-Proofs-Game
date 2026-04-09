@@ -1,12 +1,12 @@
-import Game.Levels.SetWorld.SetWorld_eg.L01_set
+import Game.Levels.SetWorld.SetWorld_eg.L02_set
 
 World "SetWorld_eg"
-Level 2
+Level 3
 
 Title "name"
 
 Introduction "
-### **Level 2**
+### **Level 3**
 "
 
 set_option pp.parens true

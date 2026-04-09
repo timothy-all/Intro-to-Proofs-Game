@@ -97,6 +97,21 @@ theorem mem_inter.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∩ b ↔ 
 theorem mem_prod {α : Type u} {β : Type v} (s : Set α) (t : Set β) (p : α × β) : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
   exact Set.mem_prod
 
+/-
+Indexed families are a little tricky. An indexed family is a function from I (some Sort) to u (some Type -- btw, Type u is shorthand for Sort (u+1)). So what we might write as {Aᵢ : i ∈ I} in class is handled as A : I → Set u in Lean. Unraveling things further, Lean considers
+⋂ i, A i = sInf (Set.range A)
+which itself expands to
+⋂ i, A i = sInf { B : Set u | ∃ (i : I), A i = B}
+At this point things get handled the same way as families of sets.
+
+-/
+
+theorem mem_iunion {u : Type*} {x : u} {I : Type*} (A : I → Set u) : x ∈ ⋃ i, A i ↔ ∃ (i : I), x ∈ A i := by
+  simp
+
+theorem mem_iinter {u : Type*} {x : u} {I : Type*} (A : I → Set u) : x ∈ ⋂ i, A i ↔ ∀ (i : I), x ∈ A i := by
+  simp
+
 -- Theorem below should be unlocked following level 2 of Cartesian products since we prove the fst version
 theorem snd_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: y ∉ B) : (x,y) ∉ (A ×ˢ B) := by
   rw [mem_prod,Not_and]

@@ -1,4 +1,5 @@
 import Game.Levels.SetWorld
+import Game.Levels.QuantifierWorld.QuantifierWorld_eg
 
 World "SetWorld_eg"
 Level 1
