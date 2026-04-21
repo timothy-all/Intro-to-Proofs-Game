@@ -161,13 +161,15 @@ def Rel.dom {u v : Type} (R: Rel u v) := {a | ∃ b, R a b}
 
 def Rel.range {u v : Type} (R: Rel u v) := {b | ∃ a, R a b}
 
-def Rel.comp {u v w: Type} (S: Rel v w) (R: Rel u v) : Rel u w :=
+def Rel_comp {u v w: Type} (S: Rel v w) (R: Rel u v) : Rel u w :=
   fun (a: u) (c: w) => ∃ b, (R a b) ∧ (S b c)
-infix:70 " ∘ " => Rel.comp
+infix:70 " ∘ " => Rel_comp
 
 def Rel_on (u : Type) := Rel u u
 
 def Rel_id (u : Type) : Rel_on u := fun (u1: u) (u2: u) => u1 = u2
+
+def Rel_union {u v : Type} (R S : Rel u v) : Rel u v := fun (a : u) (b : v) => R a b ∨ S a b
 
 /- This is a level in relation world -/
 --theorem Rel_id_set {u : Type} : (Rel_id u).set = {(a,a) | a : u} := by
@@ -184,6 +186,13 @@ def isTransitive {u : Type} (R: Rel_on u) := ∀ a b c, (R a b) → (R b c) → 
 def isPartialOrder {u : Type} (R: Rel_on u) := isReflexive R ∧ isAntisymmetric R ∧ isTransitive R
 
 def isEquivalence {u : Type} (R: Rel_on u) := isReflexive R ∧ isSymmetric R ∧ isTransitive R
+
+def isMinimal {u : Type} {p : u → Prop} (R: Rel_on u) (b : {x // p x}) := ∀ x : {x // p x}, R x b → x = b
+def isSmallest {u : Type} {p : u → Prop} (R: Rel_on u) (b : {x // p x}) := ∀ x : {x // p x}, R b x
+--def isSmallest {u : Type} (R: Rel_on u) (p : u → Prop := fun _ => True) (b : {x // p x}) := ∀ x : {x // p x}, R b x
+
+--theorem reltest {u : Type} (R: Rel_on u) (b: u) (h: isSmallest R b) : isMinimal R b := by
+
 
 theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
   intro x
