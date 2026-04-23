@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-02\n"
+"POT-Creation-Date: 2026-04-22\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -60,8 +60,6 @@ msgstr ""
 #: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
-#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
-#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
@@ -154,6 +152,11 @@ msgid "# **Logical Equivalences**\n"
 "The purpose of this world is to practice writing proofs of logical equivalences *using* known logical equivalences (like those above and others we'll learn about). Let's get started!"
 msgstr ""
 
+#. §0: `R`
+#: Game.Levels.RelationWorld.L06_Relations
+msgid "Makes a relation §0 a partial order."
+msgstr ""
+
 #: Game.Levels.ArgWorld.L01_arg
 msgid "Exact doc"
 msgstr ""
@@ -166,6 +169,10 @@ msgstr ""
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
 #: Game.Levels.RelationWorld.RelationWorldExamples.relation_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example2
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example3
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example4
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example5
 msgid "Proof in English?"
 msgstr ""
 
@@ -231,17 +238,18 @@ msgstr ""
 msgid "Modus Ponens"
 msgstr ""
 
+#. §0: `Rel_on A`
+#. §1: `Rel A A`
+#: Game.Levels.RelationWorld.L06_Relations
+msgid "§0 is the same thing as §1. Shorthand for a relation on a single set."
+msgstr ""
+
 #: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
 msgid "Example 3"
 msgstr ""
 
 #: Game.Levels.RelationWorld.RelationWorldExamples
 msgid "Relation World Examples"
-msgstr ""
-
-#. §0: `R`
-#: Game.Levels.RelationWorld.L06_Relations
-msgid "Makes a relation §0 a partial order. -"
 msgstr ""
 
 #. §0: `h`
@@ -251,11 +259,6 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.L05_arg
 msgid "Law of the syllogism"
-msgstr ""
-
-#. §0: `R`
-#: Game.Levels.RelationWorld.L06_Relations
-msgid "Makes a relation §0 reflexive. -"
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
@@ -268,7 +271,7 @@ msgstr ""
 
 #. §0: `R`
 #: Game.Levels.RelationWorld.L06_Relations
-msgid "Makes a relation §0 anti-symmetric. -"
+msgid "Makes a relation §0 symmetric."
 msgstr ""
 
 #. §0: `Rel.on A`
@@ -289,6 +292,13 @@ msgstr ""
 #. §0: `«{hP}» : P`
 #: Game.Levels.ArgWorld.L05_arg
 msgid "We now have the hypothesis §0. We can clear the level in one line now if we're clever..."
+msgstr ""
+
+#. §0: `Rel_union R S`
+#. §1: `R`
+#. §2: `S`
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example5
+msgid "§0 is the \"union\" of the relations §1 and §2."
 msgstr ""
 
 #. §0: `∨`
@@ -318,6 +328,15 @@ msgid "We're almost home. Let's introduce a new tactic ...\n"
 "### **❯ The §0 tactic**\n"
 "The §1 tactic is identical to §2 except that it automatically attempts to clear the goal with §3 at the end. This can often save us a line of Lean code. Give it a try!\n"
 ""
+msgstr ""
+
+#: Game.Levels.RelationWorld.L08_Relations
+msgid "Here is a standard transitive example."
+msgstr ""
+
+#. §0: `R`
+#: Game.Levels.RelationWorld.L06_Relations
+msgid "Makes a relation §0 reflexive."
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
@@ -353,13 +372,33 @@ msgstr ""
 msgid "And.intro doc"
 msgstr ""
 
+#. §0: `set`
+#. §1: `u`
+#. §2: `(a,a)`
+#: Game.Levels.RelationWorld.L05_Relations
+msgid "Replaces the §0 of the identity relation on §1 with the more concrete set of ordered pairs of the form §2."
+msgstr ""
+
 #: Game.Levels.RelationWorld.L03_Relations
 msgid "The inverse of the inverse of a relation is itself. -"
+msgstr ""
+
+#: Game.Levels.RelationWorld.L07_Relations
+msgid "Relations 5"
 msgstr ""
 
 #. §0: `Ran(R) ⊆ Dom(S)`
 #: Game.Levels.RelationWorld.RelationWorldExamples.relation_example1
 msgid "Let's prove that the subset statement in level 4 of Relation World is an equality if we assume §0."
+msgstr ""
+
+#. §0: `R`
+#: Game.Levels.RelationWorld.L06_Relations
+msgid "Makes a relation §0 transitive."
+msgstr ""
+
+#: Game.Levels.RelationWorld.L07_Relations
+msgid "Here is a standard symmetric example."
 msgstr ""
 
 #. §0: ```
@@ -412,6 +451,10 @@ msgid "### **Level 3**\n"
 "This valid argument is sometimes referred to as the law of the **disjunctive syllogism**. Using some laws of logical equivalence, try to rewrite the hypothesis §0 in a form that is more similar to the hypotheses of the last couple levels."
 msgstr ""
 
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example3
+msgid "One more level with composite practice. This one is much simpler."
+msgstr ""
+
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "### ***🥳 Congrats!***\n"
 "You beat the first level! We'll add more **Theorems** (known logical equivalences) as we progress through the world."
@@ -460,6 +503,13 @@ msgstr ""
 msgid "### ***Lean :)***"
 msgstr ""
 
+#: Game.Levels.RelationWorld.L06_Relations
+#: Game.Levels.RelationWorld.L07_Relations
+#: Game.Levels.RelationWorld.L08_Relations
+#: Game.Levels.RelationWorld.L09_OrderRelations
+msgid "English proof?"
+msgstr ""
+
 #. §0: `(x,y).1`
 #. §1: `x`
 #. §2: `x`
@@ -475,6 +525,11 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.L03_equiv
 msgid "Currying"
+msgstr ""
+
+#. §0: `R`
+#: Game.Levels.RelationWorld.L06_Relations
+msgid "Makes a relation §0 anti-symmetric."
 msgstr ""
 
 #. §0: `hb`
@@ -530,6 +585,10 @@ msgid "\n"
 "Our goal is currently §1 ... this is true by reflexitivity! The tactic that clears the goal is §2. 🔍 Check out the entry for §3 in the **Tactics** tab. 👉 In our case, try:\n"
 "§4\n"
 ""
+msgstr ""
+
+#: Game.Levels.RelationWorld.L09_OrderRelations
+msgid "inprogress All of the standard order relation definitions have been added to your inventory. Give the problem below a shot."
 msgstr ""
 
 #. §0: `x = x`
@@ -622,12 +681,6 @@ msgstr ""
 msgid "Here's where our newly unlocked theorem can be handy."
 msgstr ""
 
-#. §0: `Rel.on A`
-#. §1: `Rel A A`
-#: Game.Levels.RelationWorld.L06_Relations
-msgid "§0 is the same thing as §1. Shorthand for a relation on a single set. -"
-msgstr ""
-
 #. §0: `apply double_inclusion`
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
@@ -660,11 +713,6 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
 msgid "### **Level 2**"
-msgstr ""
-
-#. §0: `R`
-#: Game.Levels.RelationWorld.L06_Relations
-msgid "Makes a relation §0 transitive. -"
 msgstr ""
 
 #: Game.Levels.ArgWorld.L05_arg
@@ -708,6 +756,10 @@ msgid "### **💡 Pro-tip**\n"
 "The §0 tactic is *very* handy especially when you'll need to use the hypothesis introduced by §1 in more intricate ways. But if you find yourself using §2 to introduce a hypothesis to only then call the tactic §3 on that hypothesis, then you probably could have made your work a little shorter like we've done in this level."
 msgstr ""
 
+#: Game.Levels.RelationWorld.L08_Relations
+msgid "Relations 6"
+msgstr ""
+
 #: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
 msgid "Proof-by-cases"
 msgstr ""
@@ -717,6 +769,15 @@ msgstr ""
 #: Game.Levels.EquivWorld.L02_equiv
 msgid "## **Level 2**\n"
 "Let's use the laws of logic to prove that the **contrapositive** of an implication is logically equivalent to the original implication. We'll need the **Double Negation Law** (the theorem §0). 🔍 Check out the unlocked entry for §1 in the **Theorems** tab."
+msgstr ""
+
+#: Game.Levels.RelationWorld.L09_OrderRelations
+msgid "Order Relations"
+msgstr ""
+
+#. §0: `R`
+#: Game.Levels.RelationWorld.L06_Relations
+msgid "Makes a relation §0 an equivalence relation."
 msgstr ""
 
 #. §0: `x`
@@ -823,6 +884,10 @@ msgid "Notice that we now have §0 as a hypothesis. But this is our goal too! Wh
 ""
 msgstr ""
 
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example2
+msgid "This level gives some good practice with composite relations."
+msgstr ""
+
 #: Game.Levels.RelationWorld.RelationWorldExamples
 msgid "### ***In-class examples and HW problems***"
 msgstr ""
@@ -919,6 +984,12 @@ msgstr ""
 msgid "### **🤔 Level 4?**"
 msgstr ""
 
+#. §0: `Rel_id u`
+#. §1: `u`
+#: Game.Levels.RelationWorld.L05_Relations
+msgid "§0 is the identity relation on the universe (type) §1."
+msgstr ""
+
 #: Game
 msgid "Intro to Proofs Game"
 msgstr ""
@@ -936,11 +1007,6 @@ msgstr ""
 msgid "Modus Tolens"
 msgstr ""
 
-#. §0: `R`
-#: Game.Levels.RelationWorld.L06_Relations
-msgid "Makes a relation §0 an equivalence relation. -"
-msgstr ""
-
 #: Game.Levels.EquivWorld.L02_equiv
 msgid "Contrapositives"
 msgstr ""
@@ -951,6 +1017,10 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
 msgid "Example 4"
+msgstr ""
+
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example4
+msgid "Practice with inverses."
 msgstr ""
 
 #. §0: `And_assoc`
@@ -966,7 +1036,6 @@ msgstr ""
 
 #. §0: `(S ∘ R).dom`
 #: Game.Levels.RelationWorld.L04_Relations
-#: Game.Levels.RelationWorld.L06_Relations
 msgid "You don't need to use unfold first to unpack the existential quantifier in §0; we could grab it directly too. The English analog of this is how we don't write the existential quantifier in ''indexed'' set builder notation."
 msgstr ""
 
@@ -1006,6 +1075,10 @@ msgid "Targeted Rewrites"
 msgstr ""
 
 #: Game.Levels.RelationWorld.RelationWorldExamples.relation_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example2
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example3
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example4
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example5
 msgid "Relations"
 msgstr ""
 
@@ -1017,15 +1090,13 @@ msgstr ""
 msgid "### **Level 6**"
 msgstr ""
 
-#. §0: `Rel.id u`
-#. §1: `u`
-#: Game.Levels.RelationWorld.L05_Relations
-msgid "§0 is the identity relation on the universe (type) §1. -"
-msgstr ""
-
-#. §0: `R`
-#: Game.Levels.RelationWorld.L06_Relations
-msgid "Makes a relation §0 symmetric. -"
+#. §0: `(Rel_union R S) u v`
+#. §1: `R u v`
+#. §2: `S u v`
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example5
+msgid "This exercise concerns the union of two relations. Since relations in the Intro Proofs Game use types, not sets, we have to be a bit careful about what this means.\n"
+"\n"
+"In short, §0 is true when either §1 or §2. Try the problem below."
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg

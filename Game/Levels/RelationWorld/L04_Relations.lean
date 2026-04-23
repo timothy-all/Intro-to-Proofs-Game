@@ -27,7 +27,7 @@ Conclusion "You don't need to use unfold first to unpack the existential quantif
 /- Use these commands to add items to the game's inventory. -/
 
 /-- `R.dom` is the domain of the relation `R`. --/
-DefinitionDoc Rel.dom as "Rel.dom"
+DefinitionDoc Rel.dom as "REL: Rel.dom"
 
 /-- `R.range` is the domain of the relation `R`. --/
-DefinitionDoc Rel.range as "Rel.range"
+DefinitionDoc Rel.range as "REL: Rel.range"

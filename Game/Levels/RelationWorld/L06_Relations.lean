@@ -44,8 +44,5 @@ DefinitionDoc isAntisymmetric as "REL: isAntiymmetric"
 /-- Makes a relation `R` transitive. -/
 DefinitionDoc isTransitive as "REL: isTransitive"
 
-/-- Makes a relation `R` a partial order. -/
-DefinitionDoc isPartialOrder as "REL: isPartialOrder"
-
 /-- Makes a relation `R` an equivalence relation. -/
 DefinitionDoc isEquivalence as "REL: isEquivalence"

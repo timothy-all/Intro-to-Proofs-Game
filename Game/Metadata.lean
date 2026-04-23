@@ -137,7 +137,7 @@ theorem subset_def {α : Type u} (s t : Set α) : (s ⊆ t) = ∀ x ∈ s, x ∈
 
 /- Relations -/
 
-def Rel (u v: Type) := u → v → Prop
+def Rel (u v: Type*) := u → v → Prop
 
 def Rel.set (R: Rel u v) := {(a,b) | R a b}
 
@@ -153,45 +153,76 @@ def exrel : Rel ℕ ℕ := fun (a: ℕ) (b: ℕ) => (a=b)
 
 end Rel
 
-def Rel.inv {u v : Type} (R: Rel u v) : Rel v u := fun (b : v) (a : u) => R a b
+def Rel.inv {u v : Type*} (R: Rel u v) : Rel v u := fun (b : v) (a : u) => R a b
 
 def Rel_subrel (R: Rel u v) (S: Rel u v) : Prop := ∀ a b, R a b → S a b
 
-def Rel.dom {u v : Type} (R: Rel u v) := {a | ∃ b, R a b}
+def Rel.dom {u v : Type*} (R: Rel u v) := {a | ∃ b, R a b}
 
-def Rel.range {u v : Type} (R: Rel u v) := {b | ∃ a, R a b}
+def Rel.range {u v : Type*} (R: Rel u v) := {b | ∃ a, R a b}
 
-def Rel_comp {u v w: Type} (S: Rel v w) (R: Rel u v) : Rel u w :=
+def Rel_comp {u v w: Type*} (S: Rel v w) (R: Rel u v) : Rel u w :=
   fun (a: u) (c: w) => ∃ b, (R a b) ∧ (S b c)
 infix:70 " ∘ " => Rel_comp
 
-def Rel_on (u : Type) := Rel u u
+def Rel_on (u : Type*) := Rel u u
 
-def Rel_id (u : Type) : Rel_on u := fun (u1: u) (u2: u) => u1 = u2
+def Rel_id (u : Type*) : Rel_on u := fun (u1: u) (u2: u) => u1 = u2
 
-def Rel_union {u v : Type} (R S : Rel u v) : Rel u v := fun (a : u) (b : v) => R a b ∨ S a b
+def Rel_union {u v : Type*} (R S : Rel u v) : Rel u v := fun (a : u) (b : v) => R a b ∨ S a b
 
 /- This is a level in relation world -/
 --theorem Rel_id_set {u : Type} : (Rel_id u).set = {(a,a) | a : u} := by
 
 
-def isReflexive {u : Type} (R: Rel_on u) := ∀ a, R a a
+def isReflexive {u : Type*} (R: Rel_on u) := ∀ a, R a a
 
-def isSymmetric {u : Type} (R: Rel_on u) := ∀ a b, (R a b) → (R b a)
+def isSymmetric {u : Type*} (R: Rel_on u) := ∀ a b, (R a b) → (R b a)
 
-def isAntisymmetric {u : Type} (R: Rel_on u) := ∀ a b, ((R a b) ∧ (R b a)) → a = b
+def isAntisymmetric {u : Type*} (R: Rel_on u) := ∀ a b, ((R a b) ∧ (R b a)) → a = b
 
-def isTransitive {u : Type} (R: Rel_on u) := ∀ a b c, (R a b) → (R b c) → (R a c)
+def isTransitive {u : Type*} (R: Rel_on u) := ∀ a b c, (R a b) → (R b c) → (R a c)
 
-def isPartialOrder {u : Type} (R: Rel_on u) := isReflexive R ∧ isAntisymmetric R ∧ isTransitive R
+structure isPartialOrder {u : Type*} (R : Rel_on u) where
+  (refl : isReflexive R)
+  (anti : isAntisymmetric R)
+  (tran : isTransitive R)
 
-def isEquivalence {u : Type} (R: Rel_on u) := isReflexive R ∧ isSymmetric R ∧ isTransitive R
+structure isEquivalence {u : Type*} (R : Rel_on u) where
+  (refl : isReflexive R)
+  (symm : isSymmetric R)
+  (tran : isTransitive R)
 
-def isMinimal {u : Type} {p : u → Prop} (R: Rel_on u) (b : {x // p x}) := ∀ x : {x // p x}, R x b → x = b
-def isSmallest {u : Type} {p : u → Prop} (R: Rel_on u) (b : {x // p x}) := ∀ x : {x // p x}, R b x
---def isSmallest {u : Type} (R: Rel_on u) (p : u → Prop := fun _ => True) (b : {x // p x}) := ∀ x : {x // p x}, R b x
+def isMinimal {u : Type*} (R: Rel_on u) (b : u) (B : Set u := Set.univ) := b ∈ B ∧ ∀ x, x ∈ B → R x b → x = b
 
---theorem reltest {u : Type} (R: Rel_on u) (b: u) (h: isSmallest R b) : isMinimal R b := by
+def isMaximal {u : Type*} (R: Rel_on u) (b : u) (B : Set u := Set.univ) := b ∈ B ∧ ∀ x, x ∈ B → R b x → x = b
+
+def isSmallest {u : Type*} (R: Rel_on u) (b : u) (B : Set u := Set.univ) := b ∈ B ∧ ∀ x, x ∈ B → R b x
+
+def isLargest {u : Type*} (R: Rel_on u) (b : u) (B : Set u := Set.univ) := b ∈ B ∧ ∀ x, x ∈ B → R x b
+
+def isLowerBound {u : Type*} (R: Rel_on u) (l : u) (B : Set u := Set.univ) := ∀ x, x ∈ B → R l x
+
+def isUpperBound {u : Type*} (R: Rel_on u) (s : u) (B : Set u := Set.univ) := ∀ x, x ∈ B → R x s
+
+def LowerBounds {u : Type*} (R : Rel_on u) (B : Set u := Set.univ) := {l | isLowerBound R l B}
+
+def UpperBounds {u : Type*} (R : Rel_on u) (B : Set u := Set.univ) := {l | isUpperBound R l B}
+
+def isInfimum {u : Type*} (R: Rel_on u) (l : u) (B : Set u := Set.univ) := isLargest R l (LowerBounds R B)
+
+def isSupremum {u : Type*} (R: Rel_on u) (s : u) (B : Set u := Set.univ) := isSmallest R s (UpperBounds R B)
+
+def subsetOrderOrig {u : Type*} (S: Set u) : Rel_on {V // V ⊆ S} := fun (A : {V // V ⊆ S}) (B : {V // V ⊆ S}) => A.val ⊆ B.val
+def subsetOrder (u : Type*) : Rel_on (Set u) := fun (A : Set u) (B : Set u) => A ⊆ B
+
+
+
+
+
+
+
+
 
 
 theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
