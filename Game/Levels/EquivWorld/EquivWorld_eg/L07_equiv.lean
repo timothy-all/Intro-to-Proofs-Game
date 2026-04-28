@@ -19,4 +19,5 @@ Statement (P Q : Prop) : ((P ⊼ P) ⊼ (Q ⊼ Q)) ↔ (P ∨ Q) := by
   rw[Not_not,Not_not]
 
 
-Conclusion ""
+Conclusion "### **🤔 All the food for thought**
+The binary operator `∨` can be expressed in terms of `⊼` ... can everything be expressed in terms of `⊼`?!"

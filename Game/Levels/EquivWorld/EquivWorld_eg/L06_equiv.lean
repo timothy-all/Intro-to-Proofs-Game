@@ -17,4 +17,5 @@ Statement (P Q : Prop) : ((P ⊼ Q) ⊼ (P ⊼ Q)) ↔ (P ∧ Q) := by
   rw[Not_not]
 
 
-Conclusion ""
+Conclusion "### **🤔 More food for thought**
+The binary operator `∧` can be expressed in terms of `⊼` too ..."

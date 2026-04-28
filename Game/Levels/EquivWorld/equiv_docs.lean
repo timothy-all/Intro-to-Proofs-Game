@@ -59,7 +59,7 @@ TheoremDoc Not_not as "Not_not"
 /--
 An implication is logically equivalent to its contrapositive.
 -/
-TheoremDoc contrapositive as "contrapositive"
+TheoremDoc Contrapositive as "Contrapositive"
 
 /--
 The tactic `rw` is the same as `rewrite` except it automatically attempts to clear the goal with `rfl` at the end. This can often save us a line.
@@ -73,10 +73,14 @@ $$ (P ∨ Q) ∨ R ↔ P ∨ (Q ∨ R) $$
 -/
 TheoremDoc Or_assoc as "Or_assoc"
 
-/--
-This is **DeMorgan's Law** for *not-and* statements. It says that
+/-- This is half of **DeMorgan's Law**. It says that
 
-$$ ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q) $$
+$$ ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q)$$
+
+Here's what it looks like in Lean:
+```
+Not_and (P Q : Prop) : ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q)
+```
  -/
 TheoremDoc Not_and as "Not_and"
 
@@ -85,7 +89,7 @@ This is known as **currying**. It says that
 
 $$ (P ∧ Q) → R ↔ P → (Q → R) $$
 -/
-TheoremDoc curry as "curry"
+TheoremDoc Curry as "Curry"
 
 /--
 This is the **Associative Law** for `∧`. It says that

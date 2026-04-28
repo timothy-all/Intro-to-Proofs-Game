@@ -23,7 +23,7 @@ Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q)
   ```
   (_ ∧ _) ∧ _
   ```
-  where the underscores are wildcards. The first underscore was matched to `P`, the second to `Q` and the third to `R ∧ S`. Lean then applied `And_assoc` (from *left-to-right*) to this instance. In particular, the left-hand side of our goal is now:
+  where the underscores are wildcards. The first underscore was matched to `P`, the second to `Q` and the third to `R ∧ S`. Lean then applied `And_assoc` (from ***left-to-right***) to this instance. In particular, the left-hand side of our goal is now:
     ```
     P ∧ (Q ∧ (R ∧ S))
     ```
@@ -31,6 +31,7 @@ Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q)
     ```
     rw[← And_assoc Q]
     ```
+    This will apply the associative law *in reverse*...
     ### **⌨ Typesetting Tip**
     To prety print the left arrow `←` use `\\left`. You can also use `<-` if you're not interested in pretty printing.
     "
@@ -39,7 +40,7 @@ Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q)
     ```
     Q ∧ (_ ∧ _)
     ```
-    where the underscores are wildcards. The first underscore was matched with `R`, the second with `S`. Lean then applied `← And_assoc` (from *right-to-left*) to this instance. In particular, Lean substituted `(Q ∧ R) ∧ S` for `Q ∧ (R ∧ S)`.
+    where the underscores are wildcards. The first underscore was matched with `R`, the second with `S`. Lean then applied `← And_assoc` (from ***right-to-left***) to this instance. In particular, Lean substituted `(Q ∧ R) ∧ S` for `Q ∧ (R ∧ S)`.
 
     Now we'd like to **commute** the expression `(Q ∧ R) ∧ S` to get `S ∧ (Q ∧ R)`. 👉 We can accomplish this with either:
     ```

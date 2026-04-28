@@ -24,7 +24,7 @@ set_option pp.parens true
 
 
 /-- An implication where the hypothesis is a chain of conjuntions is logically equivalent to a certain chain of implications. -/
-Statement curry (P Q R : Prop) : ((P ∧ Q) → R) ↔ (P → (Q → R)) := by --currying
+Statement Curry (P Q R : Prop) : ((P ∧ Q) → R) ↔ (P → (Q → R)) := by --currying
   rw[Imp_iff_not_or]
   Hint "That was a good first step. You might want to apply the **Conditional Law** codified in `Imp_iff_not_or` two more times. You can do this in one step with:
   ```

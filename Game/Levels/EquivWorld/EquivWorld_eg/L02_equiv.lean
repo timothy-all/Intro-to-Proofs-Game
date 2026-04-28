@@ -6,7 +6,7 @@ Level 2
 Title "Example 2"
 
 Introduction "
-### **Level 2?**
+### **Level 2**
 "
 
 set_option pp.parens true

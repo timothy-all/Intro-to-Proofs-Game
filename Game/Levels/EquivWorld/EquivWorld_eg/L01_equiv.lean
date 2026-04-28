@@ -1,4 +1,5 @@
 import Game.Levels.EquivWorld
+import Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
 
 World "EquivWorld_eg"
 Level 1
@@ -7,24 +8,11 @@ Title "Proof-by-cases"
 
 Introduction "
 ### **Level 1**
-This logical equivalence is sometimes called **Proof by cases**. We'll use this a lot in the future. It basically tells us how to approach proofs where we have a hypothesis in the form a disjunction. We'll need two new laws of logic to pass this level. 🔍 Check out the entries for `Not_or` and `Or_and_left`.
+This logical equivalence is sometimes called **Proof by cases**. We'll use this (and variants thereof) a lot in the future. It basically tells us how to approach proofs where we have a hypothesis in the form a disjunction. We'll need two new laws of logic to pass this level. 🔍 Check out the entries for `Not_or` and `Or_and_left`.
 "
 
 set_option pp.parens true
 
-/--
-This is half of **DeMorgan's Law**. It says that
-
-$$¬ (P ∨ Q) ↔ (¬ P ∧ ¬ Q)$$
--/
-TheoremDoc Not_or as "Not_or"
-
-/--
-This is half of the **Distributive Law**. It says that
-
-$$(P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))$$
--/
-TheoremDoc Or_and_left as "Or_and_left"
 
 Statement (P Q R : Prop) : ((P ∨ Q) → R) ↔ ((P → R) ∧ (Q → R)) := by
   rw[Imp_iff_not_or]

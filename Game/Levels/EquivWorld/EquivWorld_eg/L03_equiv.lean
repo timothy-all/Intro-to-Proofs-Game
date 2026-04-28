@@ -7,19 +7,12 @@ Title "Example 3"
 
 Introduction "
 ### **Level 3**
-
+We've unlocked a few more laws of logic for this example. 🔍 Check out the entries for `Not_and`, `Or_not_self`, and `And_true` in the **Theorems** tab.
 "
 
 set_option pp.parens true
 
-/-- Not_and doc -/
-TheoremDoc Not_and as "Not_and"
 
-/-- Or_not_self -/
-TheoremDoc Or_not_self as "Or_not_self"
-
-/-- And_true -/
-TheoremDoc And_true as "And_true"
 
 Statement (P Q : Prop) : (¬ ((P ∨ Q) ∧ (¬ P ∧ (Q → P)))) ↔ True := by
   rw[Not_and]

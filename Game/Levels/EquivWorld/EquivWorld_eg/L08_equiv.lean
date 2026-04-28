@@ -7,6 +7,12 @@ Title "Example 8"
 
 Introduction "
 ### **Level 8**
+We introduce another (seemingly) new connective known as **exclusive-or**, denoted `⊻`. Here's how it is defined in Lean:
+```
+xor_def : P ⊻ Q ↔  (P ∧ ¬Q) ∨ (Q ∧ ¬P)
+```
+### **⌨ Typesetting-tip**
+In order to typeset the symbol `⊻` type `\\veebar`.
 "
 
 set_option pp.parens true
