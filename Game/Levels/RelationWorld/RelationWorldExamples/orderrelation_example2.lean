@@ -5,12 +5,17 @@ Level 10
 
 Title "Order Relations"
 
-Introduction "Recall that, is `S` is a subset of `u`, `subsetOrder S` is the subset partial order on `S`.
+Introduction "Recall that, if `S` is a subset of `u`, `subsetOrder S` is the subset partial order on `S`.
 
 In this exercise, you'll prove that the greatest lower bound of a  family of sets `F` is `⋂F`."
 
 Statement {u : Type*} (F : Set (Set u)) : isInfimum (subsetOrder u) (⋂₀ F) F := by
-  sorry
+  constructor
+  intro A hA x hx
+  exact hx A hA
+  intro A hA x hx B hB
+  obtain k : A ⊆ B := hA B hB
+  exact k hx
 
 Conclusion "Proof in English?"
 
