@@ -24,7 +24,7 @@ TacticDoc obtain
 
 Statement (P Q : Prop) (hP : P) (hPQ : P → Q) : Q := by
   Hint "### **❯ The `obtain` tactic**
-  The `obtain` tactic allows us to introduce new hypotheses into our current proof *as long as* we supply proofs of those hypotheses. 👉 Try the following basic usage:
+  The `obtain` tactic allows us to introduce new assumptions into our current proof *as long as* we supply proofs (in the current context) of those assumptions. 👉 Try the following basic usage:
   ```
   obtain hQ := hPQ (hP)
   ```
@@ -34,7 +34,7 @@ Statement (P Q : Prop) (hP : P) (hPQ : P → Q) : Q := by
   ```
   "
   obtain hQ := hPQ (hP)
-  Hint "Notice that we now have `hQ : Q` as a hypothesis. But this is our goal too! What finishing tactic will clear the level?
+  Hint "Notice that we now have `hQ : Q` as an assumption. But this is our goal too! What finishing tactic will clear the level?
   ### **❯ The `exact` tactic**
   The tactic `exact e` will clear the goal if the goal matches the type of `e`. 👉 In our case, try
   ```

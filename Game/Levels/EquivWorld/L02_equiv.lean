@@ -13,7 +13,7 @@ Let's use the laws of logic to prove that the **contrapositive** of an implicati
 set_option pp.parens true
 
 
-
+/-- The **contrapositive** of an implication is logically equivalent to the original implication.-/
 Statement contrapositive (P Q : Prop) : (P → Q) ↔ (¬ Q → ¬ P) := by
   rewrite[Imp_iff_not_or, Imp_iff_not_or]
   Hint "Here's where our newly unlocked theorem can be handy."
