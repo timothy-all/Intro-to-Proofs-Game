@@ -14,18 +14,8 @@ A ∩ B = {x | x ∈ A ∧ x ∈ B}
 This means that, definitionally, to say that `x ∈ A ∩ B` means the same thing as `x ∈ A ∧ x ∈ B`.
 "
 
-/- Proof-strategy : AND-goal -/
-example {u : Type} (A B: Set u) (h1 : A ⊆ B) (h2 : B ⊆ A) : A = B := by
-  apply Set.ext
-  intro x
-  constructor
-  intro hx
-  exact h1 hx
-  intro hx
-  exact h2 hx
-
 Statement {u : Type} (a : u) (A B : Set u) (h1 : a ∈ A ∩ B) : a ∈ A := by
-  rw[Set.mem_inter_iff] at h1 -- not even needed
+  --rw[Set.mem_inter_iff] at h1 -- not even needed
   exact h1.left
 
 

@@ -12,7 +12,7 @@ Introduction "
 
 
 Statement {u : Type} (P Q R : u → Prop) (h1 : (∀ x, P x) → (∃ y, Q y)) (h2 : ∀ y, ¬ Q y) (h3 : ∀ x, ¬ P x → R x) : ∃ x, R x := by
-  rw[contrapositive] at h1
+  rw[Contrapositive] at h1
   push_neg at h1
   obtain ⟨x,hx⟩ := h1 h2
   use x

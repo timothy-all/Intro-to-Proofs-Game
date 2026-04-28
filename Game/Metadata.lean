@@ -97,6 +97,9 @@ theorem mem_inter.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∩ b ↔ 
 theorem mem_prod {α : Type u} {β : Type v} (s : Set α) (t : Set β) (p : α × β) : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
   exact Set.mem_prod
 
+theorem mem_univ_iff_true {u : Type} (a : u) : a ∈ Set.univ ↔ True := by
+  simp
+
 /-
 Indexed families are a little tricky. An indexed family is a function from I (some Sort) to u (some Type -- btw, Type u is shorthand for Sort (u+1)). So what we might write as {Aᵢ : i ∈ I} in class is handled as A : I → Set u in Lean. Unraveling things further, Lean considers
 ⋂ i, A i = sInf (Set.range A)

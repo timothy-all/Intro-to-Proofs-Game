@@ -7,7 +7,7 @@ Title "Disjunctive Syllogism"
 
 Introduction "
 ### **Level 3**
-This valid argument is sometimes referred to as the law of the **disjunctive syllogism**. Using some laws of logical equivalence, try to rewrite the hypothesis `h1` in a form that is more similar to the hypotheses of the last couple levels.
+This valid argument is sometimes referred to as the law of the **Disjunctive Syllogism**. Using some laws of logical equivalence, try to rewrite the hypothesis `h1` in a form that is more similar to the hypotheses of the last couple levels.
 "
 
 

@@ -11,7 +11,7 @@ where `s` is known (provable) statement. Lean will clear the goal if `s` matches
 TacticDoc exact
 
 /--
-The `obtain` tactic is used bring new (and provable) hypotheses into the proof state. It can also be used to desctructure existing assumptions.
+The `obtain` tactic is used bring new (and provable) assumptions into the proof state. It can also be used to desctructure existing assumptions.
 -/
 TacticDoc obtain
 

@@ -7,11 +7,12 @@ Title "Conditional Proof"
 
 Introduction "
 ### **Level 2**
+This argument is sometimes called the law of **Conditional Proof**. It might help to apply a
 "
 
 
-Statement (P Q R: Prop) (h1 : P ∧ Q) (h2 : P → (Q → R)) : R := by
-  rw[← curry] at h2
-  exact h2 h1
+Statement (P Q R: Prop) (hP : P) (hQ : Q) (h : P → (Q → R)) : R := by
+  rw[← Curry] at h
+  exact h (And.intro hP hQ)
 
 Conclusion ""

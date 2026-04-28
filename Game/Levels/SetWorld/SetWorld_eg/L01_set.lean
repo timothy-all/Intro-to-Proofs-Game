@@ -20,10 +20,3 @@ Statement {u : Type} (A B : Set u) : A ∩ B = ∅ → A ⊆ A \ B := by
 
 
 Conclusion ""
-
-/- proof strategy eg : proof by contradiction-/
-example {u : Type} (A B : Set u) : A ⊆ A \ B → A ∩ B = ∅ := by
-  intro h
-  by_contra! F
-  obtain ⟨x,hx⟩ := F
-  exact (h hx.left).right hx.right
