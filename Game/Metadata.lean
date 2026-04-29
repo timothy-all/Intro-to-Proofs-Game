@@ -219,8 +219,7 @@ def isSupremum {u : Type*} (R: Rel_on u) (s : u) (B : Set u := Set.univ) := isSm
 def subsetOrderOrig {u : Type*} (S: Set u) : Rel_on {V // V ⊆ S} := fun (A : {V // V ⊆ S}) (B : {V // V ⊆ S}) => A.val ⊆ B.val
 def subsetOrder (u : Type*) : Rel_on (Set u) := fun (A : Set u) (B : Set u) => A ⊆ B
 
-<<<<<<< HEAD
-=======
+
 def equivClass {u : Type*} (R: Rel_on u) (a : u) := {x | R a x}
 
 def equivClassFamily {u : Type*} (R: Rel_on u) := {equivClass R x |x : u}
@@ -228,9 +227,6 @@ def equivClassFamily {u : Type*} (R: Rel_on u) := {equivClass R x |x : u}
 
 
 
-
-
->>>>>>> 956f099 (Equivalence relation levels)
 theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
   intro x
   intro h1
