@@ -10,7 +10,7 @@ Introduction "This exercise concerns the union of two relations. Since relations
 In short, `(Rel_union R S) u v` is true when either `R u v` or `S u v`. Try the problem below."
 
 Statement {u v : Type} (R S: Rel u v) : (Rel_union R S).inv = Rel_union R.inv S.inv  := by
-  rw [Rel_double_inclusion]
+  apply Rel_double_inclusion
   apply double_inclusion
   intro x h
   rcases h with hP | hQ
