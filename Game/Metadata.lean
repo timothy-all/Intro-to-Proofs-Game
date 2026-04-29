@@ -222,16 +222,21 @@ def isSupremum {u : Type*} (R: Rel_on u) (s : u) (B : Set u := Set.univ) := isSm
 def subsetOrderOrig {u : Type*} (S: Set u) : Rel_on {V // V ⊆ S} := fun (A : {V // V ⊆ S}) (B : {V // V ⊆ S}) => A.val ⊆ B.val
 def subsetOrder (u : Type*) : Rel_on (Set u) := fun (A : Set u) (B : Set u) => A ⊆ B
 
+
+def equivClass {u : Type*} (R: Rel_on u) (a : u) := {x | R a x}
+
+def equivClassFamily {u : Type*} (R: Rel_on u) := {equivClass R x |x : u}
+
+
+
+
 theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
   intro x
   intro h1
   apply h at h1
   exact h1
 
-theorem Rel_double_inclusion {u v: Type} (R: Rel u v) (S: Rel u v) : R = S ↔ R.set = S.set := by
-  constructor
-  intro h
-  rw [h]
+theorem Rel_double_inclusion {u v: Type*} (R: Rel u v) (S: Rel u v) : R.set = S.set → R = S := by
   intro h
   funext x y
   simp

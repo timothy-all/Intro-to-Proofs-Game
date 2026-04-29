@@ -17,8 +17,8 @@ TheoremDoc Rel_inv_inv as "Rel_inv_inv"
 TheoremDoc Rel_double_inclusion as "Relation double inclusion"
 
 Statement Rel_inv_inv {u v : Type} (R: Rel u v) : (R.inv).inv = R := by
-  Hint "Lean views this as an equality of `functions`. To replace relation equality with the more familiar double inclusion set proofs from class, we can `rw [Rel_double_inclusion]`."
-  rw [Rel_double_inclusion]
+  Hint "Lean views this as an equality of `functions`. To replace relation equality with the more familiar double inclusion set proofs from class, we can `apply Rel_double_inclusion`."
+  apply Rel_double_inclusion
   Hint "Now do a double inclusion proof from here! Start with `apply double_inclusion` then `intros x h`."
   apply double_inclusion
   intros x h
