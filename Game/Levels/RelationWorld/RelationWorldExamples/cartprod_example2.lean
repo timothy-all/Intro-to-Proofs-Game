@@ -16,13 +16,13 @@ Statement (u v: Type) (A C: Set u) (B D: Set v) : (A ×ˢ B) \ (C ×ˢ D) = (A �
   rw[subset_def]
   intro x
   intro h
-  rw[mem_diff,mem_prod,mem_prod,Not_and,And_or_left] at h
+  rw[Set.mem_diff,mem_prod,mem_prod,Not_and,And_or_left] at h
   cases h
-  rw[And_assoc, And_comm (x.2 ∈ B), ← And_assoc, ← mem_diff,← mem_prod] at h_1
+  rw[And_assoc, And_comm (x.2 ∈ B), ← And_assoc, ← Set.mem_diff,← mem_prod] at h_1
   rw[mem_union]
   apply Or.intro_right
   exact h_1
-  rw[And_assoc, ← mem_diff,← mem_prod] at h_1
+  rw[And_assoc, ← Set.mem_diff,← mem_prod] at h_1
   apply Or.intro_left
   exact h_1
 
@@ -31,15 +31,15 @@ Statement (u v: Type) (A C: Set u) (B D: Set v) : (A ×ˢ B) \ (C ×ˢ D) = (A �
   intro h
   rw[mem_union] at h
   cases h
-  rw[mem_prod, mem_diff,← And_assoc, ← mem_prod] at h_1
-  rw[mem_diff]
+  rw[mem_prod, Set.mem_diff,← And_assoc, ← mem_prod] at h_1
+  rw[Set.mem_diff]
   constructor
   exact h_1.left
   apply And.right at h_1
   apply snd_not_mem_not_mem_prod
   exact h_1
-  rw[mem_prod, mem_diff,And_assoc, And_comm (x.1 ∉ C),← And_assoc, ← mem_prod] at h_1
-  rw[mem_diff]
+  rw[mem_prod, Set.mem_diff,And_assoc, And_comm (x.1 ∉ C),← And_assoc, ← mem_prod] at h_1
+  rw[Set.mem_diff]
   constructor
   exact h_1.left
   apply And.right at h_1

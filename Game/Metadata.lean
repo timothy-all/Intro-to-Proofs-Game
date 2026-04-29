@@ -121,8 +121,8 @@ theorem snd_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v
   apply Or.intro_right
   exact h
 
-theorem mem_diff.{u} {α : Type u} {s t : Set α} (x : α) : x ∈ s \ t ↔ x ∈ s ∧ x ∉ t := by
-  rw[Set.mem_diff]
+--theorem mem_diff.{u} {α : Type u} {s t : Set α} (x : α) : x ∈ s \ t ↔ x ∈ s ∧ x ∉ t := by
+--  rw[Set.mem_diff]
 
 
 theorem double_inclusion {α : Type u} {a b : Set α} (h₁ : a ⊆ b) (h₂ : b ⊆ a) : a = b := by
@@ -218,15 +218,6 @@ def isSupremum {u : Type*} (R: Rel_on u) (s : u) (B : Set u := Set.univ) := isSm
 
 def subsetOrderOrig {u : Type*} (S: Set u) : Rel_on {V // V ⊆ S} := fun (A : {V // V ⊆ S}) (B : {V // V ⊆ S}) => A.val ⊆ B.val
 def subsetOrder (u : Type*) : Rel_on (Set u) := fun (A : Set u) (B : Set u) => A ⊆ B
-
-
-
-
-
-
-
-
-
 
 theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
   intro x

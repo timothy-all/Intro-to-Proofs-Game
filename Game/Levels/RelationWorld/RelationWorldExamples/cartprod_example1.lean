@@ -17,11 +17,11 @@ Statement (u v: Type) (A: Set u) (B C: Set v) : A ×ˢ (B \ C) = (A ×ˢ B) \ (A
   rw[Set.subset_def]
   intro x
   intro h
-  rw [mem_diff,mem_prod,mem_prod,Not_and,And_comm (x.1 ∈ A), And_assoc,And_or_left,And_not_self,False_or,← And_assoc, And_comm (x.2 ∈ B), And_assoc,← mem_diff,← mem_prod]
+  rw [Set.mem_diff,mem_prod,mem_prod,Not_and,And_comm (x.1 ∈ A), And_assoc,And_or_left,And_not_self,False_or,← And_assoc, And_comm (x.2 ∈ B), And_assoc,← Set.mem_diff,← mem_prod]
   exact h
   intro x
   intro h
-  rw [mem_diff,mem_prod,mem_prod,Not_and,And_comm (x.1 ∈ A), And_assoc,And_or_left,And_not_self,False_or,← And_assoc, And_comm (x.2 ∈ B), And_assoc,← mem_diff,← mem_prod] at h
+  rw [Set.mem_diff,mem_prod,mem_prod,Not_and,And_comm (x.1 ∈ A), And_assoc,And_or_left,And_not_self,False_or,← And_assoc, And_comm (x.2 ∈ B), And_assoc,← Set.mem_diff,← mem_prod] at h
   exact h
 
 
