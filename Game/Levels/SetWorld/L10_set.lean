@@ -14,9 +14,6 @@ Set.univ = {x | True}
 So the membership proposition `x ∈ Set.univ` means the same thing as `True`.
 "
 
-/- for metadata-/
-
-
 
 Statement {u : Type} (A : Set u) : A ∩ Set.univ = A := by
   apply Set.ext

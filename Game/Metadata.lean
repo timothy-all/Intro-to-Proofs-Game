@@ -115,6 +115,9 @@ theorem mem_iunion {u : Type*} {x : u} {I : Type*} (A : I → Set u) : x ∈ ⋃
 theorem mem_iinter {u : Type*} {x : u} {I : Type*} (A : I → Set u) : x ∈ ⋂ i, A i ↔ ∀ (i : I), x ∈ A i := by
   simp
 
+theorem mem_finter {u : Type*} {x : u} (F : Set (Set u)) : x ∈ ⋂₀ F ↔ ∀ (t : Set u), t ∈ F → x ∈ t := by
+  simp
+
 -- Theorem below should be unlocked following level 2 of Cartesian products since we prove the fst version
 theorem snd_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: y ∉ B) : (x,y) ∉ (A ×ˢ B) := by
   rw [mem_prod,Not_and]
