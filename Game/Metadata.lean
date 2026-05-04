@@ -124,9 +124,6 @@ theorem snd_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v
   apply Or.intro_right
   exact h
 
---theorem mem_diff.{u} {α : Type u} {s t : Set α} (x : α) : x ∈ s \ t ↔ x ∈ s ∧ x ∉ t := by
---  rw[Set.mem_diff]
-
 
 theorem double_inclusion {α : Type u} {a b : Set α} (h₁ : a ⊆ b) (h₂ : b ⊆ a) : a = b := by
 apply Set.Subset.antisymm
