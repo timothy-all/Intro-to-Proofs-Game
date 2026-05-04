@@ -10,14 +10,6 @@ import Game.Levels.RelationWorld.L08_Relations
 import Game.Levels.RelationWorld.L09_OrderRelations
 import Game.Levels.RelationWorld.L10_OrderRelations
 import Game.Levels.RelationWorld.L11_OrderRelations
-<<<<<<< HEAD
-=======
-import Game.Levels.RelationWorld.L12_EquivRelations
-import Game.Levels.RelationWorld.L13_EquivRelations
-import Game.Levels.RelationWorld.L14_EquivRelations
-import Game.Levels.RelationWorld.L15_EquivRelations
-import Game.Levels.RelationWorld.L16_EquivRelations
->>>>>>> 956f099 (Equivalence relation levels)
 
 
 
