@@ -14,6 +14,10 @@ set_option pp.parens true
 
 
 Statement (P Q R : Prop) (hPQ : P → Q) (hPR : P → R) (hP : P) : (Q ∧ R) := by
-  exact And.intro (hPQ hP) (hPR hP)
+  obtain hQ := hPQ hP
+  obtain hR := hPR hP
+  obtain hQR := And.intro hQ hR
+  exact hQR
+  -- one shot with : exact And.intro (hPQ hP) (hQR hR)
 
 Conclusion ""

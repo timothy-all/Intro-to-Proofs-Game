@@ -15,7 +15,8 @@ set_option pp.parens true
 
 
 Statement (P Q: Prop) (h : P ∧ Q) : P := by
-  exact h.left
+  obtain hP := h.left
+  exact hP
 
 
 Conclusion ""

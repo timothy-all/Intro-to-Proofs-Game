@@ -10,7 +10,6 @@ Introduction "
 This valid argument is sometimes referred to as **Modus Tolens**. Let's use a logical equivalence to make this problem look more like the last one...
 "
 
-
 Statement (P Q : Prop) (hPQ : P → Q) (hnQ : ¬ Q) : ¬ P := by
   rw[Contrapositive] at hPQ
   Hint "Great! We now have

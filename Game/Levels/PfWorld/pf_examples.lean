@@ -50,3 +50,11 @@ example {u : Type*} {I : Type*} (A B : I → Set u) : ⋂ i, (A i \ B i) ⊆  (�
   simp at hx ⊢
   intro i
   exact (hx i).right
+
+example (P Q : Prop) (h1 : P → Q) (h2 : ¬ P → Q) : Q := by
+  by_contra F
+  rw[Contrapositive] at h2 h1
+  rw[Not_not] at h2
+  exact (h1 F) (h2 F)
+
+Conclusion ""

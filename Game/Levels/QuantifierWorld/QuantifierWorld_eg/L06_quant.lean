@@ -10,6 +10,7 @@ Introduction "
 
 "
 
+--Proof-strategy: AND as goal
 
 Statement {u : Type} (P Q : u → Prop) : ((∃ x, P x) ∨ (∃ x, Q x)) ↔ ∃ x, P x ∨ Q x := by
   constructor
