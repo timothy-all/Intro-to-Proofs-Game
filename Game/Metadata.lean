@@ -331,3 +331,16 @@ def exrel : Rela ℕ ℕ := fun a b => a = b
 example : 2 [exrel] 2 := by
   unfold exrel
   rfl
+
+
+
+
+
+
+--Divisibility definitions
+
+def Divides (x y : Int) := ∃ z, x * z = y
+
+def isEven (x : Int) := ∃ k, x = 2 * k
+
+def isOdd (x : Int) := ∃ k, x = 2 * k + 1
