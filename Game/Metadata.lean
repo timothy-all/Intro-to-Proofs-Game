@@ -3,6 +3,8 @@ import Mathlib.Tactic.Common
 import Mathlib.Data.Set.Defs
 import Mathlib.Data.Set.Operations
 import Mathlib.Data.Set.Lattice
+import Mathlib.Tactic.Ring
+import Mathlib.Algebra.BigOperators.Group.Finset.Defs
 -- import Mathlib.Tactic.Common
 -- Hello
 
@@ -222,7 +224,7 @@ def subsetOrder (u : Type*) : Rel_on (Set u) := fun (A : Set u) (B : Set u) => A
 
 def equivClass {u : Type*} (R: Rel_on u) (a : u) := {x | R a x}
 
-def equivClassFamily {u : Type*} (R: Rel_on u) := {equivClass R x |x : u}
+def equivClassFamily {u : Type*} (R: Rel_on u) := {equivClass R x | x : u}
 
 
 
@@ -334,6 +336,10 @@ example : 2 [exrel] 2 := by
 
 
 end Rela
+
+syntax "simplify" : tactic
+macro_rules
+| `(tactic| simplify) => `(tactic| ring)
 
 
 

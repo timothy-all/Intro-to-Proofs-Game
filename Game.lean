@@ -6,6 +6,7 @@ import Game.Levels.ArgWorld
 import Game.Levels.ArgWorld.ArgWorld_eg
 import Game.Levels.RelationWorld
 import Game.Levels.RelationWorld.RelationWorldExamples
+import Game.Levels.InductionWorld
 
 -- Here's what we'll put on the title screen
 Title "Intro to Proofs Game"
