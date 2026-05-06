@@ -1,8 +1,7 @@
-import Game.Levels.PfWorld.PfWorld_eg.L01_pf
+import Game.Levels.PfWorld.L01_pf
 import Mathlib.Tactic.Ring
-import Mathlib.Tactic.FieldSimp
 
-World "PfWorld_eg"
+World "PfWorld"
 Level 2
 
 Title "Example 2"

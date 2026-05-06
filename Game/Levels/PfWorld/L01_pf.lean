@@ -1,8 +1,7 @@
 import Game.Levels.PfWorld
-import Game.Levels.PfWorld.PfWorld_eg.pf_eg_docs
-import Game.Metadata
+import Game.Levels.PfWorld.pf_docs
 
-World "PfWorld_eg"
+World "PfWorld"
 Level 1
 
 Title "Example 1"
