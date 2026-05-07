@@ -11,27 +11,25 @@ Introduction "
 "
 
 Statement (u : Type*) (A B : Set u) : 𝒫 (A ∪ B) = 𝒫 A ∪ 𝒫 B → (A ⊆ B ∨ B ⊆ A) := by
-  contrapose!
-  intro ⟨h1,h2⟩
-  rw[Set.subset_def] at h1
-  push_neg at h1
-  rw[Set.subset_def] at h2
-  push_neg at h2
-  rcases h1 with ⟨a,ha⟩
-  rcases h2 with ⟨b,hb⟩
-  unfold Ne
+  contrapose --using contrapose! might be a mistake...
+  intro h
+  rw[Not_or] at h
+  rw[Set.subset_def,Set.subset_def] at h
+  push_neg at h
+  rcases h.left with ⟨a,ha⟩
+  rcases h.right with ⟨b,hb⟩
   rw[Set.ext_iff]
   push_neg
   use {a,b}
   constructor
   constructor
   intro x hx
-  cases hx
-  rw[h]
+  rcases hx with xa | xb
   left
+  rw[xa]
   exact ha.left
-  cases h
   right
+  rw[xb]
   exact hb.left
   rw[Set.mem_union]
   push_neg
