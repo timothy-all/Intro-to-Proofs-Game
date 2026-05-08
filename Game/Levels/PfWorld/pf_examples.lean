@@ -219,14 +219,80 @@ example {u : Type*} (A B C : Set u) : (A \ B) \ C ⊆ A \ (B \ C) := by
   intro x hx
   constructor
   exact hx.left.left
-  by_contra!
-  exact hx.left.right this.left --this is dumb
+  rw[Set.mem_diff]
+  rw[Not_and]
+  left
+  rcases hx with ⟨ ⟨hxA, hxB'⟩,hxC'⟩
+  exact hxB'
 
 example {u : Type*} (A B C : Set u) : A ∩ C = ∅ → A \ (B \ C) ⊆ (A \ B) \ C := by
-  sorry
+  intro h x ⟨hxA,hxBC⟩
+  constructor
+  constructor
+  exact hxA
+  rw[Set.mem_diff] at hxBC
+  rw[Not_and] at hxBC
+  rcases hxBC with hxB' | hxC
+  exact hxB'
+  rw[Not_not] at hxC
+  obtain hxAC : x ∈ A ∩ C := And.intro hxA hxC
+  rw[h] at hxAC
+  contradiction
+  rw[Set.mem_diff] at hxBC
+  rw[Not_and] at hxBC
+  rcases hxBC with hxB' | hxC
+  by_cases hxC : x ∈ C
+  obtain hxAC : x ∈ A ∩ C := And.intro hxA hxC
+  rw[h] at hxAC
+  contradiction
+  exact hxC
+  rw[Not_not] at hxC
+  obtain hxAC : x ∈ A ∩ C := And.intro hxA hxC
+  rw[h] at hxAC
+  contradiction
+
+--same example different way
+
+example {u : Type*} (A B C : Set u) : A ∩ C = ∅ → A \ (B \ C) ⊆ (A \ B) \ C := by
+  contrapose!
+  intro h
+  rw[Set.subset_def] at h
+  push_neg at h
+  rcases h with ⟨x,hx⟩
+  use x
+  obtain hxA : x ∈ A := hx.left.left
+  obtain hxC : x ∈ C
+  rw[Set.mem_diff,Set.mem_diff,Set.mem_diff,Set.mem_diff] at hx
+  rw[Not_and,Not_and,Not_and] at hx
+  rw[Not_not,Not_not] at hx
+  by_cases hxB : x ∈ B
+  rcases hx.left.right with hxB' | hxC
+  contradiction
+  exact hxC
+  rcases hx.right with ⟨hxA' | hxB⟩ | hxC
+  contradiction
+  contradiction
+  exact hxC
+  exact And.intro hxA hxC
+
 
 example {u : Type*} (F G H : Set (Set u)) : (∀ A ∈ F, ∀ B ∈ G, A ∪ B ∈ H) → ⋂₀ H ⊆ (⋂₀ F) ∪ (⋂₀ G) := by
-  sorry
+  intro h x hx
+  by_cases hF : x ∈ ⋂₀ F
+  left
+  exact hF
+  right
+  rw[mem_finter]
+  intro B hB
+  --change ¬ x ∈ ⋂₀ F at hF --real confusing: internally things changed but the terminal delaborates the same way
+  rw[mem_finter] at hF
+  push_neg at hF
+  rcases hF with ⟨ A, hA,hxA'⟩
+  obtain hAB := h A hA B hB
+  obtain hx' := hx (A ∪ B) hAB
+  rcases hx' with hxA | hxB
+  contradiction
+  exact hxB
 
 /- misc -/
 
