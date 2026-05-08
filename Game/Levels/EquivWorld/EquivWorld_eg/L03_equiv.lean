@@ -3,11 +3,11 @@ import Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
 World "EquivWorld_eg"
 Level 3
 
-Title "Example 3"
+Title "Tautologies"
 
 Introduction "
 ### **Level 3**
-We've unlocked a few more laws of logic for this example. 🔍 Check out the entries for `Not_and`, `Or_not_self`, and `And_true` in the **Theorems** tab.
+A statement like the one (on the left-hand side) of this example is what's called a **tautology**. This is a compound proposition that is `True` for every choice of true/false values of its constituent parts (in the case `P` and `Q`). We've unlocked a few more laws of logic for this example. 🔍 Check out the entries for `Not_and`, `Or_not_self`, and `And_true` in the **Theorems** tab.
 "
 
 set_option pp.parens true

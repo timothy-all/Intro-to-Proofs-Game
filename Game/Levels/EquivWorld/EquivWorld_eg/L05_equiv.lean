@@ -3,7 +3,7 @@ import Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
 World "EquivWorld_eg"
 Level 5
 
-Title "Example 5"
+Title "Not and Nand"
 
 Introduction "
 ### **Level 5**

@@ -19,7 +19,4 @@ Statement (u v : Int) (hu : isEven u) (hv: isEven v) : isEven (u + v) := by
   rw[hk,hl]
   ring
 
-
-
-
 Conclusion ""

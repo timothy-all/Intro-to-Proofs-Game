@@ -34,13 +34,4 @@ Statement (n : Int) : Divides 40 n ↔ (Divides 8 n ∧ Divides 5 n) := by
   rw[h3]
   ring
 
-
-
-
-
-
-
-
-
-
 Conclusion ""

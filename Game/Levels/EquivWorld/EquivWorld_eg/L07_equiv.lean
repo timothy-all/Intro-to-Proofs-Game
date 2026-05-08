@@ -3,10 +3,11 @@ import Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
 World "EquivWorld_eg"
 Level 7
 
-Title "Example 7"
+Title "Or and Nand"
 
 Introduction "
 ### **Level 7**
+One last example involving `⊼`. Are you noticing something interesting?
 "
 
 set_option pp.parens true

@@ -26,9 +26,4 @@ Statement (u : Type*) (F G : Set (Set u)) : ⋃₀ F ∩ ⋃₀ G ⊆ ⋃₀ (F 
   apply hAB
   exact And.intro hxA hxB
 
-
-
-
-
-
 Conclusion ""

@@ -21,6 +21,4 @@ Statement : ∀ n : Int, Divides 21 n → ( Divides 7 n ∧ Divides 3 n) := by
   rw[← hk]
   ring
 
-
-
 Conclusion ""

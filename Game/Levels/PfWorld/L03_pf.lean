@@ -17,8 +17,6 @@ Statement (P Q R : Prop) : (¬ R → (P → ¬ Q)) → (P → (Q → R)) := by
   obtain hQ' := h F hP
   contradiction
 
-
-
 Conclusion ""
 
 NewTactic by_contra contradiction

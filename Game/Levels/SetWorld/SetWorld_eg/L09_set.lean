@@ -11,11 +11,15 @@ Introduction "
 
 set_option pp.parens true
 
-
-
-
-
-
-
+Statement Set.symmDiff_self {u : Type*} (A : Set u) : symmDiff A A = ∅ := by
+  rw[Set.ext_iff]
+  intro x
+  constructor
+  intro hx
+  rcases hx with ⟨hxA,hxA'⟩ | ⟨hxA,hxA'⟩
+  contradiction
+  contradiction
+  intro hx
+  contradiction
 
 Conclusion ""

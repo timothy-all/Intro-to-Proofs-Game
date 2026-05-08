@@ -17,6 +17,4 @@ Statement (n : Int) : isOdd n → Divides 4 (n^2-1) := by
   rw[hk]
   ring
 
-
-
 Conclusion ""

@@ -3,10 +3,11 @@ import Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
 World "EquivWorld_eg"
 Level 6
 
-Title "Example 6"
+Title "And and Nand"
 
 Introduction "
 ### **Level 6**
+Here's another logical equivalence involving `⊼`.
 "
 
 set_option pp.parens true

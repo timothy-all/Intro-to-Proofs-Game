@@ -3,7 +3,7 @@ import Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
 World "EquivWorld_eg"
 Level 8
 
-Title "Example 8"
+Title "Exclusive-Or"
 
 Introduction "
 ### **Level 8**

@@ -7,7 +7,7 @@ Title "Example 4"
 
 Introduction "
 ### **Level 4**
-
+No new laws of logic needed here either. But this example should provide good practice with what we've learned so far.
 "
 
 set_option pp.parens true
