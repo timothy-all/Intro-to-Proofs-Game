@@ -2,7 +2,7 @@ import Game.Levels.SetWorld.SetWorld_eg
 
 /- Proof-strategy : AND-goal -/
 example {u : Type} (A B: Set u) (h1 : A ⊆ B) (h2 : B ⊆ A) : A = B := by
-  apply Set.ext
+  rw[Set.ext_iff]
   intro x
   constructor
   intro hx

@@ -18,6 +18,7 @@ Statement (x y : Rat) : (x^2*y = 2*x + y) → (y ≠ 0 → x ≠ 0) := by
   simp at h
   rw[h]
 
+
 Conclusion ""
 
 NewTactic contrapose contrapose!

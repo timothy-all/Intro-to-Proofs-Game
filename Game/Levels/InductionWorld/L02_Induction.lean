@@ -1,4 +1,5 @@
 import Game.Metadata
+import Mathlib.Tactic.Cases -- makes induction' accessible
 import Game.Levels.InductionWorld.L01_Induction
 
 /-Lines below set up sigma notation-/
@@ -19,7 +20,8 @@ Take a look at how Lean deals with sums written in sigma notation: `∑ k ∈ ra
 
 Statement (n : Nat) : ∑ k ∈ range (n+1), 2*k = n*(n+1) := by
   Hint "Let's proceed by induction on `n`: `induction n`."
-  induction n
+  induction' n with n ih -- allows naming of hypotheses
+  --induction n
   Hint "Let's talk about some Lean facts needed to manipulate sigma notation.
 
   First off, base cases often deal with `range 1` when starting with a `n = 0` case. We can `rw [range_one]` to simplify the `range` into the simpler set containing 1 (won't let me use curly braces ???).
@@ -29,7 +31,7 @@ Statement (n : Nat) : ∑ k ∈ range (n+1), 2*k = n*(n+1) := by
   Hint "In the inductive step, we have to relate the goal to the induction hypothesis, which Lean has named `a`. In written proofs, we would pull out the last term of the sum. Lean's theorem for this is `sum_range_succ` - rewrite using it."
   rw [sum_range_succ]
   Hint "Can you take it from here? Remember, `simplify` can help close algebraic goals, but it doesn't look at your hypotheses; maybe a rewrite will help first."
-  rw [a]
+  rw [ih]
   simplify
 
 
