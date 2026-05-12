@@ -5,6 +5,8 @@ Level 3
 
 Title "Set Intersection"
 
+open Set
+
 Introduction "
 ## **Level 3**
 If `A B : Set u` then the set connective `∩` (intersection) is defined as follows:
@@ -15,8 +17,10 @@ This means that, definitionally, to say that `x ∈ A ∩ B` means the same thin
 "
 
 Statement {u : Type} (a : u) (A B : Set u) (h1 : a ∈ A ∩ B) : a ∈ A := by
-  --rw[Set.mem_inter_iff] at h1 -- not even needed
+  --rw[mem_inter_iff] at h1 -- not even needed
   exact h1.left
 
 
 Conclusion ""
+
+--NewTheorem Set.mem_inter_iff

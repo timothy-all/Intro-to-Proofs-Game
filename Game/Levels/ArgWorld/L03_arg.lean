@@ -16,4 +16,4 @@ Statement (P Q : Prop) (h1 : P ∨ Q) (h2 : ¬ P) : Q := by
   rw[← Imp_iff_not_or] at h1
   exact h1 h2
 
-Conclusion ""
+Conclusion "***💪 Challenge:*** Try to complete this level in two prompts."
