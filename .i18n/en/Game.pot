@@ -96,6 +96,8 @@ msgid "### **Level 1**\n"
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
+#: Game.Levels.SetWorld.SetWorld_eg.L03_set
+#: Game.Levels.PfWorld.L03_pf
 msgid "### **Level 3**"
 msgstr ""
 
@@ -153,6 +155,10 @@ msgstr ""
 #. §0: `X = Y`
 #: Game.Levels.RelationWorld.L16_EquivRelations
 msgid "Now you're tasked with proving §0 - you can take it from here! There are many ways to do this using what we've done so far."
+msgstr ""
+
+#: Game.Levels.PfWorld.L08_pf
+msgid "Example 8"
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
@@ -229,7 +235,19 @@ msgid "# **Welcome**\n"
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
+#: Game.Levels.PfWorld.L02_pf
 msgid "Example 2"
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg
+msgid "# **Quantifier Examples**\n"
+"Let's get more practice with quantifiers!"
+msgstr ""
+
+#: Game.Levels.SetWorld.SetWorld_eg.L09_set
+#: Game.Levels.PfWorld.L09_pf
+msgid "### **Level 9**"
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
@@ -244,6 +262,10 @@ msgstr ""
 msgid "That was a good first step. You might want to apply the **Conditional Law** codified in §0 two more times. You can do this in one step with:\n"
 "§1\n"
 ""
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.L01_quant
+msgid "Obtain doc"
 msgstr ""
 
 #: Game.Levels.ArgWorld.L02_arg
@@ -320,6 +342,7 @@ msgstr ""
 #. ```
 #. §4: `hPQ : P ∧ Q`
 #: Game.Levels.ArgWorld.arg_docs
+#: Game.Levels.PfWorld.pf_docs
 msgid "This is the constructor for the §0 logical connective. As a (curried) function, it looks like the following:\n"
 "§1\n"
 "Typical usage might look like the following. Suppose we have the hypotheses:\n"
@@ -345,6 +368,7 @@ msgstr ""
 #. §1: `s`
 #. §2: `s`
 #: Game.Levels.ArgWorld.arg_docs
+#: Game.Levels.PfWorld.pf_docs
 msgid "This is a finishing tactic. Typical usage might look like\n"
 "§0\n"
 "where §1 is known (provable) statement. Lean will clear the goal if §2 matches the target."
@@ -369,12 +393,20 @@ msgstr ""
 msgid "§0 is also existentially quantified! Use §1 to unpack it. This is typically how we'll work with composites."
 msgstr ""
 
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L04_quant
+msgid "## **Level 4**"
+msgstr ""
+
 #: Game
 msgid "You should use this game as a template for your own game and add your own levels."
 msgstr ""
 
 #: Game.Levels.EquivWorld
 msgid "Logical Equivalence World"
+msgstr ""
+
+#: Game.Levels.QuantifierWorld
+msgid "Quantifier World"
 msgstr ""
 
 #. §0: `a`
@@ -389,6 +421,11 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
 msgid "Rule of Contradiction"
+msgstr ""
+
+#: Game.Levels.SetWorld.SetWorld_eg.L07_set
+#: Game.Levels.PfWorld.L07_pf
+msgid "### **Level 7**"
 msgstr ""
 
 #. §0: `obtain ⟨b,hb⟩ := h`
@@ -506,6 +543,10 @@ msgid "# **Logical Equivalences Examples**\n"
 "Let's get more practice with logical equivalences!"
 msgstr ""
 
+#: Game.Levels.PfWorld.L11_pf
+msgid "Example 11"
+msgstr ""
+
 #: Game.Levels.RelationWorld.L02_Cartesianproducts
 msgid "Include a proof in English"
 msgstr ""
@@ -561,6 +602,10 @@ msgstr ""
 #. §0: `by_contra h`
 #: Game.Levels.RelationWorld.L14_EquivRelations
 msgid "Let's argue by contradiction: §0."
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
+msgid "## **Level 2**"
 msgstr ""
 
 #: Game.Levels.InductionWorld
@@ -634,10 +679,6 @@ msgstr ""
 msgid "Use the previous level to simplify, then you'll need to use known facts about §0 statements."
 msgstr ""
 
-#: Game.Levels.ArgWorld.L05_arg
-msgid "Example 5"
-msgstr ""
-
 #. §0: `eq`
 #. §1: `R`
 #. §2: `eq.refl`
@@ -653,6 +694,11 @@ msgid "Let's see how to work with equivalence relations in Lean. Fundamental to 
 "First, let's prove the fundamental fact that equivalence classes are nonempty. More specifically, the equivalence class of §5 contains §6."
 msgstr ""
 
+#: Game.Levels.ArgWorld.L05_arg
+#: Game.Levels.PfWorld.L05_pf
+msgid "Example 5"
+msgstr ""
+
 #. §0: `R b x`
 #. §1: `h : R a b`
 #. §2: `hx : R a x`
@@ -660,16 +706,16 @@ msgstr ""
 msgid "The goal amounts to proving §0. We know §1 and §2. Use equivalence relation properties to take it from here!"
 msgstr ""
 
+#. §0: `a`
+#: Game.Levels.RelationWorld.L15_EquivRelations
+msgid "We have to find an equivalence class containing §0. What should it be?"
+msgstr ""
+
 #. §0: $P$
 #. §1: $¬ P$
 #: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
 #: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
 msgid "The negated conjunction of §0 with itself is logically equivalent to §1."
-msgstr ""
-
-#. §0: `a`
-#: Game.Levels.RelationWorld.L15_EquivRelations
-msgid "We have to find an equivalence class containing §0. What should it be?"
 msgstr ""
 
 #. §0: `simplify`
@@ -697,6 +743,7 @@ msgstr ""
 #. §7: `a : u`
 #. §8: `⊢ P a`
 #: Game.Levels.ArgWorld.arg_docs
+#: Game.Levels.PfWorld.pf_docs
 msgid "The §0 tactic introduces hypotheses (from the goal) into the proof state. Typical usage might look like the following. If the goal is:\n"
 "§1\n"
 "Then §2 will introduce the hypothesis §3 into the proof state.\n"
@@ -723,6 +770,7 @@ msgstr ""
 msgid "Minimal elements of §0 have to be in the set, so Lean needs you to first prove that §1. But since §2 is the smallest element of §3, this is given to use in hypothesis §4. So first, §5 to access this."
 msgstr ""
 
+#: Game.Levels.SetWorld.SetWorld_eg.set_eg_docs
 #: Game.Levels.RelationWorld.L01_Cartesianproducts
 #: Game.Levels.RelationWorld.L02_Cartesianproducts
 msgid "doc"
@@ -730,6 +778,11 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.L02_arg
 msgid "Modus Tolens"
+msgstr ""
+
+#: Game.Levels.SetWorld.SetWorld_eg.L08_set
+#: Game.Levels.PfWorld.L08_pf
+msgid "### **Level 8**"
 msgstr ""
 
 #. §0: `simplify`
@@ -816,6 +869,10 @@ msgstr ""
 msgid "Start with §0 to break down the least upper bound conditions."
 msgstr ""
 
+#: Game.Levels.PfWorld.L06_pf
+msgid "Example 6"
+msgstr ""
+
 #. §0: `h1`
 #: Game.Levels.ArgWorld.L03_arg
 msgid "### **Level 3**\n"
@@ -869,6 +926,10 @@ msgid "**Here's what happend:** §0 was applied to the **first instance** encoun
 ""
 msgstr ""
 
+#: Game.Levels.PfWorld.L11_pf
+msgid "### **Level 11**"
+msgstr ""
+
 #. §0: `hQ`
 #. §1: `hR`
 #. §2: `∧`
@@ -881,6 +942,22 @@ msgstr ""
 msgid "Now, we just need to connect the assumptions §0 and §1 with §2. The *constructor* that does this is §3. 🔍 Check out entry for §4 in the **Definitions** tab. 👉 In our particular case, try:\n"
 "§5\n"
 ""
+msgstr ""
+
+#. §0: `hPQ : P → Q`
+#. §1: `P`
+#. §2: `Q`
+#. §3: `hQ : Q`
+#: Game.Levels.QuantifierWorld.L01_quant
+msgid "## **Level 1**\n"
+"Lean natively is aware of the valid argument known as **modus ponens**. In fact, Lean has a funny way of interpreting...\n"
+"## **Implications as functions**\n"
+"We have §0. We can think of this implication as being a function, whose input is (a proof of) §1 and whose output is (a proof of) §2. So we should be able to obtain a new hypothesis in our situation here, namely §3. But how to do this?"
+msgstr ""
+
+#. §0: `obtain`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The §0 tactic is used bring new (and provable) assumptions into the proof state. It can also be used to desctructure existing assumptions."
 msgstr ""
 
 #: Game.Levels.EquivWorld.L03_equiv
@@ -896,11 +973,36 @@ msgstr ""
 #: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
+#: Game.Levels.QuantifierWorld.L01_quant
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L03_quant
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L04_quant
+#: Game.Levels.SetWorld.SetWorld_eg.L01_set
+#: Game.Levels.SetWorld.SetWorld_eg.L02_set
+#: Game.Levels.SetWorld.SetWorld_eg.L03_set
+#: Game.Levels.SetWorld.SetWorld_eg.L04_set
+#: Game.Levels.SetWorld.SetWorld_eg.L05_set
+#: Game.Levels.SetWorld.SetWorld_eg.L06_set
+#: Game.Levels.SetWorld.SetWorld_eg.L07_set
+#: Game.Levels.SetWorld.SetWorld_eg.L08_set
+#: Game.Levels.SetWorld.SetWorld_eg.L09_set
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
 #: Game.Levels.InductionWorld.L02_Induction
+#: Game.Levels.PfWorld.L01_pf
+#: Game.Levels.PfWorld.L02_pf
+#: Game.Levels.PfWorld.L03_pf
+#: Game.Levels.PfWorld.L04_pf
+#: Game.Levels.PfWorld.L05_pf
+#: Game.Levels.PfWorld.L06_pf
+#: Game.Levels.PfWorld.L07_pf
+#: Game.Levels.PfWorld.L08_pf
+#: Game.Levels.PfWorld.L09_pf
+#: Game.Levels.PfWorld.L10_pf
+#: Game.Levels.PfWorld.L11_pf
 msgid ""
 msgstr ""
 
@@ -938,6 +1040,12 @@ msgstr ""
 msgid "Lean views this as an equality of §0. To replace relation equality with the more familiar double inclusion set proofs from class, we can §1."
 msgstr ""
 
+#. §0: `b ∈ equivClass R a`
+#. §1: `equivclass R a = equivClass R b`
+#: Game.Levels.RelationWorld.L13_EquivRelations
+msgid "Another important and basic fact about equivalence classes is the fact that equivalence classes are independent of representative; that is, if §0, then §1. Let's prove this."
+msgstr ""
+
 #. §0: `R`
 #. §1: `po: isPartialOrder R`
 #. §2: `po.refl`
@@ -945,12 +1053,6 @@ msgstr ""
 #. §4: `po.tran`
 #: Game.Levels.RelationWorld.L09_OrderRelations
 msgid "Makes a relation §0 a partial order. If §1, use §2, §3, §4 to access the reflexive, anti-symmetric, and transitive properties, respectively."
-msgstr ""
-
-#. §0: `b ∈ equivClass R a`
-#. §1: `equivclass R a = equivClass R b`
-#: Game.Levels.RelationWorld.L13_EquivRelations
-msgid "Another important and basic fact about equivalence classes is the fact that equivalence classes are independent of representative; that is, if §0, then §1. Let's prove this."
 msgstr ""
 
 #: Game.Levels.EquivWorld.L03_equiv
@@ -1000,6 +1102,14 @@ msgid "This is an **Identity Law**. It says that\n"
 "\n"
 "where §1 is a tautology. Here's what it looks like in Lean:\n"
 "§2"
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.L01_quant
+msgid "Exact doc"
+msgstr ""
+
+#: Game.Levels.PfWorld.L10_pf
+msgid "Example 10"
 msgstr ""
 
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
@@ -1071,6 +1181,11 @@ msgid "We simply need to destructure the assumption §0. 👉 Try:\n"
 ""
 msgstr ""
 
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
+#: Game.Levels.PfWorld.L01_pf
+msgid "Example 1"
+msgstr ""
+
 #. §0: `Rel.id`
 #. §1: `Rel.id`
 #: Game.Levels.RelationWorld.L05_Relations
@@ -1101,6 +1216,7 @@ msgid "All of the standard order relation definitions have been added to your in
 msgstr ""
 
 #: Game.Levels.ArgWorld.L01_arg
+#: Game.Levels.QuantifierWorld.L01_quant
 msgid "Modus Ponens"
 msgstr ""
 
@@ -1118,6 +1234,8 @@ msgid "A standard order relation is the 'subset partial order' on a family of se
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L03_quant
+#: Game.Levels.PfWorld.L03_pf
 msgid "Example 3"
 msgstr ""
 
@@ -1164,6 +1282,10 @@ msgstr ""
 #. §0: `h`
 #: Game.Levels.RelationWorld.L03_Relations
 msgid "Lean knows that the inverse just swaps the coordinates, so §0 is already definitionally equal to the goal! In English, you'd want to mention that the coordinates swap twice."
+msgstr ""
+
+#: Game.Levels.PfWorld.L07_pf
+msgid "Example 7"
 msgstr ""
 
 #. §0: `«{hP}» : P`
@@ -1251,6 +1373,10 @@ msgstr ""
 msgid "Relations 3"
 msgstr ""
 
+#: Game.Levels.PfWorld.L10_pf
+msgid "### **Level 10**"
+msgstr ""
+
 #. §0: ```
 #. (H₁ ∧ H₂) → P
 #. ```
@@ -1279,11 +1405,6 @@ msgstr ""
 msgid "Equivalence Relations"
 msgstr ""
 
-#: Game.Levels.EquivWorld.L01_equiv
-msgid "### ***🥳 Congrats!***\n"
-"You beat the first level! We'll add more **Theorems** (known logical equivalences) as we progress through the world."
-msgstr ""
-
 #. §0: `UpperBounds R B`
 #. §1: `b`
 #. §2: `B`
@@ -1292,9 +1413,45 @@ msgstr ""
 msgid "§0 is the set of upper bounds of B, so the new goal asks us to prove §1 is an upper bound of §2. Unpack hypotheses using §3, then work from there!"
 msgstr ""
 
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "### ***🥳 Congrats!***\n"
+"You beat the first level! We'll add more **Theorems** (known logical equivalences) as we progress through the world."
+msgstr ""
+
 #. §0: `Supremum`
 #: Game.Levels.RelationWorld.L11_OrderRelations
 msgid "Lastly, let's get some practice with bounds. Let's prove that largest elements are automatically also least upper bounds. Remember that §0 is the fancy math word for least upper bound."
+msgstr ""
+
+#. §0: `obtain`
+#. §1: `obtain`
+#. §2: ```
+#. obtain hQ := hPQ (hP)
+#. ```
+#. §3: `hPQ`
+#. §4: `hP`
+#. §5: ```
+#. obtain hQ := hPQ hP
+#. ```
+#: Game.Levels.QuantifierWorld.L01_quant
+msgid "### **❯ The §0 tactic**\n"
+"The §1 tactic allows us to introduce new hypotheses into our current proof *as long as* we supply proofs of those hypotheses. 👉 Try the following basic usage:\n"
+"§2\n"
+"**Note:** the space between §3 (the *function*) and §4 (the *input*). Since the argument here is atomic, the parentheses are optional. So even the following ought to work:\n"
+"§5\n"
+""
+msgstr ""
+
+#: Game.Levels.SetWorld.SetWorld_eg.L01_set
+#: Game.Levels.SetWorld.SetWorld_eg.L02_set
+#: Game.Levels.SetWorld.SetWorld_eg.L03_set
+#: Game.Levels.SetWorld.SetWorld_eg.L04_set
+#: Game.Levels.SetWorld.SetWorld_eg.L05_set
+#: Game.Levels.SetWorld.SetWorld_eg.L06_set
+#: Game.Levels.SetWorld.SetWorld_eg.L07_set
+#: Game.Levels.SetWorld.SetWorld_eg.L08_set
+#: Game.Levels.SetWorld.SetWorld_eg.L09_set
+msgid "name"
 msgstr ""
 
 #. §0: `(x,y).1`
@@ -1330,7 +1487,20 @@ msgstr ""
 
 #: Game.Levels.ArgWorld
 #: Game.Levels.ArgWorld.ArgWorld_eg
+#: Game.Levels.QuantifierWorld
+#: Game.Levels.SetWorld
+#: Game.Levels.SetWorld.SetWorld_eg
+#: Game.Levels.PfWorld
+#: Game.Levels.PfWorld.PfWorld_eg
 msgid "### ***What a world!***"
+msgstr ""
+
+#: Game.Levels.SetWorld.SetWorld_eg
+msgid "Set World Examples"
+msgstr ""
+
+#: Game.Levels.PfWorld.L09_pf
+msgid "Example 9"
 msgstr ""
 
 #. §0: `«{hQR}» : Q ∧ R`
@@ -1366,14 +1536,14 @@ msgstr ""
 msgid "This tactic clears a goal whose target has the form §0 or §1 (or §2 where §3 is any relation that has a reflexivity lemma tagged with the attribute @[refl] -- we'll talk more about relations later)."
 msgstr ""
 
-#: Game.Levels.EquivWorld.EquivWorld_eg
-msgid "Logical Equivalence World Examples"
-msgstr ""
-
 #. §0: `a ∈ equivClass R a`
 #: Game.Levels.RelationWorld.L12_EquivRelations
 #: Game.Levels.RelationWorld.L13_EquivRelations
 msgid "This is the proof that §0. -"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg
+msgid "Logical Equivalence World Examples"
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
@@ -1403,6 +1573,8 @@ msgid "This is the **Double Negation Law**. It says that\n"
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
+#: Game.Levels.SetWorld.SetWorld_eg.L04_set
+#: Game.Levels.PfWorld.L04_pf
 msgid "### **Level 4**"
 msgstr ""
 
@@ -1412,6 +1584,10 @@ msgstr ""
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
 msgid "Cartesian products"
+msgstr ""
+
+#: Game.Levels.PfWorld
+msgid "Proof Strategy World"
 msgstr ""
 
 #. §0: `⊻`
@@ -1447,9 +1623,23 @@ msgid "We're almost home. Let's introduce a new tactic ...\n"
 ""
 msgstr ""
 
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L03_quant
+msgid "## **Level 3**"
+msgstr ""
+
 #: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
 msgid "### **Level 4**\n"
 "No new laws of logic needed here either. But this example should provide good practice with what we've learned so far."
+msgstr ""
+
+#: Game.Levels.SetWorld.SetWorld_eg.L01_set
+#: Game.Levels.PfWorld.L01_pf
+msgid "### **Level 1**"
+msgstr ""
+
+#: Game.Levels.SetWorld.SetWorld_eg.L02_set
+#: Game.Levels.PfWorld.L02_pf
+msgid "### **Level 2**"
 msgstr ""
 
 #. §0: `R`
@@ -1594,6 +1784,21 @@ msgstr ""
 msgid "If §0 is an equivalence relation on §1, §2 is the equivalence class of §3; that is, §4."
 msgstr ""
 
+#. §0: `hQ : Q`
+#. §1: `exact`
+#. §2: `exact e`
+#. §3: `e`
+#. §4: ```
+#. exact hQ
+#. ```
+#: Game.Levels.QuantifierWorld.L01_quant
+msgid "Notice that we now have §0 as a hypothesis. But this is our goal too! What finishing tactic will clear the level?\n"
+"### **❯ The §1 tactic**\n"
+"The tactic §2 will clear the goal if the goal matches the type of §3. 👉 In our case, try\n"
+"§4\n"
+""
+msgstr ""
+
 #: Game.Levels.EquivWorld.equiv_docs
 msgid "An implication is logically equivalent to its contrapositive."
 msgstr ""
@@ -1616,6 +1821,10 @@ msgid "As a proof in English, our steps here translate to:\n"
 "unfinished"
 msgstr ""
 
+#: Game.Levels.PfWorld.PfWorld_eg
+msgid "Proof Strategy World Examples"
+msgstr ""
+
 #. §0: ```
 #. hPQ : ¬ Q → ¬ P
 #. ```
@@ -1631,6 +1840,11 @@ msgid "Great! We now have\n"
 "and §1. We can now use the tactics §2 and §3 the same way we did in the last level. Or we can take a shortcut! 👉 Try:\n"
 "§4\n"
 ""
+msgstr ""
+
+#: Game.Levels.SetWorld.SetWorld_eg.L05_set
+#: Game.Levels.PfWorld.L05_pf
+msgid "### **Level 5**"
 msgstr ""
 
 #: GameServer.RpcHandlers
@@ -1665,12 +1879,6 @@ msgstr ""
 msgid "Now do a double inclusion proof from here! Start with §0 then §1."
 msgstr ""
 
-#. §0: `Rel_id u`
-#. §1: `u`
-#: Game.Levels.RelationWorld.L05_Relations
-msgid "§0 is the identity relation on the universe (type) §1."
-msgstr ""
-
 #. §0: `R`
 #. §1: `u`
 #. §2: `equivClassFamily R`
@@ -1678,6 +1886,12 @@ msgstr ""
 #. §4: `{ equivClass R a | a : u}`
 #: Game.Levels.RelationWorld.L14_EquivRelations
 msgid "If §0 is an equivalence relation on type §1, §2 is the set of equivalence classes of §3; that is, §4."
+msgstr ""
+
+#. §0: `Rel_id u`
+#. §1: `u`
+#: Game.Levels.RelationWorld.L05_Relations
+msgid "§0 is the identity relation on the universe (type) §1."
 msgstr ""
 
 #. §0: $$ ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q)$$
@@ -1740,6 +1954,8 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
 #: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L04_quant
+#: Game.Levels.PfWorld.L04_pf
 msgid "Example 4"
 msgstr ""
 
@@ -1777,6 +1993,12 @@ msgstr ""
 msgid "You don't need to use unfold first to unpack the existential quantifier in §0; we could grab it directly too. The English analog of this is how we don't write the existential quantifier in ''indexed'' set builder notation."
 msgstr ""
 
+#. §0: `subsetOrder u`
+#. §1: `u`
+#: Game.Levels.RelationWorld.L10_OrderRelations
+msgid "§0 is the subset order relation on a type §1."
+msgstr ""
+
 #. §0: `R`
 #. §1: `u`
 #. §2: `isMaximal R b`
@@ -1792,10 +2014,8 @@ msgid "If §0 is a relation on §1, §2 means that §3 is a maximal element of �
 "If we want to specify that §5 is a maximal element of a subset §6 of §7, write §8."
 msgstr ""
 
-#. §0: `subsetOrder u`
-#. §1: `u`
-#: Game.Levels.RelationWorld.L10_OrderRelations
-msgid "§0 is the subset order relation on a type §1."
+#: Game.Levels.SetWorld
+msgid "Set World"
 msgstr ""
 
 #: Game.Levels.InductionWorld.L01_Induction
@@ -1803,8 +2023,21 @@ msgstr ""
 msgid "Basic Induction"
 msgstr ""
 
+#: Game.Levels.SetWorld.SetWorld_eg.L06_set
+#: Game.Levels.PfWorld.L06_pf
+msgid "### **Level 6**"
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
+msgid "## **Level 1**"
+msgstr ""
+
 #: Game.Levels.EquivWorld.L02_equiv
 msgid "The **contrapositive** of an implication is logically equivalent to the original implication."
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg
+msgid "Quantifier World Examples"
 msgstr ""
 
 #. §0: `(Rel_union R S) u v`

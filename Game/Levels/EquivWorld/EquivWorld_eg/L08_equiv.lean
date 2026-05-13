@@ -28,3 +28,5 @@ Statement (P Q R : Prop) : ((P ⊻ Q) → R) ↔ ( (P ↔ Q) ∨ R) := by
 
 
 Conclusion ""
+
+NewDefinition xor_def iff_def

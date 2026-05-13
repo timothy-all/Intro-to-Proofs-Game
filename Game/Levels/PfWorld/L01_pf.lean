@@ -1,4 +1,4 @@
-import Game.Levels.PfWorld
+import Game.Levels.SetWorld.SetWorld_eg
 import Game.Levels.PfWorld.pf_docs
 
 World "PfWorld"
@@ -13,7 +13,7 @@ Introduction "
 Statement (u : Type*) (A B C D : Set u) (h : A ∩ B ⊆ C \ D) (x : u) : x ∈ A → (x ∈ D → x ∉ B) := by
   intro hxA
   rw[Contrapositive]
-  push_neg
+  rw[Not_not]
   intro hxB
   obtain want := h (And.intro hxA hxB)
   exact want.right

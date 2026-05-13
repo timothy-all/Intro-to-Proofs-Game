@@ -11,8 +11,8 @@ Introduction "
 "
 
 Statement : ∃! (d : Int), ∀ (x : Int), d * x = 0 := by
-  use 0
-  constructor
+  unique_use 0
+  refine ⟨?_,?_⟩
   intro x
   ring
   intro y h
