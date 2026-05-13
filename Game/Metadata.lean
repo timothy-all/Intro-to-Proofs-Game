@@ -344,9 +344,9 @@ syntax "simplify" : tactic
 macro_rules
 | `(tactic| simplify) => `(tactic| ring)
 
-syntax "unique_use " term : tactic
+syntax "use! " term : tactic
 macro_rules
-  | `(tactic| unique_use $w) =>
+  | `(tactic| use! $w) =>
       `(tactic| refine Exists.intro $w ?_; dsimp)
 
 --Divisibility definitions

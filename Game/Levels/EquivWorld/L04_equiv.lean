@@ -7,7 +7,7 @@ Title "Targeted Rewrites"
 
 Introduction "
 ## **Level 4**
-The goal of this level is intuitively clear. But in order to prove it formally, we'll need some **targeted rewrites** with `And_assoc`. 🔍 Check out the entry for `And_assoc` in the **Theorems** tab. 👉 To get started, try:
+The goal of this level is intuitively clear. But in order to prove it formally, we'll need some **targeted rewrites** with the **Associative Law** for `∧`, called `And_assoc`. 🔍 Check out the entry for `And_assoc` in the **Theorems** tab. 👉 To get started, try:
 ```
 rw[And_assoc]
 ```

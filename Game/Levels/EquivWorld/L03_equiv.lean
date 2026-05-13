@@ -15,7 +15,7 @@ For programmatic purposes, this kind of proposition is better expressed in the f
 ```
 H₁ → (H₂ → P)
 ```
-This exercise demonstrates that this process of translating the first form into the second (called **currying**) is logically valid.
+This exercise demonstrates that this process of translating the first form into the second (called ***currying***) is logically valid.
 ### **⌨ Typesetting Tip**
 In order to pretty-print subscripts like in `H₁` use `H\\_1`.
 "

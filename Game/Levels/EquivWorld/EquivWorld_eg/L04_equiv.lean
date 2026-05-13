@@ -12,9 +12,6 @@ No new laws of logic needed here either. But this example should provide good pr
 
 set_option pp.parens true
 
-
-
-
 Statement (P Q : Prop) : (P → Q) ↔ (P ∧ Q) ∨ ¬ P := by
   rw[Imp_iff_not_or]
   rw[Or_comm _ (¬ P)]

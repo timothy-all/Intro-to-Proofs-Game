@@ -1,5 +1,4 @@
 import Game.Levels.PfWorld.L09_pf
-import Mathlib.Tactic.Ring
 
 World "PfWorld"
 Level 10

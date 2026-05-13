@@ -1,5 +1,4 @@
 import Game.Levels.PfWorld.L10_pf
-import Mathlib.Tactic.Ring
 
 World "PfWorld"
 Level 11
@@ -11,14 +10,14 @@ Introduction "
 "
 
 Statement : ∃! (d : Int), ∀ (x : Int), d * x = 0 := by
-  unique_use 0
+  use! 0
   refine ⟨?_,?_⟩
   intro x
-  ring
+  simplify
   intro y h
   obtain h' := h 1
   rw[← h']
-  ring
+  simplify
 
 
 Conclusion ""

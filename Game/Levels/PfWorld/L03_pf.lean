@@ -1,6 +1,4 @@
 import Game.Levels.PfWorld.L02_pf
-import Mathlib.Tactic.Ring
-import Mathlib.Algebra.BigOperators.Fin
 
 World "PfWorld"
 Level 3

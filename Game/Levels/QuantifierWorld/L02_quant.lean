@@ -6,13 +6,13 @@ Level 2
 Title "Universal Quantifiers"
 
 Introduction "
-## **Level 1**
+## **Level 2**
 
 "
 
 
-Statement {u : Type} (a : u) (P Q : u → Prop) (h1 : ∀ x, P x → Q x) (h2 : ∀ x, P x) : ∀ x, Q x := by
+Statement {u : Type} (a : u) (P Q : u → Prop) (hPQ : ∀ x, P x → Q x) (hP : ∀ x, P x) : ∀ x, Q x := by
   intro x
-  exact h1 x (h2 x)
+  exact hPQ x (hP x)
 
 Conclusion ""

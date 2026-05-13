@@ -1,48 +1,16 @@
-import Game.Levels.EquivWorld
+import Game.Levels.ArgWorld.ArgWorld_eg
 
-World "ArgWorld"
+World "QuantifierWorld"
 Level 1
 
-Title "Modus Ponens"
+Title "Example 1"
 
 Introduction "
 ## **Level 1**
-Lean natively is aware of the valid argument known as **modus ponens**. In fact, Lean has a funny way of interpreting...
-## **Implications as functions**
-We have `hPQ : P → Q`. We can think of this implication as being a function, whose input is (a proof of) `P` and whose output is (a proof of) `Q`. So we should be able to obtain a new hypothesis in our situation here, namely `hQ : Q`. But how to do this?
 "
 
-/--
-Exact doc
--/
-TacticDoc exact
-
-/--
-Obtain doc
--/
-TacticDoc obtain
-
-Statement (P Q : Prop) (hP : P) (hPQ : P → Q) : Q := by
-  Hint "### **❯ The `obtain` tactic**
-  The `obtain` tactic allows us to introduce new hypotheses into our current proof *as long as* we supply proofs of those hypotheses. 👉 Try the following basic usage:
-  ```
-  obtain hQ := hPQ (hP)
-  ```
-  **Note:** the space between `hPQ` (the *function*) and `hP` (the *input*). Since the argument here is atomic, the parentheses are optional. So even the following ought to work:
-  ```
-  obtain hQ := hPQ hP
-  ```
-  "
-  obtain hQ := hPQ (hP)
-  Hint "Notice that we now have `hQ : Q` as a hypothesis. But this is our goal too! What finishing tactic will clear the level?
-  ### **❯ The `exact` tactic**
-  The tactic `exact e` will clear the goal if the goal matches the type of `e`. 👉 In our case, try
-  ```
-  exact hQ
-  ```
-  "
-  exact hQ
+Statement {u : Type*} (P : u → Prop) (a : u) : (∀ x, P x) → P a := by
+  intro h
+  exact h a
 
 Conclusion ""
-
-NewTactic exact obtain

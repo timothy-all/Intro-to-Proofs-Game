@@ -1,5 +1,4 @@
 import Game.Levels.PfWorld.L06_pf
-import Mathlib.Tactic.Ring
 
 World "PfWorld"
 Level 7
@@ -11,10 +10,10 @@ Introduction "
 "
 
 Statement (u : Type*) (F G : Set (Set u)) : ⋃₀ F ∩ ⋃₀ G ⊆ ⋃₀ (F ∩ G) ↔ ∀ A ∈ F, ∀ B ∈ G, A ∩ B ⊆ ⋃₀ (F ∩ G) := by
-  constructor
+  refine ⟨?right,?left⟩
   intro h A hA B hB x hx
   apply h
-  constructor
+  refine ⟨?inF,?inG⟩
   use A
   refine ⟨hA,hx.left⟩
   use B

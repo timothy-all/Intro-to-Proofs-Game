@@ -1,5 +1,4 @@
 import Game.Levels.PfWorld.L08_pf
-import Mathlib.Tactic.Ring
 
 World "PfWorld"
 Level 9
@@ -35,7 +34,7 @@ Statement (u : Type*) (A B : Set u) : 𝒫 (A ∪ B) = 𝒫 A ∪ 𝒫 B → (A 
   push_neg
   constructor
   rw[Set.mem_powerset_iff]
-  rw[subset_def]
+  rw[Set.subset_def]
   push_neg
   use b
   constructor
@@ -49,7 +48,7 @@ Statement (u : Type*) (A B : Set u) : 𝒫 (A ∪ B) = 𝒫 A ∪ 𝒫 B → (A 
   -/
   exact hb.right
   rw[Set.mem_powerset_iff]
-  rw[subset_def]
+  rw[Set.subset_def]
   push_neg
   use a
   constructor

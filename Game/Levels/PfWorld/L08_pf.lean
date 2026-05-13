@@ -1,5 +1,4 @@
 import Game.Levels.PfWorld.L07_pf
-import Mathlib.Tactic.Ring
 
 World "PfWorld"
 Level 8
@@ -16,22 +15,22 @@ Statement (n : Int) : Divides 40 n ↔ (Divides 8 n ∧ Divides 5 n) := by
   constructor
   use 5 * k
   rw[← hk]
-  ring
+  simplify
   use 8 * k
   rw[← hk]
-  ring
+  simplify
   intro ⟨⟨k,hk⟩, ⟨j,hj⟩⟩
   obtain h1 : 15 * n = 120 * k
   rw[← hk]
-  ring
+  simplify
   obtain h2 : 16 * n = 80 * j
   rw[← hj]
-  ring
+  simplify
   obtain h3 : n = 80 * j - 120 * k
   rw[← h1,← h2]
-  ring
+  simplify
   use 2*j - 3*k
   rw[h3]
-  ring
+  simplify
 
 Conclusion ""

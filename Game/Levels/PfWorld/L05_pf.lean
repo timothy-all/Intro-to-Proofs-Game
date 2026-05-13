@@ -1,5 +1,4 @@
 import Game.Levels.PfWorld.L04_pf
-import Mathlib.Tactic.Ring
 
 World "PfWorld"
 Level 5

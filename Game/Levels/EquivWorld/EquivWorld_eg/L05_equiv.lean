@@ -26,4 +26,5 @@ Statement Nand_self (P : Prop) : (P ⊼ P) ↔ ¬ P := by
 Conclusion "### **🤔 Food for thought**
 The unary operator `¬` can be expressed in terms of `⊼`."
 
-NewDefinition nand_def Or_self
+NewDefinition nand_def
+NewTheorem Or_self
