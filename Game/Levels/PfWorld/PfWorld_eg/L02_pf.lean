@@ -12,13 +12,11 @@ Introduction "
 "
 
 
-Statement (u v : Int) (hu : isEven u) (hv: isEven v) : isEven (u + v) := by
-  rw[isEven] at hu hv
-  rcases hu with ⟨k,hk⟩
-  rcases hv with ⟨l,hl⟩
-  use k+l
-  rw[hk,hl]
-  ring
+Statement {u : Type} (A B : Set u) : A ⊆ A \ B → A ∩ B = ∅ := by
+  intro h
+  by_contra! F
+  obtain ⟨x,hx⟩ := F
+  exact (h hx.left).right hx.right
 
 
 

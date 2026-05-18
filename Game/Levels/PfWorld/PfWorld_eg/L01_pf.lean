@@ -11,13 +11,19 @@ Introduction "
 ### **Level 1**
 "
 
-Statement (u : Type*) (A B C D : Set u) (h : A ∩ B ⊆ C \ D) (x : u) : x ∈ A → (x ∈ D → x ∉ B) := by
-  intro hxA
-  rw[Contrapositive]
-  push_neg
-  intro hxB
-  obtain want := h (And.intro hxA hxB)
-  exact want.right
+Statement (m n : Int) :  (¬ isEven (m * n)) → (¬ isEven m ∧ ¬ isEven n) := by
+  contrapose!
+  intro h
+  by_cases hm : isEven m
+  rcases hm with ⟨k,hk⟩
+  use k * n
+  rw[hk]
+  ring
+  obtain hn := h hm
+  rcases hn with ⟨k,hk⟩
+  use m * k
+  rw[hk]
+  ring
 
 
 Conclusion ""
