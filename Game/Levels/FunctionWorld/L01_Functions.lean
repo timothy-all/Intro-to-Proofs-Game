@@ -1,16 +1,18 @@
 import Game.Metadata
-import Game.Levels.FunctionWorld
+import Game.Levels.RelationWorld.RelationWorldExamples
 import Mathlib.Tactic.Cases
 
 
-World "InductionWorld"
+World "FunctionWorld"
 Level 1
 
-Title "Basic Induction"
+Title "f"
 
-Introduction "In Lean, we can prove theorems using induction for any statement using an ''inductive data type.'' The main inductive data type that we'll use is `Nat`, the type of natural numbers.
+Introduction "We'll view functions in Lean as relations with an additional special property, just as we did in class.
 
-Let's start with a very easy example to see how we can use induction in Lean. We'll prove that multiplying a natural number by `2` is the same thing as adding it to itself."
+If `R : Rel u v`, `R` will be a function if `∀ a : u, ∃! b : v, R a b`. We'll call this property `isFunction R`.
+
+Let's start very simple to get practice with this: we'll prove that the identity relation is a function."
 
 
 
@@ -31,3 +33,7 @@ Statement (n : Nat) : 2*n = n+n := by
 
 
 Conclusion "In fact, using `simplify` right from the start will close this goal! Try it. This, of course, won't work on more complicated examples."
+
+
+/-- If `R: Rel u v`, `isFunction R` means that `R` is a function from `u` to `v`; that is, for every `a : u`, there is a unique `b : v` such that `R a b`. --/
+DefinitionDoc isFunction as "FUN: isFunction"

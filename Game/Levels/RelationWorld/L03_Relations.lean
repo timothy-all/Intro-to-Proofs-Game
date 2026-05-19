@@ -11,10 +11,10 @@ To get used to this, let's prove something very basic - the inverse of a relatio
 Check your inventory for the exact definition of `Rel.inv` so you can use it in your proof."
 
 /-- The inverse of the inverse of a relation is itself. --/
-TheoremDoc Rel_inv_inv as "Rel_inv_inv"
+TheoremDoc Rel_inv_inv as "REL: Rel_inv_inv"
 
 /-- Swaps out relation equality with the underlying set equality. --/
-TheoremDoc Rel_double_inclusion as "Relation double inclusion"
+TheoremDoc Rel_double_inclusion as "REL: Rel_double_inclusion"
 
 Statement Rel_inv_inv {u v : Type} (R: Rel u v) : (R.inv).inv = R := by
   Hint "Lean views this as an equality of `functions`. To replace relation equality with the more familiar double inclusion set proofs from class, we can `apply Rel_double_inclusion`."
@@ -35,4 +35,4 @@ We'll work with functions much more explicitly in Function World."
 /- Use these commands to add items to the game's inventory. -/
 
 /-- `R.inv` is the inverse of the relation `R`. --/
-DefinitionDoc Rel.inv as "Rel.inv"
+DefinitionDoc Rel.inv as "REL: Rel.inv"

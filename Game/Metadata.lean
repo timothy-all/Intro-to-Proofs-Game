@@ -230,6 +230,7 @@ def equivClass {u : Type*} (R: Rel_on u) (a : u) := {x | R a x}
 def equivClassFamily {u : Type*} (R: Rel_on u) := {equivClass R x | x : u}
 
 
+def isFunction {u v: Type*} (R: Rel u v) := ∀ a, ∃! b, R a b
 
 
 theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
