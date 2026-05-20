@@ -201,6 +201,9 @@ structure isEquivalence {u : Type*} (R : Rel_on u) where
   (symm : isSymmetric R)
   (tran : isTransitive R)
 
+
+
+
 def isMinimal {u : Type*} (R: Rel_on u) (b : u) (B : Set u := Set.univ) := b ∈ B ∧ ∀ x, x ∈ B → R x b → x = b
 
 def isMaximal {u : Type*} (R: Rel_on u) (b : u) (B : Set u := Set.univ) := b ∈ B ∧ ∀ x, x ∈ B → R b x → x = b
@@ -245,6 +248,13 @@ example {u : Type*} (a : u) (h : isFunction (Rel_id u)) : (eval (Rel_id u) h) a 
   dsimp at hb ⊢
   sorry
 
+
+
+
+
+noncomputable def eval {u v : Type*} (f : Rel u v) {h: isFunction f} (a : u) : v := by
+  obtain hfa := h a
+  sorry
 
 
 
