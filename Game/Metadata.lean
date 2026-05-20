@@ -229,23 +229,16 @@ def equivClass {u : Type*} (R: Rel_on u) (a : u) := {x | R a x}
 
 def equivClassFamily {u : Type*} (R: Rel_on u) := {equivClass R x | x : u}
 
-
 def isFunction {u v: Type*} (R: Rel u v) := ∀ a, ∃! b, R a b
 
-noncomputable def eval {u v : Type*} (f : Rel u v) (h : isFunction f) (a : u) : v := by
-  obtain want := h a
-  let b : v := Classical.choose want
-  obtain b_spec := Classical.choose_spec want
-  dsimp at b_spec
-  exact b
+open Lean Elab Tactic
 
-example {u : Type*} (a : u) (h : isFunction (Rel_id u)) : (eval (Rel_id u) h) a = a := by
-  obtain ⟨b,hb⟩ := h a
-  rw[eval]
-  dsimp at hb ⊢
-  sorry
-
-
+syntax "evaluate " term " at " term " with " ident ident : tactic
+elab_rules : tactic
+| `(tactic| evaluate $f at $a with $b $hb) => do
+      evalTactic (← `(tactic|
+        obtain ⟨$b,_⟩ := $f $a; rename _ => this; dsimp at this; rename_i $hb:ident
+      ))
 
 
 theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by

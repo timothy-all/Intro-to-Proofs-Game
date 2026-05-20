@@ -16,6 +16,7 @@ Statement {u v w: Type*} (f: Rel u v) (g: Rel v w) (hf: isFunction f) (hg: isFun
   Hint "So, what does `a` map to? Of course, it's g(f(a)), but we have to carefully grab it using our assumptions. In particular, if you try something like `g (f a)`, Lean just gets confused.
 
   Let's start by grabbing f(a). Intuitively, this is the unique `b` such that `f a b` is true. So we start by plugging `a` into `hf` to say we want the output corresponding to `a`: `obtain hfa := hf a`."
+  evaluate hf at a with b hb
   obtain hfa := hf a
   Hint "`b` is still locked away in the unique existence statement, so we'll unpack that: `obtain ⟨b, hb⟩ := hfa; dsimp at hb`. (Without the dsimp, Lean will display some weird trivial function evaluations. Don't worry about it too much.)"
   obtain ⟨b, hb⟩ := hfa; dsimp at hb
