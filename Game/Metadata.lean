@@ -232,6 +232,21 @@ def equivClassFamily {u : Type*} (R: Rel_on u) := {equivClass R x | x : u}
 
 def isFunction {u v: Type*} (R: Rel u v) := ∀ a, ∃! b, R a b
 
+noncomputable def eval {u v : Type*} (f : Rel u v) (h : isFunction f) (a : u) : v := by
+  obtain want := h a
+  let b : v := Classical.choose want
+  obtain b_spec := Classical.choose_spec want
+  dsimp at b_spec
+  exact b
+
+example {u : Type*} (a : u) (h : isFunction (Rel_id u)) : (eval (Rel_id u) h) a = a := by
+  obtain ⟨b,hb⟩ := h a
+  rw[eval]
+  dsimp at hb ⊢
+  sorry
+
+
+
 
 theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
   intro x
