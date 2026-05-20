@@ -201,6 +201,9 @@ structure isEquivalence {u : Type*} (R : Rel_on u) where
   (symm : isSymmetric R)
   (tran : isTransitive R)
 
+
+
+
 def isMinimal {u : Type*} (R: Rel_on u) (b : u) (B : Set u := Set.univ) := b ∈ B ∧ ∀ x, x ∈ B → R x b → x = b
 
 def isMaximal {u : Type*} (R: Rel_on u) (b : u) (B : Set u := Set.univ) := b ∈ B ∧ ∀ x, x ∈ B → R b x → x = b
@@ -239,6 +242,13 @@ elab_rules : tactic
       evalTactic (← `(tactic|
         obtain ⟨$b,_⟩ := $f $a; rename _ => this; dsimp at this; rename_i $hb:ident
       ))
+
+
+
+noncomputable def eval {u v : Type*} (f : Rel u v) {h: isFunction f} (a : u) : v := by
+  obtain hfa := h a
+  sorry
+
 
 
 theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
