@@ -234,6 +234,12 @@ def equivClassFamily {u : Type*} (R: Rel_on u) := {equivClass R x | x : u}
 
 def isFunction {u v: Type*} (R: Rel u v) := ∀ a, ∃! b, R a b
 
+def Fun_image {u v : Type*} (R: Rel u v) (U : Set u) : Set v := { v | ∃ u ∈ U, R u v}
+
+def Fun_invimage {u v : Type*} (R: Rel u v) (V : Set v) : Set u := { u | ∃ v ∈ V, R u v}
+
+def Fun_isInjective {u v : Type*} (R: Rel u v) := ∀ a b c, R a c = R b c → a = b
+
 open Lean Elab Tactic
 
 syntax "evaluate " term " at " term " with " ident ident : tactic

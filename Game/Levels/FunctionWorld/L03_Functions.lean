@@ -11,7 +11,10 @@ Introduction "Let's prove that the compositum of two functions is a function."
 /-- If `hf : isFunction f`, the `evaluate` tactic lets us "plug in" `a` to `f`. For instance, `evaluate hf at a with b hb` will make the output `b` with `hb` being the information required for `f(a) = b`. -/
 TacticDoc evaluate
 
-Statement {u v w: Type*} (f: Rel u v) (g: Rel v w) (hf: isFunction f) (hg: isFunction g) : isFunction (g ∘ f):= by
+/-- The compositum of two functions is also a function. -/
+TheoremDoc Fun_comp_fun as "FUN: Fun_comp_fun"
+
+Statement Fun_comp_fun {u v w: Type*} (f: Rel u v) (g: Rel v w) (hf: isFunction f) (hg: isFunction g) : isFunction (g ∘ f):= by
   Hint "Start with `intro a` to grab our arbitrary input."
   intro a
   Hint "So, what does `a` map to? Of course, it's g(f(a)), but we have to carefully grab it using our assumptions. In particular, if you try something like `g (f a)`, Lean just gets confused.
