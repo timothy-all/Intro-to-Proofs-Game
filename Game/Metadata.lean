@@ -238,7 +238,11 @@ def Fun_image {u v : Type*} (R: Rel u v) (U : Set u) : Set v := { v | ∃ u ∈ 
 
 def Fun_invimage {u v : Type*} (R: Rel u v) (V : Set v) : Set u := { u | ∃ v ∈ V, R u v}
 
+
+def Fun_isInjective {u v : Type*} (R: Rel u v) := ∀ a b c, R a c → R b c → a = b
+/- Original Fun_isInjective is below. This definition isn't good because it doesn't assume  R a c and R b c. Without this, it could be possible that R a c and R b c are false, and in applications it could be impossible to conclude a = b from this
 def Fun_isInjective {u v : Type*} (R: Rel u v) := ∀ a b c, R a c = R b c → a = b
+-/
 
 open Lean Elab Tactic
 
