@@ -20,14 +20,10 @@ Statement {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: Fun_isInjective f
   evaluate hg at y2 with z2 hz2
   obtain gfaz1 : (g ∘ f) a z1 := by
     use y1
-    constructor
-    exact hy1.left
-    exact hz1.left
+    refine ⟨hy1.left,hz1.left⟩
   obtain gfbz2 : (g ∘ f) b z2 := by
     use y2
-    constructor
-    exact hy2.left
-    exact hz2.left
+    refine ⟨hy2.left,hz2.left⟩
   obtain hz1z2 : z1 = z2 := by
     evaluate gffun at a with w1 hw1
     evaluate gffun at b with w2 hw2
@@ -42,6 +38,21 @@ Statement {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: Fun_isInjective f
   exact hfi a b y2 hy1.left hy2.left
 
 
+example {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: Fun_isInjective f) (g: Rel v w) (hg: isFunction g)  (hgi: Fun_isInjective g) : Fun_isInjective (g ∘ f) := by
+  intro a b c gfac
+  contrapose!
+  intro ne
+  rw[Rel_comp]
+  push_neg
+  intro x fbx
+  by_contra! gxc
+  evaluate hf at a with y hy
+  obtain gyc : g y c
+  sorry
+  obtain this := hgi x y c gxc gyc
+  rw[this] at fbx
+  obtain that := hfi a b y hy.left fbx
+  contradiction
 
 
 Conclusion "."

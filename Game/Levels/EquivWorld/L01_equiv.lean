@@ -23,7 +23,7 @@ set_option pp.parens true
 
 Statement (P Q : Prop) : (P → Q) ↔ (Q ∨ ¬ P) := by
   rewrite[Or_comm]
-  Hint "We should now rewrite the left-hand side of our goal using the **Conditional Law**..."
+  Hint "We should now `rewrite` the left-hand side of our goal using the **Conditional Law**. 🔍 Check the **Theorems** tab to find the appropriate theorem in the inventory."
   rewrite[Imp_iff_not_or]
   Hint "
   ### **❯ The `rfl` tactic**

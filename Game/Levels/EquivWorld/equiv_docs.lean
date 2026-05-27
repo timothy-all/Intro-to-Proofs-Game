@@ -28,12 +28,7 @@ TacticDoc rfl
 /--
 This theorem is the so-called **Conditional Law**. It says that
 
-$$ (¬ P ∨ Q) ↔ (P → Q) $$
-
-Here's what it looks like in Lean:
-```
-Imp_iff_not_or (P Q : Prop) : (¬ P ∨ Q) ↔ (P → Q) := by
-```
+$$ (P → Q) ↔ (¬ P ∨ Q) $$
 -/
 TheoremDoc Imp_iff_not_or as "Imp_iff_not_or"
 
