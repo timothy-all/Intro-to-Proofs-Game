@@ -20,15 +20,8 @@ Statement {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isInjective f) (g
   evaluate hg at y2 with z2 hz2f hz2u
   obtain gfaz1 : (g ∘ f) a z1 := by
     use y1
-<<<<<<< HEAD
-    refine ⟨hy1.left,hz1.left⟩
   obtain gfbz2 : (g ∘ f) b z2 := by
     use y2
-    refine ⟨hy2.left,hz2.left⟩
-=======
-  obtain gfbz2 : (g ∘ f) b z2 := by
-    use y2
->>>>>>> 2f2826d (Evaluate tactic splits function condition into two hypotheses, refactored FunctionWorld to make this work. Renamed FunctionWorld definitions to remove 'Fun_')
   obtain hz1z2 : z1 = z2 := by
     evaluate gffun at a with w1 hw1f hw1u
     evaluate gffun at b with w2 hw2f hw2u
@@ -42,7 +35,7 @@ Statement {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isInjective f) (g
   rw [hy1y2] at hy1f
   exact hfi a b y2 hy1f hy2f
 
-example {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: Fun_isInjective f) (g: Rel v w) (hg: isFunction g)  (hgi: Fun_isInjective g) : Fun_isInjective (g ∘ f) := by
+example {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isInjective f) (g: Rel v w) (hg: isFunction g)  (hgi: isInjective g) : isInjective (g ∘ f) := by
   intro a b c gfac
   contrapose!
   intro ne
@@ -50,12 +43,12 @@ example {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: Fun_isInjective f) 
   push_neg
   intro x fbx
   by_contra! gxc
-  evaluate hf at a with y hy
+  evaluate hf at a with y hyf hyu
   obtain gyc : g y c
   sorry
   obtain this := hgi x y c gxc gyc
   rw[this] at fbx
-  obtain that := hfi a b y hy.left fbx
+  obtain that := hfi a b y hyf fbx
   contradiction
 
 
