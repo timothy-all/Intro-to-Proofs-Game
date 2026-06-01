@@ -4,6 +4,7 @@ import Game.Levels.EquivWorld
 import Game.Levels.EquivWorld.EquivWorld_eg
 import Game.Levels.ArgWorld
 import Game.Levels.ArgWorld.ArgWorld_eg
+<<<<<<< HEAD
 --import Game.Levels.QuantifierWorld
 --import Game.Levels.QuantifierWorld.QuantifierWorld_eg
 --import Game.Levels.SetWorld
@@ -14,6 +15,19 @@ import Game.Levels.ArgWorld.ArgWorld_eg
 --import Game.Levels.InductionWorld
 --import Game.Levels.PfWorld
 --import Game.Levels.PfWorld.PfWorld_eg
+=======
+import Game.Levels.QuantifierWorld
+import Game.Levels.QuantifierWorld.QuantifierWorld_eg
+import Game.Levels.SetWorld
+import Game.Levels.SetWorld.SetWorld_eg
+import Game.Levels.RelationWorld
+import Game.Levels.RelationWorld.RelationWorldExamples
+import Game.Levels.FunctionWorld
+import Game.Levels.FunctionWorld.FunctionWorldExamples
+import Game.Levels.InductionWorld
+import Game.Levels.PfWorld
+import Game.Levels.PfWorld.PfWorld_eg
+>>>>>>> 2f2826d (Evaluate tactic splits function condition into two hypotheses, refactored FunctionWorld to make this work. Renamed FunctionWorld definitions to remove 'Fun_')
 
 -- Here's what we'll put on the title screen
 Title "Intro to Proofs Game"

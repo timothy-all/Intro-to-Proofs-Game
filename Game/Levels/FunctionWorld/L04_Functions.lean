@@ -11,25 +11,22 @@ Introduction "Let's look at images and inverse images of sets. These quantities 
 Check your inventory for the new definitions, then try the problem below that will test your understanding of the definitions."
 
 /-Hints for this one? Some help proving y ∈ C by using Fun_image f C ⊆ C, maybe. Also this might be too difficult to have in the main world -/
-Statement {u: Type*} (f: Rel_on u) (hf: isFunction f) (C: Set u) : Fun_image f C ⊆ C ↔ C ⊆ Fun_invimage f C := by
+Statement {u: Type*} (f: Rel_on u) (hf: isFunction f) (C: Set u) : image f C ⊆ C ↔ C ⊆ invimage f C := by
   constructor
   intro h x hx
-  evaluate hf at x with y hy
+  evaluate hf at x with y hyf hyu
   use y
   constructor
   apply h
   use x
-  constructor
-  exact hx
-  exact hy.left
-  exact hy.left
+  exact hyf
   intro h y hy
   obtain ⟨x,⟨hxc,hxy⟩⟩ := hy
   obtain hxim := h hxc
   obtain ⟨z,⟨hzc,hxz⟩⟩ := hxim
-  evaluate hf at x with w hw
-  obtain fxy := hw.right y hxy
-  obtain fxz := hw.right z hxz
+  evaluate hf at x with w hwf hwu
+  obtain fxy := hwu y hxy
+  obtain fxz := hwu z hxz
   rw [fxy,←fxz]
   exact hzc
 

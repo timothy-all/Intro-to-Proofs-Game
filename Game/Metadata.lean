@@ -234,23 +234,25 @@ def equivClassFamily {u : Type*} (R: Rel_on u) := {equivClass R x | x : u}
 
 def isFunction {u v: Type*} (R: Rel u v) := ∀ a, ∃! b, R a b
 
-def Fun_image {u v : Type*} (R: Rel u v) (U : Set u) : Set v := { v | ∃ u ∈ U, R u v}
+def image {u v : Type*} (R: Rel u v) (U : Set u) : Set v := { v | ∃ u ∈ U, R u v}
 
-def Fun_invimage {u v : Type*} (R: Rel u v) (V : Set v) : Set u := { u | ∃ v ∈ V, R u v}
+def invimage {u v : Type*} (R: Rel u v) (V : Set v) : Set u := { u | ∃ v ∈ V, R u v}
 
 
-def Fun_isInjective {u v : Type*} (R: Rel u v) := ∀ a b c, R a c → R b c → a = b
+def isInjective {u v : Type*} (R: Rel u v) := ∀ a b c, R a c → R b c → a = b
 /- Original Fun_isInjective is below. This definition isn't good because it doesn't assume  R a c and R b c. Without this, it could be possible that R a c and R b c are false, and in applications it could be impossible to conclude a = b from this
 def Fun_isInjective {u v : Type*} (R: Rel u v) := ∀ a b c, R a c = R b c → a = b
 -/
 
+def isSurjective {u v : Type*} (R: Rel u v) := ∀ b, ∃ a, R a b
+
 open Lean Elab Tactic
 
-syntax "evaluate " term " at " term " with " ident ident : tactic
+syntax "evaluate " term " at " term " with " ident ident ident : tactic
 elab_rules : tactic
-| `(tactic| evaluate $f at $a with $b $hb) => do
+| `(tactic| evaluate $f at $a with $b $hbf $hbu) => do
       evalTactic (← `(tactic|
-        obtain ⟨$b,_⟩ := $f $a; rename _ => this; dsimp at this; rename_i $hb:ident
+        obtain ⟨$b,⟨__a,__b⟩⟩ := $f $a; dsimp at __b; rename_i $hbu:ident; rename_i $hbf:ident;
       ))
 
 
