@@ -6,8 +6,6 @@ import Game.Levels.FunctionWorld.L04_Functions
 import Game.Levels.FunctionWorld.L05_Functions
 
 
-
-
 World "FunctionWorld"
 Title "Function World"
 

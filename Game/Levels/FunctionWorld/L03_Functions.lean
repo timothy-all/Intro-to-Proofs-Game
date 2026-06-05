@@ -8,7 +8,7 @@ Title "function"
 
 Introduction "Let's prove that the compositum of two functions is a function."
 
-/-- If `hf : isFunction f`, the `evaluate` tactic lets us "plug in" `a` to `f`. For instance, `evaluate hf at a with b hb` will make the output `b` with `hb` being the information required for `f(a) = b`. -/
+/-- If `hf : isFunction f`, the `evaluate` tactic lets us "plug in" `a` to `f`. For instance, `evaluate hf at a with b hbf hbu` will make the output `b` with `hbf` being the information that  `f(a) = b` and `hbu` being the corresponding uniqueness statement. -/
 TacticDoc evaluate
 
 /-- The compositum of two functions is also a function. -/

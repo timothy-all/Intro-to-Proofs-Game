@@ -246,6 +246,8 @@ def Fun_isInjective {u v : Type*} (R: Rel u v) := ∀ a b c, R a c = R b c → a
 
 def isSurjective {u v : Type*} (R: Rel u v) := ∀ b, ∃ a, R a b
 
+def isBijection {u v : Type*} (R: Rel u v) := isInjective R ∧ isSurjective R
+
 open Lean Elab Tactic
 
 syntax "evaluate " term " at " term " with " ident ident ident : tactic

@@ -14,9 +14,10 @@ If `R : Rel u v`, `R` will be a function if `∀ a : u, ∃! b : v, R a b`. We'l
 
 Let's start very simple to get practice with this: we'll prove that the identity relation is a function."
 
+/--  The identity relation `Rel_id u` on set `u` is a function. -/
+TheoremDoc Fun_identity_fun as "FUN: Fun_identity_fun"
 
-
-Statement {u : Type*} : isFunction (Rel_id u) := by
+Statement Fun_identity_fun {u : Type*} : isFunction (Rel_id u) := by
   Hint "Let's unpack what it means to be a function. Start with `intro a` to grab an arbitrary element of `u`."
   intro a
   Hint "Since the identity relation is only supposed to have pairs `(a,a)`, let's claim that `a` is the unique `b` the goal is asking for: `use! a`."
