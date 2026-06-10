@@ -131,9 +131,23 @@ example {u v: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isSurjective f) (V: S
   exact ha
 
 
-/-Fibers form equivalence classes; that is, if R is the relation on u where R a b if and only if g(a) = g(b), then R is an equivalence relation on u. Unsure how to get this into the theorem statement currently-/
-example {u v: Type*} (g: Rel u v) (hg: isFunction g) : true := by
-  sorry
+/-Fibers form equivalence classes; that is, if R is the relation on u where R a b if and only if g(a) = g(b), then R is an equivalence relation on u-/
+def Rel_fiberrel {u v: Type*} (g: Rel u v) : Rel_on u := by
+  intro x1 x2
+  exact ∃ y, g x1 y ∧ g x2 y
+
+example {u v: Type*} (g: Rel u v) (hg: isFunction g) : isEquivalence (Rel_fiberrel g) := by
+  constructor
+  intro x
+  evaluate hg at x with y hgx hgu
+  use y
+  intro x1 x2 h
+  obtain ⟨y, ⟨hy1,hy2⟩⟩ := h
+  use y
+  intro x1 x2 x3 ⟨y, ⟨hy1,hy2⟩⟩ ⟨z, ⟨hz1,hz2⟩⟩
+  obtain hyz : y = z := Fun_output_equal g hg x2 y z hy2 hz1
+  rw [← hyz] at hz2
+  use y
 
 /-Fun function exercise. Only uses that f is a function and f is reflexive, could replace equivalence with reflexive but without it students have to figure out that it's reflexive that matters-/
 example {u: Type*} (f: Rel_on u) (hf: isFunction f) (hfe: isEquivalence f) : f = Rel_id u := by
