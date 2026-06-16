@@ -248,6 +248,10 @@ def isSurjective {u v : Type*} (R: Rel u v) := ∀ b, ∃ a, R a b
 
 def isBijection {u v : Type*} (R: Rel u v) := isInjective R ∧ isSurjective R
 
+def Rel_fiberrel {u v: Type*} (g: Rel u v) : Rel_on u := by
+  intro x1 x2
+  exact ∃ y, g x1 y ∧ g x2 y
+
 open Lean Elab Tactic
 
 syntax "evaluate " term " at " term " with " ident ident ident : tactic

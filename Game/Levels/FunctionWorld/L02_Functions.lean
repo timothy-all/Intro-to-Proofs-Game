@@ -4,44 +4,36 @@ import Game.Levels.FunctionWorld.L01_Functions
 World "FunctionWorld"
 Level 2
 
-Title "function"
+Title "The `evaluate` tactic and `Fun_output_equal`"
 
-Introduction "In the Intro to Proofs game, we'll always view functions first and foremost as relations - no `y = f(x)`. Despite this, if `f: Rel u v` and `a : u`, Lean makes sense out of `f a`. We can think intuitively of this as meaning `f(a)`, but that's not exactly right, though it often helps with intuition.
+Introduction "In practice, we'll rarely directly need to unpack `isFunction f` directly thanks to the `evaluate` tactic. Check your inventory for information about `evaluate`.
 
-Let's start to examine this with the following theorem that we state for functions in class - we can prove two functions are equal if they're equal on all of their possible inputs. But we won't need `isFunction` to do it. Let's see what happens."
+As the naming suggests, we'll use `evaluate` whenever we need to plug a domain element into a function. There's not a super nice way to do this directly, so don't forget about `evaluate`!
 
-/--  We can check if two relations are equal by proving that, if you take an arbitrary first coordinate, all the second coordinates are the same. -/
-TheoremDoc Rel_equal_if_equal_inputs as "FUN: Rel_equal_if_equal_inputs"
+To get some initial practice with `evaluate`, we'll prove a very useful fact for working with functions.
 
-Statement Rel_equal_if_equal_inputs {u v: Type*} (f g: Rel u v) (hf: isFunction f) (hg: isFunction g) : (∀ a : u, f a = g a) → f = g := by
-  Hint "Start with `intro h` to name our hypothesis."
-  intro h
-  Hint "Remember that double inclusion is the typical way that we prove relations are equal, so let's do that here. `apply Rel_double_inclusion` then `apply double_inclusion` to begin the double inclusion proof."
-  apply Rel_double_inclusion
-  apply double_inclusion
-  Hint "Finally, `intro x hx` to unpack the forward direction of double inclusion."
-  intro x hx
-  Hint "Remember that `x ∈ f.set` means that `f x.1 x.2`. So our goal is to show that `g x.1 x.2`.
+Recall that the point of the uniqueness part of `isFunction f` is that inputs have a unique output. When writing proofs by hand, we use this fact seamlessly by utilizing the `f(x) = y` notation. In Lean, we'll need to be a bit more careful.
 
-  In general, for a relation, it's not guaranteed that `g` has any ordered pairs containing `x.1` or `x.2`. But since `g` is a function, it has an ordered pair with first coordinate `x.1` guaranteed! Then `f a = g a` guarantees the same second coordinate.
+We'll often know that `f a b` and `f a c`, at which point `b = c` (the outputs are the same) as long as `f` is a function. Prove this to get some practice with the uniqueness of function outputs."
 
-  Let's start by plugging in `x.1` to `h`: `obtain hplug : f x.1 = g x.1 := h x.1`."
-  obtain hplug : f x.1 = g x.1 := h x.1
-  Hint "From here, show that `g x.1 x.2`, then tackle the reverse inclusion similarly."
-  obtain gx1x2 : g x.1 x.2 := by
-    rw [←hplug]
-    exact hx
-  exact gx1x2
-  intro x hx
-  obtain hplug : f x.1 = g x.1 := h x.1
-  obtain fx1x2 : f x.1 x.2 := by
-    rw [hplug]
-    exact hx
-  exact fx1x2
+
+/-- If `hf : isFunction f`, the `evaluate` tactic lets us "plug in" `a` to `f`. For instance, `evaluate hf at a with b hbf hbu` will make the output `b` with `hbf` being the information that  `f(a) = b` and `hbu` being the corresponding uniqueness statement. -/
+TacticDoc evaluate
+
+/--  If `f` is a function such that `f a b` and `f a c`, then `b = c`. -/
+TheoremDoc Fun_output_equal as "FUN: Fun_output_equal"
+
+Statement Fun_output_equal {u v: Type*} (f: Rel u v) (hf: isFunction f) (a : u) (b c : v) : f a b → f a c → b = c := by
+  Hint "Start by naming the assumptions: `intro fab fbc`."
+  intro fab fac
+  Hint "Use `evaluate` to access the uniqueness statement for plugging `a` into `f`: `evaluate hf at a with d hdf hdu`. This will give the uniqueness statement for plugging in `a` the name `hdu`."
+  evaluate hf at a with d hdf hdu
+  Hint "From here, use `hdu` to prove that `b = d` and `c = d`. Then we're basically done!"
+  obtain bd := hdu b fab
+  obtain cd := hdu c fac
+  rw [bd]
+  exact cd.symm
 
 
 
-
-Conclusion "So what's going on here? `f a = g a` in Lean means that `f` and `g` always have the same second coordinate when their first coordinate is `a`, even if there are several second coordinates with first coordinate `a`.
-
-In the next level, we'll examine another basic theorem that does in fact require the function property!"
+Conclusion "."
