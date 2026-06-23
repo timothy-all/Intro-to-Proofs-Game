@@ -386,6 +386,11 @@ macro_rules
   | `(tactic| use! $w) =>
       `(tactic| refine Exists.intro $w ?_; dsimp)
 
+syntax "simplify2" : tactic
+macro_rules
+  | `(tactic| simplify2) =>
+    `(tactic| (try simp only [pow_add, pow_mul, mul_pow, pow_succ, pow_zero, pow_one, one_pow]; ring))
+
 --Divisibility definitions
 
 def Divides (x y : Int) := ∃ z, x * z = y

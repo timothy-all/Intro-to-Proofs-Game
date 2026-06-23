@@ -1,37 +1,30 @@
-import Game.Metadata
-import Game.Levels.FunctionWorld
+import Game.Levels.FunctionWorld.FunctionWorldExamples.function_example1
 
 
 World "FunctionWorldExamples"
-Level 1
+Level 2
 
 Title "f"
 
-Introduction "Fibers (inverse images of single elements) form equivalence classes.
-
-Check your inventory for the definition of `Rel_fiberrel`."
+Introduction "A function that is an equivalence relation can only be the identity function."
 
 
-Statement {u v: Type*} (g: Rel u v) (hg: isFunction g) : isEquivalence (Rel_fiberrel g) := by
-  constructor
-  intro x
-  evaluate hg at x with y hgx hgu
-  use y
-  intro x1 x2 h
-  obtain ⟨y, ⟨hy1,hy2⟩⟩ := h
-  use y
-  intro x1 x2 x3 ⟨y, ⟨hy1,hy2⟩⟩ ⟨z, ⟨hz1,hz2⟩⟩
-  obtain hyz : y = z := Fun_output_equal g hg x2 y z hy2 hz1
-  rw [← hyz] at hz2
-  use y
+Statement {u: Type*} (f: Rel_on u) (hf: isFunction f) (hfe: isEquivalence f) : f = Rel_id u := by
+  apply Rel_double_inclusion
+  apply double_inclusion
+  intro x hx
+  evaluate hf at x.1 with b hbf hbu
+  obtain hbx1 : x.1 = b := hbu x.1 (hfe.refl x.1)
+  obtain hbx2 : x.2 = b := hbu x.2 hx
+  rw [← hbx2] at hbx1
+  exact hbx1
+  intro x hx
+  obtain fx1x1 : f x.1 x.1 := hfe.refl x.1
+  nth_rw 2 [hx] at fx1x1 --Can we use nth_rw? Way around it?
+  exact fx1x1
 
 
 
 
 
 Conclusion "."
-
-/-- If `f : Rel u v` is a function and `V : Set v` is a set of elements of `v`, then `Fun_invimage f V` is the set of elements of `u` with the property that `f(u) ∈ V`.
-
-Since we can't directly "plug in" stuff to `f`, the set `Fun_invimage f V` is defined as the set of `u ∈ U` with the property that `f u v` for some `v ∈ V`. Of course, we know there is only one such possible `v`, the one we usually call `f(u)`.-/
-DefinitionDoc Rel_fiberrel as "FUN: Rel_fiberrel"
