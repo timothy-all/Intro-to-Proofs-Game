@@ -379,7 +379,7 @@ end Rela
 
 syntax "simplify" : tactic
 macro_rules
-| `(tactic| simplify) => `(tactic| ring)
+| `(tactic| simplify) => `(tactic| push_cast; ring)
 
 syntax "use! " term : tactic
 macro_rules
