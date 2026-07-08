@@ -275,6 +275,49 @@ example (P: Nat → Prop) : (P 0 ∧ ∀ n, P n → P (n+1)) → ∀ n, P n := b
   rw [← Nat.pos_iff_ne_zero] at aWOPpos
   exact aWOPpos
 
+--Structural induction?
+
+--"Let F be the subset of ℕ such that 12 ∈ F and, if x ∈ F, x^2 ∈ F and 3x+8 ∈ F. Prove that every x ∈ F is divisible by 4."
+inductive F : ℕ → Prop
+  | base : F 12
+  | h1   : ∀ x, F x → F (x ^ 2)
+  | h2  : ∀ x, F x → F (3 * x + 8)
+
+example : ∀ x, F x → (4 ∣ x) := by
+  intro x hx
+  induction' hx with k hk
+  use 3
+  obtain ⟨l,hl⟩ := a_ih
+  rw [hl]
+  use 4*l^2
+  simplify
+  obtain ⟨l,hl⟩ := a_ih
+  rw [hl]
+  use 3*l+2
+  simplify
+
+--Full binary trees
+inductive FBT : Type
+  | root : FBT
+  | branch : FBT → FBT → FBT --Takes the left & right subtrees and glues them together into new FBT
+
+def FBT.num_nodes : FBT → ℕ
+  | .root => 1
+  | .branch l r => l.num_nodes + r.num_nodes + 1
+
+def FBT.num_edges : FBT → ℕ
+  | .root => 0
+  | .branch l r => l.num_edges + r.num_edges + 2
+
+--If T is a full binary tree, its number of nodes is one more than its number of edges
+example (T : FBT) : T.num_edges + 1 = T.num_nodes := by
+  induction' T with b1 b2 hb1 hb2
+  rw [FBT.num_edges, FBT.num_nodes] --closes automatically
+  rw [FBT.num_edges, FBT.num_nodes,← hb1, ← hb2]
+  simplify
+
+
+
 
 
 --Pigeonhole principle. Using Finset Nat (instead of Finset u for u : Type*) because Finset induction needs the underlying type to have "decidable equality"; you need to be able to check whether or not elements are equal so that inserting an element into a set can be checked to make sense or not
