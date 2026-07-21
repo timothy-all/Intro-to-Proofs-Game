@@ -92,16 +92,6 @@ example (n : Nat) : testrec n = (2^n) - n - 1 := by
 
 
 
---push_cast attempt
-example (n : Nat) : testrec n = (2^n) - n - 1 := by
-  induction' n with k ih
-  rw [testrec]
-  simplify
-  --tutorialization on `rw [testrec]` is needed to show how to apply recursion
-  rw [testrec, ih]--, sub_sub,mul_sub,mul_comm,← pow_succ]
-  push_cast --Is this the key?
-  simplify
-Conclusion " "
 
 
 --Below is an example that is simple enough to actually work. Doesn't get more basic than this. Stuff too much more complicated than this might not even be worth doing
@@ -113,8 +103,9 @@ example (n:Nat) : testrec2 n = n*2^n := by
   induction' n with k ih
   rw [testrec2]
   simplify
-  rw [testrec2,ih]
+  rw [add_comm]--,testrec2,ih] <- This worked at some point, I think, but stopped working?
   simplify
+  sorry
 
 
 --Strong induction example
@@ -318,7 +309,7 @@ example (T : FBT) : T.num_edges + 1 = T.num_nodes := by
 
 
 
-
+/-
 
 --Pigeonhole principle. Using Finset Nat (instead of Finset u for u : Type*) because Finset induction needs the underlying type to have "decidable equality"; you need to be able to check whether or not elements are equal so that inserting an element into a set can be checked to make sense or not
 example (S T : Finset Nat) (f : Rel S T) (hf: isFunction f) (hst: #S > #T) : ¬ isInjective f := by
@@ -333,6 +324,7 @@ example (S T : Finset Nat) (f : Rel S T) (hf: isFunction f) (hst: #S > #T) : ¬ 
 example {u : Type*} (hu : Fintype u) (hne : Nonempty u) (R: Rel_on u) (hR: isPartialOrder R) : ∃ m, isMaximal R m := by
   induction' (Fintype.card u) with k hk
   sorry
+  sorry
 /-example (S : Fintype Nat) (hS: Fintype.Nonempty S) (R : Rel_on S) (hR: isPartialOrder R) : ∃ m, isMaximal R m  := by
   induction' S using Finset.induction_on with newelem newS
   exfalso
@@ -341,3 +333,4 @@ example {u : Type*} (hu : Fintype u) (hne : Nonempty u) (R: Rel_on u) (hR: isPar
   rfl
   by_cases h : isMaximal R newelem
   sorry-/
+-/
