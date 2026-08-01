@@ -47,8 +47,9 @@ theorem Nat_eqin_PNat : Nat ~ PNat := by
   constructor
   rfl
   intro y h
-  --rw [fnp] at h This line works if fnp is defined outside of the theorem, but using let to define it in the proof broke it
-  sorry --Not sure how to proceed, rw [h] doesn't work
+  unfold fnp at h
+  --rw [h]
+  sorry
   --Bijective proof below has way too many small Nat/PNat manipulations, coercions
   constructor
   intro a1 a2 b ha1b ha2b
@@ -82,4 +83,5 @@ example (u : Type) : ¬ (u ~ Set u) := by
   obtain k : ¬ elem_not_in_output a := by
 
     sorry
+  sorry
   sorry

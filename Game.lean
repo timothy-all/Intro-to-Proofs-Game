@@ -11,6 +11,8 @@ import Game.Levels.ArgWorld.ArgWorld_eg
 --import Game.Levels.RelationWorld
 --import Game.Levels.RelationWorld.RelationWorldExamples
 --import Game.Levels.FunctionWorld
+--import Game.Levels.FunctionWorldExamples
+--import Game.Levels.LeanFunctionWorld
 --import Game.Levels.InductionWorld
 --import Game.Levels.CardinalityWorld
 --import Game.Levels.PfWorld
