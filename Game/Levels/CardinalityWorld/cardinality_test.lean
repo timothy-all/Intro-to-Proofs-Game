@@ -34,54 +34,43 @@ Main cardinality world goals:
 
 --Basic cardinality setup and examples
 
-def Equinumerous (u v : Type) := ∃ f : Rel u v, isFunction f ∧ isBijection f
+def Equinumerous (u v : Type) := ∃ f : u → v, f.Bijective
 infix:70 " ~ " => Equinumerous
 
-
+--Starting to think a subtype tutorial will be needed for this
+--This problem feels awkward because the Nat/PNat stuff needed, but maybe it would be natural after a subtype tutorial?
 theorem Nat_eqin_PNat : Nat ~ PNat := by
-  let fnp : Rel Nat PNat := fun a b => a + 1 = b --Is "let" valid in the game?
+  let fnp : ℕ → PNat := fun a => ⟨a.succ, Nat.succ_pos a⟩ --Is "let" valid in the game? Definition has to be passed a proof that a is positive. Kind of awkward, but makes sense & should probably just be a natural part of cardinality world
   use fnp
   constructor
-  intro a
-  use! ⟨a+1, Nat.succ_pos a⟩ --Need to prove that a + 1 has type PNat to use it
-  constructor
-  rfl
-  intro y h
-  unfold fnp at h
-  --rw [h]
-  sorry
-  --Bijective proof below has way too many small Nat/PNat manipulations, coercions
-  constructor
-  intro a1 a2 b ha1b ha2b
-  rw [←Nat.succ_inj, Nat.succ_eq_add_one, Nat.succ_eq_add_one, ha1b, ha2b]
-  intro b
-  use (PNat.natPred b)
-  --rw [fnp, PNat.natPred, Nat.sub_one_add_one] The rw worked moving fnp into the theorem
-  --exact PNat.ne_zero b
-  sorry
+  intro a b ha
+  apply (Nat.succ_inj).mp
+  unfold fnp at ha
+  injection ha with h --The injection tactic uses that "subtype constructors are injective" to extract the succ equality
+  intro y
+  use PNat.natPred y
+  unfold fnp
+  unfold PNat.natPred
+  exact PNat.succPNat_natPred y
 
 
 
---Type and powerset of type not equinumerous
-
+--Type and powerset of type not equinumerous. Not too bad
 example (u : Type) : ¬ (u ~ Set u) := by
   rw [Equinumerous]
   push_neg
-  intro f hf
-  rw [isBijection, Not_and]
+  intro f
+  rw [Function.Bijective, and_iff_not_or_not, not_not]
   right
-  rw [isSurjective]
-  push_neg --Have to construct the problem set; uses function outputs so it's automatically awkward. The uniqueness is needed to prove the theorem & I'm not sure how to utilize it
-  let elem_not_in_output (a : u) : Prop := by
-    obtain hfa := Classical.choose (hf a) --Probably no way around Classical.choose since you have to grab an output
-    exact (a ∉ hfa) --I don't think the proof works without using the uniqueness somehow
-  let S : Set u := { a : u | elem_not_in_output a }
+  rw [Function.Surjective]
+  push_neg
+  let S : Set u := { a : u | a ∉ f a }
   use S
   intro a
-  by_cases h : a ∈ S --same as elem_not_in_output a
-  by_contra
-  obtain k : ¬ elem_not_in_output a := by
-
-    sorry
-  sorry
-  sorry
+  by_cases k: a ∈ S
+  apply Ne.symm (ne_of_mem_of_not_mem' k k) --Closes first case by itself. Maybe this lemma could be an earlier set level?
+  intro h
+  obtain l : a ∈ S := by
+    rw [← h] at k
+    exact k
+  exact k l
