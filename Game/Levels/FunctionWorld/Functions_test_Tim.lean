@@ -69,7 +69,6 @@ def Rel_fiberrel {u v : Type*} (g : Rel u v) : Rel_on u := by
   intro x y
   exact ∃ z : v, g x z ∧ g y z
 
-<<<<<<< HEAD
 /-Fibers form equivalence classes; that is, if R is the relation on u where R a b if and only if g(a) = g(b), then R is an equivalence relation on u. Unsure how to get this into the theorem statement currently-/
 example {u v: Type*} (g: Rel u v) (hg: isFunction g) : isEquivalence (Rel_fiberrel g)  := by
   constructor
@@ -101,6 +100,4 @@ example {u: Type*} (f: Rel_on u) (hf: isFunction f) (hfe: isEquivalence f) : f =
   nth_rw 2 [hx] at fx1x1 --Can we use nth_rw? Way around it?
   exact fx1x1
 
-=======
->>>>>>> 6727dc3c3f7418263c227adf11b8cff88be693fe
 Conclusion "."
