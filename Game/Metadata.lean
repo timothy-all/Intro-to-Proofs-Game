@@ -248,6 +248,10 @@ def isSurjective {u v : Type*} (R: Rel u v) := ∀ b, ∃ a, R a b
 
 def isBijection {u v : Type*} (R: Rel u v) := isInjective R ∧ isSurjective R
 
+def Rel_fiberrel {u v: Type*} (g: Rel u v) : Rel_on u := by
+  intro x1 x2
+  exact ∃ y, g x1 y ∧ g x2 y
+
 open Lean Elab Tactic
 
 syntax "evaluate " term " at " term " with " ident ident ident : tactic
@@ -375,12 +379,17 @@ end Rela
 
 syntax "simplify" : tactic
 macro_rules
-| `(tactic| simplify) => `(tactic| ring)
+| `(tactic| simplify) => `(tactic| push_cast; ring)
 
 syntax "use! " term : tactic
 macro_rules
   | `(tactic| use! $w) =>
       `(tactic| refine Exists.intro $w ?_; dsimp)
+
+syntax "simplify2" : tactic
+macro_rules
+  | `(tactic| simplify2) =>
+    `(tactic| (try simp only [pow_add, pow_mul, mul_pow, pow_succ, pow_zero, pow_one, one_pow]; ring))
 
 --Divisibility definitions
 

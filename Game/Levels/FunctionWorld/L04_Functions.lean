@@ -8,11 +8,9 @@ Title "function"
 
 Introduction "Let's look at images and inverse images of sets. These quantities are of fundamental importance in understanding what a function tells us about relationships between the domain and codomain.
 
-Check your inventory for the new definitions, then try the problem below that will test your understanding of the definitions."
+Check your inventory for the new definitions, then try the problem below that will test your understanding of the definitions. You can use `rw` to swap out `image` and `invimage` with their set-builder notation definitions if you'd like, or you can work with them directly."
 
-/-Hints for this one? Some help proving y ∈ C by using Fun_image f C ⊆ C, maybe. Also this might be too difficult to have in the main world -/
-Statement {u: Type*} (f: Rel_on u) (hf: isFunction f) (C: Set u) : image f C ⊆ C ↔ C ⊆ invimage f C := by
-  constructor
+Statement {u: Type*} (f: Rel_on u) (hf: isFunction f) (C: Set u) : image f C ⊆ C → C ⊆ invimage f C := by
   intro h x hx
   evaluate hf at x with y hyf hyu
   use y
@@ -20,17 +18,6 @@ Statement {u: Type*} (f: Rel_on u) (hf: isFunction f) (C: Set u) : image f C ⊆
   apply h
   use x
   exact hyf
-  intro h y hy
-  obtain ⟨x,⟨hxc,hxy⟩⟩ := hy
-  obtain hxim := h hxc
-  obtain ⟨z,⟨hzc,hxz⟩⟩ := hxim
-  evaluate hf at x with w hwf hwu
-  obtain fxy := hwu y hxy
-  obtain fxz := hwu z hxz
-  rw [fxy,←fxz]
-  exact hzc
-
-
 
 Conclusion "."
 

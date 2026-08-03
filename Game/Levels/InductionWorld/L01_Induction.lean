@@ -23,7 +23,7 @@ Statement (n : Nat) : 2*n = n+n := by
   Hint "We're now automatically asked to prove the base case for induction, which is the case when `n = 0`.
 
   To close this goal, let's use the `simplify` tactic. This tactic will close all goals that follow from basic algebraic operations."
-  simplify
+  rfl --This level has to be reworked; adding push_cast to simplify made simplify close the whole goal because, for some reason, push_cast closes the base case
   Hint "Now we're automatically moved to the inductive step. This also requires simple algebraic manipulation to solve; `simplify` to complete the proof."
   simplify
 
