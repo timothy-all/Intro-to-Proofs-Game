@@ -268,6 +268,8 @@ example (P: Nat → Prop) : (P 0 ∧ ∀ n, P n → P (n+1)) → ∀ n, P n := b
 
 --Structural induction?
 
+--Another ex: A subset of ℤ+, 5 ∈ A, ∀m,n ∈ A m+n ∈ A, prove A = {5k ∣ k ∈ ℤ+}
+
 --"Let F be the subset of ℕ such that 12 ∈ F and, if x ∈ F, x^2 ∈ F and 3x+8 ∈ F. Prove that every x ∈ F is divisible by 4."
 inductive F : ℕ → Prop
   | base : F 12

@@ -1,4 +1,5 @@
 import Game.Levels.InductionWorld.induction_test
+import Game.Levels.LeanFunctionWorld.lf_test
 
 /-Lines below set up sigma notation-/
 import Mathlib.Algebra.BigOperators.Group.Finset.Defs
@@ -34,7 +35,7 @@ Main cardinality world goals:
 
 --Basic cardinality setup and examples
 
-def Equinumerous (u v : Type) := ∃ f : u → v, f.Bijective
+def Equinumerous (u v : Type*) := ∃ f : u → v, f.Bijective
 infix:70 " ~ " => Equinumerous
 
 --Starting to think a subtype tutorial will be needed for this
@@ -46,12 +47,50 @@ theorem Nat_eqin_PNat : Nat ~ PNat := by
   intro a b ha
   apply (Nat.succ_inj).mp
   unfold fnp at ha
-  injection ha with h --The injection tactic uses that "subtype constructors are injective" to extract the succ equality
+  injection ha with h --The injection tactic uses that "subtype constructors are injective" to extract the succ equality. Alternatively, grind closes this.
   intro y
-  use PNat.natPred y
+  use PNat.natPred y --Grind can't be used to simplify this one, seemingly. Using the more obvious y-1 doesn't help either
   unfold fnp
   unfold PNat.natPred
   exact PNat.succPNat_natPred y
+
+--Equinumerous is an equivalence relation. Uses a few lemmas that could be in Lean Function World
+
+theorem Equinumerous.refl (u : Type*) : u ~ u := by
+  use LF_id u
+  exact LF_id_bij u
+
+theorem Equinumerous.symm (u v : Type*) : u ~ v → v ~ u := by
+  intro h
+  obtain ⟨f,hf⟩ := h
+  use LF_inv_of_bij f hf
+  exact LF_inv_of_bij_bij f hf
+
+theorem Equinumerous.trans (u v w : Type*) : u ~ v → v ~ w → u ~ w := by
+  intro huv hvw
+  obtain ⟨fuv, hfuv⟩ := huv
+  obtain ⟨fvw, hfvw⟩ := hvw
+  use fvw ∘ fuv
+  refine ⟨LF_comp_inj_of_inj fuv fvw hfuv.left hfvw.left, LF_comp_surj_of_surj fuv fvw hfuv.right hfvw.right⟩
+
+theorem Card_cartprod_equinumerous {a b c d : Type*} (hab : a ~ b) (hcd : c ~ d) : (a × c) ~ (b × d) := by
+  obtain ⟨fab, hfab⟩ := hab
+  obtain ⟨fcd, hfcd⟩ := hcd
+  use fun (x : (a × c))  ↦ ((fab x.1, fcd x.2) : (b × d)) --If you use, for instance, the more natural `(x1,x2) : (a × c)` for the input, the function definition gets bogged down with a `match` definition
+  constructor
+  intro (x1,x2) (y1,y2) hxy
+  rw [Prod.mk_inj] at hxy
+  obtain ⟨fabx1y1,fcdx2y2⟩ := hxy
+  rw [Prod.mk_inj]
+  refine ⟨hfab.left fabx1y1, hfcd.left fcdx2y2⟩ --Ends injective part
+
+  intro (y1,y2)
+  obtain ⟨x1,hx1⟩ := hfab.right y1
+  obtain ⟨x2,hx2⟩ := hfcd.right y2
+  use (x1,x2)
+  rw [Prod.mk_inj]
+  refine ⟨hx1,hx2⟩
+
 
 
 
@@ -68,7 +107,7 @@ example (u : Type) : ¬ (u ~ Set u) := by
   use S
   intro a
   by_cases k: a ∈ S
-  apply Ne.symm (ne_of_mem_of_not_mem' k k) --Closes first case by itself. Maybe this lemma could be an earlier set level?
+  apply Ne.symm (ne_of_mem_of_not_mem' k k) --Closes first case by itself. Maybe this lemma (the ne_of_mem_of_not_mem') could be an earlier set level? Alternatively, grind closes this. But placing grind on the next line finishes the rest of the proof immediately, which might be ok?
   intro h
   obtain l : a ∈ S := by
     rw [← h] at k
