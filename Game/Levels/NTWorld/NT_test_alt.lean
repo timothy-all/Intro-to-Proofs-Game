@@ -191,3 +191,26 @@ theorem euclid_dvd (a b : ℕ) : euclid a b ∣ a ∧ euclid a b ∣ b := by
   rcases ih with ⟨ih1,ih2⟩
   rw[euclid_comm,← euclid_rec,euclid_comm] at ih1 ih2
   exact rem_rec_bck z y (euclid y z) (And.intro ih2 ih1)
+
+theorem dvd_euclid (a b d: ℕ) (hd : d ∣ a ∧ d ∣ b) : d ∣ euclid a b := by
+  induction' a,b using weird_induction with x y z h ih
+  rw[euclid_zero_left]
+  exact hd.right
+  rw[euclid_comm,← euclid_rec,euclid_comm] at ih
+  rw[And_comm,rem_rec,And_comm] at hd
+  exact ih hd
+
+theorem rem_bezout (a b : ℕ) : ∃ x y : ℕ , a * x + b * y = rem a b := by
+  sorry
+
+theorem bezout (a b : ℕ) : ∃ x y : ℕ, a * x + b * y = euclid a b := by
+  induction' a,b using weird_induction with α β ζ h ih
+  use 1,1
+  rw[euclid_zero_left]
+  simplify
+  rw[euclid_comm,← euclid_rec,euclid_comm] at ih
+  rcases ih with ⟨x,y,eq⟩
+  obtain ⟨x',y',eq'⟩ := rem_bezout ζ β
+  rw[← eq'] at eq
+  use (y' * x + y), (x' * x)
+  grind
