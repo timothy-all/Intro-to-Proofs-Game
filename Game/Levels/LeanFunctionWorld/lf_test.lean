@@ -76,11 +76,8 @@ theorem LF_inv_of_bij_bij {u v : Type*} (f : u → v) (hf: f.Bijective) : (LF_in
     exact Classical.choose_spec (hf.right y) --This makes me kind of uncomfortable. Currently not completely okay with Classical.choose/choose_spec
   obtain hright : f.RightInverse (LF_inv_of_bij f hf) := by --Injective direction
     intro x
-    --obtain preim := Classical.choose (hf.right (f x))
-    --obtain hp : preim = x := by
-    --  apply hf.left
-    unfold LF_inv_of_bij
-    sorry
+    apply hf.left
+    exact Classical.choose_spec (LF_inv_of_bij._proof_1 f hf (f x)) --AI gave me this, I have no idea why this works
     --Not sure how to finish
   obtain final : ∃ g, Function.LeftInverse g (LF_inv_of_bij f hf) ∧ Function.RightInverse g (LF_inv_of_bij f hf) := by use f
   exact Function.bijective_iff_has_inverse.mpr final --Surely this & the previous line can be combined into one line, but I couldn't figure out how to do the `use`
