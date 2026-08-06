@@ -37,10 +37,10 @@ theorem rem_zero_left (b : ℕ) : rem 0 b = 0 := by
 theorem rem_self (a : ℕ) : rem a a = 0 := by
   rw[rem]
   split_ifs with h1 h2
-  rw[h1]
-  simp at h2 -- what the fuck?
-  simp -- what the fuck again?
-  rw[rem_zero_left]
+  exact h1
+  apply Nat.lt_irrefl at h2
+  contradiction
+  rw[Nat.sub_self,rem_zero_left]
 
 theorem rem_lt_right {b : ℕ} (a : ℕ) : ¬ (b = 0) → rem a b < b := by
   intro hb
@@ -52,9 +52,7 @@ theorem rem_lt_right {b : ℕ} (a : ℕ) : ¬ (b = 0) → rem a b < b := by
   rw[Nat.not_lt] at h
   exact ih (n - b) (Nat.sub_lt_of_pos_le hb h)
 
-theorem rem_lt_left (a b : ℕ) (h : b ≠ 0) (lt : b < a) : rem a b < a := by
-  obtain h' := rem_lt_right a h
-  exact Nat.lt_trans h' lt
+theorem rem_lt_left (a b : ℕ) (h : b ≠ 0) (lt : b < a) : rem a b < a := Nat.lt_trans (rem_lt_right a h) lt
 
 theorem rem_rec_fwd (a b d : ℕ) (hd : d ∣ a ∧ d ∣ b) : d ∣ rem a b := by
   induction' a using Nat.strong_induction_on with n ih
@@ -65,12 +63,10 @@ theorem rem_rec_fwd (a b d : ℕ) (hd : d ∣ a ∧ d ∣ b) : d ∣ rem a b := 
   rw[Nat.not_lt,Nat.le_iff_lt_or_eq] at lt
   rcases lt with lt | rfl
   apply Nat.zero_lt_of_ne_zero at hb
-  obtain t := ih (n - b)
   apply Nat.le_of_lt at lt
-  obtain t1 := Nat.sub_lt_of_pos_le hb lt
-  apply t at t1
-  obtain t2 := Nat.dvd_sub hd.left hd.right
-  exact t1 (And.intro t2 hd.right)
+  obtain sub_lt := Nat.sub_lt_of_pos_le hb lt
+  obtain dvd_sub := Nat.dvd_sub hd.left hd.right
+  exact ih (n - b) sub_lt (And.intro dvd_sub hd.right)
   rw[Nat.sub_self,rem_zero_left]
   use 0
   simplify
@@ -85,11 +81,11 @@ theorem rem_rec_bck (a b d : ℕ) (hd : d ∣ b ∧ d ∣ rem a b) : d ∣ a := 
   rcases lt with lt | rfl
   apply Nat.zero_lt_of_ne_zero at hb
   apply Nat.le_of_lt at lt
-  obtain want := Nat.sub_lt_of_pos_le hb lt
-  obtain want' := ih (n - b) want (And.intro hd.left hd.right)
-  obtain want'' := Nat.dvd_add hd.left want'
-  rw[← Nat.add_sub_assoc, Nat.add_sub_self_left] at want''
-  exact want''
+  obtain sub_lt := Nat.sub_lt_of_pos_le hb lt
+  obtain dvd_sub := ih (n - b) sub_lt (And.intro hd.left hd.right)
+  obtain dvd_add := Nat.dvd_add hd.left dvd_sub
+  rw[← Nat.add_sub_assoc, Nat.add_sub_self_left] at dvd_add
+  exact dvd_add
   exact lt
   exact hd.left
 
@@ -200,17 +196,20 @@ theorem dvd_euclid (a b d: ℕ) (hd : d ∣ a ∧ d ∣ b) : d ∣ euclid a b :=
   rw[And_comm,rem_rec,And_comm] at hd
   exact ih hd
 
-theorem rem_bezout (a b : ℕ) : ∃ x y : ℕ , a * x + b * y = rem a b := by
-  sorry
-
-theorem bezout (a b : ℕ) : ∃ x y : ℕ, a * x + b * y = euclid a b := by
-  induction' a,b using weird_induction with α β ζ h ih
-  use 1,1
-  rw[euclid_zero_left]
-  simplify
-  rw[euclid_comm,← euclid_rec,euclid_comm] at ih
-  rcases ih with ⟨x,y,eq⟩
-  obtain ⟨x',y',eq'⟩ := rem_bezout ζ β
-  rw[← eq'] at eq
-  use (y' * x + y), (x' * x)
+theorem rem_bezout (a b : ℕ) : ∃ q : ℕ, a - b * q = rem a b := by
+  induction' a using Nat.strongRecOn with n ih
+  rw[rem]
+  split_ifs with hb lt
+  use 0
+  rw[Nat.mul_zero,Nat.sub_zero]
+  use 0
+  rw[Nat.mul_zero,Nat.sub_zero]
+  apply Nat.zero_lt_of_ne_zero at hb
+  rw[Nat.not_lt] at lt
+  obtain sub_lt := Nat.sub_lt_of_pos_le hb lt
+  obtain ⟨q,eq⟩ := ih (n - b) sub_lt
+  use q + 1
   grind
+
+theorem bezout (a b : ℕ) : ∃ x y : ℕ, a * x - b * y = euclid a b := by
+  sorry
