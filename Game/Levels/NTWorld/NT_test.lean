@@ -155,7 +155,7 @@ noncomputable def euclid (a b : ℕ) : ℕ :=
     exact (divalg a b).lt hb
 
 theorem divalg_zero_right (a : ℕ) : (divalg a 0).r = a := by
-  unfold divalg
+  rw[divalg]
   split_ifs with h1 h2
   rfl
   nth_rewrite 4 [h2]
