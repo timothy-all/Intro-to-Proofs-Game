@@ -266,6 +266,29 @@ example (P: Nat → Prop) : (P 0 ∧ ∀ n, P n → P (n+1)) → ∀ n, P n := b
   rw [← Nat.pos_iff_ne_zero] at aWOPpos
   exact aWOPpos
 
+-- maybe this is a little simpler?
+example {P: Nat → Prop} (n : ℕ) (bc : P 0) (ih : ∀ n, P n → P (n+1)) : P n := by
+  let S := { n | ¬ P n}
+  by_cases hS : S.Nonempty
+  apply WOP at hS
+  rcases hS with ⟨m,⟨hmS,hmin⟩⟩
+  obtain lt : m ≠ 0
+  by_contra F
+  rw[← F] at bc
+  exact hmS bc
+  obtain hmS' : P (m - 1)
+  by_contra F
+  apply hmin at F
+  omega
+  obtain F := ih (m - 1) hmS'
+  rw[Nat.sub_one_add_one lt] at F
+  contradiction
+  by_contra F
+  obtain F' : S.Nonempty
+  use n
+  exact F
+  contradiction
+
 --Structural induction?
 
 --Another ex: A subset of ℤ+, 5 ∈ A, ∀m,n ∈ A m+n ∈ A, prove A = {5k ∣ k ∈ ℤ+}

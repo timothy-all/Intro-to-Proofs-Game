@@ -248,8 +248,6 @@ inductive Wilf : ℕ → ℕ → Prop
   | left (a b : ℕ) : Wilf a b → Wilf (b + a) b
   | right (a b : ℕ) : Wilf a b → Wilf a (b + a)
 
-
-
 theorem Wilf_symm {a b : ℕ} : Wilf a b → Wilf b a := by
   intro h
   induction' h with m n _ ih m n _ ih
@@ -297,7 +295,6 @@ theorem WOP (S : Set Nat) (hS : S.Nonempty) : ∃ a ∈ S, ∀ b ∈ S, a ≤ b 
   obtain ⟨sm, ⟨hsmS,hsm⟩⟩ := c1 --Now sm is smaller, so we still find a minimum in S using SIH
   obtain ⟨min,⟨hminS,hmin⟩⟩ := hk sm hsm hsmS
   use min
-
 
 -- there's gotta be a better way... but maybe this is too hard.
 example (a b : ℕ) : euclid a b = 1 → Wilf a b := by
@@ -385,7 +382,7 @@ example (a b : ℕ) : Far a b → euclid a b = 1 := by
   induction' h with x y z w ih1 ih2 eq exy ezw
   rw[euclid_zero_left]
   rw[euclid_self]
-  obtain eq : w * (x + z) - z * (y + w) = 1 := by grind
+  obtain eq : w * (x + z) - z * (y + w) = 1 := by grind -- gurr
   obtain hxy := euclid_dvd (x + z) (y + w)
   obtain hxw := Nat.dvd_mul_left_of_dvd hxy.left w
   obtain hyz := Nat.dvd_mul_left_of_dvd hxy.right z
