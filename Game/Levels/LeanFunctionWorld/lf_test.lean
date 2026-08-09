@@ -30,7 +30,7 @@ Conclusion " "
 - Function.Injective/Surjective/Bijective
 - LF_id (Lean function identity function)
 - LF_inv_of_bij (Grabs the inverse of a bijective function. You can do this a lot more carefully with left/right inverses but you run into the issue of needing types to be nonempty so you can grab elements.)
-- LF_inv_of_bij_bij (Proof that the inverse is a bijection; unfinished.)
+- LF_inv_of_bij_bij (Proof that the inverse is a bijection)
 - There's some cartesian product stuff in cardinalityworld; Prod.mk_inj is useful for reducing equality to components. This currently isn't discussed in the cartesian product part of relationworld because that part is done using cartesian products of sets. Grind also solves a lot of the goals involving component manipulation
 
 
@@ -65,6 +65,7 @@ theorem LF_id_bij (u:Type*) : Function.Bijective (LF_id u) := by
   use y
   rw [LF_id]
 
+def OPs {u v : Type*} (f : u → v) := {(a,b) | f a = b}
 
 
 noncomputable def LF_inv_of_bij {u v : Type*} (f : u → v) (hf : f.Bijective) : v → u := fun y : v ↦ Classical.choose (hf.right y)
@@ -77,8 +78,8 @@ theorem LF_inv_of_bij_bij {u v : Type*} (f : u → v) (hf: f.Bijective) : (LF_in
   obtain hright : f.RightInverse (LF_inv_of_bij f hf) := by --Injective direction
     intro x
     apply hf.left
+    unfold LF_inv_of_bij
     exact Classical.choose_spec (LF_inv_of_bij._proof_1 f hf (f x)) --AI gave me this, I have no idea why this works
-    --Not sure how to finish
   obtain final : ∃ g, Function.LeftInverse g (LF_inv_of_bij f hf) ∧ Function.RightInverse g (LF_inv_of_bij f hf) := by use f
   exact Function.bijective_iff_has_inverse.mpr final --Surely this & the previous line can be combined into one line, but I couldn't figure out how to do the `use`
 

@@ -1,4 +1,4 @@
-import Game.Levels.RelationWorld.RelationWorldExamples
+import Game.Levels.FunctionWorld.FunctionWorldExamples
 import Game.Levels.InductionWorld.L01_Induction
 import Game.Levels.InductionWorld.L02_Induction
 

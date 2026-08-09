@@ -132,7 +132,7 @@ example (m n:Nat) : myfib (m+n+1) = myfib (m) * myfib (n) + myfib (m+1) * myfib 
   apply sihkm1 at temp1
   apply sihkm2 at temp2
   --What's below begs for a calc-style proof, I just haven't done any of those. I'm guessing they don't work with the game either, but one nightmare later it's proven
-  obtain simp1 : m+k+1 = ((m)+(k-1))+2 := by omega --The -1 can't be associated with m because you can't prove m-1 ∈ ℕ
+  obtain simp1 : m+k+1 = ((m)+(k-1))+2 := by omega--The -1 can't be associated with m because you can't prove m-1 ∈ ℕ
   rw [simp1, myfib]
   obtain simp2 : m+(k-1) = m+(k-2)+1 := by omega
   nth_rw 2 [simp2]

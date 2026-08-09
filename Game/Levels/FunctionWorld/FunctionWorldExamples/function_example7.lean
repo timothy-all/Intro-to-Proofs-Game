@@ -1,19 +1,25 @@
-import Game.Levels.FunctionWorld.FunctionWorldExamples.function_example3
+import Game.Levels.FunctionWorld.FunctionWorldExamples.function_example6
 
 
 World "FunctionWorldExamples"
-Level 4
+Level 7
 
 Title "f"
 
-Introduction "Compositum of injective functions is injective."
+Introduction "Compositum of surjective functions is surjective."
 
-/-- Compositum of injective functions is injective. -/
-TheoremDoc Fun_comp_inj as "FUN: Fun_comp_inj"
+/-- Compositum of surjective functions is surjective. -/
+TheoremDoc Fun_comp_surj as "FUN: Fun_comp_surj"
 
-/-Original level 5. Simplified a tiny bit with Fun_output_equal, but might just be rough due to using lots of evaluates -/
-Statement Fun_comp_inj {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isInjective f) (g: Rel v w) (hg: isFunction g)  (hgi: isInjective g) : isInjective (g ∘ f) := by
-  intro a b c gfac gfbc
+Statement Fun_comp_surj {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfs: isSurjective f) (g: Rel v w) (hg: isFunction g)  (hgs: isSurjective g) : isSurjective (g ∘ f) := by
+  intro c
+  obtain ⟨b,hb⟩ := hgs c
+  obtain ⟨a,ha⟩ := hfs b
+  use a
+  use b
+
+
+  /-b c gfac gfbc
   obtain gffun := Fun_comp_fun f g hf hg
   evaluate hf at a with y1 hy1f hy1u
   evaluate hf at b with y2 hy2f hy2u
@@ -30,7 +36,7 @@ Statement Fun_comp_inj {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isIn
   obtain hy1y2 : y1 = y2 := hgi y1 y2 c hz1f hz2f
   rw [hy1y2] at hy1f
   exact hfi a b y2 hy1f hy2f
-
+-/
 
 
 

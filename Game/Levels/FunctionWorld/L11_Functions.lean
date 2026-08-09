@@ -8,7 +8,10 @@ Title "function"
 
 Introduction "This is the converse of the previous level: invertible functions are bijections."
 
-Statement {u v: Type*} (f: Rel u v) (hf: isFunction f) : isFunction f.inv → isBijection f := by
+/-- Invertible functions are bijections. -/
+TheoremDoc Fun_invertible_is_bij as "FUN: Fun_invertible_is_bij"
+
+Statement Fun_invertible_is_bij {u v: Type*} (f: Rel u v) (hf: isFunction f) : isFunction f.inv → isBijection f := by
   intro finv
   constructor
   intro a b c fac fbc
