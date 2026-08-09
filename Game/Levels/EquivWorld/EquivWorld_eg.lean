@@ -8,6 +8,7 @@ import Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
 import Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
 import Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
 import Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
+import Game.Levels.EquivWorld.EquivWorld_eg.L09_equiv
 
 World "EquivWorld_eg"
 Title "Logical Equivalence World Examples"

@@ -10,7 +10,9 @@ Introduction "
 ## **Level 1**
 We've unlocked two theorems for this first level, namely: `Or_comm` and `Imp_iff_not_or`. 🔍 Check out the entries for these theorems in the **Theorems** tab.
 
-The conditional law says that `P → Q` is logically equivalent to `¬ P ∨ Q`. This looks *very* close to that statement. We might start by ***rewriting*** the right-hand side of our goal...
+The conditional law says that `P → Q` is logically equivalent to `¬ P ∨ Q`. This looks **very** close to that statement. We might start by ***rewriting*** the right-hand side of our goal using `Or_comm`.
+
+
   ### **❯ The `rewrite` tactic**
   In order to apply ***rewrites*** (or substitutions) in Lean, we use the `rewrite` tactic. 🔍 Check out the entry for `rewrite` in the **Tactics** tab for details. 👉 In this specific case, try
   ```

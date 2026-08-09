@@ -54,7 +54,9 @@ Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q)
     ```
     rw[And_comm _ S]
     ```
-    This last form is slightly dangerous in this case though; 🤔 can you tell why?"
+    This last form is slightly dangerous in this case though; 🤔 can you tell why?
+    ### **⌨ Typesetting Tip**
+  In order to pretty-print symbols like `∧` use `\\wedge` or `\\and`."
   rw[And_comm (Q ∧ R)]
   Hint "Great, we're almost home. Try to to finish this level off on your own."
   rw[← And_assoc]
@@ -64,4 +66,4 @@ Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q)
 Conclusion "
 "
 
-NewTheorem And_assoc And_comm Not_and
+NewTheorem And_assoc And_comm

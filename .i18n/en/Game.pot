@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-24\n"
+"POT-Creation-Date: 2026-08-09\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -22,28 +22,9 @@ msgstr ""
 #: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
 #: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
 #: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
-#: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
-#: Game.Levels.ArgWorld.L01_arg
-#: Game.Levels.ArgWorld.L06_arg
-#: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
-#: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
-#: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
-#: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
+#: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
+#: Game.Levels.EquivWorld.EquivWorld_eg.L09_equiv
 msgid ""
-msgstr ""
-
-#. §0: `∨`
-#. §1: $$ (P ∨ Q) ↔ (Q ∨ P) $$
-#. §2: ```
-#. Or_comm (P Q : Prop) : P ∨ Q ↔ Q ∨ P
-#. ```
-#: Game.Levels.EquivWorld.equiv_docs
-msgid "This is the **Commutative Law** for §0. It says that\n"
-"\n"
-"§1\n"
-"\n"
-"Here's what it looks like in Lean:\n"
-"§2"
 msgstr ""
 
 #. §0: `rw`
@@ -55,65 +36,73 @@ msgstr ""
 
 #. §0: `∧`
 #. §1: `⊼`
-#: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
+#: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
 msgid "### **🤔 More food for thought**\n"
 "The binary operator §0 can be expressed in terms of §1 too ..."
 msgstr ""
 
-#. §0: ```
-#. Q ∧ (_ ∧ _)
-#. ```
-#. §1: `R`
-#. §2: `S`
-#. §3: `← And_assoc`
-#. §4: `(Q ∧ R) ∧ S`
-#. §5: `Q ∧ (R ∧ S)`
-#. §6: `(Q ∧ R) ∧ S`
-#. §7: `S ∧ (Q ∧ R)`
-#. §8: ```
-#. rw[And_comm (Q ∧ R)]
-#. ```
-#. §9: ```
-#. rw[And_comm (Q ∧ R) S]
-#. ```
-#. §10: ```
-#. rw[And_comm _ S]
-#. ```
-#: Game.Levels.EquivWorld.L04_equiv
-msgid "**Here's what happened:** Lean searched for the **first instance** of\n"
-"§0\n"
-"where the underscores are wildcards. The first underscore was matched with §1, the second with §2. Lean then applied §3 (from ***right-to-left***) to this instance. In particular, Lean substituted §4 for §5.\n"
-"\n"
-"Now we'd like to **commute** the expression §6 to get §7. 👉 We can accomplish this with either:\n"
-"§8\n"
-"or\n"
-"§9\n"
-"or even\n"
-"§10\n"
-"This last form is slightly dangerous in this case though; 🤔 can you tell why?"
+#. §0: `∨`
+#. §1: `⊼`
+#. §2: `⊼`
+#: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
+msgid "### **🤔 All the food for thought**\n"
+"The binary operator §0 can be expressed in terms of §1 ... can everything be expressed in terms of §2?!"
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
-msgid "### **Level 3**"
+#. §0: `⊻`
+#. §1: ```
+#. xor_def {a b : Prop} : ((a ⊻ b) ↔ ((a ∧ ¬b) ∨ (b ∧ ¬a)))
+#. ```
+#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+msgid "The definition of the **exclusive-or** connective, denoted §0. Here's what it looks like in Lean:\n"
+"§1"
 msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "intermediate goal solved! 🎉"
 msgstr ""
 
-#. §0: `∨`
-#. §1: `⊼`
-#. §2: `⊼`
-#: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
-msgid "### **🤔 All the food for thought**\n"
-"The binary operator §0 can be expressed in terms of §1 ... can everything be expressed in terms of §2?!"
+#. §0: $$ P ∨ F₀ ↔ P $$
+#. §1: $F₀$
+#. §2: ```
+#. Or_false (P : Prop) : P ∨ False ↔ P
+#. ```
+#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+msgid "This is an **Identity Law**. It says that\n"
+"\n"
+"§0\n"
+"\n"
+"where §1 is a contradiction. Here's what it looks like in Lean:\n"
+"§2"
 msgstr ""
 
-#. §0: $$ (P ∧ Q) → R ↔ P → (Q → R) $$
-#: Game.Levels.EquivWorld.equiv_docs
-msgid "This is known as **currying**. It says that\n"
+#: Game.Levels.EquivWorld.EquivWorld_eg
+msgid "# **Logical Equivalences Examples**\n"
+"Let's get more practice with logical equivalences!"
+msgstr ""
+
+#. §0: $$ P ∨ P ↔ P $$
+#. §1: ```
+#. Or_self (P : Prop) : (P ∨ P) ↔ P
+#. ```
+#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+msgid "This is an **Idempotent Law**. It says that\n"
 "\n"
-"§0"
+"§0\n"
+"\n"
+"Here's what it looks like in Lean:\n"
+"§1"
+msgstr ""
+
+#. §0: `rw`
+#. §1: `rw`
+#. §2: `rewrite`
+#. §3: `rfl`
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "We're almost home. Let's introduce a new tactic ...\n"
+"### **❯ The §0 tactic**\n"
+"The §1 tactic is identical to §2 except that it automatically attempts to clear the goal with §3 at the end. Give it a try!\n"
+""
 msgstr ""
 
 #. §0: `rw`
@@ -121,6 +110,13 @@ msgstr ""
 #. §2: `rfl`
 #: Game.Levels.EquivWorld.equiv_docs
 msgid "The tactic §0 is the same as §1 except it automatically attempts to clear the goal with §2 at the end. This can often save us a line."
+msgstr ""
+
+#. §0: $$ (P ∧ Q) → R ↔ P → (Q → R) $$
+#: Game.Levels.EquivWorld.equiv_docs
+msgid "This is known as **currying**. It says that\n"
+"\n"
+"§0"
 msgstr ""
 
 #. §0: `↔`
@@ -132,22 +128,30 @@ msgid "The definition of the **if-and-only-if** connective, denoted §0. Here's 
 "§1"
 msgstr ""
 
-#: Game.Levels.EquivWorld.L03_equiv
-msgid "An implication where the hypothesis is a chain of conjuntions is logically equivalent to a certain chain of implications."
-msgstr ""
-
-#. §0: $$ P ∧ T₀ ↔ P $$
-#. §1: $T₀$
-#. §2: ```
-#. And_true (P : Prop) : P ∧ True ↔ P
-#. ```
-#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
-msgid "This is an **Identity Law**. It says that\n"
+#. §0: $$ (P → Q) ↔ (¬ P ∨ Q) $$
+#. §1: `Imp_iff_not_or`
+#. §2: $$
+#. \\begin{array}{|cc||cc|}
+#.   \\hline
+#.   P & Q & P → Q & ¬ P ∨ Q  \\
+#.   \\hline
+#.   T & T & T & T \\
+#.   T & F & F & F \\
+#.   F & T & T & T \\
+#.   F & F & T & T \\
+#.   \\hline
+#. \\end{array}
+#. $$
+#: Game.Levels.EquivWorld.equiv_docs
+msgid "This theorem is the so-called **Conditional Law**. It says that\n"
 "\n"
 "§0\n"
-"\n"
-"where §1 is a tautology. Here's what it looks like in Lean:\n"
+"The proof of §1 follows from the truth-table below:\n"
 "§2"
+msgstr ""
+
+#: Game.Levels.EquivWorld.L03_equiv
+msgid "An implication where the hypothesis is a chain of conjuntions is logically equivalent to a certain chain of implications."
 msgstr ""
 
 #. §0: `P`
@@ -181,61 +185,121 @@ msgid "# **Logical Equivalences**\n"
 "The purpose of this world is to practice writing proofs of logical equivalences *using* known logical equivalences (like those above and others we'll learn about). Let's get started!"
 msgstr ""
 
-#: Game.Levels.ArgWorld
-msgid "Argument World"
-msgstr ""
-
-#. §0: `Or_false`
-#: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
-msgid "### **Level 1**\n"
-"This argument is sometimes called the **Rule of Contradiction**. We've unlocked the law of logic §0 to help with this level. 🔍 Check the new entry in the **Theorems** tab."
-msgstr ""
-
-#. §0: `obtain`
-#. §1: `obtain`
+#. §0: $$ P ∧ T₀ ↔ P $$
+#. §1: $T₀$
 #. §2: ```
-#. obtain hQ := hPQ (hP)
+#. And_true (P : Prop) : P ∧ True ↔ P
 #. ```
-#. §3: `hPQ`
-#. §4: `hP`
-#. §5: ```
-#. obtain hQ := hPQ hP
-#. ```
-#: Game.Levels.ArgWorld.L01_arg
-msgid "### **❯ The §0 tactic**\n"
-"The §1 tactic allows us to introduce new assumptions into our current proof *as long as* we supply proofs (in the current context) of those assumptions. 👉 Try the following basic usage:\n"
-"§2\n"
-"**Note:** the space between §3 (the *function*) and §4 (the *input*). Since the argument here is *atomic*, the parentheses are optional. So even the following ought to work:\n"
-"§5\n"
-""
+#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+msgid "This is an **Identity Law**. It says that\n"
+"\n"
+"§0\n"
+"\n"
+"where §1 is a tautology. Here's what it looks like in Lean:\n"
+"§2"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
+msgid "Tautologies"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
+msgid "Proof-by-cases"
+msgstr ""
+
+#. §0: `Not_not`
+#. §1: `Not_not`
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "## **Level 2**\n"
+"Let's use the laws of logic to prove that the **contrapositive** of an implication is logically equivalent to the original implication. We'll need the **Double Negation Law** (the theorem §0). 🔍 Check out the unlocked entry for §1 in the **Theorems** tab."
+msgstr ""
+
+#. §0: $$
+#. \\begin{array}{|cc||c||cc||c|}
+#.   \\hline
+#.   P & Q & P → Q & ¬ Q & ¬ P & ¬ Q → ¬ P  \\
+#.   \\hline
+#.   T & T & T & F & F & T \\
+#.   T & F & F & T & F & F \\
+#.   F & T & T & F & T & T \\
+#.   F & F & T & T & T & T \\
+#.   \\hline
+#. \\end{array}
+#. $$
+#: Game.Levels.EquivWorld.equiv_docs
+msgid "An implication is logically equivalent to its contrapositive. We can prove this via a truth-table:\n"
+"§0"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
+msgid "Or and Nand"
 msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
-#: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
-msgid "Or and Nand"
+#. §0: `True`
+#. §1: `P`
+#. §2: `Q`
+#. §3: `Or_not_self`
+#. §4: `And_true`
+#: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
+msgid "### **Level 4**\n"
+"A statement like the one (on the left-hand side) of this example is what's called a **tautology**. This is a compound proposition that is §0 for every choice of true/false values of its constituent parts (in this case, §1 and §2).\n"
+"\n"
+"We've unlocked a few more laws of logic for this example. 🔍 Check out the entries for §3, and §4 in the **Theorems** tab."
 msgstr ""
 
-#. §0: `h : P ∧ Q`
+#. §0: `⊼`
+#: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
+msgid "### **Level 8**\n"
+"One last example involving §0. Are you noticing something interesting?"
+msgstr ""
+
+#. §0: $$(P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))$$
 #. §1: ```
-#. obtain hP : = h.left
+#. Or_and_left (P Q R : Prop) :
+#.   (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))
 #. ```
-#. §2: `hP : P`
-#: Game.Levels.ArgWorld.L04_arg
-msgid "We simply need to destructure the assumption §0. 👉 Try:\n"
-"§1\n"
-"This will create a new assumption, namely §2.\n"
-""
+#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+msgid "This is half of the **Distributive Law**. It says that\n"
+"\n"
+"§0\n"
+"\n"
+"Here's what it looks like in Lean:\n"
+"§1"
 msgstr ""
 
-#: Game.Levels.ArgWorld.L01_arg
-msgid "Modus Ponens"
+#: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
+msgid "And and Nand"
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
-msgid "Example 3"
+#. §0: `Or_comm`
+#. §1: `Imp_iff_not_or`
+#. §2: `P → Q`
+#. §3: `¬ P ∨ Q`
+#. §4: `Or_comm`
+#. §5: `rewrite`
+#. §6: `rewrite`
+#. §7: `rewrite`
+#. §8: ```
+#.   rewrite[Or_comm]
+#.   ```
+#. §9: `∨`
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "## **Level 1**\n"
+"We've unlocked two theorems for this first level, namely: §0 and §1. 🔍 Check out the entries for these theorems in the **Theorems** tab.\n"
+"\n"
+"The conditional law says that §2 is logically equivalent to §3. This looks **very** close to that statement. We might start by ***rewriting*** the right-hand side of our goal using §4.\n"
+"\n"
+"\n"
+"  ### **❯ The §5 tactic**\n"
+"  In order to apply ***rewrites*** (or substitutions) in Lean, we use the §6 tactic. 🔍 Check out the entry for §7 in the **Tactics** tab for details. 👉 In this specific case, try\n"
+"  §8\n"
+"  This will apply the **Commutative Law** for §9 at the first instance in the goal where it is applicable (namely, the right-hand side in this case)."
 msgstr ""
 
 #. §0: $$ P ∨ ¬ P ↔ T₀ $$
@@ -251,60 +315,148 @@ msgid "This is an **Inverse Law**. It says that\n"
 "§2"
 msgstr ""
 
-#. §0: `obtain`
-#. §1: `hQ : Q`
-#. §2: `hP : P`
-#: Game.Levels.ArgWorld.L05_arg
-msgid "First, let's §0 the hypotheses §1 and §2."
-msgstr ""
-
-#. §0: `h : P ∧ Q`
-#. §1: `h.left`
-#. §2: `P`
-#. §3: `h.right`
-#. §4: `h : P ∧ (Q ∧ R)`
-#. §5: `h.right.left`
-#: Game.Levels.ArgWorld.L04_arg
-msgid "### 💡 Pro-tip ###\n"
-"We've learned that if §0, then §1 is a proof of §2. 🤔 Can you take a wild guess at what §3 proves? What if §4 ... what is §5 a proof of?"
-msgstr ""
-
-#: Game.Levels.ArgWorld.L06_arg
-msgid "Law of the syllogism"
-msgstr ""
-
-#. §0: `⊻`
-#. §1: ```
-#. xor_def : P ⊻ Q ↔  (P ∧ ¬Q) ∨ (Q ∧ ¬P)
-#. ```
-#. §2: `⊻`
-#. §3: `\\veebar`
-#: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
-msgid "### **Level 8**\n"
-"We introduce another (seemingly) new connective known as **exclusive-or**, denoted §0. Here's how it is defined in Lean:\n"
-"§1\n"
-"### **⌨ Typesetting-tip**\n"
-"In order to typeset the symbol §2 type §3."
-msgstr ""
-
-#. §0: `«{hP}» : P`
-#: Game.Levels.ArgWorld.L06_arg
-msgid "We now have the hypothesis §0. We can clear the level in one line now if we're clever..."
-msgstr ""
-
 #. §0: `⊼`
-#: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
-msgid "### **Level 7**\n"
-"One last example involving §0. Are you noticing something interesting?"
+#. §1: ```
+#. nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q)
+#. ```
+#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+msgid "The definition of the **Negated Conjunction** connective, denoted §0. Here's what it looks like in Lean:\n"
+"§1"
+msgstr ""
+
+#. §0: `∧`
+#. §1: $$ (P ∧ Q) ∧ R ↔ P ∧ (Q ∧ R) $$
+#. §2: ```
+#. And_assoc (P Q R : Prop) :
+#.   ((P ∧ Q) ∧ R) ↔ (P ∧ (Q ∧ R))
+#. ```
+#. §3: `And_assoc`
+#. §4: $$
+#. \\begin{array}{|ccc||cc|}
+#.   \\hline
+#.   P & Q & R & (P ∧ Q) ∧ R & P ∧ (Q ∧ R) \\
+#.   \\hline
+#.   T & T & T & T & T \\
+#.   T & T & F & F & F \\
+#.   T & F & T & F & F \\
+#.   T & F & F & F & F \\
+#.   F & T & T & F & F \\
+#.   F & T & F & F & F \\
+#.   F & F & T & F & F \\
+#.   F & F & F & F & F \\
+#.   \\hline
+#. \\end{array}
+#. $$
+#: Game.Levels.EquivWorld.equiv_docs
+msgid "This is the **Associative Law** for §0. It says that\n"
+"\n"
+"§1\n"
+"Here's what it looks like in Lean:\n"
+"§2\n"
+"The proof of §3 is given in the truth-table below:\n"
+"§4"
+msgstr ""
+
+#. §0: `∨`
+#. §1: $$ (P ∨ Q) ↔ (Q ∨ P) $$
+#. §2: ```
+#. Or_comm {P Q : Prop} : P ∨ Q ↔ Q ∨ P
+#. ```
+#. §3: `Or_comm`
+#. §4: $$
+#. \\begin{array}{|cc||cc|}
+#.   \\hline
+#.   P & Q & P ∨ Q & Q ∨ P  \\
+#.   \\hline
+#.   T & T & T & T \\
+#.   T & F & T & T \\
+#.   F & T & T & T \\
+#.   F & F & F & F \\
+#.   \\hline
+#. \\end{array}
+#. $$
+#: Game.Levels.EquivWorld.equiv_docs
+msgid "This is the **Commutative Law** for §0. It says that\n"
+"\n"
+"§1\n"
+"\n"
+"Here's what it looks like in Lean:\n"
+"§2\n"
+"The proof of §3 follows from the truth-table below:\n"
+"§4"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
+msgid "Example 5"
+msgstr ""
+
+#. §0: $$ ¬ ¬ P ↔ P $$
+#. §1: ```
+#. Not_not (P : Prop) : ¬¬ P ↔ P
+#. ```
+#: Game.Levels.EquivWorld.equiv_docs
+msgid "This is the **Double Negation Law**. It says that\n"
+"\n"
+"§0\n"
+"Here's what it looks like in Lean:\n"
+"§1"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
+msgid "Not and Nand"
+msgstr ""
+
+#: Game
+msgid "Game Template"
+msgstr ""
+
+#. §0: `False`
+#. §1: `P`
+#. §2: `Q`
+#. §3: `Not_and`
+#. §4: `And_not_self`
+#. §5: `Or_false`
+#: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
+msgid "### **Level 3**\n"
+"A statement like the one (on the left-hand side) of this example is what's called a **contradiction**. This is a compound proposition that is §0 for every choice of true/false values of its constituent parts (in this case, §1 and §2).\n"
+"\n"
+"We've unlocked a few more laws of logic for this example. 🔍 Check out the entries for §3, §4, and §5 in the **Theorems** tab."
 msgstr ""
 
 #. §0: `∨`
 #. §1: $$ (P ∨ Q) ∨ R ↔ P ∨ (Q ∨ R) $$
 #: Game.Levels.EquivWorld.equiv_docs
-#: Game.Levels.EquivWorld.equiv_docs
 msgid "This is the **Associative Law** for §0. It says that\n"
 "\n"
 "§1"
+msgstr ""
+
+#. §0: $$ ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q)$$
+#. §1: ```
+#. Not_and {P Q : Prop} :
+#.   ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q)
+#. ```
+#. §2: $$
+#. \\begin{array}{|cc||c||cc||c|}
+#.   \\hline
+#.   P & Q & ¬ (P ∧ Q) & ¬ P & ¬ Q & ¬ P ∨ ¬ Q  \\
+#.   \\hline
+#.   T & T & F & F & F & F \\
+#.   T & F & T & F & T & T \\
+#.   F & T & T & T & F & T \\
+#.   F & F & T & T & T & T \\
+#.   \\hline
+#. \\end{array}
+#. $$
+#: Game.Levels.EquivWorld.equiv_docs
+msgid "This is half of **DeMorgan's Law**. It says that\n"
+"\n"
+"§0\n"
+"\n"
+"Here's what it looks like in Lean:\n"
+"§1\n"
+"We can prove DeMorgan's Law with a truth-table:\n"
+"§2"
 msgstr ""
 
 #: Game
@@ -316,16 +468,26 @@ msgstr ""
 msgid "Example 2"
 msgstr ""
 
-#: Game.Levels.ArgWorld.L06_arg
-msgid "### **Level 6**\n"
-"The valid argument of this level is sometimes called the law of the **Syllogism**."
+#: GameServer.RpcHandlers
+msgid "level completed! 🎉"
 msgstr ""
 
-#: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
+#. §0: $P$
+#. §1: $¬ P$
+#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+#: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
+msgid "The negated conjunction of §0 with itself is logically equivalent to §1."
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
+msgid "Contradictions"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L09_equiv
 msgid "Exclusive-Or"
 msgstr ""
 
-#. §0: `Imp_iff_not_or`
+#. §0: `imp_iff_not_or`
 #. §1: ```
 #. rw[Imp_iff_not_or,Imp_iff_not_or]
 #. ```
@@ -335,14 +497,81 @@ msgid "That was a good first step. You might want to apply the **Conditional Law
 ""
 msgstr ""
 
-#: Game.Levels.ArgWorld.L02_arg
-msgid "### **Level 2**\n"
-"This valid argument is sometimes referred to as **Modus Tolens**. Let's use a logical equivalence to make this problem look more like the last one..."
+#. §0: $$ P ∧ ¬ P ↔ F₀ $$
+#. §1: $F₀$
+#. §2: ```
+#. And_not_self (P : Prop) : P ∧ ¬ P ↔ False
+#. ```
+#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+msgid "This is an **Inverse Law**. It says that\n"
+"\n"
+"§0\n"
+"where §1 is a contradiction. Here's what it looks like in Lean:\n"
+"§2"
+msgstr ""
+
+#. §0: $$¬ (P ∨ Q) ↔ (¬ P ∧ ¬ Q)$$
+#. §1: ```
+#. Not_or (P Q : Prop) : ¬ (P ∨ Q) ↔ (¬ P ∧ ¬ Q)
+#. ```
+#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+msgid "This is half of **DeMorgan's Law**. It says that\n"
+"\n"
+"§0\n"
+"\n"
+"Here's what it looks like in Lean:\n"
+"§1"
+msgstr ""
+
+#: Game
+msgid "Intro to Proofs Game"
 msgstr ""
 
 #. §0: `rewrite`
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "We should now §0 the left-hand side of our goal using the **Conditional Law**. 🔍 Check the **Theorems** tab to find the appropriate theorem in the inventory."
+msgstr ""
+
+#. §0: ```
+#. Q ∧ (_ ∧ _)
+#. ```
+#. §1: `R`
+#. §2: `S`
+#. §3: `← And_assoc`
+#. §4: `(Q ∧ R) ∧ S`
+#. §5: `Q ∧ (R ∧ S)`
+#. §6: `(Q ∧ R) ∧ S`
+#. §7: `S ∧ (Q ∧ R)`
+#. §8: ```
+#. rw[And_comm (Q ∧ R)]
+#. ```
+#. §9: ```
+#. rw[And_comm (Q ∧ R) S]
+#. ```
+#. §10: ```
+#. rw[And_comm _ S]
+#. ```
+#. §11: `∧`
+#. §12: `\\wedge`
+#. §13: `\\and`
+#: Game.Levels.EquivWorld.L04_equiv
+msgid "**Here's what happened:** Lean searched for the **first instance** of\n"
+"§0\n"
+"where the underscores are wildcards. The first underscore was matched with §1, the second with §2. Lean then applied §3 (from ***right-to-left***) to this instance. In particular, Lean substituted §4 for §5.\n"
+"\n"
+"Now we'd like to **commute** the expression §6 to get §7. 👉 We can accomplish this with either:\n"
+"§8\n"
+"or\n"
+"§9\n"
+"or even\n"
+"§10\n"
+"This last form is slightly dangerous in this case though; 🤔 can you tell why?\n"
+"### **⌨ Typesetting Tip**\n"
+"In order to pretty-print symbols like §11 use §12 or §13."
+msgstr ""
+
+#: Game.Levels.EquivWorld.L04_equiv
+msgid "Great, we're almost home. Try to to finish this level off on your own."
 msgstr ""
 
 #. §0: `∧`
@@ -357,59 +586,46 @@ msgid "## **Level 4**\n"
 "§3"
 msgstr ""
 
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "Contrapositives"
+msgstr ""
+
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "### ***🥳 Congrats!***\n"
 "You beat the first level! We'll add more **Theorems** (known logical equivalences) as we progress through the world."
 msgstr ""
 
-#: Game.Levels.ArgWorld.L05_arg
-msgid "***💪 Challenge:*** You can one-shot this level."
+#. §0: `Not_or`
+#. §1: `Or_and_left`
+#: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
+msgid "### **Level 1**\n"
+"This logical equivalence is sometimes called **Proof by cases**. We'll use this (and variants thereof) a lot in the future (with the help of a tactic). It basically tells us how to approach proofs where we have a hypothesis in the form a disjunction.\n"
+"\n"
+"We'll need two new laws of logic to pass this level. 🔍 Check out the entries for §0 and §1."
 msgstr ""
 
-#. §0: `∧`
+#. §0: `⊻`
 #. §1: ```
-#. And.intro : P → Q → P ∧ Q
+#. xor_def : P ⊻ Q ↔  (P ∧ ¬Q) ∨ (Q ∧ ¬P)
 #. ```
-#. §2: ```
-#. hP : P
-#. hQ : Q
-#. ```
-#. §3: ```
-#. obtain hPQ := And.intro hP hQ
-#. ```
-#. §4: `hPQ : P ∧ Q`
-#: Game.Levels.ArgWorld.arg_docs
-msgid "This is the constructor for the §0 logical connective. As a (curried) function, it looks like the following:\n"
+#. §2: `⊻`
+#. §3: `\\veebar`
+#: Game.Levels.EquivWorld.EquivWorld_eg.L09_equiv
+msgid "### **Level 9**\n"
+"We introduce another (seemingly) new connective known as **exclusive-or**, denoted §0. Here's how it is defined in Lean:\n"
 "§1\n"
-"Typical usage might look like the following. Suppose we have the hypotheses:\n"
-"§2\n"
-"Then\n"
-"§3\n"
-"will introduce the new hypothesis §4 into the proof-state."
+"### **⌨ Typesetting-tip**\n"
+"In order to typeset the symbol §2 type §3."
 msgstr ""
 
-#: Game.Levels.ArgWorld.L04_arg
-msgid "### **Level 4**\n"
-"This valid argument is sometimes called the law of **Conjunctive Simplification**."
-msgstr ""
-
-#. §0: ```
-#. exact s
-#. ```
-#. §1: `s`
-#. §2: `s`
-#: Game.Levels.ArgWorld.arg_docs
-msgid "This is a finishing tactic. Typical usage might look like\n"
-"§0\n"
-"where §1 is known (provable) statement. Lean will clear the goal if §2 matches the target."
+#. §0: `⊼`
+#: Game.Levels.EquivWorld.EquivWorld_eg.L07_equiv
+msgid "### **Level 7**\n"
+"Here's another logical equivalence involving §0."
 msgstr ""
 
 #: Game.Levels.EquivWorld.L03_equiv
 msgid "Currying"
-msgstr ""
-
-#: Game.Levels.ArgWorld.L04_arg
-msgid "Conjunctive Simplification"
 msgstr ""
 
 #: Game
@@ -420,33 +636,28 @@ msgstr ""
 msgid "Logical Equivalence World"
 msgstr ""
 
-#: Game.Levels.ArgWorld
-#: Game.Levels.ArgWorld.ArgWorld_eg
-msgid "### ***What a world!***"
+#. §0: `¬`
+#. §1: `⊼`
+#: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
+msgid "### **🤔 Food for thought**\n"
+"The unary operator §0 can be expressed in terms of §1."
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
-msgid "Rule of Contradiction"
+#: Game
+msgid "Here you can put additional information about the game. It is accessible\n"
+"from the starting through the drop-down menu.\n"
+"\n"
+"For example: Game version, Credits, Link to Github and Zulip, etc.\n"
+"\n"
+"Use **markdown**."
+msgstr ""
+
+#: Game.Levels.EquivWorld.L04_equiv
+msgid "Targeted Rewrites"
 msgstr ""
 
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "Intro to Lean"
-msgstr ""
-
-#. §0: `«{hQR}» : Q ∧ R`
-#: Game.Levels.ArgWorld.L05_arg
-msgid "Now we have §0. Almost done..."
-msgstr ""
-
-#. §0: `True`
-#. §1: `P`
-#. §2: `Q`
-#. §3: `Not_and`
-#. §4: `Or_not_self`
-#. §5: `And_true`
-#: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
-msgid "### **Level 3**\n"
-"A statement like the one (on the left-hand side) of this example is what's called a **tautology**. This is a compound proposition that is §0 for every choice of true/false values of its constituent parts (in this case, §1 and §2). We've unlocked a few more laws of logic for this example. 🔍 Check out the entries for §3, §4, and §5 in the **Theorems** tab."
 msgstr ""
 
 #. §0: `rfl`
@@ -462,6 +673,15 @@ msgid "\n"
 "Our goal is currently §1 ... this is true by reflexitivity! The tactic that clears the goal is §2. 🔍 Check out the entry for §3 in the **Tactics** tab. 👉 In our case, try:\n"
 "§4\n"
 ""
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
+msgid "### **Level 5**\n"
+"No new laws of logic needed here either. But this example should provide good practice with what we've learned so far."
+msgstr ""
+
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "The **contrapositive** of an implication is logically equivalent to the original implication."
 msgstr ""
 
 #. §0: `x = x`
@@ -481,11 +701,38 @@ msgid "### **Level 2**\n"
 "No new laws of logic needed here. But we will need to use some *targeted* rewrites."
 msgstr ""
 
-#. §0: `Not_or`
-#. §1: `Or_and_left`
-#: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
-msgid "### **Level 1**\n"
-"This logical equivalence is sometimes called **Proof by cases**. We'll use this (and variants thereof) a lot in the future (with the help of a tactic). It basically tells us how to approach proofs where we have a hypothesis in the form a disjunction. We'll need two new laws of logic to pass this level. 🔍 Check out the entries for §0 and §1."
+#. §0: `NAND`
+#. §1: `⊼`
+#. §2: ```
+#. nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q)
+#. ```
+#. §3: `⊼`
+#. §4: `\\barwedge`
+#: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
+msgid "### **Level 6**\n"
+"We introduce a (seemingly) new connective in this level: the §0 connective (not-and) denoted §1. Here's how it is defined in Lean:\n"
+"§2\n"
+"### **⌨ Typesetting-tip**\n"
+"In order to typeset the symbol §3 type §4."
+msgstr ""
+
+#. §0: ```
+#. (H₁ ∧ H₂) → P
+#. ```
+#. §1: ```
+#. H₁ → (H₂ → P)
+#. ```
+#. §2: `H₁`
+#. §3: `H\\_1`
+#: Game.Levels.EquivWorld.L03_equiv
+msgid "## **Level 3**\n"
+"Oftentimes, we'll have implications of the form\n"
+"§0\n"
+"For programmatic purposes, this kind of proposition is better expressed in the following way:\n"
+"§1\n"
+"This exercise demonstrates that this process of translating the first form into the second (called ***currying***) is logically valid.\n"
+"### **⌨ Typesetting Tip**\n"
+"In order to pretty-print subscripts like in §2 use §3."
 msgstr ""
 
 #. §0: `rewrite[e]`
@@ -537,434 +784,6 @@ msgstr ""
 msgid "🔍 Check out two freshly unlocked laws of logic in the **Theorems** tab."
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
-msgid "### **Level 4**"
-msgstr ""
-
-#. §0: $$ ¬ ¬ P ↔ P $$
-#: Game.Levels.EquivWorld.equiv_docs
-msgid "This is the **Double Negation Law**. It says that\n"
-"\n"
-"§0"
-msgstr ""
-
-#. §0: `hQ : Q`
-#. §1: `exact`
-#. §2: `exact e`
-#. §3: `e`
-#. §4: ```
-#. exact hQ
-#. ```
-#: Game.Levels.ArgWorld.L01_arg
-msgid "Notice that we now have §0 as an assumption. But this is our goal too! There's a finishing tactic that will clear our goal...\n"
-"### **❯ The §1 tactic**\n"
-"The tactic §2 will clear the goal if the goal matches the type of §3. 👉 In our case, try\n"
-"§4\n"
-""
-msgstr ""
-
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "Here's where our newly unlocked theorem can be handy."
-msgstr ""
-
-#. §0: `⊻`
-#. §1: ```
-#. xor_def {a b : Prop} : ((a ⊻ b) ↔ ((a ∧ ¬b) ∨ (b ∧ ¬a)))
-#. ```
-#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
-msgid "The definition of the **exclusive-or** connective, denoted §0. Here's what it looks like in Lean:\n"
-"§1"
-msgstr ""
-
-#. §0: $$ P ∨ F₀ ↔ P $$
-#. §1: $F₀$
-#. §2: ```
-#. Or_false (P : Prop) : P ∨ False ↔ P
-#. ```
-#: Game.Levels.ArgWorld.ArgWorld_eg.arg_eg_docs
-msgid "This is an **Identity Law**. It says that\n"
-"\n"
-"§0\n"
-"\n"
-"where §1 is a contradiction. Here's what it looks like in Lean:\n"
-"§2"
-msgstr ""
-
-#. §0: $$ P ∨ P ↔ P $$
-#. §1: ```
-#. Or_self (P : Prop) : (P ∨ P) ↔ P
-#. ```
-#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
-msgid "This is an **Idempotent Law**. It says that\n"
-"\n"
-"§0\n"
-"\n"
-"Here's what it looks like in Lean:\n"
-"§1"
-msgstr ""
-
-#: Game.Levels.EquivWorld.EquivWorld_eg
-msgid "# **Logical Equivalences Examples**\n"
-"Let's get more practice with logical equivalences!"
-msgstr ""
-
-#. §0: `rw`
-#. §1: `rw`
-#. §2: `rewrite`
-#. §3: `rfl`
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "We're almost home. Let's introduce a new tactic ...\n"
-"### **❯ The §0 tactic**\n"
-"The §1 tactic is identical to §2 except that it automatically attempts to clear the goal with §3 at the end. Give it a try!\n"
-""
-msgstr ""
-
-#: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
-msgid "### **Level 4**\n"
-"No new laws of logic needed here either. But this example should provide good practice with what we've learned so far."
-msgstr ""
-
-#: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
-msgid "Tautologies"
-msgstr ""
-
-#: Game.Levels.ArgWorld.L03_arg
-msgid "***💪 Challenge:*** Try to complete this level in two prompts."
-msgstr ""
-
-#: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
-msgid "Proof-by-cases"
-msgstr ""
-
-#. §0: `Not_not`
-#. §1: `Not_not`
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "## **Level 2**\n"
-"Let's use the laws of logic to prove that the **contrapositive** of an implication is logically equivalent to the original implication. We'll need the **Double Negation Law** (the theorem §0). 🔍 Check out the unlocked entry for §1 in the **Theorems** tab."
-msgstr ""
-
-#. §0: `obtain`
-#. §1: `obtain`
-#. §2: ```
-#. obtain ⟨id⟩ := ⟨proof⟩
-#. ```
-#. §3: `⟨id⟩`
-#. §4: `⟨proof⟩`
-#. §5: ```
-#. obtain ⟨id⟩ : ⟨prop⟩ := ⟨proof⟩
-#. ```
-#. §6: `⟨prop⟩`
-#. §7: `⟨prop⟩`
-#. §8: `⟨proof⟩`
-#. §9: `obtain`
-#. §10: ```
-#. obtain ⟨id⟩ : ⟨prop⟩
-#. ```
-#. §11: `⊢ ⟨prop⟩`
-#. §12: `obtain`
-#. §13: ```
-#. obtain ⟨patt⟩ := ⟨proof⟩
-#. ```
-#. §14: `⟨patt⟩`
-#. §15: `rcases`
-#: Game.Levels.ArgWorld.arg_docs
-msgid "The §0 tactic is used bring new (and provable) assumptions into the proof state. It can also be used to desctructure existing assumptions.\n"
-"### Basic Usage ###\n"
-"The most basic usage of the §1 tactic might look like the following:\n"
-"§2\n"
-"where §3 is the name you want to give (or *identifier*) for the proposition you wish to bring into the proof-state, and §4 is a (short) proof of that proposition. In some cases, you may wish to explicitly provide the form of the proposition being brought in:\n"
-"§5\n"
-"where §6 is the form of the proposition. This is helpful if §7 is definitionally equivalent to the proposition whose §8 is provided.\n"
-"\n"
-"### Opening a New Goal###\n"
-"If the proof of the proposition you wish to bring into the proof-state requires the use of tactics, you can use the §9 tactic to open a new goal in which those tactics can be applied. For example:\n"
-"§10\n"
-"will create a new goal whose target is §11.\n"
-"\n"
-"### Advanced Usage ###\n"
-"The §12 tactic can simultaneously destructure those propositions brought into the proof-state as assumptions. Typical usage looks like:\n"
-"§13\n"
-"where §14 is a pattern as in the tactic §15."
-msgstr ""
-
-#. §0: `⊼`
-#: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
-msgid "### **Level 6**\n"
-"Here's another logical equivalence involving §0."
-msgstr ""
-
-#. §0: $$(P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))$$
-#. §1: ```
-#. Or_and_left (P Q R : Prop) :
-#.   (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))
-#. ```
-#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
-msgid "This is half of the **Distributive Law**. It says that\n"
-"\n"
-"§0\n"
-"\n"
-"Here's what it looks like in Lean:\n"
-"§1"
-msgstr ""
-
-#: Game.Levels.ArgWorld.L03_arg
-msgid "Disjunctive Syllogism"
-msgstr ""
-
-#: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
-msgid "And and Nand"
-msgstr ""
-
-#: Game.Levels.ArgWorld.ArgWorld_eg
-msgid "Argument World Examples"
-msgstr ""
-
-#. §0: $$ (P → Q) ↔ (¬ P ∨ Q) $$
-#: Game.Levels.EquivWorld.equiv_docs
-msgid "This theorem is the so-called **Conditional Law**. It says that\n"
-"\n"
-"§0"
-msgstr ""
-
-#. §0: `⊼`
-#. §1: ```
-#. nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q)
-#. ```
-#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
-msgid "The definition of the **Negated Conjunction** connective, denoted §0. Here's what it looks like in Lean:\n"
-"§1"
-msgstr ""
-
-#: Game.Levels.EquivWorld.equiv_docs
-msgid "An implication is logically equivalent to its contrapositive."
-msgstr ""
-
-#: Game.Levels.ArgWorld.L05_arg
-msgid "Example 5"
-msgstr ""
-
-#: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
-msgid "Not and Nand"
-msgstr ""
-
-#: Game
-msgid "Game Template"
-msgstr ""
-
-#. §0: ```
-#. hPQ : ¬ Q → ¬ P
-#. ```
-#. §1: `hnQ : ¬ Q`
-#. §2: `obtain`
-#. §3: `exact`
-#. §4: ```
-#. exact hPQ hnQ
-#. ```
-#: Game.Levels.ArgWorld.L02_arg
-msgid "Great! We now have\n"
-"§0\n"
-"and §1. We can now use the tactics §2 and §3 the same way we did in the last level. Or we can take a shortcut! 👉 Try:\n"
-"§4\n"
-""
-msgstr ""
-
-#: GameServer.RpcHandlers
-msgid "level completed! 🎉"
-msgstr ""
-
-#. §0: $P$
-#. §1: $¬ P$
-#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
-#: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
-msgid "The negated conjunction of §0 with itself is logically equivalent to §1."
-msgstr ""
-
-#. §0: `Or_comm`
-#. §1: `Imp_iff_not_or`
-#. §2: `P → Q`
-#. §3: `¬ P ∨ Q`
-#. §4: `rewrite`
-#. §5: `rewrite`
-#. §6: `rewrite`
-#. §7: ```
-#.   rewrite[Or_comm]
-#.   ```
-#. §8: `∨`
-#: Game.Levels.EquivWorld.L01_equiv
-msgid "## **Level 1**\n"
-"We've unlocked two theorems for this first level, namely: §0 and §1. 🔍 Check out the entries for these theorems in the **Theorems** tab.\n"
-"\n"
-"The conditional law says that §2 is logically equivalent to §3. This looks *very* close to that statement. We might start by ***rewriting*** the right-hand side of our goal...\n"
-"  ### **❯ The §4 tactic**\n"
-"  In order to apply ***rewrites*** (or substitutions) in Lean, we use the §5 tactic. 🔍 Check out the entry for §6 in the **Tactics** tab for details. 👉 In this specific case, try\n"
-"  §7\n"
-"  This will apply the **Commutative Law** for §8 at the first instance in the goal where it is applicable (namely, the right-hand side in this case)."
-msgstr ""
-
-#. §0: $$ ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q)$$
-#. §1: ```
-#. Not_and (P Q : Prop) : ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q)
-#. ```
-#: Game.Levels.EquivWorld.equiv_docs
-#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
-msgid "This is half of **DeMorgan's Law**. It says that\n"
-"\n"
-"§0\n"
-"\n"
-"Here's what it looks like in Lean:\n"
-"§1"
-msgstr ""
-
-#. §0: `intro`
-#. §1: ```
-#. ⊢ P → Q
-#. ```
-#. §2: `intro hP`
-#. §3: `hP : P`
-#. §4: `intro`
-#. §5: ```
-#. ⊢ ∀ x, P x
-#. ```
-#. §6: ```
-#. intro a
-#. ```
-#. §7: `a : u`
-#. §8: `⊢ P a`
-#: Game.Levels.ArgWorld.arg_docs
-msgid "The §0 tactic introduces hypotheses (from the goal) into the proof state. Typical usage might look like the following. If the goal is:\n"
-"§1\n"
-"Then §2 will introduce the hypothesis §3 into the proof state.\n"
-"\n"
-"### **Universal generalization**\n"
-"The §4 tactic is also good for introducing generic variables associated to a universally quantified goal. For example, if our goal is of the form:\n"
-"§5\n"
-"Then\n"
-"§6\n"
-"will make §7 an object and our goal becomes §8."
-msgstr ""
-
-#: Game
-msgid "Intro to Proofs Game"
-msgstr ""
-
-#. §0: `obtain`
-#. §1: `obtain`
-#. §2: `obtain`
-#. §3: `exact`
-#: Game.Levels.ArgWorld.L02_arg
-msgid "### **💡 Pro-tip**\n"
-"The §0 tactic is *very* handy especially when you'll need to use the assumption introduced by §1 in more intricate ways. But if you find yourself using §2 to introduce a hypothesis to only then call the tactic §3 on that hypothesis, then you probably could have made your work a little shorter."
-msgstr ""
-
-#: Game.Levels.EquivWorld.L04_equiv
-msgid "Great, we're almost home. Try to to finish this level off on your own."
-msgstr ""
-
-#: Game.Levels.ArgWorld.L02_arg
-msgid "Modus Tolens"
-msgstr ""
-
-#. §0: `P → R`
-#. §1: `P`
-#. §2: `P → Q`
-#. §3: `intro`
-#. §4: `intro`
-#. §5: `intro`
-#. §6: ```
-#. intro hP
-#. ```
-#: Game.Levels.ArgWorld.L06_arg
-msgid "We wish to prove that §0 -- our goal, itself, is an implication. We know that implications are true by default if the hypothesis is false. So we might as well assume that §1 is true (otherwise §2 is definitely true). How do we do this in Lean?\n"
-"### **❯ The §3 tactic**\n"
-"To *introduce* the hypothesis of an implication as a goal, we use the §4 tactic. 🔍 Check out the entry for §5 in the **Tactics** tab. 👉 In our specific situation, try:\n"
-"§6\n"
-""
-msgstr ""
-
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "Contrapositives"
-msgstr ""
-
-#: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
-#: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
-msgid "Example 4"
-msgstr ""
-
-#. §0: `NAND`
-#. §1: `⊼`
-#. §2: ```
-#. nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q)
-#. ```
-#. §3: `⊼`
-#. §4: `\\barwedge`
-#: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
-msgid "### **Level 5**\n"
-"We introduce a (seemingly) new connective in this level: the §0 connective (not-and) denoted §1. Here's how it is defined in Lean:\n"
-"§2\n"
-"### **⌨ Typesetting-tip**\n"
-"In order to typeset the symbol §3 type §4."
-msgstr ""
-
-#. §0: `¬`
-#. §1: `⊼`
-#: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
-msgid "### **🤔 Food for thought**\n"
-"The unary operator §0 can be expressed in terms of §1."
-msgstr ""
-
-#: Game
-msgid "Here you can put additional information about the game. It is accessible\n"
-"from the starting through the drop-down menu.\n"
-"\n"
-"For example: Game version, Credits, Link to Github and Zulip, etc.\n"
-"\n"
-"Use **markdown**."
-msgstr ""
-
-#: Game.Levels.EquivWorld.L04_equiv
-msgid "Targeted Rewrites"
-msgstr ""
-
-#: Game.Levels.EquivWorld.L02_equiv
-msgid "The **contrapositive** of an implication is logically equivalent to the original implication."
-msgstr ""
-
-#. §0: `h1`
-#: Game.Levels.ArgWorld.L03_arg
-msgid "### **Level 3**\n"
-"This valid argument is sometimes referred to as the law of the **Disjunctive Syllogism**. Using some laws of logical equivalence, try to rewrite the hypothesis §0 in a form that is more similar to the hypotheses of the last couple levels."
-msgstr ""
-
-#: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
-msgid "### **Level 2**\n"
-"This argument is sometimes called the law of **Conditional Proof**. It might help to apply a"
-msgstr ""
-
-#. §0: ```
-#. (H₁ ∧ H₂) → P
-#. ```
-#. §1: ```
-#. H₁ → (H₂ → P)
-#. ```
-#. §2: `H₁`
-#. §3: `H\\_1`
-#: Game.Levels.EquivWorld.L03_equiv
-msgid "## **Level 3**\n"
-"Oftentimes, we'll have implications of the form\n"
-"§0\n"
-"For programmatic purposes, this kind of proposition is better expressed in the following way:\n"
-"§1\n"
-"This exercise demonstrates that this process of translating the first form into the second (called ***currying***) is logically valid.\n"
-"### **⌨ Typesetting Tip**\n"
-"In order to pretty-print subscripts like in §2 use §3."
-msgstr ""
-
-#. §0: `∧`
-#: Game.Levels.ArgWorld.L05_arg
-msgid "### **Level 5**\n"
-"In this level, we'll learn how to glue a couple known assumptions together with the §0 connective."
-msgstr ""
-
 #. §0: `And_assoc`
 #. §1: ```
 #. (_ ∧ _) ∧ _
@@ -995,31 +814,6 @@ msgid "**Here's what happend:** §0 was applied to the **first instance** encoun
 ""
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
-msgid "Conditional Proof"
-msgstr ""
-
-#. §0: `hQ`
-#. §1: `hR`
-#. §2: `∧`
-#. §3: `And.intro`
-#. §4: `And.intro`
-#. §5: ```
-#. obtain hQR := And.intro «{hQ}» «{hR}»
-#. ```
-#: Game.Levels.ArgWorld.L05_arg
-msgid "Now, we just need to connect the assumptions §0 and §1 with §2. The *constructor* that does this is §3. 🔍 Check out entry for §4 in the **Definitions** tab. 👉 In our particular case, try:\n"
-"§5\n"
-""
-msgstr ""
-
-#. §0: `hPQ : P → Q`
-#. §1: `P`
-#. §2: `Q`
-#. §3: `hQ : Q`
-#: Game.Levels.ArgWorld.L01_arg
-msgid "## **Level 1**\n"
-"Lean natively is aware of the valid argument known as **Modus Ponens**. In fact, Lean has a funny way of interpreting...\n"
-"## **Implications as functions**\n"
-"We have §0. We can think of this implication as being a function, whose input is (a proof of) §1 and whose output is (a proof of) §2. So we should be able to obtain a new hypothesis in our situation here, namely §3. But how to do this?"
+#: Game.Levels.EquivWorld.L02_equiv
+msgid "Here's where our newly unlocked theorem can be handy."
 msgstr ""

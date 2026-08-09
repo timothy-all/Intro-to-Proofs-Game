@@ -3,20 +3,28 @@ import Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
 World "EquivWorld_eg"
 Level 6
 
-Title "And and Nand"
+Title "Not and Nand"
 
 Introduction "
 ### **Level 6**
-Here's another logical equivalence involving `⊼`.
+We introduce a (seemingly) new connective in this level: the `NAND` connective (not-and) denoted `⊼`. Here's how it is defined in Lean:
+```
+nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q)
+```
+### **⌨ Typesetting-tip**
+In order to typeset the symbol `⊼` type `\\barwedge`.
 "
 
 set_option pp.parens true
 
-Statement (P Q : Prop) : ((P ⊼ Q) ⊼ (P ⊼ Q)) ↔ (P ∧ Q) := by
-  rw[Nand_self]
+/-- The negated conjunction of $P$ with itself is logically equivalent to $¬ P$.-/
+Statement Nand_self (P : Prop) : (P ⊼ P) ↔ ¬ P := by
   rw[nand_def]
-  rw[Not_not]
+  rw[Not_and]
+  rw[Or_self]
 
+Conclusion "### **🤔 Food for thought**
+The unary operator `¬` can be expressed in terms of `⊼`."
 
-Conclusion "### **🤔 More food for thought**
-The binary operator `∧` can be expressed in terms of `⊼` too ..."
+NewDefinition nand_def
+NewTheorem Or_self
