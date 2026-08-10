@@ -1,10 +1,10 @@
 import GameServer
 import Mathlib.Tactic.Common
-import Mathlib.Data.Set.Defs
-import Mathlib.Data.Set.Operations
-import Mathlib.Data.Set.Lattice
-import Mathlib.Tactic.Ring
-import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+--import Mathlib.Data.Set.Defs
+--import Mathlib.Data.Set.Operations
+--import Mathlib.Data.Set.Lattice
+--import Mathlib.Tactic.Ring
+--import Mathlib.Algebra.BigOperators.Group.Finset.Defs
 -- import Mathlib.Tactic.Common
 -- Hello
 
@@ -12,11 +12,22 @@ open Classical
 
 @[simp]
 theorem Imp_iff_not_or (P Q : Prop) : (P → Q) ↔ (¬ P ∨ Q) := by
-  rw[imp_iff_not_or]
+  constructor
+  intro
+  by_cases hp : P
+  right
+  exact a hp
+  left
+  exact hp
+  intro h
+  intro hp
+  rcases h
+  contradiction
+  exact h
 
 theorem Contra (P Q : Prop) : (P → Q) ↔ (¬ Q → ¬ P) := by
   repeat rw[Imp_iff_not_or]
-  rw[Classical.not_not]
+  rw[not_not]
   rw[Or.comm]
 
 theorem Not_and (P Q : Prop) : ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q) := by
@@ -89,7 +100,7 @@ theorem And_not_self (P : Prop) : P ∧ ¬ P ↔ False := by
   simp
 
 /- Set structure -/
-
+/-
 theorem mem_union.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∪ b ↔ x ∈ a ∨ x ∈ b := by
   rw[Set.mem_union]
 
@@ -140,7 +151,7 @@ exact h₂
 theorem subset_def {α : Type u} (s t : Set α) : (s ⊆ t) = ∀ x ∈ s, x ∈ t := by
   exact Set.subset_def
 
-
+-/
 
 
 /- Relations -/
@@ -156,8 +167,8 @@ scoped notation:50 a:50 " ~[" R "] " b:50 => (a, b) ∈ Rel.set R
 
 def exrel : Rel ℕ ℕ := fun (a: ℕ) (b: ℕ) => (a=b)
 
-#check (2,2) ∈ exrel.set
-#check 2 ~[exrel] 2
+--#check (2,2) ∈ exrel.set
+--#check 2 ~[exrel] 2
 
 end Rel
 
@@ -263,9 +274,9 @@ elab_rules : tactic
 
 
 
-noncomputable def eval {u v : Type*} (f : Rel u v) {h: isFunction f} (a : u) : v := by
-  obtain hfa := h a
-  sorry
+--noncomputable def eval {u v : Type*} (f : Rel u v) {h: isFunction f} (a : u) : v := by
+--  obtain hfa := h a
+--  sorry
 
 
 
@@ -376,7 +387,7 @@ example : 2 [exrel] 2 := by
 
 
 end Rela
-
+/-
 syntax "simplify" : tactic
 macro_rules
 | `(tactic| simplify) => `(tactic| push_cast; ring)
@@ -390,7 +401,7 @@ syntax "simplify2" : tactic
 macro_rules
   | `(tactic| simplify2) =>
     `(tactic| (try simp only [pow_add, pow_mul, mul_pow, pow_succ, pow_zero, pow_one, one_pow]; ring))
-
+-/
 --Divisibility definitions
 
 def Divides (x y : Int) := ∃ z, x * z = y
