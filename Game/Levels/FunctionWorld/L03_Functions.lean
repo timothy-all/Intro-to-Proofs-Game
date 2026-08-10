@@ -24,9 +24,9 @@ Statement Fun_comp_fun {u v w: Type*} (f: Rel u v) (g: Rel v w) (hf: isFunction 
   use b
   intro y hy
   obtain ⟨d, ⟨fad,gdy⟩⟩ := hy
-  obtain db : b = d := Fun_output_equal f hf a b d hbf fad
+  obtain db : b = d := Fun_output_equal f hf hbf fad
   rw [←db] at gdy
-  exact Fun_output_equal g hg b y c gdy hcf
+  exact Fun_output_equal g hg gdy hcf
 
 
 

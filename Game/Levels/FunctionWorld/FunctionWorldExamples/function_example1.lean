@@ -21,7 +21,7 @@ Statement {u v: Type*} (g: Rel u v) (hg: isFunction g) : isEquivalence (Rel_fibe
   obtain ⟨y, ⟨hy1,hy2⟩⟩ := h
   use y
   intro x1 x2 x3 ⟨y, ⟨hy1,hy2⟩⟩ ⟨z, ⟨hz1,hz2⟩⟩
-  obtain hyz : y = z := Fun_output_equal g hg x2 y z hy2 hz1
+  obtain hyz : y = z := Fun_output_equal g hg hy2 hz1
   rw [← hyz] at hz2
   use y
 

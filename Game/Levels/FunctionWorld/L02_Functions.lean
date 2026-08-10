@@ -23,7 +23,7 @@ TacticDoc evaluate
 /--  If `f` is a function such that `f a b` and `f a c`, then `b = c`. -/
 TheoremDoc Fun_output_equal as "FUN: Fun_output_equal"
 
-Statement Fun_output_equal {u v: Type*} (f: Rel u v) (hf: isFunction f) (a : u) (b c : v) : f a b → f a c → b = c := by
+Statement Fun_output_equal {u v: Type*} {a : u} {b c : v} (f: Rel u v) (hf: isFunction f)  : f a b → f a c → b = c := by
   Hint "Start by naming the assumptions: `intro fab fbc`."
   intro fab fac
   Hint "Use `evaluate` to access the uniqueness statement for plugging `a` into `f`: `evaluate hf at a with d hdf hdu`. This will give the uniqueness statement for plugging in `a` the name `hdu`."

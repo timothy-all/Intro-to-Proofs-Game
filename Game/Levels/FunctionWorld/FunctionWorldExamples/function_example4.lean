@@ -23,8 +23,8 @@ Statement Fun_comp_inj {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isIn
     use y1
   obtain gfbz2 : (g ∘ f) b z2 := by
     use y2
-  obtain hcz1 : c = z1 := Fun_output_equal (g ∘ f) gffun a c z1 gfac gfaz1
-  obtain hcz2 : c = z2 := Fun_output_equal (g ∘ f) gffun b c z2 gfbc gfbz2
+  obtain hcz1 : c = z1 := Fun_output_equal (g ∘ f) gffun gfac gfaz1
+  obtain hcz2 : c = z2 := Fun_output_equal (g ∘ f) gffun gfbc gfbz2
   rw [← hcz1] at hz1f
   rw [← hcz2] at hz2f
   obtain hy1y2 : y1 = y2 := hgi y1 y2 c hz1f hz2f

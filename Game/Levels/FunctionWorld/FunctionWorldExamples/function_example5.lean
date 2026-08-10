@@ -13,7 +13,7 @@ Statement {u v: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isSurjective f) (V:
   apply double_inclusion
   intro b hb
   obtain ⟨a, ⟨⟨c,⟨hc,fac⟩⟩,fab⟩⟩ := hb
-  obtain hbc : b = c := Fun_output_equal f hf a b c fab fac
+  obtain hbc : b = c := Fun_output_equal f hf fab fac
   rw[hbc]
   exact hc
   intro b hb

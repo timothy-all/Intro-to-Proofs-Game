@@ -12,7 +12,7 @@ Statement {u: Type*} (f: Rel_on u) (hf: isFunction f) (C: Set u) : C ⊆ invimag
   intro h y hy
   obtain ⟨x,⟨hxc,hxy⟩⟩ := hy
   obtain ⟨z,⟨hzc,hxz⟩⟩ := h hxc
-  obtain hyz : y = z := Fun_output_equal f hf x y z hxy hxz
+  obtain hyz : y = z := Fun_output_equal f hf hxy hxz
   rw [← hyz] at hzc
   exact hzc
 

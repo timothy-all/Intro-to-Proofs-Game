@@ -1,5 +1,5 @@
 import Game.Metadata
-import Game.Levels.FunctionWorld
+import Game.Levels.FunctionWorld.FunctionWorldExamples
 import Mathlib.Tactic.Cases
 
 
