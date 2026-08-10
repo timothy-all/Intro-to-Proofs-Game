@@ -98,3 +98,8 @@ theorem Not_self_or (P : Prop) : ¬ P ∨ P ↔ True := by
 
 theorem And_not_self (P : Prop) : P ∧ ¬ P ↔ False := by
   simp
+
+def Nand (P Q : Prop) : Prop := ¬ (P ∧ Q)
+infix:70 " ⊼ " => Nand
+
+theorem nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q) := Iff.rfl

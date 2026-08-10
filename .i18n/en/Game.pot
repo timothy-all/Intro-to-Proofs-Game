@@ -23,7 +23,6 @@ msgstr ""
 #: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
 #: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
 #: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
-#: Game.Levels.EquivWorld.EquivWorld_eg.L09_equiv
 msgid ""
 msgstr ""
 
@@ -483,10 +482,6 @@ msgstr ""
 msgid "Contradictions"
 msgstr ""
 
-#: Game.Levels.EquivWorld.EquivWorld_eg.L09_equiv
-msgid "Exclusive-Or"
-msgstr ""
-
 #. §0: `imp_iff_not_or`
 #. §1: ```
 #. rw[Imp_iff_not_or,Imp_iff_not_or]
@@ -602,20 +597,6 @@ msgid "### **Level 1**\n"
 "This logical equivalence is sometimes called **Proof by cases**. We'll use this (and variants thereof) a lot in the future (with the help of a tactic). It basically tells us how to approach proofs where we have a hypothesis in the form a disjunction.\n"
 "\n"
 "We'll need two new laws of logic to pass this level. 🔍 Check out the entries for §0 and §1."
-msgstr ""
-
-#. §0: `⊻`
-#. §1: ```
-#. xor_def : P ⊻ Q ↔  (P ∧ ¬Q) ∨ (Q ∧ ¬P)
-#. ```
-#. §2: `⊻`
-#. §3: `\\veebar`
-#: Game.Levels.EquivWorld.EquivWorld_eg.L09_equiv
-msgid "### **Level 9**\n"
-"We introduce another (seemingly) new connective known as **exclusive-or**, denoted §0. Here's how it is defined in Lean:\n"
-"§1\n"
-"### **⌨ Typesetting-tip**\n"
-"In order to typeset the symbol §2 type §3."
 msgstr ""
 
 #. §0: `⊼`
