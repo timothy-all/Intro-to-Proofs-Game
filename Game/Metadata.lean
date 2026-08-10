@@ -8,7 +8,7 @@ import Mathlib.Tactic.Common
 -- import Mathlib.Tactic.Common
 -- Hello
 
-open Classical
+--open Classical
 
 @[simp]
 theorem Imp_iff_not_or (P Q : Prop) : (P → Q) ↔ (¬ P ∨ Q) := by
@@ -55,7 +55,7 @@ theorem Or_and_left (P Q R : Prop) : (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨
   exact or_and_left
 
 theorem Not_not (P : Prop) : ¬ ¬ P ↔ P := by
-  exact Classical.not_not
+  exact not_not
 
 theorem And_self (P : Prop) : (P ∧ P) ↔ P := by
   simp
