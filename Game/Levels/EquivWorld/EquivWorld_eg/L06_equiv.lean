@@ -15,6 +15,11 @@ nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q)
 In order to typeset the symbol `⊼` type `\\barwedge`.
 "
 
+def Nand (P Q : Prop) : Prop := ¬ (P ∧ Q)
+infix:70 " ⊼ " => Nand
+
+theorem nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q) := Iff.rfl
+
 set_option pp.parens true
 
 /-- The negated conjunction of $P$ with itself is logically equivalent to $¬ P$.-/

@@ -1,12 +1,4 @@
 import GameServer
---import Mathlib.Tactic.Common
---import Mathlib.Data.Set.Defs
---import Mathlib.Data.Set.Operations
---import Mathlib.Data.Set.Lattice
---import Mathlib.Tactic.Ring
---import Mathlib.Algebra.BigOperators.Group.Finset.Defs
--- import Mathlib.Tactic.Common
--- Hello
 
 open Classical
 
@@ -98,8 +90,3 @@ theorem Not_self_or (P : Prop) : ¬ P ∨ P ↔ True := by
 
 theorem And_not_self (P : Prop) : P ∧ ¬ P ↔ False := by
   simp
-
-def Nand (P Q : Prop) : Prop := ¬ (P ∧ Q)
-infix:70 " ⊼ " => Nand
-
-theorem nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q) := Iff.rfl
