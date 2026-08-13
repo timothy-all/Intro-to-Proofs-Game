@@ -85,7 +85,7 @@ theorem Card_cartprod_equinumerous {a b c d : Type*} (hab : a ~ b) (hcd : c ~ d)
   constructor
   intro x y z ⟨fabx1z1,fcdx2z2⟩ ⟨faby1z1,fcdy2z2⟩
   rw [Prod.mk_inj] --This is going to have to be either in relationworld or introduced in cardinalityworld
-  refine ⟨fabinj x.1 y.1 z.1 fabx1z1 faby1z1, fcdinj x.2 y.2 z.2 fcdx2z2 fcdy2z2⟩ --end injective
+  refine ⟨fabinj fabx1z1 faby1z1, fcdinj fcdx2z2 fcdy2z2⟩ --end injective
 
   intro z
   obtain ⟨x1,fabx1z1⟩ := fabsurj z.1
@@ -94,26 +94,123 @@ theorem Card_cartprod_equinumerous {a b c d : Type*} (hab : a ~ b) (hcd : c ~ d)
 
 --Book has a theorem about taking unions of disjoint sets preserving equinumerous. This is doable with type sums (α ⊕ β), but might be weird to introduce
 
-def Countable (u : Type*) := (∃ A : Finset ℕ, u ~ A) ∨ u ~ ℕ -- The usage of Finset ℕ here might not be quite "right" but should simplify stuff
+def Countable (u : Type*) := (∃ n : Nat, u ~ Fin n) ∨ u ~ ℕ
+
+
+--The amount of casting that goes on in this proof is hugely uncomfortable but it works...
+lemma finitesets0 (n : ℕ) (k : Fin n) : {x // x ≠ k} ~ Fin (n - 1) := by
+  induction' n with l hl --induction isn't needed here; hl never gets used. it's just n = 0, n > 0 cases. not worth fixing right now
+  exfalso
+  exact k.elim0
+  rw [Nat.add_one_sub_one]
+
+  let f : { x // x ≠ k } → Fin l → Prop := fun x y => if x = l then y.val = k else x.val = y.val
+  use f
+  constructor
+
+  intro ⟨x, xneqk⟩ --start of proof that f is a function
+  by_cases xl : x = l
+  let k' : Fin l := ⟨k.val, by omega⟩ --Have to be able to say k is less than l for the `y.val = k` to even make sense in the function
+  use! k'
+  constructor
+  unfold f
+  split_ifs with α --tired of picking letters
+  rfl
+  rfl
+  intro y hy
+  unfold f at hy
+  rw [if_pos] at hy --apparently `if_pos` can rewrite hy to deduce that we're in the `if` part because that's assumed in `xl`
+  ext
+  exact hy
+  exact xl --ends x=l case
+  let x' : Fin l := ⟨x.val, by omega⟩
+  use x'
+  constructor
+  dsimp
+  unfold f
+  rw [if_neg]
+  exact xl
+  intro y hy
+  unfold f at hy
+  rw[if_neg] at hy
+  ext
+  exact hy.symm
+  exact xl --end of proof that f is a function
+
+  constructor
+  intro x y c fxc fyc  --begin injective proof
+  unfold f at fxc fyc
+  split_ifs at fxc with xcase
+  split_ifs at fyc with ycase
+  ext
+  omega --ext omega ext omega ext omega (omega is quite needed for some of the cases, I think there's some weird inequality stuff)
+  omega
+  split_ifs at fyc with ycase
+  ext
+  omega
+  ext
+  omega --end injective proof
+
+  intro y --begin surjective proof
+  by_cases hy : y = k.val --need proof l is not k. but since y is k and y ∈ Fin l, this is clear
+  let l' : Fin (l+1) := ⟨l,by omega⟩ --omega is just proving l < l+1
+  obtain l'nek : l' ≠ k := by
+    by_contra --l' = k means y = k, but y ∈ Fin l and that means y < l
+    obtain yl : y = l := by
+      grind --probably an easy way to close this but I'm going insane
+    omega
+  use ⟨⟨l,by omega⟩,l'nek⟩
+  grind
+  let y' : Fin (l+1) := ⟨y.val, by omega⟩
+  obtain y'nek : y' ≠ k := by
+    by_contra
+    grind
+  use ⟨⟨y.val,by omega⟩, y'nek⟩
+  grind
+
+
+
+
+
+
+
+
+
+
+lemma finitesets1 {u : Type*} (k : u) (n : ℕ) (h: u ~ Fin n) : { x : u // x ≠ k} ~ Fin (n-1) := by
+  obtain ⟨f,⟨ff,⟨fi,fs⟩⟩⟩ := h
+  induction' n with l hl
+
+  exfalso
+  obtain ⟨bad,hbad⟩ := ff k
+  exact bad.elim0 --Not exactly sure what elim0 is, but this works
+
+  obtain ⟨m,⟨fkm,fkmu⟩⟩ := ff k
+  dsimp at fkmu
 
 
 --Moving toward the fundamental Theorem 8.1.5 in text. Might need to discuss IsEmpty for empty type first
 theorem countable_imp_Natsurj {u : Type*} (h : Countable u) : IsEmpty u ∨ ∃f : Rel ℕ u, isSurjective f := by
-  rw [← not_not (a := IsEmpty u)] --it was weirdly difficult to get not_not to hit the right thing
-  rw [or_comm, not_isEmpty_iff]
-  apply or_not_of_imp
+  rw [← Not_not (IsEmpty u)] --it was weirdly difficult to get not_not to hit the right thing
+  rw [← Imp_iff_not_or, not_isEmpty_iff]
   intro hne
   rcases h with hP | hQ
   obtain k := Classical.choice hne --not Classical.choose, that's for destructuring existence statements
-  obtain ⟨A,eq⟩ := hP
+  obtain ⟨n,eq⟩ := hP
   obtain ⟨f,⟨ff,⟨fi,fs⟩⟩⟩ := eq.symm
   --The proof here is to put A in bijection with {0,1,...,|A|-1}, then define f by mapping i to the ith element of A for 0 ≤ i < |A|, and to k otherwise. This is partially baked in already because of the Countable definition using Finset ℕ
-  induction' A using Finset.induction with i S i_notin_S ih
+
+  induction' n with l hl
   exfalso
   obtain ⟨⟨a,aemp⟩,ha⟩ := fs k
-  contradiction
+  contradiction --Empty case of induction finished
 
+  --Assuming you get the surjection when u ~ Fin n, prove you get it when u ~ Fin (n + 1)
+  --Need to show: Removing k from u turns f into a bijection between Fin (l+1) without preimage of k and u without k. Then apply induction hypothesis to this new map
   sorry --Finite case finished
+
+
+
   obtain ⟨f,⟨ff,⟨fi,fs⟩⟩⟩ := hQ.symm
   use f --Infinite case finished
 
@@ -176,23 +273,37 @@ theorem Nat_eqin_EvenNat : Nat ~ EvenNat := by
 
 --This one requires a complicated piecewise def. It can be defined using division (like the first case being a/2) but then there's a bunch of cast issues; nonetheless, students would be required to type this in , so this might be crazy to ask
 theorem Nat_equin_Int : ℕ ~ ℤ := by
-  let f : Rel ℕ ℤ := fun a b =>
-    if h: Even a then
-      let k := Classical.choose h --Surely there's a way around Classical.choose here since everything with ℕ is constructive?
-      b = k
-    else
-      have ho : Odd a := Nat.not_even_iff_odd.mp h --not sure how to get around have here
-      let k := Classical.choose ho
-      b = -(k+1)
+  let f : Rel ℕ ℤ := fun a b => by
+    by_cases h : Even a
+    exact b = (a/2)
+    rw [Nat.not_even_iff_odd] at h
+    exact b = -(a+1)/2
+
+
   use f
   constructor
   intro x
   by_cases hx : Even x
   obtain ⟨k,hk⟩ := id hx
   use! k
-  --Tried a lot of stuff here, really don't know what to do with this very complicated example
-  sorry
-  sorry
+  constructor
+  grind
+  grind
+  rw [Nat.not_even_iff_odd] at hx
+  obtain ⟨k,hk⟩ := id hx
+  use -(k+1)
+  grind
+  constructor
+  intro a b c fac fbc
+  grind
+  intro y
+  rcases Int.nonneg_or_nonneg_neg y with yP | yN
+  obtain k := y.toNat
+  use k+k
+  obtain ek : Even (k+k) := by grind
+  unfold f
+  split --breaks down the if-then statement
+
   sorry
 
 

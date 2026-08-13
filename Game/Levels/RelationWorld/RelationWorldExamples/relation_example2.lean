@@ -22,9 +22,9 @@ Statement {u : Type} (R S: Rel_on u) (hR: isTransitive R) (hS: isTransitive S) (
   rcases hmid2 with ⟨hmid2l, hmid2r⟩
   rcases hmid3 with ⟨hmid3l, hmid3r⟩
   obtain l2: S a mid3
-  exact hS a mid1 mid3 hmid1l hmid3l
+  exact hS hmid1l hmid3l
   obtain l3: R mid3 c
-  exact hR mid3 mid2 c hmid3r hmid2r
+  exact hR hmid3r hmid2r
   use mid3
 
 

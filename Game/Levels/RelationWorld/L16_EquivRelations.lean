@@ -23,9 +23,9 @@ Statement {u : Type*} (R: Rel_on u) (eq: isEquivalence R) : ∀ X Y, X ∈ equiv
   rw [←hxB,←hxC]
   rw [←hxB] at haX
   rw [←hxC] at haY
-  obtain hac : R a c := eq.symm c a haY
+  obtain hac : R a c := eq.symm haY
   apply Equiv_class_rep_ind
   exact eq
-  exact eq.tran b a c haX hac
+  exact eq.tran haX hac
 
 Conclusion "English proof?"

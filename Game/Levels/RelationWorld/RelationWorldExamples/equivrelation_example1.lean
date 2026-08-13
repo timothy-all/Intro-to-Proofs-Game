@@ -21,8 +21,8 @@ Statement {u : Type*} (R S: Rel_on u) (eqR: isEquivalence R) (eqS: isEquivalence
   obtain hx2 : x.2 ∈ equivClass S y := by
     rw [hy]
     exact hx
-  obtain hx1y : S x.1 y := eqS.symm y x.1 hx1
-  exact eqS.tran x.1 y x.2 hx1y hx2
+  obtain hx1y : S x.1 y := eqS.symm hx1
+  exact eqS.tran hx1y hx2
 
   intro x hx
   obtain k : equivClass S x.1 ∈ equivClassFamily R := by
@@ -35,8 +35,8 @@ Statement {u : Type*} (R S: Rel_on u) (eqR: isEquivalence R) (eqS: isEquivalence
   obtain hx2 : x.2 ∈ equivClass R y := by
     rw [hy]
     exact hx
-  obtain hx1y : R x.1 y := eqR.symm y x.1 hx1
-  exact eqR.tran x.1 y x.2 hx1y hx2
+  obtain hx1y : R x.1 y := eqR.symm hx1
+  exact eqR.tran hx1y hx2
 
   Conclusion "Proof in English?"
 

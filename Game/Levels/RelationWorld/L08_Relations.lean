@@ -15,7 +15,7 @@ Statement {u : Type} (R: Rel_on u) : (R ∘ R).set ⊆ R.set ↔ isTransitive R 
   exact h i
   intro h x k
   rcases k with ⟨y,hy⟩
-  exact h x.1 y x.2 hy.left hy.right
+  exact h hy.left hy.right
 
 
 Conclusion "English proof?"

@@ -27,9 +27,9 @@ Statement Fun_comp_inj {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isIn
   obtain hcz2 : c = z2 := Fun_output_equal (g ∘ f) gffun gfbc gfbz2
   rw [← hcz1] at hz1f
   rw [← hcz2] at hz2f
-  obtain hy1y2 : y1 = y2 := hgi y1 y2 c hz1f hz2f
+  obtain hy1y2 : y1 = y2 := hgi hz1f hz2f
   rw [hy1y2] at hy1f
-  exact hfi a b y2 hy1f hy2f
+  exact hfi hy1f hy2f
 
 
 
