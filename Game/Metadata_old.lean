@@ -3,8 +3,8 @@ import GameServer
 import Mathlib.Data.Set.Defs
 import Mathlib.Data.Set.Operations
 import Mathlib.Data.Set.Lattice
---import Mathlib.Tactic.Ring
---import Mathlib.Algebra.BigOperators.Group.Finset.Defs
+import Mathlib.Tactic.Ring
+import Mathlib.Algebra.BigOperators.Group.Finset.Defs
 import Mathlib.Tactic.Common
 -- Hello
 
@@ -175,7 +175,7 @@ end Rel
 
 def Rel.inv {u v : Type*} (R: Rel u v) : Rel v u := fun (b : v) (a : u) => R a b
 
-def Rel_subrel (R: Rel u v) (S: Rel u v) : Prop := ∀ a b, R a b → S a b
+def Rel_subrel {u v : Type*} (R: Rel u v) (S: Rel u v) : Prop := ∀ a b, R a b → S a b
 
 def Rel.dom {u v : Type*} (R: Rel u v) := {a | ∃ b, R a b}
 
@@ -197,11 +197,11 @@ def Rel_union {u v : Type*} (R S : Rel u v) : Rel u v := fun (a : u) (b : v) => 
 
 def isReflexive {u : Type*} (R: Rel_on u) := ∀ a, R a a
 
-def isSymmetric {u : Type*} (R: Rel_on u) := ∀ a b, (R a b) → (R b a)
+def isSymmetric {u : Type*} (R: Rel_on u) := ∀ {a b}, (R a b) → (R b a)
 
-def isAntisymmetric {u : Type*} (R: Rel_on u) := ∀ a b, ((R a b) ∧ (R b a)) → a = b
+def isAntisymmetric {u : Type*} (R: Rel_on u) := ∀ {a b}, ((R a b) ∧ (R b a)) → a = b
 
-def isTransitive {u : Type*} (R: Rel_on u) := ∀ a b c, (R a b) → (R b c) → (R a c)
+def isTransitive {u : Type*} (R: Rel_on u) := ∀ {a b c}, (R a b) → (R b c) → (R a c)
 
 structure isPartialOrder {u : Type*} (R : Rel_on u) where
   (refl : isReflexive R)
@@ -251,7 +251,7 @@ def image {u v : Type*} (R: Rel u v) (U : Set u) : Set v := { v | ∃ u ∈ U, R
 def invimage {u v : Type*} (R: Rel u v) (V : Set v) : Set u := { u | ∃ v ∈ V, R u v}
 
 
-def isInjective {u v : Type*} (R: Rel u v) := ∀ a b c, R a c → R b c → a = b
+def isInjective {u v : Type*} (R: Rel u v) := ∀ {a b c}, R a c → R b c → a = b
 /- Original Fun_isInjective is below. This definition isn't good because it doesn't assume  R a c and R b c. Without this, it could be possible that R a c and R b c are false, and in applications it could be impossible to conclude a = b from this
 def Fun_isInjective {u v : Type*} (R: Rel u v) := ∀ a b c, R a c = R b c → a = b
 -/
@@ -281,7 +281,7 @@ elab_rules : tactic
 
 
 
-theorem Rel_subrel_set (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
+theorem Rel_subrel_set {u v : Type*} (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
   intro x
   intro h1
   apply h at h1
@@ -388,15 +388,17 @@ example : 2 [exrel] 2 := by
 
 
 end Rela
-/-
+
 syntax "simplify" : tactic
 macro_rules
 | `(tactic| simplify) => `(tactic| push_cast; ring)
 
+/-
 syntax "use! " term : tactic
 macro_rules
   | `(tactic| use! $w) =>
       `(tactic| refine Exists.intro $w ?_; dsimp)
+
 
 syntax "simplify2" : tactic
 macro_rules
