@@ -1,7 +1,7 @@
-import Game.Levels.SetWorld.L05_set
+import Game.Levels.SetWorld.L06_set
 
 World "SetWorld"
-Level 6
+Level 7
 
 Title "Intersections of families"
 

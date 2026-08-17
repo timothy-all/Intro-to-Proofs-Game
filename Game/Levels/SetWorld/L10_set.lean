@@ -3,23 +3,24 @@ import Game.Levels.SetWorld.L09_set
 World "SetWorld"
 Level 10
 
-Title "The whole universe"
+Title "Empty Set"
 
 Introduction "
 ## **Level 9**
-The **universal-set** denoted `Set.univ` is defined as follows:
+The **empty-set** denoted `∅` is defined as follows:
 ```
-Set.univ = {x | True}
+∅ = {x | False}
 ```
-So the membership proposition `x ∈ Set.univ` means the same thing as `True`.
+So the membership proposition `x ∈ ∅` means the same thing as `False`.
 "
 
 
-Statement {u : Type} (A : Set u) : A ∩ Set.univ = A := by
+Statement {u : Type} (A : Set u) : A ∩ ∅ = ∅ := by
   apply Set.ext
   intro x
   rw[Set.mem_inter_iff]
-  rw[mem_univ_iff_true]
-  rw[And_true]
+  rw[Set.mem_empty_iff_false]
+  rw[And_false]
+
 
 Conclusion ""

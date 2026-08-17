@@ -1,4 +1,5 @@
 import Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
+import Mathlib.Tactic.Use
 
 World "QuantifierWorld_eg"
 Level 2

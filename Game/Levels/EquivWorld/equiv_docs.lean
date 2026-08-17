@@ -137,7 +137,7 @@ $$
 TheoremDoc Not_and as "EQU : Not_and"
 
 /--
-This is known as **currying**. It says that
+This is known as **Currying**. It says that
 
 $$ (P ∧ Q) → R ↔ P → (Q → R) $$
 -/

@@ -1,9 +1,5 @@
 import GameServer
 
-/--
-Use documentation
--/
-TacticDoc use
 
 /--
 This helps to define the `∩` set connective. Specifically,

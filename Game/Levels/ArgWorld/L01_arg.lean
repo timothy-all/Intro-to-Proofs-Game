@@ -35,6 +35,12 @@ Statement (P Q : Prop) (hP : P) (hPQ : P → Q) : Q := by
   "
   exact hQ
 
-Conclusion ""
+Conclusion "### **💡 Pro-tip**
+We could have cleared this level in one line with
+```
+exact hPQ hP
+```
+Still, the `obtain` tactic is super helpful in other situations.
+"
 
 NewTactic exact obtain

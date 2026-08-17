@@ -1,4 +1,5 @@
 import Game.Levels.PfWorld.PfWorld_eg.L02_pf
+import Game.Levels.EquivWorld.L02_equiv
 
 World "PfWorld_eg"
 Level 3
@@ -14,15 +15,5 @@ Statement (P Q : Prop) (h1 : P → Q) (h2 : ¬ P → Q) : Q := by
   rw[Contrapositive] at h2 h1
   rw[Not_not] at h2
   exact (h1 F) (h2 F)
-
-
-
-
-
-
-
-
-
-
 
 Conclusion ""

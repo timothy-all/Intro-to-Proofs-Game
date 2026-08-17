@@ -57,7 +57,7 @@ where $F₀$ is a contradiction. Here's what it looks like in Lean:
 And_not_self (P : Prop) : P ∧ ¬ P ↔ False
 ```
 -/
-TheoremDoc And_not_self as "EQU : Or_not_self"
+TheoremDoc And_not_self as "EQU : And_not_self"
 
 
 /--This is an **Identity Law**. It says that
@@ -83,7 +83,7 @@ Or_false (P : Prop) : P ∨ False ↔ P
 TheoremDoc Or_false as "EQU : Or_false"
 
 
-/--This is an **Identity Law**. It says that
+/--This is a **Domination Law**. It says that
 
 $$ P ∨ T₀ ↔ T₀ $$
 

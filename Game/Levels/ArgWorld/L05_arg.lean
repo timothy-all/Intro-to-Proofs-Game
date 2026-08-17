@@ -3,7 +3,7 @@ import Game.Levels.ArgWorld.L04_arg
 World "ArgWorld"
 Level 5
 
-Title "Example 5"
+Title "And-constructor"
 
 Introduction "
 ### **Level 5**

@@ -1,5 +1,6 @@
 import Game.Levels.QuantifierWorld
 import Game.Levels.SetWorld.set_docs
+import Game.Levels.SetWorld.Metadata_setworld
 
 World "SetWorld"
 Level 1

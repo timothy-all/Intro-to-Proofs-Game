@@ -1,26 +1,23 @@
-import Game.Levels.SetWorld.L06_set
+import Game.Levels.SetWorld.L07_set
 
 World "SetWorld"
-Level 7
+Level 8
 
-Title "Unions of families"
+Title "Intersections of indexed families"
 
 Introduction "
-## **Level 7**
-Let `F : Set (Set u)`. The **union** of all members of `F` is defined by:
+## **Level 8**
+Let `A : I → Set u`. This means that `A` is a function from `I` (an indexing set) to `Set u`, sets in the universe `u`. Or as we say in class, an **indexed** family of sets. The intersection of all members of `A` is defined by:
 ```
-⋃₀ F = { x | ∃ (t : Set (Set u)), t ∈ F ∧ x ∈ t}
+⋂ i, A i = { x | ∀ i, x ∈ A i}
 ```
-So the membership proposition `x ∈ ⋃₀ F` means the same thing as `∃ (t : Set (Set u)), t ∈ F ∧ x ∈ t`.
+So the membership proposition `x ∈ ⋂ i, A i` means the same thing as `∀ i, x ∈ A i`.
 "
 
-Statement {u : Type} (A : Set u) (F : Set (Set u)) (h : A ∈ F) : A ⊆ ⋃₀ F := by
-  intro a ha
-  /- ⋃₀ F is sugar for SupSet F; the membership proposition x ∈ ⋃₀ F unpacks to ∃ (t : Set (Set u)), t ∈ F ∧ x ∈ t. -/
-  use A
-  --refine Exists.intro A ?_ -- this is more verbose, but I wanted to see more
-  --refine ⟨h, ha⟩
-
+Statement {u I: Type*} (A : I → Set u) (j : I) : ⋂ i, A i ⊆ A j := by
+  intro x hx
+  rw[mem_iinter] at hx
+  exact hx j
 
 
 

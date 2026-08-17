@@ -2,21 +2,22 @@
 --import Game.Levels.TylerWorld
 import Game.Levels.EquivWorld
 import Game.Levels.EquivWorld.EquivWorld_eg
---import Game.Levels.ArgWorld
---import Game.Levels.ArgWorld.ArgWorld_eg
---import Game.Levels.QuantifierWorld
---import Game.Levels.QuantifierWorld.QuantifierWorld_eg
---import Game.Levels.SetWorld
---import Game.Levels.SetWorld.SetWorld_eg
+import Game.Levels.ArgWorld
+import Game.Levels.ArgWorld.ArgWorld_eg
+import Game.Levels.QuantifierWorld
+import Game.Levels.QuantifierWorld.QuantifierWorld_eg
+import Game.Levels.SetWorld
+import Game.Levels.SetWorld.SetWorld_eg
+import Game.Levels.PfWorld
+import Game.Levels.PfWorld.PfWorld_eg
 --import Game.Levels.RelationWorld
 --import Game.Levels.RelationWorld.RelationWorldExamples
+
 --import Game.Levels.FunctionWorld
 --import Game.Levels.FunctionWorldExamples
 --import Game.Levels.LeanFunctionWorld
 --import Game.Levels.InductionWorld
 --import Game.Levels.CardinalityWorld
---import Game.Levels.PfWorld
---import Game.Levels.PfWorld.PfWorld_eg
 
 -- Here's what we'll put on the title screen
 Title "Intro to Proofs Game"
@@ -34,6 +35,8 @@ For example: Game version, Credits, Link to Github and Zulip, etc.
 
 Use **markdown**.
 "
+
+Dependency SetWorld → PfWorld
 
 /-! Information to be displayed on the servers landing page. -/
 Languages "en"

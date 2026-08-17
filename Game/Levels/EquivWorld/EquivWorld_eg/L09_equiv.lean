@@ -1,4 +1,5 @@
 import Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
+import Mathlib.Logic.Basic
 
 World "EquivWorld_eg"
 Level 9
@@ -16,6 +17,8 @@ In order to typeset the symbol `⊻` type `\\veebar`.
 "
 
 set_option pp.parens true
+
+infix:70 " ⊻ " => Xor'
 
 Statement (P Q R : Prop) : ((P ⊻ Q) → R) ↔ ( (P ↔ Q) ∨ R) := by
   rw[xor_def]

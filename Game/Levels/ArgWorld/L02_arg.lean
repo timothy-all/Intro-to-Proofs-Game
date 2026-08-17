@@ -16,10 +16,7 @@ Statement (P Q : Prop) (hPQ : P → Q) (hnQ : ¬ Q) : ¬ P := by
   ```
   hPQ : ¬ Q → ¬ P
   ```
-  and `hnQ : ¬ Q`. We can now use the tactics `obtain` and `exact` the same way we did in the last level. Or we can take a shortcut! 👉 Try:
-  ```
-  exact hPQ hnQ
-  ```
+  and `hnQ : ¬ Q`. We can now use the tactics `obtain` and `exact` the same way we did in the last level. Or we can take a shortcut...
   "
   exact hPQ hnQ
 

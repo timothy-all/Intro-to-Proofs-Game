@@ -3,24 +3,25 @@ import Game.Levels.SetWorld.L08_set
 World "SetWorld"
 Level 9
 
-Title "Empty Set"
+Title "Unions of families"
 
 Introduction "
-## **Level 9**
-The **empty-set** denoted `∅` is defined as follows:
+## **Level 7**
+Let `F : Set (Set u)`. The **union** of all members of `F` is defined by:
 ```
-∅ = {x | False}
+⋃₀ F = { x | ∃ (t : Set (Set u)), t ∈ F ∧ x ∈ t}
 ```
-So the membership proposition `x ∈ ∅` means the same thing as `False`.
+So the membership proposition `x ∈ ⋃₀ F` means the same thing as `∃ (t : Set (Set u)), t ∈ F ∧ x ∈ t`.
 "
 
+Statement {u : Type} (A : Set u) (F : Set (Set u)) (h : A ∈ F) : A ⊆ ⋃₀ F := by
+  intro a ha
+  /- ⋃₀ F is sugar for SupSet F; the membership proposition x ∈ ⋃₀ F unpacks to ∃ (t : Set (Set u)), t ∈ F ∧ x ∈ t. -/
+  use A
+  --refine Exists.intro A ?_ -- this is more verbose, but I wanted to see more
+  --refine ⟨h, ha⟩
 
-Statement {u : Type} (A : Set u) : A ∩ ∅ = ∅ := by
-  apply Set.ext
-  intro x
-  rw[Set.mem_inter_iff]
-  rw[Set.mem_empty_iff_false]
-  rw[And_false]
+
 
 
 Conclusion ""

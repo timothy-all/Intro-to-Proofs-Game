@@ -1,11 +1,11 @@
 import GameServer
 --import Mathlib.Tactic.Common
---import Mathlib.Data.Set.Defs
---import Mathlib.Data.Set.Operations
---import Mathlib.Data.Set.Lattice
+import Mathlib.Data.Set.Defs
+import Mathlib.Data.Set.Operations
+import Mathlib.Data.Set.Lattice
 --import Mathlib.Tactic.Ring
 --import Mathlib.Algebra.BigOperators.Group.Finset.Defs
--- import Mathlib.Tactic.Common
+import Mathlib.Tactic.Common
 -- Hello
 
 open Classical
@@ -101,7 +101,7 @@ theorem And_not_self (P : Prop) : P ∧ ¬ P ↔ False := by
 
 
 /- Set structure -/
-/-
+
 theorem mem_union.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∪ b ↔ x ∈ a ∨ x ∈ b := by
   rw[Set.mem_union]
 
@@ -152,7 +152,7 @@ exact h₂
 theorem subset_def {α : Type u} (s t : Set α) : (s ⊆ t) = ∀ x ∈ s, x ∈ t := by
   exact Set.subset_def
 
--/
+
 
 
 /- Relations -/
