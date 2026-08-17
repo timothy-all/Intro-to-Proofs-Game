@@ -7,6 +7,7 @@ import Mathlib.Algebra.BigOperators.Group.Finset.Defs
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Data.Nat.Fib.Basic
 import Mathlib.Tactic.Linarith
+import Mathlib.Data.Nat.Count --Nat.count is used to count the number of Nats satisfying a predicate up to a specified Nat. Very useful when working with finite sets
 
 open Finset
 open BigOperators
@@ -96,8 +97,11 @@ theorem Card_cartprod_equinumerous {a b c d : Type*} (hab : a ~ b) (hcd : c ~ d)
 
 def Countable (u : Type*) := (∃ n : Nat, u ~ Fin n) ∨ u ~ ℕ
 
+/- Lean has `Finite u`, meaning that `u` is in bijective correspondence with `Fin n` for some `n`. One option could be taking Lean's "bijective correspondence" and proving it's the same as our bijective correspondence to rewrite all the theorems there?
+-/
 
---The amount of casting that goes on in this proof is hugely uncomfortable but it works...
+
+--The amount of casting that goes on in this proof is hugely uncomfortable but it works. Unsure if it will be useful (cardinality_examples, maybe?)
 lemma finitesets0 (n : ℕ) (k : Fin n) : {x // x ≠ k} ~ Fin (n - 1) := by
   induction' n with l hl --induction isn't needed here; hl never gets used. it's just n = 0, n > 0 cases. not worth fixing right now
   exfalso
@@ -170,49 +174,183 @@ lemma finitesets0 (n : ℕ) (k : Fin n) : {x // x ≠ k} ~ Fin (n - 1) := by
 
 
 
-
-
-
-
-
-
-
+--Another one for cardinality_examples?
 lemma finitesets1 {u : Type*} (k : u) (n : ℕ) (h: u ~ Fin n) : { x : u // x ≠ k} ~ Fin (n-1) := by
   obtain ⟨f,⟨ff,⟨fi,fs⟩⟩⟩ := h
-  induction' n with l hl
+  evaluate ff at k with m fkm fku
+  obtain lnom : {x : Fin n // x ≠ m} ~ Fin (n-1) := finitesets0 n m
+  apply Equinumerous.tran {x // x ≠ k} {x // x ≠ m} (Fin (n-1))
+  let g : Rel { x // x ≠ k } {x // x ≠ m} := fun x y => f x y
+  use g
+  constructor
+  intro x
+  evaluate ff at x with y fxy fxu
+  obtain ynotm : y ≠ m := by
+    by_contra
+    rw [←a] at fkm
+    obtain xisk : x = k := fi fxy fkm
+    exact x.2 xisk --Contradiction since x = k and x : { x // x ≠ k}. x.2 is the subtype property for x
+  use ⟨y,ynotm⟩
+  constructor
+  dsimp
+  unfold g
+  exact fxy
+  intro z hz
+  grind --definitely not needed here, but saving time. end proof that g is a function
 
-  exfalso
-  obtain ⟨bad,hbad⟩ := ff k
-  exact bad.elim0 --Not exactly sure what elim0 is, but this works
+  constructor
+  intro x y z gxy gyz
+  ext
+  apply fi gxy gyz --g is the same as f, proves injective
+  intro z
+  obtain ⟨x,fxz⟩ := fs z
+  obtain xnotk : x ≠ k := by --very similar to previous ynotm proof
+    by_contra
+    rw [← a] at fkm
+    obtain zism : m = z := Fun_output_equal f ff fkm fxz
+    exact z.2 zism.symm
+  use ⟨x,xnotk⟩
+  exact lnom
 
-  obtain ⟨m,⟨fkm,fkmu⟩⟩ := ff k
-  dsimp at fkmu
 
 
---Moving toward the fundamental Theorem 8.1.5 in text. Might need to discuss IsEmpty for empty type first
-theorem countable_imp_Natsurj {u : Type*} (h : Countable u) : IsEmpty u ∨ ∃f : Rel ℕ u, isSurjective f := by
+
+--Moving toward the fundamental Theorem 8.1.5 in text. Might need to discuss IsEmpty for empty type first.
+theorem countable_imp_Natsurj {u : Type*} (h : Countable u) : IsEmpty u ∨ ∃f : Rel ℕ u, isFunction f ∧ isSurjective f := by
   rw [← Not_not (IsEmpty u)] --it was weirdly difficult to get not_not to hit the right thing
   rw [← Imp_iff_not_or, not_isEmpty_iff]
   intro hne
-  rcases h with hP | hQ
+  rcases h with hP | hQ --finite case (hard) first
+
   obtain k := Classical.choice hne --not Classical.choose, that's for destructuring existence statements
-  obtain ⟨n,eq⟩ := hP
-  obtain ⟨f,⟨ff,⟨fi,fs⟩⟩⟩ := eq.symm
-  --The proof here is to put A in bijection with {0,1,...,|A|-1}, then define f by mapping i to the ith element of A for 0 ≤ i < |A|, and to k otherwise. This is partially baked in already because of the Countable definition using Finset ℕ
-
-  induction' n with l hl
-  exfalso
-  obtain ⟨⟨a,aemp⟩,ha⟩ := fs k
-  contradiction --Empty case of induction finished
-
-  --Assuming you get the surjection when u ~ Fin n, prove you get it when u ~ Fin (n + 1)
-  --Need to show: Removing k from u turns f into a bijection between Fin (l+1) without preimage of k and u without k. Then apply induction hypothesis to this new map
-  sorry --Finite case finished
-
+  obtain ⟨n,l⟩ := hP
+  obtain ⟨f,⟨ff,⟨finj,fsurj⟩⟩⟩ := l --used in surjective part
+  let g : Rel ℕ u := fun m x => if mltn : m < n then f x ⟨m,mltn⟩ else x = k
+  use g
+  constructor
+  --function proof
+  intro x
+  by_cases ineq : x < n
+  obtain ⟨y,hy⟩ := fsurj ⟨x,ineq⟩
+  use! y
+  constructor
+  unfold g
+  rw [dif_pos ineq]
+  exact hy
+  intro z hz
+  unfold g at hz
+  rw [dif_pos ineq] at hz
+  apply Eq.symm
+  apply finj hy hz --end x < n case
+  use! k
+  constructor
+  unfold g
+  rw [dif_neg ineq]
+  intro z hz
+  unfold g at hz
+  rw [dif_neg ineq] at hz
+  exact hz
+  --surjective proof
+  intro y
+  evaluate ff at y with x fyx fyxu
+  use x
+  unfold g
+  rw [dif_pos x.2]
+  omega --Have to learn difference between if, dif, etc
+   --finite case finished
 
 
   obtain ⟨f,⟨ff,⟨fi,fs⟩⟩⟩ := hQ.symm
   use f --Infinite case finished
+
+--This direction might be doable without assuming f is a function? But very easy if f is
+theorem Natsurj_imp_Injnat {u : Type*} (h:  IsEmpty u ∨  ∃ f : Rel ℕ u, isFunction f ∧ isSurjective f) : ∃ g : Rel u ℕ, isFunction g ∧ isInjective g := by
+  rcases h with hP | hQ
+
+  --Degenerate empty case
+  use fun x y => True
+  constructor
+  intro x
+  exfalso
+  exact hP.false x
+
+  intro x y z hxz hyz
+  exfalso
+  exact hP.false x
+
+  --Usual case
+  obtain ⟨f, ⟨hff,hfs⟩⟩ := hQ
+  use fun x n => n = Classical.choose (hfs x) --it makes me very uncomfortable that this guarantees that the same preimage of x is chosen each time. what does this actually do?
+  constructor
+  intro x
+  use! Classical.choose (hfs x)
+  refine ⟨rfl,?_⟩
+  intro y hy
+  exact hy --end function proof
+
+  intro m n x hmx hnx
+  --rw [hmx] at hnx
+  apply Fun_output_equal f hff ?m ?n --this feels weird, but it makes goals allowing us to prove that m and n are the things that make Fun_output_equal prove the goal
+  exact x
+  rw [hmx]
+  exact Classical.choose_spec (hfs m)
+  rw [hnx]
+  exact Classical.choose_spec (hfs n)
+
+
+lemma lem1 {u : Type*} {h : Fintype u} : ∃ n : ℕ, u ~ Fin n := by
+  sorry
+
+
+
+
+/- Idea for this direction is: If f has a largest value, then f is equinumerous to |Ran f|; otherwise, build a bijection by sending the smallest image to 0, the next smallest to 1, etc. The first part sounds hardest because it will require putting a set of a bunch of images in bijection with Fin n
+
+Very useful for this might be `Nat.find`, which is basically WOP. From the documentation: "If p is a (decidable) predicate on ℕ and hp : ∃ (n : ℕ), p n is a proof that there exists some natural number satisfying p, then Nat.find hp is the smallest natural number satisfying p. "-/
+theorem Injnat_imp_Countable {u : Type*} (f : Rel u ℕ) (hff : isFunction f) (hfi : isInjective f) : Countable u := by
+  by_cases biggest : ∃ n : ℕ, ((∃ x : u, f x n) ∧ ∀ m : ℕ, ∀ x : u, f x m → m ≤ n) --If there is a biggest output n of f, need to count the number of images smaller than n, then prove u is equinumerous with that count
+  left
+  obtain ⟨big_output,⟨⟨big_input,fbig⟩,hbig⟩⟩ := id biggest
+  let count := @Nat.count (fun n => ∃ y, f y n) (Classical.decPred _) (big_output)
+  use (count + 1)
+  sorry --end finite case.
+
+
+  right
+  push_neg at biggest --biggest is now there is no biggest
+  let counter : u → ℕ := fun x => @Nat.count (fun n => ∃ y, f y n) (Classical.decPred _) (Classical.choose (hff x).exists) --Counts the number of y's with output smaller than x's output. Don't know how to get around Classical.decPred
+  let g : Rel u ℕ := fun x m => m = counter x
+  use g
+  constructor
+  intro x --begin function proof
+  evaluate hff at x with n hfn hfnu
+  use! @Nat.count (fun k => ∃ y, f y k) (Classical.decPred _) n
+  constructor
+  unfold g
+  unfold counter
+  obtain k : Classical.choose (hff x).exists = n := by
+    apply hfnu
+    exact Classical.choose_spec (hff x).exists
+  rw [k] --Feels like there should be a way to do this in one line without obtaining k earlier but not sure how
+  intro y hy
+  unfold g at hy
+  obtain k : Classical.choose (hff x).exists = n := by --very similar to argument above, again should be easier
+    apply hfnu
+    exact Classical.choose_spec (hff x).exists
+  rw [←k]
+  exact hy --end function proof
+  constructor
+  intro x y n hxn hyn
+  unfold g at hxn hyn
+  --Need to prove counter is injective. This should use Nat.count_injective somehow, but all the choosing is making it really hard
+  sorry
+  intro k
+  --Need to find the element of u whose count is k. This is where (the negation of) biggest needs to be used
+  sorry
+
+
+/- How crazy is Cantor-Bernstein? -/
+
 
 
 

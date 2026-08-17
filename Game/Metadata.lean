@@ -2,6 +2,7 @@ import GameServer
 
 open Classical
 
+
 @[simp]
 theorem Imp_iff_not_or (P Q : Prop) : (P → Q) ↔ (¬ P ∨ Q) := by
   constructor
