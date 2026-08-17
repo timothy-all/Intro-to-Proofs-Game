@@ -13,7 +13,7 @@ Statement {u v w: Type*} (f: Rel u v) (hf: isFunction f) (g: Rel v w) (hg: isFun
   evaluate hg at b with c hcg hcu
   obtain gfa1c : (g ∘ f) a1 c := by use b
   obtain gfa2c : (g ∘ f) a2 c := by use b
-  exact hgf a1 a2 c gfa1c gfa2c
+  exact hgf gfa1c gfa2c
 
 
 Conclusion "."

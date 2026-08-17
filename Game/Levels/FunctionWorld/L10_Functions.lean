@@ -21,7 +21,7 @@ Statement Fun_bij_is_invertible {u v: Type*} (f: Rel u v) (hf: isFunction f) : i
   use! a
   refine ⟨ha,?_⟩
   intro y hy
-  exact (finj a y b ha hy).symm
+  exact (finj ha hy).symm
 
 
 Conclusion "."

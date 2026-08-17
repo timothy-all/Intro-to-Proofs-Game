@@ -90,10 +90,3 @@ theorem Not_self_or (P : Prop) : ¬ P ∨ P ↔ True := by
 
 theorem And_not_self (P : Prop) : P ∧ ¬ P ↔ False := by
   simp
-
--- Custom tactics
-
-syntax "use! " term : tactic
-macro_rules
-  | `(tactic| use! $w) =>
-      `(tactic| refine Exists.intro $w ?_; dsimp)

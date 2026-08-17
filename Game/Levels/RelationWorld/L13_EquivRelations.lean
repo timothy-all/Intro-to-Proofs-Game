@@ -16,9 +16,9 @@ Statement Equiv_class_rep_ind {u : Type*} (R: Rel_on u) (eq: isEquivalence R) (a
   apply double_inclusion
   intro x hx
   Hint "The goal amounts to proving `R b x`. We know `h : R a b` and `hx : R a x`. Use equivalence relation properties to take it from here!"
-  obtain hba : R b a := eq.symm a b h
-  exact eq.tran b a x hba hx
+  obtain hba : R b a := eq.symm h
+  exact eq.tran hba hx
   intro x hx
-  exact eq.tran a b x h hx
+  exact eq.tran h hx
 
 Conclusion "English proof?"

@@ -13,7 +13,7 @@ Statement {u v: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isInjective f) (U: 
   intro a ha
   --Lots of unpacking. Maybe a `Hint` should be given about doing this efficiently?
   obtain ⟨b,⟨⟨c,⟨hc,fbc⟩⟩, fab⟩⟩ := ha
-  obtain hac : a = c := hfi a c b fab fbc
+  obtain hac : a = c := hfi fab fbc
   rw [hac]
   exact hc
   intro a ha
