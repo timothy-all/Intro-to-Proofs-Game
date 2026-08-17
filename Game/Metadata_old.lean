@@ -159,7 +159,7 @@ theorem subset_def {α : Type u} (s t : Set α) : (s ⊆ t) = ∀ x ∈ s, x ∈
 
 def Rel (u v: Type*) := u → v → Prop
 
-def Rel.set (R: Rel u v) := {(a,b) | R a b}
+def Rel.set {u v : Type*} (R: Rel u v) := {(a,b) | R a b}
 
 def Rel.inv {u v : Type*} (R: Rel u v) : Rel v u := fun (b : v) (a : u) => R a b
 
@@ -289,65 +289,6 @@ theorem Rel_double_inclusion {u v: Type*} (R: Rel u v) (S: Rel u v) : R.set = S.
   rw [← h] at h1
   exact h1
 
-/-
-def Rel'' {u: Type} {v: Type} (A: Set u) (B: Set v) := A → B → Prop
-
-def Rel.inv {u v : Type} {A : Set u} {B : Set v} (R: Rel A B) : Rel B A :=
-  fun (b : B) (a : A) => R a b
-
-/- Set of ordered pairs in a relation -/
-def Rel.set {u v : Type} {A : Set u} {B : Set v} (R : Rel A B) :
-  Set (u × v) :=
-{ p | ∃ (a : A) (b : B), p = ((a : u), (b : v)) ∧ R a b }
-
-def Rel.dom {u v : Type} {A : Set u} {B: Set v} (R: Rel A B) := {a | ∃ b, (a,b) ∈ R.set}
-
-def Rel.range {u v : Type} {A : Set u} {B: Set v} (R: Rel A B) := {b | ∃ a, (a,b) ∈ R.set}
-
-def Rel.comp {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel B C) (R: Rel A B) : Rel A C :=
- fun (a : A) (c : C) => ∃ b : B, R a b ∧ S b c
-
-notation:50 S " ∘ " R => Rel.comp S R
-
-
-/- Possible alternative relation structure -/
-structure Rel' {u v: Type} (A: Set u) (B: Set v) where
-  pairs : Set (u × v)
-  subset : pairs ⊆ A ×ˢ B
-
-/- User would use Rel_inv' -/
-theorem Rel_swap' {u v: Type} {A: Set u} {B: Set v} (R: Rel' A B) : {(b,a) | (a,b) ∈ R.pairs} ⊆ B ×ˢ A := by
-  intro x
-  intro s
-  simp at s
-  apply R.subset at s
-  rw [mem_prod] at s
-  rw [mem_prod, and_comm]
-  exact s
-
-def Rel_inv' {u v : Type} {A: Set u} {B: Set v} (R: Rel' A B) : Rel' B A := { pairs := {(b,a) | (a,b) ∈ R.pairs}, subset := Rel_swap' R}
-
-def Rel_dom' {u v : Type} {A : Set u} {B: Set v} (R: Rel' A B) : Set u := { a | ∃ b, (a,b) ∈ R.pairs}
-
-def Rel_range' {u v : Type} {A : Set u} {B: Set v} (R: Rel' A B) : Set u := { b | ∃ a, (b,a) ∈ R.pairs}
-
-/- Used to build a composite relation -/
-theorem Rel_comp_proof' {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel' B C) (R: Rel' A B) : {(a,c) | ∃ b, (a,b) ∈ R.pairs ∧ (b,c) ∈ S.pairs} ⊆ A ×ˢ C := by
-  intro x
-  intro s
-  simp at s
-  rcases s with ⟨y, ⟨hy1,hy2⟩⟩
-  apply R.subset at hy1
-  apply S.subset at hy2
-  rw [mem_prod] at hy1
-  rw [mem_prod] at hy2
-  rw [mem_prod]
-  constructor
-  exact hy1.left
-  exact hy2.right
-
-def Rel_comp' {u v w: Type} {A: Set u} {B: Set v} {C: Set w} (S: Rel' B C) (R: Rel' A B) : Rel' A C := {pairs := {(a,c) | ∃ b, (a,b) ∈ R.pairs ∧ (b,c) ∈ S.pairs}, subset := Rel_comp_proof' S R}
--/
 
 /- Logic -/
 
