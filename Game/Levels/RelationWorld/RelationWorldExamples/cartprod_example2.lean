@@ -13,7 +13,6 @@ Note: It is possible to prove this just using rewrites, but the intent is to get
 
 Statement (u v: Type) (A C: Set u) (B D: Set v) : (A ×ˢ B) \ (C ×ˢ D) = (A ×ˢ (B \ D)) ∪ ((A \ C) ×ˢ B) := by
   apply double_inclusion
-  rw[subset_def]
   intro x
   intro h
   rw[Set.mem_diff,mem_prod,mem_prod,Not_and,And_or_left] at h
@@ -26,7 +25,6 @@ Statement (u v: Type) (A C: Set u) (B D: Set v) : (A ×ˢ B) \ (C ×ˢ D) = (A �
   apply Or.intro_left
   exact h_1
 
-  rw[subset_def]
   intro x
   intro h
   rw[mem_union] at h

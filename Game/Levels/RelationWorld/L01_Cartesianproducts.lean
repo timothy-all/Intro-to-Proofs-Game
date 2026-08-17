@@ -1,5 +1,5 @@
-import Game.Metadata
-import Game.Metadata_old
+import Game.Levels.SetWorld
+import Game.Levels.RelationWorld.Metadata_RelationWorld
 
 World "RelationWorld"
 Level 1

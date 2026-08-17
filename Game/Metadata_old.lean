@@ -161,18 +161,6 @@ def Rel (u v: Type*) := u → v → Prop
 
 def Rel.set (R: Rel u v) := {(a,b) | R a b}
 
---infix test below
-namespace Rel
-
-scoped notation:50 a:50 " ~[" R "] " b:50 => (a, b) ∈ Rel.set R
-
-def exrel : Rel ℕ ℕ := fun (a: ℕ) (b: ℕ) => (a=b)
-
---#check (2,2) ∈ exrel.set
---#check 2 ~[exrel] 2
-
-end Rel
-
 def Rel.inv {u v : Type*} (R: Rel u v) : Rel v u := fun (b : v) (a : u) => R a b
 
 def Rel_subrel {u v : Type*} (R: Rel u v) (S: Rel u v) : Prop := ∀ a b, R a b → S a b
