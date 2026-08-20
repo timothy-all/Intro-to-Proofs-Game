@@ -6,7 +6,7 @@ Level 6
 Title "Not and Nand"
 
 Introduction "
-### **Level 6**
+# **Level 6: Not and Nand**
 We introduce a (seemingly) new connective in this level: the `NAND` connective (not-and) denoted `⊼`. Here's how it is defined in Lean:
 ```
 nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q)
@@ -32,4 +32,4 @@ Conclusion "### **🤔 Food for thought**
 The unary operator `¬` can be expressed in terms of `⊼`."
 
 NewDefinition nand_def
-NewTheorem Or_self
+NewTheorem Or_self And_self

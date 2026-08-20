@@ -11,14 +11,16 @@ Introduction "
 
 set_option pp.parens true
 
+open Set
+
 Statement {u : Type} (A B C : Set u) : A ∪ (B \ C) = (A ∪ B) \ (C \ A) := by
-  apply Set.ext
+  rw[set_eq_iff]
   intro x
-  rw[Set.mem_union]
-  rw[Set.mem_diff]
-  rw[Set.mem_diff]
-  rw[Set.mem_union]
-  rw[Set.mem_diff]
+  rw[mem_union_iff]
+  rw[mem_diff_iff]
+  rw[mem_diff_iff]
+  rw[mem_union_iff]
+  rw[mem_diff_iff]
   rw[Not_and]
   rw[Or_and_left]
   rw[Or_comm (x ∈ A) (x ∉ C)]

@@ -17,7 +17,7 @@ Statement (P Q R S : Prop) (h1: S → R) (h2 : ¬ (P ∧ R)) : ¬ P ∨ ¬ S := 
   intro hP
   rw[Not_and,← Imp_iff_not_or] at h2
   obtain hR := h2 hP
-  rw[contrapositive] at h1
+  rw[Contrapositive] at h1
   exact h1 hR
 
 Conclusion ""

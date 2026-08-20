@@ -6,7 +6,7 @@ Level 8
 Title "Or and Nand"
 
 Introduction "
-### **Level 8**
+# **Level 8: Or and Nand**
 One last example involving `⊼`. Are you noticing something interesting?
 "
 
@@ -20,5 +20,5 @@ Statement (P Q : Prop) : ((P ⊼ P) ⊼ (Q ⊼ Q)) ↔ (P ∨ Q) := by
   rw[Not_not,Not_not]
 
 
-Conclusion "### **🤔 All the food for thought**
-The binary operator `∨` can be expressed in terms of `⊼` ... can everything be expressed in terms of `⊼`?!"
+Conclusion "### **💡 All the food for thought**
+The binary operator `∨` can be expressed in terms of `⊼`. The last three examples show that the unary operator `¬` and the binary operators `∨` and `∧` can be expressed in terms of `⊼`. In fact, *any* binary operator on `True` and `False` can be expressed in terms of `⊼`!"

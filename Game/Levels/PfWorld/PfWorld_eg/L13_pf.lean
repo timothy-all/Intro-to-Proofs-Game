@@ -9,26 +9,26 @@ Introduction "
 ### **Level 13**
 "
 
-Statement {u : Type*} (U : Set u) : ∀ A ⊆ U, ∃! B ⊆ U, symmDiff A B = ∅ := by
+Statement {u : Type*} (U : Set u) : ∀ A ⊆ U, ∃! B ⊆ U, A Δ B = ∅ := by
   intro A hA
   use! A
   refine ⟨⟨?_,?_⟩,?_⟩
   exact hA
-  exact Set.symmDiff_self A
+  exact Symm_diff_self
   intro B hB
   rw[Set.ext_iff]
   intro x
   refine ⟨?_,?_⟩
   intro hxB
   by_contra!
-  obtain that : x ∈ symmDiff A B
+  obtain that : x ∈ A Δ B
   right
   exact And.intro hxB this
   rw[hB.right] at that
   contradiction
   intro hxA
   by_contra!
-  obtain that : x ∈ symmDiff A B
+  obtain that : x ∈ A Δ B
   left
   exact And.intro hxA this
   rw[hB.right] at that

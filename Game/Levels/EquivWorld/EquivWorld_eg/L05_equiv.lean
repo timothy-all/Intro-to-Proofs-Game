@@ -3,10 +3,10 @@ import Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
 World "EquivWorld_eg"
 Level 5
 
-Title "Example 5"
+Title "More practice"
 
 Introduction "
-### **Level 5**
+# **Level 5: More practice**
 No new laws of logic needed here either. But this example should provide good practice with what we've learned so far.
 "
 

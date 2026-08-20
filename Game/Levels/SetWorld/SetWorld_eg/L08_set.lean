@@ -9,20 +9,21 @@ Introduction "
 ### **Level 8**
 "
 
-set_option pp.parens true
+--set_option pp.parens true
+
+open Set
 
 
 Statement {u : Type*} {I : Type*} (A B : I → Set u) : ⋂ i, (A i \ B i) = (⋂ i, A i ) \ (⋃ i, B i) := by
-  apply Set.ext
+  rw[set_eq_iff]
   intro x
-  rw[mem_iinter]
-  rw[Set.mem_diff]
-  rw[mem_iinter]
-  rw[mem_iunion]
+  rw[mem_iinter_iff]
+  rw[mem_diff_iff]
+  rw[mem_iinter_iff]
+  rw[mem_iunion_iff]
   push_neg
-  exact forall_and
-
-
-
+  exact Forall_and  --hmm
 
 Conclusion ""
+
+NewDefinition mem_iunion_iff

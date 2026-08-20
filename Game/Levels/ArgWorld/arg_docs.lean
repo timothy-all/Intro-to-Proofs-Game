@@ -77,3 +77,13 @@ obtain hPQ := And.intro hP hQ
 will introduce the new hypothesis `hPQ : P ∧ Q` into the proof-state.
 -/
 DefinitionDoc And.intro as "And.intro"
+
+/--
+The `left` tactic is useful for targeting goals that are disjunctions. Specifically, if our goal is of the form `⊢ P ∨ Q`, the tactic `left` will make our new goal `⊢ P`.
+-/
+TacticDoc left
+
+/--
+The `right` tactic is useful for targeting goals that are disjunctions. Specifically, if our goal is of the form `⊢ P ∨ Q`, the tactic `right` will make our new goal `⊢ Q`.
+-/
+TacticDoc right

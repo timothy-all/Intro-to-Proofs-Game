@@ -10,24 +10,20 @@ Introduction "
 
 "
 
---Proof-strategy: AND as goal
+theorem Forall_and.{u_1} {v : Sort u_1} {P Q : v → Prop} : (∀ (x : v), P (x : v) ∧ Q x) ↔ ((∀ (x : v), P x) ∧ (∀ (x : v), Q x)) := by
+  rw[forall_and]
 
-Statement {u : Type} (P Q : u → Prop) : ((∃ x, P x) ∨ (∃ x, Q x)) ↔ ∃ x, P x ∨ Q x := by
-  constructor
-  intro h
-  obtain ⟨x,hx⟩ | ⟨y,hy⟩ := h
+
+Statement {u : Type} (P Q : u → Prop) (h₁ : ∃ x, P x) (h₂ : ∀ x, ¬ Q x) : ∃ x, P x ∨ Q x := by
+  obtain ⟨x,hx⟩ := h₁
   use x
   left
   exact hx
-  use y
-  right
-  exact hy
-  intro ⟨x,h⟩
-  obtain hP | hQ := h
-  left
-  use x
-  right
-  use x
-
 
 Conclusion ""
+
+NewTactic left right
+NewTheorem Forall_and
+
+/- Save for pf strategy with or statements
+Statement {u : Type} (P Q : u → Prop) (h : ((∃ x, P x) ∨ (∃ x, Q x))): ∃ x, P x ∨ Q x := by-/

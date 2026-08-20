@@ -9,14 +9,16 @@ Introduction "
 ### **Level 12**
 "
 
-Statement {u : Type*} (U : Set u) : ∃! I ⊆ U, ∀ A ⊆ U, symmDiff A I = A := by
+open Set
+
+Statement {u : Type*} (U : Set u) : ∃! I ⊆ U, ∀ A ⊆ U, A Δ I = A := by
   use! ∅
   refine ⟨⟨?_,?_⟩,?_⟩
   intro x hx
   contradiction
   -- apply Set.empty_subset -- this works instead of intro/contradiction
   intro A hA
-  rw[Set.ext_iff]
+  rw[set_eq_iff]
   intro x
   refine ⟨?_,?_⟩
   intro hx
@@ -31,11 +33,11 @@ Statement {u : Type*} (U : Set u) : ∃! I ⊆ U, ∀ A ⊆ U, symmDiff A I = A 
   contradiction
   intro I hI
   by_contra!
-  rw[Set.nonempty_def] at this
+  --rw[nonempty_def] at this
   rcases this with ⟨i,hi⟩
   obtain F := hI.right I hI.left
   rw[← F] at hi
-  rw[Set.symmDiff_self] at hi
+  rw[Symm_diff_self] at hi
   contradiction
 
 Conclusion ""

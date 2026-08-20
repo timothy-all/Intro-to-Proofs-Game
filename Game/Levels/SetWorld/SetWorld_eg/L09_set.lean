@@ -12,7 +12,7 @@ Introduction "
 set_option pp.parens true
 
 Statement Set.symmDiff_self {u : Type*} (A : Set u) : symmDiff A A = ∅ := by
-  rw[Set.ext_iff]
+  rw[set_eq_iff]
   intro x
   constructor
   intro hx

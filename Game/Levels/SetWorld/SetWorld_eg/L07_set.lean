@@ -11,16 +11,21 @@ Introduction "
 
 set_option pp.parens true
 
-Statement {u : Type} (A B : Set u) : A \ B = ∅ → A ⊆ B := by
-  intro h
-  intro x hx
-  rw[Set.eq_empty_iff_forall_notMem] at h
-  obtain hx' := h x
-  rw[Set.mem_diff] at hx'
-  rw[Not_and] at hx'
-  rw[Not_not] at hx'
-  rw[← Imp_iff_not_or] at hx'
-  exact hx' hx
+open Set
 
+Statement {u : Type} (A : Set u) : A Δ ∅ = A := by
+  rw[set_eq_iff]
+  intro x
+  rw[mem_symm_diff_iff]
+  rw[mem_union_iff]
+  rw[mem_diff_iff,mem_diff_iff]
+  rw[mem_empty_iff_false]
+  rw[not_false_iff] -- dumb
+  rw[And_true]
+  rw[And_comm]
+  rw[And_false]
+  rw[Or_false]
 
 Conclusion ""
+
+NewTheorem not_false_iff

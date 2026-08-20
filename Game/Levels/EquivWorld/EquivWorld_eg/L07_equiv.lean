@@ -6,7 +6,7 @@ Level 7
 Title "And and Nand"
 
 Introduction "
-### **Level 7**
+# **Level 7: And and Nand**
 Here's another logical equivalence involving `⊼`.
 "
 

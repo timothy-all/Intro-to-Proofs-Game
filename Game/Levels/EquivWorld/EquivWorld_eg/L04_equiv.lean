@@ -6,7 +6,7 @@ Level 4
 Title "Tautologies"
 
 Introduction "
-### **Level 4**
+# **Level 4: Tautologies**
 A statement like the one (on the left-hand side) of this example is what's called a **tautology**. This is a compound proposition that is `True` for every choice of true/false values of its constituent parts (in this case, `P` and `Q`).
 
 We've unlocked a few more laws of logic for this example. 🔍 Check out the entries for `Or_not_self`, and `And_true` in the **Theorems** tab.
@@ -24,4 +24,4 @@ Statement (P Q : Prop) : P → (P ∨ Q) ↔ True := by
 
 Conclusion ""
 
-NewTheorem Or_not_self Or_true
+NewTheorem Or_not_self Or_true And_false

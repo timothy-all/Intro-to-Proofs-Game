@@ -15,10 +15,10 @@ Statement {u : Type*} (F G H : Set (Set u)) : (∀ A ∈ F, ∀ B ∈ G, A ∪ B
   left
   exact hF
   right
-  rw[mem_finter]
+  rw[mem_finter_iff]
   intro B hB
   --change ¬ x ∈ ⋂₀ F at hF --real confusing: internally things changed but the terminal delaborates the same way
-  rw[mem_finter] at hF
+  rw[mem_finter_iff] at hF
   push_neg at hF
   rcases hF with ⟨ A, hA,hxA'⟩
   obtain hAB := h A hA B hB

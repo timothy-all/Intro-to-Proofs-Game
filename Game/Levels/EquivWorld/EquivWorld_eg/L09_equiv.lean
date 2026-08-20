@@ -22,6 +22,7 @@ infix:70 " ⊻ " => Xor'
 
 Statement (P Q R : Prop) : ((P ⊻ Q) → R) ↔ ( (P ↔ Q) ∨ R) := by
   rw[xor_def]
+  Hint "You might find it handy to also rewrite the `↔` on the right-hand side (at some point). 🔍 Check out the entry for `iff_def` in the **Definitions** tab."
   rw[Imp_iff_not_or]
   rw[Not_or]
   rw[Not_and,Not_and]

@@ -10,17 +10,25 @@ Introduction "
 "
 
 set_option pp.parens true
+open Set
 
-Statement {u : Type} (A B : Set u) : A ⊆ B → A \ B = ∅ := by
-  intro h
-  rw[Set.eq_empty_iff_forall_notMem]
-  intro
-  rw[Set.mem_diff]
-  rw[Not_and]
-  rw[← Imp_iff_not_or]
-  rw[Not_not]
-  intro hx
-  exact h hx
-
+Statement Symm_diff_self {u : Type*} {A: Set u} : A Δ A = ∅ := by
+  rw[set_eq_iff]
+  intro x
+  rw[mem_symm_diff_iff]
+  rw[mem_union_iff]
+  rw[mem_diff_iff]
+  rw[And_not_self]
+  rw[Or_false]
+  rw[mem_empty_iff_false]
 
 Conclusion ""
+
+NewDefinition mem_symm_diff_iff
+
+/- Save this for proof by contradiction example
+Statement {u : Type} (A B : Set u) : A ⊆ B ↔ A \ B = ∅ := by
+
+Save this for proof of or
+Statement {u : Type} (A B C: Set u) : (A ∪ B) \ (C \ A) ⊆ A ∪ (B \ C) := by
+-/

@@ -16,9 +16,11 @@ So the membership proposition `x ∈ ⋂ i, A i` means the same thing as `∀ i,
 
 Statement {u I: Type*} (A : I → Set u) (j : I) : ⋂ i, A i ⊆ A j := by
   intro x hx
-  rw[mem_iinter] at hx
+  rw[mem_iinter_iff] at hx
   exact hx j
 
 
 
 Conclusion ""
+
+NewDefinition mem_iinter_iff

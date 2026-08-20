@@ -1,5 +1,7 @@
 import GameServer
 
+set_option pp.parens true
+
 /--
 The tactic `rewrite[e]` applies the identity/equivalence `e` as a **rewrite** rule to the target.
 
@@ -44,17 +46,11 @@ $$
 $$
 -/
 
-TheoremDoc Imp_iff_not_or as "EQU : Imp_iff_not_or"
+TheoremDoc Imp_iff_not_or as "EQU: Imp_iff_not_or"
 
 /--
 This is the **Commutative Law** for `∨`. It says that
-
 $$ (P ∨ Q) ↔ (Q ∨ P) $$
-
-Here's what it looks like in Lean:
-```
-Or_comm {P Q : Prop} : P ∨ Q ↔ Q ∨ P
-```
 The proof of `Or_comm` follows from the truth-table below:
 $$
 \begin{array}{|cc||cc|}
@@ -69,18 +65,13 @@ $$
 \end{array}
 $$
 -/
-TheoremDoc Or_comm as "EQU : Or_comm"
+TheoremDoc Or_comm as "EQU: Or_comm"
 
 /--
 This is the **Double Negation Law**. It says that
-
 $$ ¬ ¬ P ↔ P $$
-Here's what it looks like in Lean:
-```
-Not_not (P : Prop) : ¬¬ P ↔ P
-```
 -/
-TheoremDoc Not_not as "EQU : Not_not"
+TheoremDoc Not_not as "EQU: Not_not"
 
 /--
 An implication is logically equivalent to its contrapositive. We can prove this via a truth-table:
@@ -97,7 +88,7 @@ $$
 \end{array}
 $$
 -/
-TheoremDoc Contrapositive as "EQU : Contrapositive"
+TheoremDoc Contrapositive as "EQU: Contrapositive"
 
 /--
 The tactic `rw` is the same as `rewrite` except it automatically attempts to clear the goal with `rfl` at the end. This can often save us a line.
@@ -106,20 +97,31 @@ TacticDoc rw
 
 /--
 This is the **Associative Law** for `∨`. It says that
-
 $$ (P ∨ Q) ∨ R ↔ P ∨ (Q ∨ R) $$
+The proof of `Or_assoc` is given in the truth-table below:
+$$
+\begin{array}{|ccc||cc|}
+  \hline
+  P & Q & R & (P ∨ Q) ∨ R & P ∨ (Q ∨ R) \\
+  \hline
+  T & T & T & T & T \\
+  T & T & F & T & T \\
+  T & F & T & T & T \\
+  T & F & F & T & T \\
+  F & T & T & T & T \\
+  F & T & F & T & T \\
+  F & F & T & T & T \\
+  F & F & F & F & F \\
+  \hline
+\end{array}
+$$
 -/
-TheoremDoc Or_assoc as "EQU : Or_assoc"
+TheoremDoc Or_assoc as "EQU: Or_assoc"
 
 /-- This is half of **DeMorgan's Law**. It says that
 
 $$ ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q)$$
 
-Here's what it looks like in Lean:
-```
-Not_and {P Q : Prop} :
-  ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q)
-```
 We can prove DeMorgan's Law with a truth-table:
 $$
 \begin{array}{|cc||c||cc||c|}
@@ -134,24 +136,20 @@ $$
 \end{array}
 $$
  -/
-TheoremDoc Not_and as "EQU : Not_and"
+TheoremDoc Not_and as "EQU: Not_and"
 
 /--
 This is known as **Currying**. It says that
 
-$$ (P ∧ Q) → R ↔ P → (Q → R) $$
+$$ ((P ∧ Q) → R) ↔ (P → (Q → R)) $$
 -/
-TheoremDoc Curry as "EQU : Curry"
+TheoremDoc Curry as "EQU: Curry"
 
 /--
 This is the **Associative Law** for `∧`. It says that
 
 $$ (P ∧ Q) ∧ R ↔ P ∧ (Q ∧ R) $$
-Here's what it looks like in Lean:
-```
-And_assoc (P Q R : Prop) :
-  ((P ∧ Q) ∧ R) ↔ (P ∧ (Q ∧ R))
-```
+
 The proof of `And_assoc` is given in the truth-table below:
 $$
 \begin{array}{|ccc||cc|}
@@ -170,11 +168,24 @@ $$
 \end{array}
 $$
 -/
-TheoremDoc And_assoc as "EQU : And_assoc"
+TheoremDoc And_assoc as "EQU: And_assoc"
 
 /--
 This is the **Commutative Law** for `∧`. It says that
 
-$$ P ∧ Q ↔ Q ∧ P $$
+$$ (P ∧ Q) ↔ (Q ∧ P) $$
+The proof of `And_comm` follows from the truth-table below:
+$$
+\begin{array}{|cc||cc|}
+  \hline
+  P & Q & P ∧ Q & Q ∧ P  \\
+  \hline
+  T & T & T & T \\
+  T & F & F & F \\
+  F & T & F & F \\
+  F & F & F & F \\
+  \hline
+\end{array}
+$$
 -/
-TheoremDoc And_comm as "EQU : And_comm"
+TheoremDoc And_comm as "EQU: And_comm"

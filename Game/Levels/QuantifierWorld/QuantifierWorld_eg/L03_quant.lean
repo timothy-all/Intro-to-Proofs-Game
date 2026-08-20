@@ -1,5 +1,4 @@
 import Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
-import Mathlib.Tactic.ByContra
 
 
 World "QuantifierWorld_eg"

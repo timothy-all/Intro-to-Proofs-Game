@@ -6,8 +6,8 @@ Level 4
 Title "Targeted Rewrites"
 
 Introduction "
-## **Level 4**
-The goal of this level is intuitively clear. But in order to prove it formally, we'll need some **targeted rewrites** with the **Associative Law** for `∧`, called `And_assoc`. 🔍 Check out the entry for `And_assoc` in the **Theorems** tab. 👉 To get started, try:
+## **Level 4: Targeted Rewrites**
+The goal of this level is intuitively clear. But in order to prove it formally, we'll need some *targeted rewrites* with the **Associative Law** and the **Commutative Law** for `∧`, called `And_assoc` and `And_comm` respectively. 🔍 Check out the entries for `And_assoc` and `And_comm` in the **Theorems** tab. 👉 To get started, try:
 ```
 rw[And_assoc]
 ```
@@ -16,7 +16,7 @@ rw[And_assoc]
 set_option pp.parens true
 
 
-
+/-- A generalized **Associative Law** for `∧`.-/
 Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q) := by
   rw[And_assoc]
   Hint "**Here's what happend:** `And_assoc` was applied to the **first instance** encountered where it could be applied. Specifically, Lean searched for the first instance of
