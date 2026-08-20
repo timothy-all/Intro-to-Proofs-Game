@@ -2,54 +2,29 @@ import GameServer
 
 
 /--
-This is a finishing tactic. Typical usage might look like
-```
-exact s
-```
-where `s` is known (provable) statement. Lean will clear the goal if `s` matches the target.
+The `contrapose` tacic turns a goal of the form `⊢ P → Q` into `⊢ ¬ Q → ¬ P`.
 -/
-TacticDoc exact
+TacticDoc contrapose
 
 /--
-The `obtain` tactic is used bring new (and provable) assumptions into the proof state. It can also be used to desctructure existing assumptions.
+The `simplify` tactic will attempt to clear the goal by applying *very* basic simplification rules to the goal. For example, if the goal is to prove `⊢ x * (y + z) = x * y + x * z` then `simplify` will clear the goal.
 -/
-TacticDoc obtain
+TacticDoc simplify
 
 /--
-The `intro` tactic introduces hypotheses (from the goal) into the proof state. Typical usage might look like the following. If the goal is:
+This is the defintion of what it means to say that an integer is *even*. Here's what it looks like in Lean:
 ```
-⊢ P → Q
+isEven (x : Int) := ∃ k, x = 2 * k
 ```
-Then `intro hP` will introduce the hypothesis `hP : P` into the proof state.
-
-### **Universal generalization**
-The `intro` tactic is also good for introducing generic variables associated to a universally quantified goal. For example, if our goal is of the form:
-```
-⊢ ∀ x, P x
-```
-Then
-```
-intro a
-```
-will make `a : u` an object and our goal becomes `⊢ P a`.
 -/
-TacticDoc intro
-
+DefinitionDoc isEven as "isEven"
 
 /--
-This is the constructor for the `∧` logical connective. As a (curried) function, it looks like the following:
-```
-And.intro : P → Q → P ∧ Q
-```
-Typical usage might look like the following. Suppose we have the hypotheses:
-```
-hP : P
-hQ : Q
-```
-Then
-```
-obtain hPQ := And.intro hP hQ
-```
-will introduce the new hypothesis `hPQ : P ∧ Q` into the proof-state.
+The tactic `by_contra` changes a goal of the form `⊢ P` to `⊢ False` and adds the hypothesis `this : ¬ P` to the proof-state. One can name the introduced hypothesis `this` with an optional identifier. For example, `by_contra F` changes the goal to `⊢ False` and adds the hypothesis `F : ¬ P`.
 -/
-DefinitionDoc And.intro as "And.intro"
+TacticDoc by_contra
+
+/--
+The `contradiction` tactic closes the main goal if its hypotheses are "trivially contradictory". For example, if there are two hypotheses in the proof-state `h₁ : P` and `h₂ : ¬ P`, then `contradiction` will clear the goal.
+-/
+TacticDoc contradiction

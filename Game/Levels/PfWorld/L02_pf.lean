@@ -13,10 +13,13 @@ Introduction "
 
 Statement (u v : Int) (hu : isEven u) (hv: isEven v) : isEven (u + v) := by
   rw[isEven] at hu hv
-  rcases hu with ⟨k,hk⟩
-  rcases hv with ⟨l,hl⟩
+  obtain ⟨k,hk⟩ := hu
+  obtain ⟨l,hl⟩ := hv
   use k+l
   rw[hk,hl]
-  ring
+  simplify
 
 Conclusion ""
+
+NewDefinition isEven
+NewTactic simplify

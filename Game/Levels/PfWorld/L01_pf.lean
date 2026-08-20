@@ -22,3 +22,5 @@ Statement (u : Type*) (A B C D : Set u) (h : A ∩ B ⊆ C \ D) (x : u) : x ∈ 
 
 
 Conclusion ""
+
+NewTactic contrapose
