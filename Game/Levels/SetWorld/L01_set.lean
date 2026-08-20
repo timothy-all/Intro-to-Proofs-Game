@@ -16,8 +16,15 @@ If `A B : Set u`, then the **subset** relation `A ⊆ B` is defined as follows:
 The curly braces around the first `x` indicate that Lean considers this argument to be *implicit*. This means that Lean will infer what `x` is from the argument `x ∈ A`.
 "
 
+open Set
+
+
 Statement {u : Type} (a : u) (A B : Set u) (h1 : A ⊆ B) (h2 : a ∈ A) : a ∈ B := by
+  rw[subset_iff] at h1
   exact h1 h2
 
 
 Conclusion ""
+
+
+NewDefinition subset_iff

@@ -10,11 +10,11 @@ Introduction "
 "
 
 Statement (a b c : Int) (ha : isEven a) (hbc : (isOdd b) ∧ (isOdd c)) : Divides 4 (a * (b + c)) := by
-  rcases ha with ⟨i,hi⟩
-  rcases hbc.left with ⟨j,hj⟩
-  rcases hbc.right with ⟨k,hk⟩
+  obtain ⟨i,hi⟩ := ha
+  obtain ⟨j,hj⟩ := hbc.left
+  obtain ⟨k,hk⟩ := hbc.right
   use i*j + i*k + i
   rw[hi,hj,hk]
-  ring
+  simplify
 
 Conclusion ""

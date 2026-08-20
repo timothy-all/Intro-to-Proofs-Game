@@ -11,20 +11,18 @@ Introduction "
 
 Statement {u : Type*} (A B C : Set u) : A ∩ C = ∅ → A \ (B \ C) ⊆ (A \ B) \ C := by
   intro h x ⟨hxA,hxBC⟩
-  constructor
-  constructor
-  exact hxA
-  rw[Set.mem_diff] at hxBC
+  refine ⟨⟨hxA,?_⟩,?_⟩
+  rw[mem_diff_iff] at hxBC
   rw[Not_and] at hxBC
-  rcases hxBC with hxB' | hxC
+  obtain hxB' | hxC := hxBC
   exact hxB'
   rw[Not_not] at hxC
   obtain hxAC : x ∈ A ∩ C := And.intro hxA hxC
   rw[h] at hxAC
   contradiction
-  rw[Set.mem_diff] at hxBC
+  rw[mem_diff_iff] at hxBC
   rw[Not_and] at hxBC
-  rcases hxBC with hxB' | hxC
+  obtain hxB' | hxC := hxBC
   by_contra! F
   obtain hxAC : x ∈ A ∩ C := And.intro hxA F
   rw[h] at hxAC

@@ -13,12 +13,12 @@ Statement {u : Type} (F G : Set (Set u)) : ⋂₀ (F ∪ G) ⊆ ⋂₀ F ∩ ⋂
   intro x hx
   refine ⟨?xinF,?xinG⟩
   intro X hXF
-  obtain hXFG := Or.intro_left (X ∈ G) hXF
-  rw[← Set.mem_union] at hXFG
-  exact hx X hXFG
+  apply hx X
+  left
+  exact hXF
   intro X hXG
-  obtain hXFG := Or.intro_right (X ∈ F) hXG
-  rw[← Set.mem_union] at hXFG
-  exact hx X hXFG
+  apply hx X
+  right
+  exact hXG
 
 Conclusion ""

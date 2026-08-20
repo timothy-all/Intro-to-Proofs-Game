@@ -11,9 +11,9 @@ Introduction "
 
 Statement {u : Type} (F G : Set (Set u)) : ⋂₀ F ∩ ⋂₀ G ⊆ ⋂₀ (F ∪ G) := by
   intro x ⟨hxF,hxG⟩ X hX -- or destructure with obtain
-  rw[Set.mem_union] at hX
-  cases hX -- or rcases with ...
-  exact hxF X h
-  exact hxG X h
+  rw[mem_union_iff] at hX
+  obtain xF | xG := hX -- or rcases with ...
+  exact hxF X xF
+  exact hxG X xG
 
 Conclusion ""

@@ -11,7 +11,6 @@ Introduction "
 
 Statement : ∃! (d : Int), ∀ (x : Int), d * x = 0 := by
   use! 0
-  refine ⟨?_,?_⟩
   intro x
   simplify
   intro y h
@@ -21,3 +20,5 @@ Statement : ∃! (d : Int), ∀ (x : Int), d * x = 0 := by
 
 
 Conclusion ""
+
+NewTactic use!

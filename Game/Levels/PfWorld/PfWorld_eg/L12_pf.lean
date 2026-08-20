@@ -13,7 +13,7 @@ open Set
 
 Statement {u : Type*} (U : Set u) : ∃! I ⊆ U, ∀ A ⊆ U, A Δ I = A := by
   use! ∅
-  refine ⟨⟨?_,?_⟩,?_⟩
+  constructor
   intro x hx
   contradiction
   -- apply Set.empty_subset -- this works instead of intro/contradiction
@@ -22,7 +22,7 @@ Statement {u : Type*} (U : Set u) : ∃! I ⊆ U, ∀ A ⊆ U, A Δ I = A := by
   intro x
   refine ⟨?_,?_⟩
   intro hx
-  rcases hx with ⟨hxA,F'⟩ | ⟨F,hxA'⟩
+  obtain ⟨hxA,F'⟩ | ⟨F,hxA'⟩ := hx
   exact hxA
   contradiction
   intro hxA
@@ -33,8 +33,7 @@ Statement {u : Type*} (U : Set u) : ∃! I ⊆ U, ∀ A ⊆ U, A Δ I = A := by
   contradiction
   intro I hI
   by_contra!
-  --rw[nonempty_def] at this
-  rcases this with ⟨i,hi⟩
+  obtain ⟨i,hi⟩ := this
   obtain F := hI.right I hI.left
   rw[← F] at hi
   rw[Symm_diff_self] at hi

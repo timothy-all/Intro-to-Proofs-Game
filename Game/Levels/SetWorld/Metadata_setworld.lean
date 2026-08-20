@@ -37,3 +37,6 @@ theorem mem_finter_iff {u : Type*} {x : u} (F : Set (Set u)) : x ∈ ⋂₀ F �
 
 theorem mem_funion_iff {u : Type*} {x : u} (F : Set (Set u)) : x ∈ ⋃₀ F ↔ ∃ t ∈ F, x ∈ t := by
   simp
+
+theorem subset_iff {u : Type*} {A B : Set u} : A ⊆ B ↔ ∀ {x}, x ∈ A → x ∈ B := by
+  rw[Set.subset_def]

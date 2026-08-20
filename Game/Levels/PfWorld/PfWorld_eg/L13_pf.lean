@@ -12,11 +12,9 @@ Introduction "
 Statement {u : Type*} (U : Set u) : ∀ A ⊆ U, ∃! B ⊆ U, A Δ B = ∅ := by
   intro A hA
   use! A
-  refine ⟨⟨?_,?_⟩,?_⟩
-  exact hA
-  exact Symm_diff_self
+  refine ⟨hA,Symm_diff_self⟩
   intro B hB
-  rw[Set.ext_iff]
+  rw[set_eq_iff]
   intro x
   refine ⟨?_,?_⟩
   intro hxB

@@ -10,7 +10,8 @@ import Game.Levels.PfWorld.L08_pf
 import Game.Levels.PfWorld.L09_pf
 import Game.Levels.PfWorld.L10_pf
 import Game.Levels.PfWorld.L11_pf
-
+import Game.Levels.PfWorld.L12_pf
+import Game.Levels.PfWorld.L13_pf
 
 World "PfWorld"
 Title "Proof Strategy World"

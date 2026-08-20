@@ -46,7 +46,7 @@ mem_compl_iff
     x ∈ sᶜ ↔ x ∉ s
 ```
 -/
-DefinitionDoc Set.mem_compl_iff as "SET : mem_compl_iff"
+DefinitionDoc Set.mem_compl_iff as "SET: mem_compl_iff"
 
 /--
 This helps to define the `\` set connective. Specifically,
@@ -73,7 +73,7 @@ set_eq_iff
     A = B ↔ ∀ x, x ∈ A ↔ x ∈ B
 ```
 -/
-DefinitionDoc set_eq_iff as "SET : set_eq_iff"
+DefinitionDoc set_eq_iff as "SET: set_eq_iff"
 
 /--
 This helps to define the `⋂₀` (intersection of families) operator on a family of sets. Specifically,
@@ -91,7 +91,7 @@ mem_finter_iff
   x ∈ ⋂₀ F ↔ ∀ (t : Set u), t ∈ F → x ∈ t
 ```
 -/
-DefinitionDoc mem_finter_iff as "SET : mem_finter_iff"
+DefinitionDoc mem_finter_iff as "SET: mem_finter_iff"
 
 /--
 This helps to define the `⋂` (intersection of indexed sets) operator on an indexed family of sets. Specifically,
@@ -110,7 +110,7 @@ mem_iinter_iff
     x ∈ ⋂ i, A i ↔ ∀ (i : I), x ∈ A i
 ```
 -/
-DefinitionDoc mem_iinter_iff as "SET : mem_iinter_iff"
+DefinitionDoc mem_iinter_iff as "SET: mem_iinter_iff"
 
 /--
 This helps to define the `⋃₀` (intersection of families) operator on a family of sets. Specifically,
@@ -128,7 +128,7 @@ mem_funion_iff
     x ∈ ⋃₀ F ↔ ∃ t ∈ F, x ∈ t
 ```
 -/
-DefinitionDoc mem_funion_iff as "SET : mem_funion_iff"
+DefinitionDoc mem_funion_iff as "SET: mem_funion_iff"
 
 /--
 This helps to define the `∅`, the empty set. Specifically,
@@ -145,7 +145,7 @@ mem_empty_iff_false
     x ∈ ∅ ↔ False
 ```
 -/
-DefinitionDoc Set.mem_empty_iff_false as "SET : mem_empty_iff_false"
+DefinitionDoc Set.mem_empty_iff_false as "SET: mem_empty_iff_false"
 
 /--
 This helps to define the `univ`, the set consisting of everything. Specifically,
@@ -162,4 +162,44 @@ mem_univ_iff_True
     x ∈ univ ↔ True
 ```
 -/
-DefinitionDoc mem_univ_iff_true as "SET : mem_univ_iff_true"
+DefinitionDoc mem_univ_iff_true as "SET: mem_univ_iff_true"
+
+/--
+This helps to define `𝒫 A`, the power set of `A`. Specifically,
+
+$$
+𝒫 A = {B : Set u | B ⊆ A}
+$$
+
+So `mem_powerset_iff` says specifically that `B ∈ 𝒫 A ↔ B ⊆ A`. Here's what it looks like in Lean:
+```
+mem_powerset_iff
+  {u : Type*}
+  (x s : Set u) :
+    x ∈ 𝒫 s ↔ x ⊆ s
+```
+-/
+DefinitionDoc Set.mem_powerset_iff as "SET: mem_powerset_iff"
+
+/--
+This helps to define `⊆` relation. Specifically, $A ⊆ B$ means
+
+$$
+∀ x, x ∈ A → x ∈ B
+$$
+
+So `subset_iff` says specifically that `A ⊆ B ↔ ∀ x, x ∈ A → x ∈ B`. Here's what it looks like in Lean:
+```
+subset_iff
+  {u : Type*}
+  {A B : Set u} :
+    A ⊆ B ↔ ∀ {x}, x ∈ A → x ∈ B
+```
+-/
+DefinitionDoc subset_iff as "SET: subset_iff"
+
+
+/--
+The relation `⊆` between sets is *transitive* meaning that if `A ⊆ B` and `B ⊆ C`, then `A ⊆ C`.
+-/
+TheoremDoc Subseteq_trans as "SET: Subseteq_trans"

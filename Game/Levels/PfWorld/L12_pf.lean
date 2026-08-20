@@ -9,24 +9,31 @@ Introduction "
 ### **Level 12**
 "
 
-Statement {u : Type*} (A B C: Set u) (x : u) : x ∈ symmDiff A (symmDiff B C) → x ∈ A ∧ x ∈ B → x ∈ A ∩ B ∩ C := by
+Statement {u : Type*} (A B C: Set u) (x : u) : x ∈ A Δ (B Δ C) → x ∈ A ∧ x ∈ B → x ∈ A ∩ B ∩ C := by
   intro hx hxab
-  refine ⟨hxab,?_⟩
-  rcases hx with ⟨_,t1⟩ | t2
-  rw[Set.mem_symmDiff] at t1
-  push_neg at t1
-  exact t1.left hxab.right
-  rw[Set.mem_diff] at t2
-  obtain this := hxab.left
-  obtain that := t2.right
+  constructor
+  exact hxab
+  obtain ⟨_,t1⟩ | t2 := hx
+  rw[mem_symm_diff_iff] at t1
+  rw[mem_union_iff] at t1
+  rw[Not_or] at t1
+  rw[mem_diff_iff] at t1
+  rw[Not_and] at t1
+  rw[Not_not] at t1
+  obtain this := t1.left
+  rw[← Imp_iff_not_or] at this
+  exact this hxab.right
+  rw[mem_diff_iff] at t2
+  obtain ⟨this,_⟩ := t2
+  obtain ⟨that,_⟩ := hxab
   contradiction
 
-example {u : Type*} (A B C : Set u) (h : symmDiff A B ⊆ C) (hb : B ⊆ C) (hb' : Bᶜ ⊆ A): ∀ x, x ∈ C := by
+example {u : Type*} (A B C : Set u) (h : A Δ B ⊆ C) (hb : B ⊆ C) (hb' : Bᶜ ⊆ A): ∀ x, x ∈ C := by
   intro x
   by_cases hxb : x ∈ B
   exact hb hxb
   obtain hxa := hb' hxb
-  obtain want : x ∈ symmDiff A B
+  obtain want : x ∈ A Δ B
   left
   exact And.intro hxa hxb
   exact h want

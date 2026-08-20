@@ -9,14 +9,14 @@ Introduction "
 ### **Level 10**
 "
 
-Statement (u : Type*) (A B C : Set u) : A ∪ C = B ∪ C → symmDiff A B ⊆ C := by
+Statement (u : Type*) (A B C : Set u) : A ∪ C = B ∪ C → A Δ B ⊆ C := by
   intro h x hx
-  rcases hx with hxa | hxb
+  obtain hxa | hxb := hx
   obtain hxAC : x ∈ A ∪ C
   left
   exact hxa.left
   rw[h] at hxAC
-  rcases hxAC with hxB | hxC
+  obtain hxB | hxC := hxAC
   obtain hxB' := hxa.right
   contradiction
   exact hxC
@@ -24,7 +24,7 @@ Statement (u : Type*) (A B C : Set u) : A ∪ C = B ∪ C → symmDiff A B ⊆ C
   left
   exact hxb.left
   rw[← h] at hxBC
-  rcases hxBC with hxA | hxC
+  obtain hxA | hxC := hxBC
   obtain hxA' := hxb.right
   contradiction
   exact hxC

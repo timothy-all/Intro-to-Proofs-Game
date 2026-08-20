@@ -164,6 +164,7 @@ msgstr ""
 msgid "### **🤔 Level 6?**"
 msgstr ""
 
+#: Game.Levels.PfWorld.L12_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L12_pf
 msgid "Example 12"
 msgstr ""
@@ -203,9 +204,24 @@ msgstr ""
 msgid "First, let's §0 the hypotheses §1 and §2."
 msgstr ""
 
+#. §0: `simplify`
+#. §1: `⊢ x * (y + z) = x * y + x * z`
+#. §2: `simplify`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The §0 tactic will attempt to clear the goal by applying *very* basic simplification rules to the goal. For example, if the goal is to prove §1 then §2 will clear the goal."
+msgstr ""
+
 #. §0: `∧`
 #: Game.Levels.EquivWorld.L04_equiv
 msgid "A generalized **Associative Law** for §0."
+msgstr ""
+
+#. §0: ```
+#. isOdd (x : Int) := ∃ k, x = 2 * k + 1
+#. ```
+#: Game.Levels.PfWorld.pf_docs
+msgid "This is the defintion of what it means to say that an integer is *odd*. Here's what it looks like in Lean:\n"
+"§0"
 msgstr ""
 
 #. §0: $$ P ∧ F₀ ↔ F₀ $$
@@ -281,6 +297,7 @@ msgid "### **Level 2**\n"
 "This valid argument is sometimes referred to as **Modus Tolens**. Let's use a logical equivalence to make this problem look more like the last one..."
 msgstr ""
 
+#: Game.Levels.PfWorld.L12_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L12_pf
 msgid "### **Level 12**"
 msgstr ""
@@ -338,7 +355,6 @@ msgstr ""
 #. ```
 #. §4: `hPQ : P ∧ Q`
 #: Game.Levels.ArgWorld.arg_docs
-#: Game.Levels.PfWorld.pf_docs
 msgid "This is the constructor for the §0 logical connective. As a (curried) function, it looks like the following:\n"
 "§1\n"
 "Typical usage might look like the following. Suppose we have the hypotheses:\n"
@@ -359,7 +375,6 @@ msgstr ""
 #. §1: `s`
 #. §2: `s`
 #: Game.Levels.ArgWorld.arg_docs
-#: Game.Levels.PfWorld.pf_docs
 msgid "This is a finishing tactic. Typical usage might look like\n"
 "§0\n"
 "where §1 is known (provable) statement. Lean will clear the goal if §2 matches the target."
@@ -369,6 +384,7 @@ msgstr ""
 msgid "Currying"
 msgstr ""
 
+#: Game.Levels.PfWorld.L13_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L13_pf
 msgid "### **Level 13**"
 msgstr ""
@@ -376,10 +392,6 @@ msgstr ""
 #: Game.Levels.QuantifierWorld.L04_quant
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L04_quant
 msgid "## **Level 4**"
-msgstr ""
-
-#: Game
-msgid "You should use this game as a template for your own game and add your own levels."
 msgstr ""
 
 #: Game.Levels.EquivWorld
@@ -426,19 +438,6 @@ msgstr ""
 msgid "Rule of Contradiction"
 msgstr ""
 
-#. §0: `Set.univ`
-#. §1: ```
-#. univ = {x | True}
-#. ```
-#. §2: `x ∈ Set.univ`
-#. §3: `True`
-#: Game.Levels.SetWorld.L11_set
-msgid "## **Level 9**\n"
-"The **universal-set** denoted §0 is defined as follows:\n"
-"§1\n"
-"So the membership proposition §2 means the same thing as §3."
-msgstr ""
-
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L08_quant
 msgid "## **Level 8**"
 msgstr ""
@@ -460,6 +459,21 @@ msgstr ""
 
 #: Game.Levels.SetWorld.L05_set
 msgid "Set Difference"
+msgstr ""
+
+#. §0: `A : Set u`
+#. §1: `A`
+#. §2: `𝒫 A`
+#. §3: ```
+#. 𝒫 A := {s : Set u | s ⊆ A}
+#. ```
+#. §4: `B ∈ 𝒫 A`
+#. §5: `B ⊆ A`
+#: Game.Levels.SetWorld.L12_set
+msgid "## **Level 12**\n"
+"Given a set §0, the **power set** of §1, denoted §2 is defined as follows:\n"
+"§3\n"
+"So the membership proposition §4 means the same thing as §5."
 msgstr ""
 
 #. §0: `rewrite[e]`
@@ -586,6 +600,15 @@ msgstr ""
 msgid "Example 11"
 msgstr ""
 
+#. §0: `constructor`
+#. §1: `⊢ P ∧ Q`
+#. §2: `constructor`
+#. §3: `⊢ P`
+#. §4: `⊢ Q`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The §0 tactic is useful for splitting goals of the form §1. In this case, §2 will split the main goal into two subgoals; the first goal will be §3 while the second will be §4."
+msgstr ""
+
 #. §0: `Not_not`
 #. §1: `Not_not`
 #: Game.Levels.EquivWorld.L02_equiv
@@ -657,6 +680,10 @@ msgstr ""
 msgid "DeMorgan : Compliment of a Union"
 msgstr ""
 
+#: Game.Levels.SetWorld.L02_set
+msgid "The subset relation is transitive."
+msgstr ""
+
 #. §0: `∨`
 #. §1: $$ (P ∨ Q) ∨ R ↔ P ∨ (Q ∨ R) $$
 #. §2: `Or_assoc`
@@ -700,6 +727,16 @@ msgid "The definition of the **Negated Conjunction** connective, denoted §0. He
 "§1"
 msgstr ""
 
+#. §0: `use!`
+#. §1: `∃! x, P x`
+#. §2: `a : u`
+#. §3: `use! a`
+#. §4: `⊢ P a`
+#. §5: `⊢ ∀ y, P y → y = 0`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The §0 tactic is helpful for existence/uniqueness goals. Specifically, if the goal is of the form §1 and §2 is a witness to goal, then §3 will split the goal into two subgoals. The first goal is §4 (the existence statement). The second goal is §5 (the uniqueness statement)."
+msgstr ""
+
 #: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
 msgid "More practice"
 msgstr ""
@@ -712,6 +749,13 @@ msgstr ""
 #: Game.Levels.PfWorld.L05_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L05_pf
 msgid "Example 5"
+msgstr ""
+
+#. §0: `contrapose`
+#. §1: `⊢ P → Q`
+#. §2: `⊢ ¬ Q → ¬ P`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The §0 tacic turns a goal of the form §1 into §2."
 msgstr ""
 
 #. §0: $$ P ∨ T₀ ↔ T₀ $$
@@ -758,7 +802,6 @@ msgstr ""
 #. §7: `a : u`
 #. §8: `⊢ P a`
 #: Game.Levels.ArgWorld.arg_docs
-#: Game.Levels.PfWorld.pf_docs
 msgid "The §0 tactic introduces hypotheses (from the goal) into the proof state. Typical usage might look like the following. If the goal is:\n"
 "§1\n"
 "Then §2 will introduce the hypothesis §3 into the proof state.\n"
@@ -771,6 +814,7 @@ msgid "The §0 tactic introduces hypotheses (from the goal) into the proof state
 "will make §7 an object and our goal becomes §8."
 msgstr ""
 
+#: Game
 #: Game
 msgid "Intro to Proofs Game"
 msgstr ""
@@ -947,6 +991,14 @@ msgid "### **Level 3**\n"
 "This valid argument is sometimes referred to as the law of the **Disjunctive Syllogism**. Using some laws of logical equivalence, try to rewrite the hypothesis §0 in a form that is more similar to the hypotheses of the last couple levels."
 msgstr ""
 
+#. §0: `⊆`
+#. §1: `A ⊆ B`
+#. §2: `B ⊆ C`
+#. §3: `A ⊆ C`
+#: Game.Levels.SetWorld.set_docs
+msgid "The relation §0 between sets is *transitive* meaning that if §1 and §2, then §3."
+msgstr ""
+
 #. §0: `push_neg`
 #. §1: `¬ ∀ x, ∃ y, x ≤ y`
 #. §2: `push_neg`
@@ -1031,11 +1083,6 @@ msgstr ""
 msgid "Universal Quantifiers"
 msgstr ""
 
-#. §0: `obtain`
-#: Game.Levels.PfWorld.pf_docs
-msgid "The §0 tactic is used bring new (and provable) assumptions into the proof state. It can also be used to desctructure existing assumptions."
-msgstr ""
-
 #: Game.Levels.EquivWorld.L03_equiv
 #: Game.Levels.EquivWorld.L04_equiv
 #: Game.Levels.EquivWorld.EquivWorld_eg.L03_equiv
@@ -1074,6 +1121,7 @@ msgstr ""
 #: Game.Levels.SetWorld.L09_set
 #: Game.Levels.SetWorld.L10_set
 #: Game.Levels.SetWorld.L11_set
+#: Game.Levels.SetWorld.L12_set
 #: Game.Levels.SetWorld.SetWorld_eg.L01_set
 #: Game.Levels.SetWorld.SetWorld_eg.L02_set
 #: Game.Levels.SetWorld.SetWorld_eg.L03_set
@@ -1093,6 +1141,8 @@ msgstr ""
 #: Game.Levels.PfWorld.L09_pf
 #: Game.Levels.PfWorld.L10_pf
 #: Game.Levels.PfWorld.L11_pf
+#: Game.Levels.PfWorld.L12_pf
+#: Game.Levels.PfWorld.L13_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L01_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L02_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L03_pf
@@ -1135,6 +1185,7 @@ msgid "### **🤔 More food for thought**\n"
 "The binary operator §0 can be expressed in terms of §1 too ..."
 msgstr ""
 
+#: Game.Levels.PfWorld.L13_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L13_pf
 msgid "Example 13"
 msgstr ""
@@ -1345,6 +1396,19 @@ msgstr ""
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
+#. §0: `univ`
+#. §1: ```
+#. univ = {x | True}
+#. ```
+#. §2: `x ∈ univ`
+#. §3: `True`
+#: Game.Levels.SetWorld.L11_set
+msgid "## **Level 11**\n"
+"The **universal-set** denoted §0 is defined as follows:\n"
+"§1\n"
+"So the membership proposition §2 means the same thing as §3."
+msgstr ""
+
 #. §0: $$ ¬ (P ∧ Q) ↔ (¬ P ∨ ¬ Q)$$
 #. §1: $$
 #. \\begin{array}{|cc||c||cc||c|}
@@ -1425,6 +1489,15 @@ msgstr ""
 msgid "Example 3"
 msgstr ""
 
+#. §0: `by_cases`
+#. §1: `P`
+#. §2: `by_cases h : P`
+#. §3: `h : P`
+#. §4: `h : ¬ P`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The §0 tactic will split the goal into two cases. Specifically, if §1 is a proposition (supplied by the player), then §2 will add the hypothesis §3 to the first case while adding the hypothesis §4 to the second case."
+msgstr ""
+
 #: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
 msgid "Psuedo Conditional Law"
 msgstr ""
@@ -1450,6 +1523,44 @@ msgstr ""
 msgid "Example 7"
 msgstr ""
 
+#. §0: `contradiction`
+#. §1: `h₁ : P`
+#. §2: `h₂ : ¬ P`
+#. §3: `contradiction`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The §0 tactic closes the main goal if its hypotheses are \"trivially contradictory\". For example, if there are two hypotheses in the proof-state §1 and §2, then §3 will clear the goal."
+msgstr ""
+
+#. §0: `𝒫 A`
+#. §1: `A`
+#. §2: $$
+#. 𝒫 A = {B : Set u | B ⊆ A}
+#. $$
+#. §3: `mem_powerset_iff`
+#. §4: `B ∈ 𝒫 A ↔ B ⊆ A`
+#. §5: ```
+#. mem_powerset_iff
+#.   {u : Type*}
+#.   (x s : Set u) :
+#.     x ∈ 𝒫 s ↔ x ⊆ s
+#. ```
+#: Game.Levels.SetWorld.set_docs
+msgid "This helps to define §0, the power set of §1. Specifically,\n"
+"\n"
+"§2\n"
+"\n"
+"So §3 says specifically that §4. Here's what it looks like in Lean:\n"
+"§5"
+msgstr ""
+
+#. §0: ```
+#. isEven (x : Int) := ∃ k, x = 2 * k
+#. ```
+#: Game.Levels.PfWorld.pf_docs
+msgid "This is the defintion of what it means to say that an integer is *even*. Here's what it looks like in Lean:\n"
+"§0"
+msgstr ""
+
 #. §0: `«{hP}» : P`
 #: Game.Levels.ArgWorld.L06_arg
 msgid "We now have the hypothesis §0. We can clear the level in one line now if we're clever..."
@@ -1468,6 +1579,28 @@ msgid "## **Level 6**\n"
 "If §0 then **compliment** of §1 denoted §2 is defined as follows:\n"
 "§3\n"
 "This means that, definitionally, to say that §4 means the same thing as §5."
+msgstr ""
+
+#. §0: `⊆`
+#. §1: $A ⊆ B$
+#. §2: $$
+#. ∀ x, x ∈ A → x ∈ B
+#. $$
+#. §3: `subset_iff`
+#. §4: `A ⊆ B ↔ ∀ x, x ∈ A → x ∈ B`
+#. §5: ```
+#. subset_iff
+#.   {u : Type*}
+#.   {A B : Set u} :
+#.     A ⊆ B ↔ ∀ {x}, x ∈ A → x ∈ B
+#. ```
+#: Game.Levels.SetWorld.set_docs
+msgid "This helps to define §0 relation. Specifically, §1 means\n"
+"\n"
+"§2\n"
+"\n"
+"So §3 says specifically that §4. Here's what it looks like in Lean:\n"
+"§5"
 msgstr ""
 
 #: Game.Levels.ArgWorld.L06_arg
@@ -1610,6 +1743,10 @@ msgid "This is an **Inverse Law**. It says that\n"
 "§2"
 msgstr ""
 
+#: Game.Levels.SetWorld.SetWorld_eg
+msgid "Set World Examples"
+msgstr ""
+
 #: Game.Levels.ArgWorld
 #: Game.Levels.ArgWorld.ArgWorld_eg
 #: Game.Levels.QuantifierWorld
@@ -1626,10 +1763,6 @@ msgstr ""
 
 #: Game.Levels.SetWorld.L02_set
 msgid "Perfect. We can clear the goal in one line if we're clever."
-msgstr ""
-
-#: Game.Levels.SetWorld.SetWorld_eg
-msgid "Set World Examples"
 msgstr ""
 
 #: Game.Levels.PfWorld.L09_pf
@@ -1823,6 +1956,24 @@ msgstr ""
 msgid "Intersections of indexed families"
 msgstr ""
 
+#. §0: `refine`
+#. §1: `constructor`
+#. §2: `exact`
+#. §3: `⊢ P ∧ Q`
+#. §4: `h : R`
+#. §5: `h₁ : R → P`
+#. §6: `h₂ : Q`
+#. §7: `refine ⟨h₁ h, h₂⟩`
+#. §8: `refine`
+#. §9: `⊢ P ∧ Q`
+#. §10: `refine ⟨?_,?_⟩`
+#. §11: `constructor`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The §0 tactic acts like a combination of §1 and §2. For example, suppoes the goal is §3, but there are hypotheses in the proof state like §4, §5, and §6. Then §7 clears the goal.\n"
+"\n"
+"The §8 tactic also accepts wildcards. For example, if the goal is §9, then §10 is the same as §11."
+msgstr ""
+
 #. §0: `obtain`
 #. §1: `obtain`
 #. §2: ```
@@ -1912,8 +2063,19 @@ msgstr ""
 msgid "Not and Nand"
 msgstr ""
 
-#: Game
-msgid "Game Template"
+#. §0: `apply h`
+#. §1: `h`
+#. §2: `h`
+#. §3: `h: P → Q`
+#. §4: `⊢ Q`
+#. §5: `apply h`
+#. §6: `⊢ P`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The tactic §0 attemps to match the conclusion of §1 to the current goal. If it succeeds, then it opens subgoals according to the hypotheses of §2. For example, suppose §3 and the current goal is §4. Then §5 will change the goal to §6."
+msgstr ""
+
+#: Game.Levels.SetWorld.L12_set
+msgid "The Power Set"
 msgstr ""
 
 #: Game.Levels.PfWorld.PfWorld_eg
@@ -1928,6 +2090,14 @@ msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "level completed! 🎉"
+msgstr ""
+
+#. §0: `contrapose!`
+#. §1: `⊢ P → Q`
+#. §2: `⊢ ¬ Q → ¬ P`
+#. §3: `push_neg`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The §0 tacic turns a goal of the form §1 into §2 and pushes negations through (with §3)."
 msgstr ""
 
 #. §0: `=`
@@ -1959,6 +2129,10 @@ msgstr ""
 msgid "Great, we're almost home. Try to to finish this level off on your own."
 msgstr ""
 
+#: Game
+msgid "This game is designed to accompany students through MA276."
+msgstr ""
+
 #. §0: `P → R`
 #. §1: `P`
 #. §2: `P → Q`
@@ -1983,6 +2157,13 @@ msgstr ""
 #: Game.Levels.EquivWorld.L02_equiv
 msgid "# **Level 2: Contrapositives**\n"
 "Let's use the laws of logic to prove that the ***Contrapositive*** of an implication is logically equivalent to the original implication."
+msgstr ""
+
+#. §0: `by_contra!`
+#. §1: `by_contra`
+#. §2: `push_neg`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The tactic §0 is the same as §1 except that it applies §2 automically to the introduced hypothesis."
 msgstr ""
 
 #. §0: `∨`
@@ -2042,6 +2223,18 @@ msgstr ""
 
 #: Game.Levels.SetWorld
 msgid "Set World"
+msgstr ""
+
+#. §0: `by_contra`
+#. §1: `⊢ P`
+#. §2: `⊢ False`
+#. §3: `this : ¬ P`
+#. §4: `this`
+#. §5: `by_contra F`
+#. §6: `⊢ False`
+#. §7: `F : ¬ P`
+#: Game.Levels.PfWorld.pf_docs
+msgid "The tactic §0 changes a goal of the form §1 to §2 and adds the hypothesis §3 to the proof-state. One can name the introduced hypothesis §4 with an optional identifier. For example, §5 changes the goal to §6 and adds the hypothesis §7."
 msgstr ""
 
 #: Game.Levels.SetWorld.SetWorld_eg.L06_set

@@ -15,15 +15,15 @@ Statement (m n : Int) :  (¬ isEven (m * n)) → (¬ isEven m ∧ ¬ isEven n) :
   contrapose!
   intro h
   by_cases hm : isEven m
-  rcases hm with ⟨k,hk⟩
+  obtain ⟨k,hk⟩ := hm
   use k * n
   rw[hk]
-  ring
+  simplify
   obtain hn := h hm
-  rcases hn with ⟨k,hk⟩
+  obtain ⟨k,hk⟩ := hn
   use m * k
   rw[hk]
-  ring
+  simplify
 
 
 Conclusion ""

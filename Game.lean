@@ -38,8 +38,8 @@ Use **markdown**.
 
 /-! Information to be displayed on the servers landing page. -/
 Languages "en"
-CaptionShort "Game Template"
-CaptionLong "You should use this game as a template for your own game and add your own levels."
+CaptionShort "Intro to Proofs Game"
+CaptionLong "This game is designed to accompany students through MA276."
 -- Prerequisites "" -- add this if your game depends on other games
 -- CoverImage "images/cover.png"
 

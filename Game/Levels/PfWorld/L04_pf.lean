@@ -9,15 +9,16 @@ Introduction "
 ### **Level 4**
 "
 
-Statement (x y : Rat) : (x^2*y = 2*x + y) → (y ≠ 0 → x ≠ 0) := by
-  intro h
+Statement (x y : Int) : ¬ isOdd (x * y) → ¬ (isOdd x ∧ isOdd y) := by
   contrapose!
-  intro hx
-  rw[hx] at h
-  simp at h
-  rw[h]
-
+  intro h
+  rw[isOdd]
+  obtain ⟨⟨c,hc⟩,⟨d,hd⟩⟩ := h
+  use 2* c * d + c + d
+  rw[hc,hd]
+  simplify
 
 Conclusion ""
 
-NewTactic contrapose contrapose!
+NewTactic contrapose!
+NewDefinition isOdd

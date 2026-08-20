@@ -11,9 +11,9 @@ Introduction "
 
 Statement (n : Int) : isOdd n → Divides 4 (n^2-1) := by
   intro h
-  rcases h with ⟨k,hk⟩
+  obtain ⟨k,hk⟩ := h
   use k^2 + k
   rw[hk]
-  ring
+  simplify
 
 Conclusion ""

@@ -12,27 +12,27 @@ Introduction "
 Statement (n : Int) : ( Divides 5 n ∧ Divides 13 n) ↔ Divides 65 n := by
   constructor
   intro h
-  rcases h.left with ⟨j,hj⟩
-  rcases h.right with ⟨k,hk⟩
+  obtain ⟨j,hj⟩ := h.left
+  obtain ⟨k,hk⟩ := h.right
   obtain hj' : 26 * 5 * j = 26 * n
   rw[← hj]
-  ring
+  simplify
   obtain hk' : 25 * 13 * k = 25 * n
   rw[← hk]
-  ring
+  simplify
   obtain want : n = 26 * 5 * j - 25 * 13 * k
   rw[hj',hk']
-  ring
+  simplify
   use 2 * j - 5 * k
   rw[want]
-  ring
+  simplify
   intro ⟨k,hk⟩
   constructor
   use 13 *k
   rw[← hk]
-  ring
+  simplify
   use 5 * k
   rw[← hk]
-  ring
+  simplify
 
 Conclusion ""

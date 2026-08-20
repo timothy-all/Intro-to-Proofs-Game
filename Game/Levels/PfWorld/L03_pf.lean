@@ -17,4 +17,4 @@ Statement (P Q R : Prop) : (¬ R → (P → ¬ Q)) → (P → (Q → R)) := by
 
 Conclusion ""
 
-NewTactic by_contra contradiction
+NewTactic by_contra by_contra! contradiction

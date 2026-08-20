@@ -6,12 +6,12 @@ Level 11
 Title "The whole universe"
 
 Introduction "
-## **Level 9**
-The **universal-set** denoted `Set.univ` is defined as follows:
+## **Level 11**
+The **universal-set** denoted `univ` is defined as follows:
 ```
 univ = {x | True}
 ```
-So the membership proposition `x ∈ Set.univ` means the same thing as `True`.
+So the membership proposition `x ∈ univ` means the same thing as `True`.
 "
 open Set
 

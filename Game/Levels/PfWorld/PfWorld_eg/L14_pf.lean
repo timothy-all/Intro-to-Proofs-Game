@@ -20,10 +20,9 @@ Statement {u : Type*} (F G H : Set (Set u)) : (∀ A ∈ F, ∀ B ∈ G, A ∪ B
   --change ¬ x ∈ ⋂₀ F at hF --real confusing: internally things changed but the terminal delaborates the same way
   rw[mem_finter_iff] at hF
   push_neg at hF
-  rcases hF with ⟨ A, hA,hxA'⟩
+  obtain ⟨ A, hA,hxA'⟩ := hF
   obtain hAB := h A hA B hB
-  obtain hx' := hx (A ∪ B) hAB
-  rcases hx' with hxA | hxB
+  obtain hxA | hxB := hx (A ∪ B) hAB
   contradiction
   exact hxB
 

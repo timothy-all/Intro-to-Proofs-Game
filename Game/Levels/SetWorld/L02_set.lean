@@ -14,7 +14,8 @@ The **subset** relation is transitive. This means that if $A ⊆ B$ and $B ⊆ C
 Let's `intro` a generic variable, say `a`, and the assumption that `a ∈ A`.
 "
 
-Statement {u : Type} (A B C: Set u) (h1 : A ⊆ B) (h2 : B ⊆ C) : A ⊆ C := by
+/-- The subset relation is transitive. -/
+Statement Subseteq_trans {u : Type*} {A B C: Set u} (h1 : A ⊆ B) (h2 : B ⊆ C) : A ⊆ C := by
   intro a ha
   Hint "Perfect. We can clear the goal in one line if we're clever."
   exact h2 (h1 ha)

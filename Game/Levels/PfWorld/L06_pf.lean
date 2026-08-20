@@ -11,13 +11,15 @@ Introduction "
 
 Statement : ∀ n : Int, Divides 21 n → ( Divides 7 n ∧ Divides 3 n) := by
   intro n h
-  rcases h with ⟨k,hk⟩
+  obtain ⟨k,hk⟩ := h
   constructor
   use 3 * k
   rw[← hk]
-  ring
+  simplify
   use 7 * k
   rw[← hk]
-  ring
+  simplify
 
 Conclusion ""
+
+NewTactic constructor

@@ -13,10 +13,10 @@ Statement {u : Type*} (A B C : Set u) : (A \ B) \ C ⊆ A \ (B \ C) := by
   intro x hx
   constructor
   exact hx.left.left
-  rw[Set.mem_diff]
+  rw[mem_diff_iff]
   rw[Not_and]
   left
-  rcases hx with ⟨ ⟨hxA, hxB'⟩,hxC'⟩
+  obtain ⟨ ⟨hxA, hxB'⟩,hxC'⟩ := hx
   exact hxB'
 
 Conclusion ""

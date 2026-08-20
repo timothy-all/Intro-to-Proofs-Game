@@ -9,9 +9,9 @@ Introduction "
 ### **Level 9**
 "
 
-Statement {u : Type*} (A B C : Set u) : symmDiff A C ⊆ (symmDiff A B) ∪ (symmDiff B C) := by
+Statement {u : Type*} (A B C : Set u) : A Δ C ⊆ (A Δ B) ∪ (B Δ C) := by
   intro x hx
-  rcases hx with ⟨hxa,hxc'⟩ | ⟨hxc,hxa'⟩
+  obtain ⟨hxa,hxc'⟩ | ⟨hxc,hxa'⟩ := hx
   by_cases hxb : x ∈ B
   right
   left
