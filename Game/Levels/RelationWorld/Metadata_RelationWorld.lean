@@ -123,3 +123,12 @@ theorem snd_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v
   rw [mem_prod,not_and_or]
   apply Or.intro_right
   exact h
+
+open Lean Elab Tactic
+
+syntax "evaluate " term " at " term " with " ident ident ident : tactic
+elab_rules : tactic
+| `(tactic| evaluate $f at $a with $b $hbf $hbu) => do
+      evalTactic (← `(tactic|
+        obtain ⟨$b,⟨__a,__b⟩⟩ := $f $a; dsimp at __b; rename_i $hbu:ident; rename_i $hbf:ident;
+      ))
