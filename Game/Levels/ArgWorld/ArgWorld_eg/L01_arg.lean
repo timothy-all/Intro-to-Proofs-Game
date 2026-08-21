@@ -7,10 +7,10 @@ Level 1
 Title "Rule of Contradiction"
 
 Introduction "
-### **Level 1**
+# **Level 1**
 This argument is sometimes called the **Rule of Contradiction**. We've unlocked the law of logic `Or_false` to help with this level. 🔍 Check the new entry in the **Theorems** tab.
 "
-
+/-- If `¬ P` leads to a contradiction, then it must be that `P` is true.-/
 Statement (P : Prop) (h : ¬ P → False) : P := by
   rw[Imp_iff_not_or] at h
   rw[Not_not] at h

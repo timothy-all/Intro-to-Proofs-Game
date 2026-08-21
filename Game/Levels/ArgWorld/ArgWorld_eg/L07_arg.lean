@@ -3,20 +3,20 @@ import Game.Levels.ArgWorld.ArgWorld_eg.L06_arg
 World "ArgWorld_eg"
 Level 7
 
-Title "Test"
+Title "Example 5"
 
 Introduction "
-### **🤔 Level 7?**
+# **Level 7**
 "
 
 set_option pp.parens true
 
 
-Statement (P Q R  : Prop) (h1 : P ∨ (R ∧ Q)) (h2 : P → Q) : ¬ R → Q := by
-  intro hR
-  rw[Or_and_left] at h1
-  obtain h := And.intro h1.left hR
-  rw[And_comm,And_or_left,And_comm (¬ R) R,And_not_self,Or_false] at h
-  exact h2 h.right
+Statement (P Q R S T U: Prop) (h1 : (¬ P ∨ Q) → R) (h2 : R → (S ∨ T)) (h3: ¬ S ∧ ¬ U) (h4 : ¬ U → ¬ T) : P ∧ ¬ Q:= by
+  obtain nT := h4 h3.right
+  rw[Contrapositive,Not_or] at h2
+  obtain nR := h2 (And.intro h3.left nT)
+  rw[Contrapositive,Not_or,Not_not] at h1
+  exact (h1 nR)
 
-Conclusion ""
+Conclusion "😭 To validate this argument with a truth-table would require 64 rows."

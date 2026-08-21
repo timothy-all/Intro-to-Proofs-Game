@@ -28,15 +28,14 @@ msgid "### **💡 Pro-tip**\n"
 "We almost always use §0 instead of §1 -- this can often save us a line of Lean code."
 msgstr ""
 
-#: GameServer.RpcHandlers
-msgid "intermediate goal solved! 🎉"
-msgstr ""
-
-#: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
 #: Game.Levels.SetWorld.SetWorld_eg.L03_set
 #: Game.Levels.PfWorld.L03_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L03_pf
 msgid "### **Level 3**"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "intermediate goal solved! 🎉"
 msgstr ""
 
 #. §0: `rw`
@@ -183,10 +182,6 @@ msgid "## **Level 10**\n"
 "So the membership proposition §2 means the same thing as §3."
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L06_arg
-msgid "### **🤔 Level 6?**"
-msgstr ""
-
 #: Game.Levels.PfWorld.L12_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L12_pf
 msgid "Example 12"
@@ -295,6 +290,13 @@ msgid "This is a **Domination Law**. It says that\n"
 "§2"
 msgstr ""
 
+#. §0: `¬ P`
+#. §1: `P`
+#: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
+msgid "If §0 leads to a contradiction, then it must be that §1 is true."
+msgstr ""
+
+#: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
 #: Game.Levels.PfWorld.L02_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L02_pf
@@ -342,6 +344,10 @@ msgstr ""
 msgid "### **Level 12**"
 msgstr ""
 
+#: Game.Levels.ArgWorld.ArgWorld_eg.L05_arg
+msgid "The Battlestar Galactica argument in symbols is given below."
+msgstr ""
+
 #: Game.Levels.ArgWorld.L01_arg
 msgid "This is the valid argument known as *Modus Pwnens*."
 msgstr ""
@@ -381,9 +387,8 @@ msgid "# **Level 5**\n"
 "In this level, we'll learn how to glue a couple known assumptions together with the §0 connective. Sometimes this is referred to as **Conjunctive Amplification**."
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L05_arg
-#: Game.Levels.ArgWorld.ArgWorld_eg.L06_arg
-#: Game.Levels.ArgWorld.ArgWorld_eg.L07_arg
+#: Game.Levels.ArgWorld.ArgWorld_eg.L09_arg
+#: Game.Levels.ArgWorld.ArgWorld_eg.L10_arg
 msgid "Test"
 msgstr ""
 
@@ -465,6 +470,16 @@ msgstr ""
 msgid "### **Level 13**"
 msgstr ""
 
+#. §0: `P`
+#. §1: `Q`
+#. §2: `P`
+#. §3: `Q`
+#. §4: `R`
+#. §5: `R`
+#: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
+msgid "If §0 and §1 are true and §2 implies §3 implies §4, then it must be that §5 is true."
+msgstr ""
+
 #: Game.Levels.ArgWorld.L06_arg
 msgid "# **Level 6**\n"
 "The valid argument of this level is sometimes called the law of the **Syllogism**."
@@ -521,6 +536,12 @@ msgid "This is an **Identity Law**. It says that\n"
 "§2"
 msgstr ""
 
+#. §0: `Or_false`
+#: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
+msgid "# **Level 1**\n"
+"This argument is sometimes called the **Rule of Contradiction**. We've unlocked the law of logic §0 to help with this level. 🔍 Check the new entry in the **Theorems** tab."
+msgstr ""
+
 #: Game.Levels.SetWorld.SetWorld_eg.L07_set
 #: Game.Levels.PfWorld.L07_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L07_pf
@@ -556,6 +577,23 @@ msgid "## **Level 1**\n"
 "If §0, then the **subset** relation §1 is defined as follows:\n"
 "§2\n"
 "The curly braces around the first §3 indicate that Lean considers this argument to be *implicit*. This means that Lean will infer what §4 is from the argument §5."
+msgstr ""
+
+#. §0: `C`
+#. §1: `H`
+#. §2: `J`
+#: Game.Levels.ArgWorld.ArgWorld_eg.L05_arg
+msgid "# **Level 5**\n"
+"Consider the following argument:\n"
+"* Either Colonel Tigh is a cylon, or he's doing his job and the crew hates him.\n"
+"* If Colonel Tigh is a cylon, then the crew hates him.\n"
+"* Therefore, even if Colonel Tigh doesn't do his job, then the crew is still going to hate him.\n"
+"\n"
+"Let's validate this argument. We use:\n"
+"* §0 : Colonel Tigh is a cylon\n"
+"* §1 : The crew hates Colonel Tigh\n"
+"* §2 : Colonel Tigh is doing his job\n"
+"See how the statement of this level is precisely this argument?"
 msgstr ""
 
 #. §0: `A : Set u`
@@ -788,6 +826,10 @@ msgstr ""
 msgid "Conjunctive Amplification"
 msgstr ""
 
+#: Game.Levels.ArgWorld.ArgWorld_eg.L07_arg
+msgid "# **Level 7**"
+msgstr ""
+
 #: Game.Levels.QuantifierWorld.L02_quant
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
 msgid "## **Level 2**"
@@ -877,6 +919,7 @@ msgstr ""
 msgid "Subset Relation"
 msgstr ""
 
+#: Game.Levels.ArgWorld.ArgWorld_eg.L07_arg
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L05_quant
 #: Game.Levels.PfWorld.L05_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L05_pf
@@ -1101,6 +1144,7 @@ msgstr ""
 msgid "Targeted Rewrites"
 msgstr ""
 
+#: Game.Levels.ArgWorld.ArgWorld_eg.L08_arg
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L06_quant
 #: Game.Levels.PfWorld.L06_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L06_pf
@@ -1186,10 +1230,6 @@ msgid "**Here's what happend:** §0 was applied to the **first instance** encoun
 ""
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L05_arg
-msgid "### **🤔 Level 5?**"
-msgstr ""
-
 #: Game.Levels.PfWorld.L11_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L11_pf
 msgid "### **Level 11**"
@@ -1218,11 +1258,11 @@ msgstr ""
 #: Game.Levels.ArgWorld.L06_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
-#: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L05_arg
-#: Game.Levels.ArgWorld.ArgWorld_eg.L06_arg
-#: Game.Levels.ArgWorld.ArgWorld_eg.L07_arg
+#: Game.Levels.ArgWorld.ArgWorld_eg.L08_arg
+#: Game.Levels.ArgWorld.ArgWorld_eg.L09_arg
+#: Game.Levels.ArgWorld.ArgWorld_eg.L10_arg
 #: Game.Levels.QuantifierWorld.L01_quant
 #: Game.Levels.QuantifierWorld.L02_quant
 #: Game.Levels.QuantifierWorld.L03_quant
@@ -1440,12 +1480,6 @@ msgstr ""
 msgid "***💪 Challenge:*** Try to complete this level using only two tactic calls."
 msgstr ""
 
-#. §0: `Or_false`
-#: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
-msgid "### **Level 1**\n"
-"This argument is sometimes called the **Rule of Contradiction**. We've unlocked the law of logic §0 to help with this level. 🔍 Check the new entry in the **Theorems** tab."
-msgstr ""
-
 #. §0: `obtain`
 #. §1: `obtain`
 #. §2: ```
@@ -1534,6 +1568,7 @@ msgid "We simply need to destructure the assumption §0. 👉 Try:\n"
 ""
 msgstr ""
 
+#: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
 #: Game.Levels.QuantifierWorld.L01_quant
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
 #: Game.Levels.PfWorld.L01_pf
@@ -1588,7 +1623,7 @@ msgid "### **🥳 Congrats!**\n"
 "You beat Argument World! Next up Argument Examples World."
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
+#: Game.Levels.ArgWorld.ArgWorld_eg.L05_arg
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L03_quant
 #: Game.Levels.PfWorld.L03_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L03_pf
@@ -1705,6 +1740,26 @@ msgid "This helps to define §0 relation. Specifically, §1 means\n"
 "§5"
 msgstr ""
 
+#. §0: `D`
+#. §1: `A`
+#. §2: `H`
+#. §3: `C`
+#: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
+msgid "# **Level 4**\n"
+"Consider the following argument:\n"
+"* If I dream of electric sheep, then I'm an android.\n"
+"* If I'm a carbon based, then I'm human.\n"
+"* I'm not both an android and human.\n"
+"* Therefore, I either don't dream of electric sheep or I'm not carbon based.\n"
+"\n"
+"Let's validate this argument. We use:\n"
+"* §0 : I dream of electric sheep\n"
+"* §1 : I'm an android\n"
+"* §2 : I'm human\n"
+"* §3 : I'm carbon based\n"
+"See how the statement of this level is precisely this argument?"
+msgstr ""
+
 #. §0: `h : P ∧ Q`
 #. §1: `h.left`
 #. §2: `P`
@@ -1716,6 +1771,14 @@ msgid "### **💡 Pro-tip**\n"
 "We've learned that if §0, then §1 is a proof of §2. 🤔 Can you take a wild guess at what §3 proves? What if §4 ... what is §5 a proof of?"
 msgstr ""
 
+#: Game.Levels.ArgWorld.ArgWorld_eg.L09_arg
+msgid "# **Level 9**"
+msgstr ""
+
+#: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
+msgid "The economic argument in symbols is given below."
+msgstr ""
+
 #. §0: `rewrite`
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "We should now §0 the left-hand side of our goal using the **Conditional Law**. 🔍 Check the **Theorems** tab to find the appropriate theorem in the inventory."
@@ -1724,6 +1787,26 @@ msgstr ""
 #: Game.Levels.PfWorld.L10_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L10_pf
 msgid "### **Level 10**"
+msgstr ""
+
+#. §0: `T`
+#. §1: `U`
+#. §2: `G`
+#. §3: `R`
+#: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
+msgid "# **Level 3**\n"
+"Consider the following argument:\n"
+"* If the tax rate and unemployment rate go up, then there will be a recession.\n"
+"* If the GDP goes up, then there will not be a recession.\n"
+"* The GDP and taxes are both going up.\n"
+"* Therefore, unemployment is not going up.\n"
+"\n"
+"Let's validate this argument. We use:\n"
+"* §0 : the tax rate is going up\n"
+"* §1 : the unemployment is going up\n"
+"* §2 : the GDP is going up\n"
+"* §3 : there will be a recession.\n"
+"See how the statement of this level is precisely this argument?"
 msgstr ""
 
 #: Game.Levels.EquivWorld.L01_equiv
@@ -1784,10 +1867,6 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: Game.Levels.ArgWorld.L04_arg
-msgid "Conjunctive Simplification"
-msgstr ""
-
 #. §0: $A ⊆ B$
 #. §1: $B ⊆ C$
 #. §2: $A ⊆ C$
@@ -1803,6 +1882,10 @@ msgid "## **Level 2**\n"
 "The **subset** relation is transitive. This means that if §0 and §1, then §2. Let's prove this in Lean. Our goal is to prove §3. Remember: this is just short-hand for:\n"
 "§4\n"
 "Let's §5 a generic variable, say §6, and the assumption that §7."
+msgstr ""
+
+#: Game.Levels.ArgWorld.L04_arg
+msgid "Conjunctive Simplification"
 msgstr ""
 
 #. §0: `⊼`
@@ -1859,8 +1942,8 @@ msgstr ""
 msgid "Set World Examples"
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L07_arg
-msgid "### **🤔 Level 7?**"
+#: Game.Levels.SetWorld.L02_set
+msgid "Perfect. We can clear the goal in one line if we're clever."
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg
@@ -1870,10 +1953,6 @@ msgstr ""
 #: Game.Levels.PfWorld
 #: Game.Levels.PfWorld.PfWorld_eg
 msgid "### ***What a world!***"
-msgstr ""
-
-#: Game.Levels.SetWorld.L02_set
-msgid "Perfect. We can clear the goal in one line if we're clever."
 msgstr ""
 
 #: Game.Levels.PfWorld.L09_pf
@@ -1961,7 +2040,6 @@ msgid "The tactic §0 is used to destructure hypotheses or expressions. General 
 "There's a difference between the angled brackets §19 and the relations §20. In order to produce the *angled brackets* use §21 and §22."
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
 #: Game.Levels.SetWorld.SetWorld_eg.L04_set
 #: Game.Levels.PfWorld.L04_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L04_pf
@@ -2148,6 +2226,11 @@ msgstr ""
 msgid "And and Nand"
 msgstr ""
 
+#: Game.Levels.ArgWorld.ArgWorld_eg.L06_arg
+msgid "# **Level 6**\n"
+"Here's an abstract example."
+msgstr ""
+
 #: Game.Levels.PfWorld.PfWorld_eg.L14_pf
 msgid "### **Level 14**"
 msgstr ""
@@ -2171,6 +2254,10 @@ msgstr ""
 #. §1: `Or_assoc`
 #: Game.Levels.EquivWorld.L03_equiv
 msgid "🔍 Check out two freshly unlocked laws of logic in the **Theorems** tab, namely §0 and §1."
+msgstr ""
+
+#: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
+msgid "😭 To validate this argument with a truth-table would require 16 rows."
 msgstr ""
 
 #. §0: ```
@@ -2209,6 +2296,11 @@ msgstr ""
 msgid "Proof Strategy World Examples"
 msgstr ""
 
+#: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
+msgid "### **Level 2**\n"
+"This argument is sometimes called the law of **Conditional Proof**. It is strongly related to currying..."
+msgstr ""
+
 #: Game.Levels.SetWorld.SetWorld_eg.L05_set
 #: Game.Levels.PfWorld.L05_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L05_pf
@@ -2230,6 +2322,10 @@ msgstr ""
 #: Game.Levels.ArgWorld.L08_arg
 msgid "# **Level 8**\n"
 "This level is a natural companion to the previous one."
+msgstr ""
+
+#: Game.Levels.ArgWorld.ArgWorld_eg.L06_arg
+msgid "😭 To validate this argument with a truth-table would require 32 rows."
 msgstr ""
 
 #. §0: `=`
@@ -2272,12 +2368,20 @@ msgid "### **💡 Pro-tip**\n"
 "The §0 tactic is *very* handy especially when you'll need to use the assumption introduced by §1 in more intricate ways. But if you find yourself using §2 to introduce a hypothesis to only then call the tactic §3 on that hypothesis, then you probably could have made your work a little shorter."
 msgstr ""
 
+#: Game.Levels.ArgWorld.ArgWorld_eg.L07_arg
+msgid "😭 To validate this argument with a truth-table would require 64 rows."
+msgstr ""
+
 #: Game.Levels.EquivWorld.L04_equiv
 msgid "Great, we're almost home. Try to to finish this level off on your own."
 msgstr ""
 
 #: Game
 msgid "This game is designed to accompany students through MA276."
+msgstr ""
+
+#: Game.Levels.ArgWorld.ArgWorld_eg.L08_arg
+msgid "# **Level 8**"
 msgstr ""
 
 #. §0: `P → R`
@@ -2341,7 +2445,7 @@ msgid "This is the **Commutative Law** for §0. It says that\n"
 "§3"
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
+#: Game.Levels.ArgWorld.ArgWorld_eg.L06_arg
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L04_quant
 #: Game.Levels.PfWorld.L04_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L04_pf
@@ -2454,11 +2558,6 @@ msgid "This helps to define the §0 set connective. Specifically,\n"
 "§4"
 msgstr ""
 
-#: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
-msgid "### **Level 2**\n"
-"This argument is sometimes called the law of **Conditional Proof**. It might help to apply a"
-msgstr ""
-
 #. §0: `∧`
 #. §1: $$ (P ∧ Q) ∧ R ↔ P ∧ (Q ∧ R) $$
 #. §2: `And_assoc`
@@ -2485,6 +2584,14 @@ msgid "This is the **Associative Law** for §0. It says that\n"
 "\n"
 "The proof of §2 is given in the truth-table below:\n"
 "§3"
+msgstr ""
+
+#: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
+msgid "The Bladerunner argument in symbols is given below."
+msgstr ""
+
+#: Game.Levels.ArgWorld.ArgWorld_eg.L10_arg
+msgid "# **Level 10**"
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
