@@ -21,8 +21,16 @@ import Game.Levels.PfWorld.PfWorld_eg
 Title "Intro to Proofs Game"
 Introduction
 "
-# **Welcome**
-The *Intro to Proofs Game* should do some really really neat stuff.
+# **The Intro to Proofs Game**
+Welcome to **The Intro to Proofs Game**. The object of this game is to help you navigate the course MA276. Most proofs we do in class (or that are assigned as homework) are in this game! In order to play, we'll need to learn a little bit about L∃∀N ...
+
+### **What is L∃∀N**
+
+Lean (stylized as L∃∀N) is a proof assistant and programming language -- this means that it helps to codify mathematical proofs. As we write proofs of our claims (or theorems) in Lean, a terminal will dynamically report our givens and goals so we know where we are in the proof. As goals get cleared, we'll stock an inventory of rigorous, *machine-verified* proofs so we'll know that our proofs are correct!
+
+### **How to play?**
+
+The world map is in the center pane. Individual world-levels are the pearls encircling the worlds. Once you've cleared a level, you can move onto the next. The same thing is true with worlds. You can replay any level by navigating to it from the world map. **Start** with **Logical Equivalence World**.
 "
 
 Info "

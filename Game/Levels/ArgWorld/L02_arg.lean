@@ -6,10 +6,11 @@ Level 2
 Title "Modus Tolens"
 
 Introduction "
-### **Level 2**
-This valid argument is sometimes referred to as **Modus Tolens**. Let's use a logical equivalence to make this problem look more like the last one...
+# **Level 2**
+This valid argument is sometimes referred to as **Modus Tolens**. Of course, we can prove that Modus Tolens is valid by staring at the truth-table serving as the graphic for this world! But let's try to prove it in Lean. To do so, there's a logical equivalence from worlds of yore that will make this problem look more like the last one...
 "
 
+/-- This valid argument is known as *Modus Tolens*.-/
 Statement (P Q : Prop) (hPQ : P → Q) (hnQ : ¬ Q) : ¬ P := by
   rw[Contrapositive] at hPQ
   Hint "Great! We now have

@@ -16,7 +16,7 @@ rw[And_assoc]
 set_option pp.parens true
 
 
-/-- A generalized **Associative Law** for `∧`.-/
+/-- We can rearrange any chain of propositions glued together with solely `∧` any way we like using `And_assoc` and `And_comm`.-/
 Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q) := by
   rw[And_assoc]
   Hint "**Here's what happend:** `And_assoc` was applied to the **first instance** encountered where it could be applied. Specifically, Lean searched for the first instance of
@@ -63,7 +63,12 @@ Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q)
   rw[And_comm Q]
 
 
-Conclusion "
+Conclusion "### **💡 Pro-tip
+The theorem `And_comm` says
+```
+And_comm: (P Q : Prop) : P ∧ Q ↔ Q ∧ P
+```
+Lean truly thinks of this statement as more of a *function* whose first input is `P` and whose second input is `Q`. The output is (a proof of) the statement `P ∧ Q ↔ Q ∧ P`. When we write `And_comm` with no inputs, Lean will attempt to apply the *fucntion* wherever it can (or throw an error if it can't). Getting used to this takes a little practice.
 "
 
 NewTheorem And_assoc And_comm

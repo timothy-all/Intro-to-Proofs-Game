@@ -6,11 +6,11 @@ Level 3
 Title "Disjunctive Syllogism"
 
 Introduction "
-### **Level 3**
+# **Level 3**
 This valid argument is sometimes referred to as the law of the **Disjunctive Syllogism**. Using some laws of logical equivalence, try to rewrite the hypothesis `h1` in a form that is more similar to the hypotheses of the last couple levels.
 "
 
-
+/-- This valid argument is known as *Disjunctive Syllogism*.-/
 Statement (P Q : Prop) (h1 : P ∨ Q) (h2 : ¬ P) : Q := by
   rw[← Not_not P] at h1
   rw[← Imp_iff_not_or] at h1

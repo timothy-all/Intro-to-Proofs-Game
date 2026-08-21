@@ -9,11 +9,11 @@ Introduction "
 # **Level 3 : Currying**
 Oftentimes, we'll have implications of the form
 ```
-(H₁ ∧ H₂) → P
+(h₁ ∧ h₂) → P
 ```
 For programmatic purposes, this kind of proposition is better expressed in the following way:
 ```
-H₁ → (H₂ → P)
+h₁ → (h₂ → P)
 ```
 This exercise demonstrates that this process of translating the first form into the second (called ***currying***) is logically valid.
 ### **⌨ Typesetting Tip**
@@ -36,6 +36,6 @@ Statement Curry (P Q R : Prop) : ((P ∧ Q) → R) ↔ (P → (Q → R)) := by -
   rw[Not_and]
   rw[Or_assoc]
 
-Conclusion ""
+Conclusion "Currying is *extensively* used throughout Lean. We'll point out why when the time comes."
 
 NewTheorem Not_and Or_assoc

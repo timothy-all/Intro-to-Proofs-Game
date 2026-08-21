@@ -8,12 +8,13 @@ Level 1
 Title "Modus Ponens"
 
 Introduction "
-## **Level 1**
+# **Level 1**
 Lean natively is aware of the valid argument known as **Modus Ponens**. In fact, Lean has a funny way of interpreting...
 ## **Implications as functions**
 We have `hPQ : P → Q`. We can think of this implication as being a function, whose input is (a proof of) `P` and whose output is (a proof of) `Q`. So we should be able to obtain a new hypothesis in our situation here, namely `hQ : Q`. But how to do this?
 "
 
+/-- This is the valid argument known as *Modus Pwnens*. -/
 Statement (P Q : Prop) (hP : P) (hPQ : P → Q) : Q := by
   Hint "### **❯ The `obtain` tactic**
   The `obtain` tactic allows us to introduce new assumptions into our current proof *as long as* we supply proofs (in the current context) of those assumptions. 👉 Try the following basic usage:

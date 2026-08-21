@@ -15,6 +15,7 @@ We'll need two new laws of logic to pass this level. 🔍 Check out the entries 
 
 set_option pp.parens true
 
+/-- The statement *if `P` or `Q`, then `R`* is logically equivalent to *`P` implies `R` and `Q` implies `R`.*-/
 Statement (P Q R : Prop) : ((P ∨ Q) → R) ↔ ((P → R) ∧ (Q → R)) := by
   rw[Imp_iff_not_or]
   rw[Not_or]
@@ -26,7 +27,7 @@ Statement (P Q R : Prop) : ((P ∨ Q) → R) ↔ ((P → R) ∧ (Q → R)) := by
   rw[← Imp_iff_not_or]
 
 Conclusion "### **💡 Pro-tip**
-The result of this level tells you that if you want to prove and if-then statement where the hypothesis is a disjunction, then you may do so by... **assuming** that `P` is true and showing that `R` must follows, ***and*** as a separate goal assuming that `Q` is true and showing that `R` must following in this case as well."
+The result of this level tells you that if you want to prove and if-then statement where the hypothesis is a disjunction, then you may do so by... **assuming** that `P` is true and showing that `R` must follow, ***and*** as a separate goal assuming that `Q` is true and showing that `R` must following in this case as well."
 
 NewTheorem Not_or Or_and_left
 

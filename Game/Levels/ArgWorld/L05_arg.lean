@@ -3,16 +3,16 @@ import Game.Levels.ArgWorld.L04_arg
 World "ArgWorld"
 Level 5
 
-Title "And-constructor"
+Title "Conjunctive Amplification"
 
 Introduction "
-### **Level 5**
-In this level, we'll learn how to glue a couple known assumptions together with the `∧` connective.
+# **Level 5**
+In this level, we'll learn how to glue a couple known assumptions together with the `∧` connective. Sometimes this is referred to as **Conjunctive Amplification**.
 "
 
 set_option pp.parens true
 
-
+/-- This valid argument is known as *Conjunctive Amplification*. -/
 Statement (P Q R : Prop) (hPQ : P → Q) (hPR : P → R) (hP : P) : (Q ∧ R) := by
   Hint "First, let's `obtain` the hypotheses `hQ : Q` and `hP : P`."
   obtain hQ := hPQ hP

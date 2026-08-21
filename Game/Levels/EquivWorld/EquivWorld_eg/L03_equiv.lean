@@ -14,6 +14,7 @@ We've unlocked a few more laws of logic for this example. 🔍 Check out the ent
 
 set_option pp.parens true
 
+/-- There's no choice of `True` or `False` values for `P` and `Q` that would make the left-hand statement on the left-hand side of this iff true.-/
 Statement (P Q : Prop) : ((P ∨ Q) ∧ (¬ P ∧ (Q → P))) ↔ False := by
   rw[Imp_iff_not_or]
   rw[And_or_left]
@@ -23,6 +24,6 @@ Statement (P Q : Prop) : ((P ∨ Q) ∧ (¬ P ∧ (Q → P))) ↔ False := by
   rw[← Not_or]
   rw[And_not_self]
 
-Conclusion ""
+Conclusion "The world's most canonical contradiction is undoubtedly `P ∧ ¬ P`."
 
 NewTheorem Not_and And_not_self Or_false And_or_left
