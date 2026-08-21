@@ -16,6 +16,6 @@ Title "Logical Equivalence World Examples"
 
 Introduction "
 # **Logical Equivalences Examples**
-Let's get more practice with logical equivalences!
+Let's get more practice with logical equivalences! The graphic of this world is the truth-table proof of *Modus Ponens*. See how the columns for `P → Q` and `¬ P ∨ Q` are identical?
 "
-Image "images/pic0.png"
+Image "images/equiv3.png"

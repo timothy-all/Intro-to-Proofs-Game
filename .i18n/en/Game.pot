@@ -16,6 +16,38 @@ msgstr "Project-Id-Version: Game v4.23.0\n"
 msgid "There's no choice of §0 or §1 values for §2 and §3 that would make the left-hand statement on the left-hand side of this iff true."
 msgstr ""
 
+#. §0: `P : Prop`
+#. §1: `P`
+#. §2: `P : u → Prop`
+#. §3: `P`
+#. §4: `u`
+#. §5: `∀`
+#. §6: `∃`
+#. §7: `∀ x : u, P x`
+#. §8: `∧`
+#. §9: $$
+#. ∀ x ∈ U, P x ↔ ⋀_{x ∈ U} P x
+#. $$
+#. §10: `∃ x : u, P x`
+#. §11: `∨`
+#. §12: $$
+#. ∃ x ∈ U, P x ↔ ⋁_{x ∈ U} P x
+#. $$
+#: Game.Levels.QuantifierWorld
+msgid "# **Predicates & Quantifiers**\n"
+"A **predicate** is a variable proposition where the variable comes from some universe of discourse. In Lean, we have:\n"
+"* §0 meaning that §1 is a proposition\n"
+"* §2 meaning that §3 is a *predicate* that takes a variable §4 and spits out a proposition.\n"
+"\n"
+"We use **quantifiers** §5 (forall) and §6 (exists) to scope predicates into propositions. The quantified statement §7 is like a gigantic §8 statement:\n"
+"§9\n"
+"Similarly, the quantified statement §10 is like a gigantic §11 statement:\n"
+"§12\n"
+"The graphic of this world illustrates a small-scale version of this interpretation.\n"
+"\n"
+"How do we use quantified statements in Lean? This world will help guide us through it."
+msgstr ""
+
 #. §0: `P ∨ ¬ P`
 #: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
 msgid "The world's most canonical tautology is undoubtedly §0."
@@ -91,6 +123,10 @@ msgid "# **Level 3**\n"
 "This valid argument is sometimes referred to as the law of the **Disjunctive Syllogism**. Using some laws of logical equivalence, try to rewrite the hypothesis §0 in a form that is more similar to the hypotheses of the last couple levels."
 msgstr ""
 
+#: Game.Levels.QuantifierWorld.L02_quant
+msgid "Universal Generalization"
+msgstr ""
+
 #. §0: `Δ`
 #. §1: $$
 #. A \\mathop{Δ} B  = (A \\ B) ∪ (B \\ A)
@@ -159,14 +195,14 @@ msgstr ""
 msgid "This valid argument is known as the *Law of the Syllogism*."
 msgstr ""
 
-#: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
-msgid "Or and Nand"
-msgstr ""
-
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L08_quant
 #: Game.Levels.PfWorld.L08_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L08_pf
 msgid "Example 8"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
+msgid "Or and Nand"
 msgstr ""
 
 #. §0: `∅`
@@ -227,6 +263,16 @@ msgstr ""
 #. §2: `simplify`
 #: Game.Levels.PfWorld.pf_docs
 msgid "The §0 tactic will attempt to clear the goal by applying *very* basic simplification rules to the goal. For example, if the goal is to prove §1 then §2 will clear the goal."
+msgstr ""
+
+#. §0: `obtain`
+#. §1: `obtain`
+#. §2: `obtain ⟨a, ha⟩ := h₂`
+#. §3: $a$
+#. §4: $P a$
+#. §5: $h_2$
+#: Game.Levels.QuantifierWorld.L04_quant
+msgid "🔧 The §0 tactic is a real multi-purpose tool! We'll see more uses for §1 going forward. In terms of translating Lean into a human-readable proof, it makes sense to translate a statement like §2 in this proof into *Let §3 be an element such that §4 is true; we know such an element exists from the assumption §5.*"
 msgstr ""
 
 #. §0: ```
@@ -316,10 +362,6 @@ msgstr ""
 msgid "## **Level 6**"
 msgstr ""
 
-#: Game.Levels.QuantifierWorld.L03_quant
-msgid "Existential Quantifiers"
-msgstr ""
-
 #: Game.Levels.PfWorld.L09_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L09_pf
 msgid "### **Level 9**"
@@ -337,6 +379,33 @@ msgstr ""
 msgid "That was a good first step. You might want to apply the **Conditional Law** codified in §0 two more times. You can do this in one step with:\n"
 "§1\n"
 ""
+msgstr ""
+
+#. §0: `P → Q`
+#. §1: `Q`
+#. §2: `P`
+#: Game.Levels.ArgWorld.ArgWorld_eg
+msgid "# **Examples of Arguments**\n"
+"Let's get some practice validating arguments! This is really the beginning of *proof-writing* (the logical bones of it, anyway). The graphic of this world is the truth-table proof of the ***invalid*** argument that says: if §0 and §1 are true, then §2 must be true. See the highlighted row where the hypotheses are true, but the conclusion is false?"
+msgstr ""
+
+#. §0: `h: ∀ x, P x`
+#. §1: `P a`
+#. §2: `a`
+#. §3: `u`
+#. §4: `h: ∀ x, P x`
+#. §5: `x`
+#. §6: `u`
+#. §7: `P x`
+#. §8: ```
+#. obtain this := h a
+#. ```
+#: Game.Levels.QuantifierWorld.L01_quant
+msgid "# **Level 1**\n"
+"This valid argument is known as *Universal Specification*. More precisely, we have the assumption §0, and we wish to prove that §1 is true where §2 is some element of type §3. How do we use a universally quantified statement as an assumption? Lean has a funny (but familiar) way of thinking about such an assumption...\n"
+"### **Universal statements as functions**\n"
+"Lean considers the assumption §4 sort of like a function. The input is §5 and element of type §6. The output is (a proof of) the proposition §7. In our case, 👉 try:\n"
+"§8"
 msgstr ""
 
 #: Game.Levels.PfWorld.L12_pf
@@ -392,6 +461,13 @@ msgstr ""
 msgid "Test"
 msgstr ""
 
+#. §0: `a : u`
+#. §1: `u`
+#. §2: `Q a`
+#: Game.Levels.QuantifierWorld.L02_quant
+msgid "Notice that §0 (a generic element of type §1) and our goal is to prove §2? See if you can't finish this level off on your own."
+msgstr ""
+
 #: Game.Levels.ArgWorld.L03_arg
 msgid "This valid argument is known as *Disjunctive Syllogism*."
 msgstr ""
@@ -416,6 +492,27 @@ msgid "This is the constructor for the §0 logical connective. As a (curried) fu
 "Then\n"
 "§3\n"
 "will introduce the new hypothesis §4 into the proof-state."
+msgstr ""
+
+#. §0: `∀ x, Q x`
+#. §1: `Q x`
+#. §2: `u`
+#. §3: `intro`
+#. §4: `intro`
+#. §5: `⊢ ∀ x, Q x`
+#. §6: `u`
+#. §7: `⊢ Q ⟨id⟩`
+#. §8: `⟨id⟩`
+#. §9: `intro`
+#. §10: ```
+#. intro a
+#. ```
+#: Game.Levels.QuantifierWorld.L02_quant
+msgid "## **Level 2**\n"
+"In this level, we have a universal statement as a *goal*. To prove such a statement, we use the principle known as **Universal Generalization**. Specifically, to prove a universally quantified statement like §0 we should prove that §1 is true for a **generically** chosen element of the universe of discourse. How do we tell Lean to choose a generic element of §2?\n"
+"### **❯ The §3 tactic ... again**\n"
+"If the §4 tactic is called against a universally quantified goal, like §5, it will initialize a generic element of §6 and change the goal to §7 where §8 is whatever identifier we use with §9. In our case, 👉 try:\n"
+"§10"
 msgstr ""
 
 #. §0: ```
@@ -480,14 +577,13 @@ msgstr ""
 msgid "If §0 and §1 are true and §2 implies §3 implies §4, then it must be that §5 is true."
 msgstr ""
 
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L04_quant
+msgid "## **Level 4**"
+msgstr ""
+
 #: Game.Levels.ArgWorld.L06_arg
 msgid "# **Level 6**\n"
 "The valid argument of this level is sometimes called the law of the **Syllogism**."
-msgstr ""
-
-#: Game.Levels.QuantifierWorld.L04_quant
-#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L04_quant
-msgid "## **Level 4**"
 msgstr ""
 
 #: Game
@@ -554,6 +650,10 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
 msgid "Rule of Contradiction"
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.L04_quant
+msgid "We *destructure* our exisntential assumption using *Existential elimination*."
 msgstr ""
 
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L08_quant
@@ -656,6 +756,25 @@ msgid "The tactic §0 applies the identity/equivalence §1 as a **rewrite** rule
 "To pretty print the left-arrow §22 use §23. To pretty print the symbol §24 use §25."
 msgstr ""
 
+#. §0: `P`
+#. §1: `a`
+#. §2: `u`
+#. §3: `x`
+#. §4: `u`
+#. §5: `P x`
+#. §6: `use`
+#. §7: `use`
+#. §8: ```
+#. use a
+#. ```
+#: Game.Levels.QuantifierWorld.L03_quant
+msgid "## **Level 3**\n"
+"This valid argument is sometimes called **Existential Generalization**. It says that if you know that a predicate (like §0) is true for some §1 of type §2, then we can deduce that there exists an element §3 of type §4 such that §5 is true. In order to prove this valid argument, we need a way to reckon with an existential goal in Lean. We need a new tactic ...\n"
+"### **❯ The §6 tactic**\n"
+"The most direct way to prove an existential goal is to supply a **witness** to the statement. The §7 tactic is handy in this regard. Specifically, 👉 try:\n"
+"§8"
+msgstr ""
+
 #. §0: `hQ : Q`
 #. §1: `exact`
 #. §2: `exact e`
@@ -717,11 +836,6 @@ msgid "This is an **Identity Law**. It says that\n"
 "\n"
 "where §1 is a contradiction. Here's what it looks like in Lean:\n"
 "§2"
-msgstr ""
-
-#: Game.Levels.EquivWorld.EquivWorld_eg
-msgid "# **Logical Equivalences Examples**\n"
-"Let's get more practice with logical equivalences!"
 msgstr ""
 
 #. §0: `NAND`
@@ -822,17 +936,16 @@ msgstr ""
 msgid "One more line ought to clear this level..."
 msgstr ""
 
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
+msgid "## **Level 2**"
+msgstr ""
+
 #: Game.Levels.ArgWorld.L05_arg
 msgid "Conjunctive Amplification"
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L07_arg
 msgid "# **Level 7**"
-msgstr ""
-
-#: Game.Levels.QuantifierWorld.L02_quant
-#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
-msgid "## **Level 2**"
 msgstr ""
 
 #: Game.Levels.SetWorld.SetWorld_eg.set_eg_docs
@@ -856,6 +969,10 @@ msgstr ""
 
 #: Game.Levels.SetWorld.L02_set
 msgid "The subset relation is transitive."
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L07_quant
+msgid "## **Level 7**"
 msgstr ""
 
 #. §0: `∨`
@@ -888,8 +1005,11 @@ msgstr ""
 msgid "Argument World Examples"
 msgstr ""
 
-#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L07_quant
-msgid "## **Level 7**"
+#. §0: `intro`
+#. §1: `intro a`
+#. §2: $a$
+#: Game.Levels.QuantifierWorld.L02_quant
+msgid "🔧 The §0 tactic can not only introduce hypotheses as assumptions, but (as we've seen here) can also introduce generic elements of universally quantified goals. In terms of translating Lean into a human-readable proof, it makes sense to translate a statement like §1 in this proof into *Let §2 be a generic element.*"
 msgstr ""
 
 #. §0: `⊼`
@@ -899,6 +1019,14 @@ msgstr ""
 #: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
 msgid "The definition of the **Negated Conjunction** connective, denoted §0. Here's what it looks like in Lean:\n"
 "§1"
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.L04_quant
+msgid "Existential elimination"
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.L01_quant
+msgid "This valid argument is known as *Universal Specification*."
 msgstr ""
 
 #. §0: `use!`
@@ -933,6 +1061,10 @@ msgstr ""
 msgid "The §0 tacic turns a goal of the form §1 into §2."
 msgstr ""
 
+#: Game.Levels.QuantifierWorld.L01_quant
+msgid "Universal specification"
+msgstr ""
+
 #. §0: $$ P ∨ T₀ ↔ T₀ $$
 #. §1: $T₀$
 #. §2: $$
@@ -954,11 +1086,21 @@ msgid "This is a **Domination Law**. It says that\n"
 "§2"
 msgstr ""
 
+#. §0: `«{this}» : P a`
+#. §1: `exact`
+#: Game.Levels.QuantifierWorld.L01_quant
+msgid "Note that §0 is now known. The §1 tactic ought to help us clear the goal now."
+msgstr ""
+
 #. §0: $P$
 #. §1: $¬ P$
 #: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
 #: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
 msgid "The negated conjunction of §0 with itself is logically equivalent to §1."
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.L02_quant
+msgid "We use *Universal Generalization* to prove this statement."
 msgstr ""
 
 #. §0: `intro`
@@ -1058,11 +1200,6 @@ msgstr ""
 msgid "### **Level 8**"
 msgstr ""
 
-#: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
-msgid "# **Level 2: Psuedo Conditional Law**\n"
-"No new laws of logic needed here. But we will need to use some *targeted rewrites*."
-msgstr ""
-
 #. §0: `` set connective. Specifically,
 #. `
 #. §1: ``
@@ -1082,6 +1219,11 @@ msgstr ""
 #. ``
 #: Game.Levels.SetWorld.set_docs
 msgid "This helps to define the §0§1§2mem_diff_iff§3x ∈ A \\\\ B ↔ x ∈ A ∧ x ∉ B§4§5`"
+msgstr ""
+
+#: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
+msgid "# **Level 2: Psuedo Conditional Law**\n"
+"No new laws of logic needed here. But we will need to use some *targeted rewrites*."
 msgstr ""
 
 #. §0: $$(P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))$$
@@ -1184,6 +1326,13 @@ msgstr ""
 msgid "The tactic §0 rewrites the goal by pushing negations deeper into an expression. For instance, the goal §1 will be transformed by §2 into §3."
 msgstr ""
 
+#. §0: `use`
+#. §1: `use a`
+#. §2: $a$
+#: Game.Levels.QuantifierWorld.L03_quant
+msgid "The §0 tactic supplies a *witness* to an existential goal; our job going forward is to prove that our witness truly satisfies the predicate. In terms of translating Lean into a human-readable proof, it makes sense to translate a statement like §1 in this proof into *Consider the known element §2.*"
+msgstr ""
+
 #: Game.Levels.ArgWorld.L07_arg
 #: Game.Levels.ArgWorld.L08_arg
 msgid "This valid argument is known as *Disjunctive Amplification*."
@@ -1249,8 +1398,6 @@ msgid "Now, we just need to connect the assumptions §0 and §1 with §2. The *c
 ""
 msgstr ""
 
-#: Game.Levels.QuantifierWorld.L02_quant
-#: Game.Levels.QuantifierWorld.L04_quant
 #: Game.Levels.QuantifierWorld.L05_quant
 msgid "Universal Quantifiers"
 msgstr ""
@@ -1263,10 +1410,6 @@ msgstr ""
 #: Game.Levels.ArgWorld.ArgWorld_eg.L08_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L09_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L10_arg
-#: Game.Levels.QuantifierWorld.L01_quant
-#: Game.Levels.QuantifierWorld.L02_quant
-#: Game.Levels.QuantifierWorld.L03_quant
-#: Game.Levels.QuantifierWorld.L04_quant
 #: Game.Levels.QuantifierWorld.L05_quant
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
@@ -1376,6 +1519,12 @@ msgid "This is an **Identity Law**. It says that\n"
 "§2"
 msgstr ""
 
+#. §0: `⊢ P a`
+#. §1: `a : u`
+#: Game.Levels.QuantifierWorld.L03_quant
+msgid "See how our goal is now §0 and §1 is a generic **Object** in our proof state? We're nearly done."
+msgstr ""
+
 #: Game.Levels.SetWorld.L04_set
 msgid "Set Union"
 msgstr ""
@@ -1420,10 +1569,6 @@ msgid "The §0 tactic use *use*ful (hehe) for existential goals. Specifically, i
 "Will change the goal to §4."
 msgstr ""
 
-#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L05_quant
-msgid "The converse is also true. We unlock this theorem from here on out."
-msgstr ""
-
 #. §0: `⋂`
 #. §1: $$
 #. ⋂ i, A i  = ⋂_{i ∈ I} A_i
@@ -1446,6 +1591,16 @@ msgid "This helps to define the §0 (intersection of indexed sets) operator on a
 "\n"
 "So §2 says specifically that §3. Here's what it looks like in Lean:\n"
 "§4"
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L05_quant
+msgid "The converse is also true. We unlock this theorem from here on out."
+msgstr ""
+
+#. §0: `a : u`
+#. §1: `ha : P a`
+#: Game.Levels.QuantifierWorld.L04_quant
+msgid "See how we now have that §0 is a generic object, and §1 is an assumption? We now need to supply a witness to our existential goal..."
 msgstr ""
 
 #: Game.Levels.PfWorld.L10_pf
@@ -1569,7 +1724,6 @@ msgid "We simply need to destructure the assumption §0. 👉 Try:\n"
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
-#: Game.Levels.QuantifierWorld.L01_quant
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
 #: Game.Levels.PfWorld.L01_pf
 #: Game.Levels.PfWorld.PfWorld_eg.L01_pf
@@ -1647,6 +1801,10 @@ msgstr ""
 msgid "Law of the syllogism"
 msgstr ""
 
+#: Game.Levels.QuantifierWorld.L04_quant
+msgid "You're on the right track. In fact, you can one-shot it from here."
+msgstr ""
+
 #. §0: `∧`
 #. §1: `And_assoc`
 #. §2: `And_comm`
@@ -1688,6 +1846,19 @@ msgid "This helps to define §0, the power set of §1. Specifically,\n"
 "\n"
 "So §3 says specifically that §4. Here's what it looks like in Lean:\n"
 "§5"
+msgstr ""
+
+#. §0: `exact h a`
+#. §1: `obtain this := h a`
+#. §2: $∀ x, P x$
+#. §3: $a$
+#. §4: $P a$
+#: Game.Levels.QuantifierWorld.L01_quant
+msgid "### **💡 Pro-tip**\n"
+"We could have one-shotted this level with §0.\n"
+"### **🌐 How to translate**\n"
+"To translate a statement like §1 in this proof into something human readable, you might use\n"
+"> *Since we know §2 and §3 is an element, it must be that §4 is true.*"
 msgstr ""
 
 #. §0: ```
@@ -1831,10 +2002,6 @@ msgid "## **Level 3**\n"
 "This means that, definitionally, to say that §3 means the same thing as §4. To rewrite §5 as §6 use §7."
 msgstr ""
 
-#: Game.Levels.ArgWorld.L02_arg
-msgid "This valid argument is known as *Modus Tolens*."
-msgstr ""
-
 #. §0: `univ`
 #. §1: $$
 #. univ = {x : u | True}
@@ -1854,6 +2021,10 @@ msgid "This helps to define the §0, the set consisting of everything. Specifica
 "\n"
 "So §2 says specifically that §3. Here's what it looks like in Lean:\n"
 "§4"
+msgstr ""
+
+#: Game.Levels.ArgWorld.L02_arg
+msgid "This valid argument is known as *Modus Tolens*."
 msgstr ""
 
 #: Game.Levels.SetWorld.SetWorld_eg.L01_set
@@ -1913,6 +2084,10 @@ msgid "# **Level 3 : Currying**\n"
 "In order to pretty-print subscripts like in §2 use §3."
 msgstr ""
 
+#: Game.Levels.QuantifierWorld.L03_quant
+msgid "This valid argument is called *Existential Generalization*."
+msgstr ""
+
 #: Game.Levels.ArgWorld.L08_arg
 msgid "Proving a disjunction: Part 2"
 msgstr ""
@@ -1942,17 +2117,15 @@ msgstr ""
 msgid "Set World Examples"
 msgstr ""
 
-#: Game.Levels.SetWorld.L02_set
-msgid "Perfect. We can clear the goal in one line if we're clever."
-msgstr ""
-
-#: Game.Levels.ArgWorld.ArgWorld_eg
-#: Game.Levels.QuantifierWorld
 #: Game.Levels.SetWorld
 #: Game.Levels.SetWorld.SetWorld_eg
 #: Game.Levels.PfWorld
 #: Game.Levels.PfWorld.PfWorld_eg
 msgid "### ***What a world!***"
+msgstr ""
+
+#: Game.Levels.SetWorld.L02_set
+msgid "Perfect. We can clear the goal in one line if we're clever."
 msgstr ""
 
 #: Game.Levels.PfWorld.L09_pf
@@ -2071,6 +2244,13 @@ msgstr ""
 msgid "Proof Strategy World"
 msgstr ""
 
+#. §0: `P → Q`
+#. §1: `¬ P ∨ Q`
+#: Game.Levels.EquivWorld.EquivWorld_eg
+msgid "# **Logical Equivalences Examples**\n"
+"Let's get more practice with logical equivalences! The graphic of this world is the truth-table proof of *Modus Ponens*. See how the columns for §0 and §1 are identical?"
+msgstr ""
+
 #. §0: `⊻`
 #. §1: ```
 #. xor_def {a b : Prop} : ((a ⊻ b) ↔ ((a ∧ ¬b) ∨ (b ∧ ¬a)))
@@ -2080,7 +2260,6 @@ msgid "The definition of the **exclusive-or** connective, denoted §0. Here's wh
 "§1"
 msgstr ""
 
-#: Game.Levels.QuantifierWorld.L03_quant
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L03_quant
 msgid "## **Level 3**"
 msgstr ""
@@ -2154,6 +2333,27 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
 msgid "Tautologies"
+msgstr ""
+
+#. §0: `∃ x, P x`
+#. §1: `a`
+#. §2: `u`
+#. §3: `P a`
+#. §4: `obtain`
+#. §5: `obtain`
+#. §6: ```
+#. obtain ⟨a, ha⟩ := h₂
+#. ```
+#. §7: `a`
+#. §8: `ha`
+#. §9: `P a`
+#: Game.Levels.QuantifierWorld.L04_quant
+msgid "# **Level 4**\n"
+"In this level, we have an assumption that is existentially quantified. In order to use that assumption, we need to use the principle of **Existential elimination**. Specifically, if we know that §0, then we can deduce that there must be some specific element §1 of type §2 such that §3 is true. In order to *obtain* such a witness we use ...\n"
+"### ❯ The §4 tactic ... again\n"
+"To grab a witness of an existential assumption, we use the §5 tactic with some extra syntax. In our case, 👉 try:\n"
+"§6\n"
+"The §7 is our witness, the §8 is the proof that §9."
 msgstr ""
 
 #. §0: `refine`
@@ -2456,6 +2656,10 @@ msgstr ""
 msgid "Proving a disjunction: Part 1"
 msgstr ""
 
+#: Game.Levels.QuantifierWorld.L03_quant
+msgid "Existential Generalization"
+msgstr ""
+
 #. §0: `P`
 #. §1: `¬ Q`
 #. §2: `R`
@@ -2511,9 +2715,12 @@ msgstr ""
 msgid "### **Level 6**"
 msgstr ""
 
-#: Game.Levels.QuantifierWorld.L01_quant
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
 msgid "## **Level 1**"
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg
+msgid "Quantifier World Examples"
 msgstr ""
 
 #. §0: `P`
@@ -2531,10 +2738,6 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.L05_arg
 msgid "This valid argument is known as *Conjunctive Amplification*."
-msgstr ""
-
-#: Game.Levels.QuantifierWorld.QuantifierWorld_eg
-msgid "Quantifier World Examples"
 msgstr ""
 
 #. §0: `∩`
