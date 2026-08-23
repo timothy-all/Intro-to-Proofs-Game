@@ -3,25 +3,26 @@ import Game.Levels.SetWorld.L11_set
 World "SetWorld"
 Level 12
 
-Title "The Power Set"
+Title "The whole universe"
 
 Introduction "
-## **Level 12**
-Given a set `A : Set u`, the **power set** of `A`, denoted `𝒫 A` is defined as follows:
+# **Level 12**
+The **universal-set** denoted `univ` is defined as follows:
 ```
-𝒫 A := {s : Set u | s ⊆ A}
+univ = {x | True}
 ```
-So the membership proposition `B ∈ 𝒫 A` means the same thing as `B ⊆ A`.
+So the membership proposition `x ∈ univ` means the same thing as `True`.
 "
 open Set
 
 
-Statement {u : Type} (A B: Set u) (h : A ⊆ B) : 𝒫 A ⊆ 𝒫 B := by
-  intro C hC
-  rw[mem_powerset_iff] at hC ⊢
-  exact Subseteq_trans hC h
-
+Statement {u : Type} (A : Set u) : A ∩ univ = A := by
+  rw[set_eq_iff]
+  intro x
+  rw[mem_inter_iff]
+  rw[mem_univ_iff_true]
+  rw[And_true]
 
 Conclusion ""
 
-NewDefinition Set.mem_powerset_iff
+NewDefinition mem_univ_iff_true

@@ -21,7 +21,7 @@ theorem mem_symm_diff_iff {u : Type*} {x : u} (A B : Set u) : x ∈ (A Δ B) ↔
   unfold symm_diff
   rfl
 
-theorem mem_univ_iff_true {u : Type} (a : u) : a ∈ Set.univ ↔ True := by
+theorem mem_univ_iff_true {u : Type*} (a : u) : a ∈ Set.univ ↔ True := by
   simp
 
 /- Families-/

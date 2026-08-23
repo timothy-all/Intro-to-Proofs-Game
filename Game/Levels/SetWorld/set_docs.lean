@@ -136,6 +136,25 @@ mem_funion_iff
 DefinitionDoc mem_funion_iff as "SET: mem_funion_iff"
 
 /--
+This helps to define the `⋃` (intersection of indexed sets) operator on an indexed family of sets. Specifically,
+
+$$
+⋃ i, A i  = ⋃_{i ∈ I} A_i
+$$
+
+So `mem_iunion_iff` says specifically that `x ∈ ⋃ i, A i ↔ ∃ (i : I), x ∈ A i`. Here's what it looks like in Lean:
+```
+mem_iunion_iff
+  {u : Type*}
+  {x : u}
+  {I : Type*}
+  (A : I → Set u) :
+    x ∈ ⋃ i, A i ↔ ∃ (i : I), x ∈ A i
+```
+-/
+DefinitionDoc mem_iunion_iff as "SET : mem_iunion_iff"
+
+/--
 This helps to define the `∅`, the empty set. Specifically,
 
 $$
