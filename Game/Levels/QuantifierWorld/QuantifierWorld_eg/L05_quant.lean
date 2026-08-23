@@ -7,13 +7,12 @@ Title "Example 5"
 
 Introduction "
 ## **Level 5**
-
 "
 
+Statement {u : Type*} (P : u → u → Prop) : (∃ x,∃ y, P x y) → (∃ y, ∃ x, P x y) := by
+  intro ⟨x,y,hP⟩
+  use y
+  use x
+  exact hP
 
-Statement {u : Type*} {P Q : u → Prop} (h: (∀ x, P x) ∧ (∀ x, Q x)) : ∀ x, P x ∧ Q x := by
-  intro x
-  exact And.intro (h.left x) (h.right x)
-
-
-Conclusion "The converse is also true. We unlock this theorem from here on out."
+Conclusion ""

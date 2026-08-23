@@ -1,5 +1,4 @@
 import Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
-import Mathlib.Tactic.Use
 
 World "QuantifierWorld_eg"
 Level 2
@@ -8,14 +7,10 @@ Title "Example 2"
 
 Introduction "
 ## **Level 2**
-
 "
 
+Statement {u : Type*} {P Q : u → Prop} (h: (∀ x, P x) ∧ (∀ x, Q x)) : ∀ x, P x ∧ Q x := by
+  intro x
+  exact And.intro (h.left x) (h.right x)
 
-Statement {u : Type} (P Q: u → Prop) (h1: ∃ x, P x) (h2 : ∀ x, Q x) : ∃ x, P x ∧ Q x := by
-  obtain ⟨w,h⟩ := h1
-  use w
-  obtain hQ := h2 w
-  exact And.intro h hQ
-
-Conclusion ""
+Conclusion "The converse of this is also true."

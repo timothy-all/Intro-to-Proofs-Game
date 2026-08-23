@@ -24,4 +24,7 @@ Statement {u : Type} (P Q : u → Prop) (h₁ : ∀ x, P x → Q x) (h₂ : ∃ 
   Hint "You're on the right track. In fact, you can one-shot it from here."
   exact h₁ a ha
 
-Conclusion "🔧 The `obtain` tactic is a real multi-purpose tool! We'll see more uses for `obtain` going forward. In terms of translating Lean into a human-readable proof, it makes sense to translate a statement like `obtain ⟨a, ha⟩ := h₂` in this proof into *Let $a$ be an element such that $P a$ is true; we know such an element exists from the assumption $h_2$.*"
+Conclusion "🔧 The `obtain` tactic is a real multi-purpose tool! We'll see more uses for `obtain` going forward.
+### **🌐 How to translate**
+In terms of translating Lean into a human-readable proof, it makes sense to translate a statement like `obtain ⟨a, ha⟩ := h₂` in this proof into
+> *Let $a$ be an element such that $P a$ is true; we know such an element exists from the assumption $h_2$.*"

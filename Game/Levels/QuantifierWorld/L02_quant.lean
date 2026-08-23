@@ -21,4 +21,7 @@ Statement {u : Type} (a : u) (P Q : u → Prop) (hPQ : ∀ x, P x → Q x) (hP :
   Hint "Notice that `a : u` (a generic element of type `u`) and our goal is to prove `Q a`? See if you can't finish this level off on your own."
   exact hPQ a (hP a)
 
-Conclusion "🔧 The `intro` tactic can not only introduce hypotheses as assumptions, but (as we've seen here) can also introduce generic elements of universally quantified goals. In terms of translating Lean into a human-readable proof, it makes sense to translate a statement like `intro a` in this proof into *Let $a$ be a generic element.*"
+Conclusion "🔧 The `intro` tactic can not only introduce hypotheses as assumptions, but (as we've seen here) can also introduce generic elements of universally quantified goals.
+### **🌐 How to translate**
+In terms of translating Lean into a human-readable proof, it makes sense to translate a statement like `intro a` in this proof into
+> *Let $a$ be a generic element.*"

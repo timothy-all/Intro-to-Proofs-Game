@@ -31,6 +31,9 @@ Statement {u : Type} (a : u) (P : u → Prop) (h : P a) : ∃ x, P x := by
   Hint "See how our goal is now `⊢ P a` and `a : u` is a generic **Object** in our proof state? We're nearly done."
   exact h
 
-Conclusion "The `use` tactic supplies a *witness* to an existential goal; our job going forward is to prove that our witness truly satisfies the predicate. In terms of translating Lean into a human-readable proof, it makes sense to translate a statement like `use a` in this proof into *Consider the known element $a$.*"
+Conclusion "The `use` tactic supplies a *witness* to an existential goal; our job going forward is to prove that our witness truly satisfies the predicate.
+### **🌐 How to translate**
+In terms of translating Lean into a human-readable proof, it makes sense to translate a statement like `use a` in this proof into
+> *Consider the known element $a$.*"
 
 NewTactic use

@@ -13,6 +13,8 @@ mem_inter_iff
   (a b : Set u) :
     x ∈ a ∩ b ↔ x ∈ a ∧ x ∈ b
 ```
+Here's a Venn diagram of the `∩` connective:
+![Venn diagram of union connective](images/venn_inter.png)
 -/
 DefinitionDoc Set.mem_inter_iff as "SET: mem_inter_iff"
 
@@ -29,8 +31,11 @@ mem_inter_iff
   (a b : Set u) :
     x ∈ a ∪ b ↔ x ∈ a ∨ x ∈ b
 ```
+Here's a Venn diagram of the `∪` connective:
+![Venn diagram of union connective](images/venn_union.png)
 -/
 DefinitionDoc mem_union_iff as "SET: mem_union_iff"
+
 
 /--
 This helps to define the `ᶜ` (complement) unary operator on sets. Specifically,
@@ -195,6 +200,8 @@ subset_iff
   {A B : Set u} :
     A ⊆ B ↔ ∀ {x}, x ∈ A → x ∈ B
 ```
+Here's a Venn diagram of the `⊆` relation:
+![Venn diagram of union connective](images/venn_subset.png)
 -/
 DefinitionDoc subset_iff as "SET: subset_iff"
 
