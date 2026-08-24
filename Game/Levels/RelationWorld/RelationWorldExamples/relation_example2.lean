@@ -26,6 +26,9 @@ Statement {u : Type} (R S: Rel_on u) (hR: isTransitive R) (hS: isTransitive S) (
   obtain l3: R mid3 c
   exact hR hmid3r hmid2r
   use mid3
+  constructor
+  exact l2
+  exact l3
 
 
 Conclusion "Proof in English?"

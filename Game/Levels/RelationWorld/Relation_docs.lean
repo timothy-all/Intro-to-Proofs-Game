@@ -197,7 +197,7 @@ Equiv_class_rep_ind
 (eq: isEquivalence R)
 (a b: u)
 (h: b ∈ EquivClass R a) :
-  EquivClass R a = EquivClass R b
+  equivClass R a = equivClass R b
 ```
 -/
 TheoremDoc Equiv_class_rep_ind as "REL: Equiv_class_rep_ind"

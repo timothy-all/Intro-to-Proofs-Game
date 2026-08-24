@@ -23,4 +23,4 @@ Statement Equiv_class_has_rep {u : Type*} (R: Rel_on u) (eq: isEquivalence R) (a
 
 Conclusion "English proof?"
 
-NewDefinition EquivClass
+NewDefinition equivClass

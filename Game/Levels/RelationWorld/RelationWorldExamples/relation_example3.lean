@@ -12,6 +12,9 @@ Statement {u : Type} (R S: Rel_on u) (hR: isReflexive R) (hS: isReflexive S) : i
   obtain hR' := hR x
   obtain hS' := hS x
   use x
+  constructor
+  exact hS'
+  exact hR'
 
 
 Conclusion "Proof in English?"

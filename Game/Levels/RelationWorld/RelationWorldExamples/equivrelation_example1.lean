@@ -14,6 +14,7 @@ Statement {u : Type*} (R S: Rel_on u) (eqR: isEquivalence R) (eqS: isEquivalence
   obtain k : equivClass R x.1 ∈ equivClassFamily S := by
     rw[← h]
     use x.1
+    rfl
   obtain ⟨y,hy⟩ := k
   obtain hx1 : x.1 ∈ equivClass S y := by
     rw [hy]
@@ -28,6 +29,7 @@ Statement {u : Type*} (R S: Rel_on u) (eqR: isEquivalence R) (eqS: isEquivalence
   obtain k : equivClass S x.1 ∈ equivClassFamily R := by
     rw[h]
     use x.1
+    rfl
   obtain ⟨y,hy⟩ := k
   obtain hx1 : x.1 ∈ equivClass R y := by
     rw [hy]
