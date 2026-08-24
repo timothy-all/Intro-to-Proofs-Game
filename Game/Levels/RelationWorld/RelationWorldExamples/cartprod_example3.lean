@@ -22,19 +22,6 @@ Statement (u v: Type) (A C: Set u) (B D: Set v) (h: ((A ×ˢ B) ∩ (C ×ˢ D) =
 
 Conclusion "Proof in English?"
 
-/- Use these commands to add items to the game's inventory. -/
-
---DefinitionDoc Set.Prod as "×ˢ"
-
-TheoremDoc mem_prod as "mem_prod"
-TheoremDoc Set.Subset.antisymm as "double_inclusion"
-
---TheoremDoc Set.eq_of_subset_of_subset as "double_inclusion"
-
---NewTactic intro apply symm Or.inl obtain
-NewTheorem mem_prod Set.Subset.antisymm
--- NewTheorem Nat.add_comm Nat.add_assoc
-NewDefinition Set.Prod
 
 /- Original proof; avoid using `have`
 theorem test (u v: Type) (A C: Set u) (B D: Set v) (h: ((A ×ˢ B) ∩ (C ×ˢ D) = ∅)): (A ∩ C = ∅) ∨ (B ∩ D = ∅) := by

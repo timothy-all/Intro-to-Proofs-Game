@@ -7,7 +7,7 @@ Title "Order Relations"
 
 Introduction "Recall that, if `S` is a subset of `u`, `subsetOrder S` is the subset partial order on `S`.
 
-In this exercise, you'll prove that the greatest lower bound of a  family of sets `F` is `⋂F`."
+In this exercise, you'll prove that the greatest lower bound of a family of sets `F` is `⋂F`."
 
 Statement {u : Type*} (F : Set (Set u)) : isInfimum (subsetOrder u) (⋂₀ F) F := by
   constructor

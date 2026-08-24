@@ -7,8 +7,7 @@ Title "Equivalence Relations"
 
 Introduction "Another important and basic fact about equivalence classes is the fact that equivalence classes are independent of representative; that is, if `b ∈ equivClass R a`, then `equivclass R a = equivClass R b`. Let's prove this."
 
-/-- This is the proof that `a ∈ equivClass R a`. --/
-TheoremDoc Equiv_class_rep_ind as "REL: Equiv_class_rep_ind"
+
 
 
 Statement Equiv_class_rep_ind {u : Type*} (R: Rel_on u) (eq: isEquivalence R) (a b: u) (h: b ∈ equivClass R a) : equivClass R a = equivClass R b := by
@@ -22,3 +21,6 @@ Statement Equiv_class_rep_ind {u : Type*} (R: Rel_on u) (eq: isEquivalence R) (a
   exact eq.tran h hx
 
 Conclusion "English proof?"
+
+
+NewTheorem Equiv_class_has_rep

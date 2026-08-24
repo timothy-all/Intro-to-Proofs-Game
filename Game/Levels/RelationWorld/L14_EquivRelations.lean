@@ -25,5 +25,5 @@ Statement {u : Type*} (R: Rel_on u) (eq: isEquivalence R) : ∅ ∉ equivClassFa
 
 Conclusion "English proof?"
 
-/-- If `R` is an equivalence relation on type `u`, `equivClassFamily R` is the set of equivalence classes of `R`; that is, `{ equivClass R a | a : u}`.-/
-DefinitionDoc equivClassFamily as "REL: equivClassFamily"
+NewTheorem Equiv_class_rep_ind
+NewDefinition equivClassFamily

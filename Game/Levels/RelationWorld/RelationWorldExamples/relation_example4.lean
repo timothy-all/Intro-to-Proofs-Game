@@ -11,8 +11,7 @@ Statement {u v : Type} (R S: Rel u v) (h: R.set ⊆ S.set) : R.inv.set ⊆ S.inv
   intro x k
   obtain h': (x.2,x.1) ∈ R.set := by
     exact k
-  obtain h'':= h h'
-  exact h''
+  exact h h'
 
 Conclusion "Proof in English?"
 
