@@ -7,7 +7,9 @@ Level 16
 
 Title "Equivalence Relations"
 
-Introduction "Finally, we need to show that equivalence classes are pairwise disjoint. This is RelationWorld's boss level!"
+Introduction "  ## **Level 16**
+
+Finally, we need to show that equivalence classes are pairwise disjoint. This is RelationWorld's boss level!"
 
 
 Statement {u : Type*} (R: Rel_on u) (eq: isEquivalence R) : ∀ X Y, X ∈ equivClassFamily R → Y ∈ equivClassFamily R → X ∩ Y ≠ ∅ → X = Y  := by

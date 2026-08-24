@@ -5,7 +5,9 @@ Level 8
 
 Title "Relations 6"
 
-Introduction "Here is a standard transitive example."
+Introduction " ## **Level 8**
+
+Here is a standard transitive example."
 
 Statement {u : Type} (R: Rel_on u) : (R ∘ R).set ⊆ R.set ↔ isTransitive R := by
   constructor

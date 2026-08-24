@@ -5,7 +5,9 @@ Level 11
 
 Title "Order Relations"
 
-Introduction "Lastly, let's get some practice with bounds. Let's prove that largest elements are automatically also least upper bounds. Remember that `Supremum` is the fancy math word for least upper bound.
+Introduction " ## **Level 11**
+
+Lastly, let's get some practice with bounds. Let's prove that largest elements are automatically also least upper bounds. Remember that `Supremum` is the fancy math word for least upper bound.
 
 Note: Usually for definitions, the first letter is lowercase, but `upperBounds` is already declared in Lean with a more complicated definition than what we need.
 "

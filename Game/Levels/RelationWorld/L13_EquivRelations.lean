@@ -5,7 +5,9 @@ Level 13
 
 Title "Equivalence Relations"
 
-Introduction "Another important and basic fact about equivalence classes is the fact that equivalence classes are independent of representative; that is, if `b ∈ equivClass R a`, then `equivclass R a = equivClass R b`. Let's prove this."
+Introduction "  ## **Level 13**
+
+Another important and basic fact about equivalence classes is the fact that equivalence classes are independent of representative; that is, if `b ∈ equivClass R a`, then `equivclass R a = equivClass R b`. Let's prove this."
 
 
 

@@ -5,7 +5,9 @@ Level 10
 
 Title "Order Relations"
 
-Introduction "A standard order relation is the 'subset partial order' on a family of sets. If `S` is a subset of `u`, we can write `subsetOrder S` to get this partial order.
+Introduction " ## **Level 10**
+
+A standard order relation is the 'subset partial order' on a family of sets. If `S` is a subset of `u`, we can write `subsetOrder S` to get this partial order.
 
 To get some practice working with this explicit example, prove that the empty set is the smallest element of a power set using this order.
 

@@ -5,7 +5,9 @@ Level 12
 
 Title "Equivalence Relations"
 
-Introduction "Let's see how to work with equivalence relations in Lean. Fundamental to equivalence relations are their equivalence classes - check your inventory for Lean's terminology for equivalence classes.
+Introduction "  ## **Level 12**
+
+Let's see how to work with equivalence relations in Lean. Fundamental to equivalence relations are their equivalence classes - check your inventory for Lean's terminology for equivalence classes.
 
 The hypothesis `eq` tells us that `R` is an equivalence relation. You can use `eq.refl`, `eq.symm`, `eq.tran` to access the reflexive, symmetric, and transitive properties.
 

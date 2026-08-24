@@ -5,7 +5,9 @@ Level 4
 
 Title "Relations 2"
 
-Introduction "Composite relations are tricky to work with, but are super important.
+Introduction "  ## **Level 4**
+
+Composite relations are tricky to work with, but are super important.
 Let's get some practice with composites by proving the theorem in this level.
 You also have the domain and range for a relation added to your inventory - check out their definitions before proceeding."
 

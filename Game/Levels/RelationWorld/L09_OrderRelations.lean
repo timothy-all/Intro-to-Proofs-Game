@@ -5,7 +5,9 @@ Level 9
 
 Title "Order Relations"
 
-Introduction "All of the standard order relation definitions have been added to your inventory.
+Introduction " ## **Level 9**
+
+All of the standard order relation definitions have been added to your inventory.
 
 The hypothesis `po` tells us that `R` is a partial order. You can use `po.refl`, `po.anti`, `po.tran` to access the reflexive, anti-symmetric, and transitive properties.
 

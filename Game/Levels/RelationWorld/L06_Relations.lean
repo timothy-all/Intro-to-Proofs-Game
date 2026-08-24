@@ -5,7 +5,9 @@ Level 6
 
 Title "Relations 4"
 
-Introduction "Let's see how to use some of the special relation definitions that go into partial orders and equivalence relations. Since these are relations on single sets, we have the new definition `Rel.on A` as a shorthand for `Rel A A`.
+Introduction " ## **Level 6**
+
+Let's see how to use some of the special relation definitions that go into partial orders and equivalence relations. Since these are relations on single sets, we have the new definition `Rel.on A` as a shorthand for `Rel A A`.
 The names for our familiar definitions are `isReflexive`, `isSymmetric`, `isAntisymmetric`, and `isTransitive`. The definitions `isPartialOrder` and `isEquivalence` combine the relevant definitions. Check them out in your inventory.
 
 Let's go through a few basic examples."

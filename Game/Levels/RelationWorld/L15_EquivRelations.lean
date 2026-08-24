@@ -6,7 +6,9 @@ Level 15
 
 Title "Equivalence Relations"
 
-Introduction "Next, toward our goal of proving that `equivClassFamily R` is a partition, let's prove that every element of `u` belongs to some equivalence class."
+Introduction " ## **Level 15**
+
+Next, toward our goal of proving that `equivClassFamily R` is a partition, let's prove that every element of `u` belongs to some equivalence class."
 
 
 Statement {u : Type*} (R: Rel_on u) (eq: isEquivalence R) : ⋃₀ (equivClassFamily R) = univ := by

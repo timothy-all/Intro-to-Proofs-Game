@@ -5,7 +5,9 @@ Level 14
 
 Title "Equivalence Relations"
 
-Introduction "Recall that the family of equivalence classes of an equivalence relation give a `partition` of the set our relation is on.
+Introduction " ## **Level 14**
+
+Recall that the family of equivalence classes of an equivalence relation give a `partition` of the set our relation is on.
 
 Check your inventory for `equivClassFamily`, the notation for the family of equivalence classes.
 

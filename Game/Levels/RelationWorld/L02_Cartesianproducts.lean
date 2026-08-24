@@ -5,7 +5,9 @@ Level 2
 
 Title "Cartesian products"
 
-Introduction "The previous level suggests that we can conclude that an element fails to be in a Cartesian product as long as at least one coordinate fails to be in the required set.
+Introduction " ## **Level 2**
+
+The previous level suggests that we can conclude that an element fails to be in a Cartesian product as long as at least one coordinate fails to be in the required set.
 Let's prove it."
 
 

@@ -5,7 +5,9 @@ Level 7
 
 Title "Relations 5"
 
-Introduction "Here is a standard symmetric example."
+Introduction " ## **Level 7**
+
+Here is a standard symmetric example."
 
 Statement {u : Type} (R: Rel_on u) : R.inv.set ⊆ R.set ↔ isSymmetric R := by
   constructor
