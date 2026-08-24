@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-23\n"
+"POT-Creation-Date: 2026-08-24\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -346,21 +346,6 @@ msgid "# **Examples of Arguments**\n"
 "Let's get some practice validating arguments! This is really the beginning of *proof-writing* (the logical bones of it, anyway). The graphic of this world is the truth-table proof of the ***invalid*** argument that says: if §0 and §1 are true, then §2 must be true. See the highlighted row where the hypotheses are true, but the conclusion is false?"
 msgstr ""
 
-#. §0: `A : Set u`
-#. §1: `A`
-#. §2: `𝒫 A`
-#. §3: ```
-#. 𝒫 A := {s : Set u | s ⊆ A}
-#. ```
-#. §4: `B ∈ 𝒫 A`
-#. §5: `B ⊆ A`
-#: Game.Levels.SetWorld.L13_set
-msgid "# **Level 13**\n"
-"Given a set §0, the **power set** of §1, denoted §2 is defined as follows:\n"
-"§3\n"
-"So the membership proposition §4 means the same thing as §5."
-msgstr ""
-
 #. §0: `x ∉ ...`
 #. §1: `¬ x ∈ ...`
 #. §2: ```
@@ -496,19 +481,6 @@ msgid "## **Level 2**\n"
 "### **❯ The §3 tactic ... again**\n"
 "If the §4 tactic is called against a universally quantified goal, like §5, it will initialize a generic element of §6 and change the goal to §7 where §8 is whatever identifier we use with §9. In our case, 👉 try:\n"
 "§10"
-msgstr ""
-
-#. §0: `univ`
-#. §1: ```
-#. univ = {x | True}
-#. ```
-#. §2: `x ∈ univ`
-#. §3: `True`
-#: Game.Levels.SetWorld.L12_set
-msgid "# **Level 11**\n"
-"The **universal-set** denoted §0 is defined as follows:\n"
-"§1\n"
-"So the membership proposition §2 means the same thing as §3."
 msgstr ""
 
 #. §0: ```
@@ -656,6 +628,10 @@ msgid "# **Level 5**\n"
 "See how the statement of this level is precisely this argument?"
 msgstr ""
 
+#: Game.Levels.SetWorld.L12_set
+msgid "Our goal now is a universally quantified statement. Let's introduce a generic variable."
+msgstr ""
+
 #. §0: `rewrite[e]`
 #. §1: `e`
 #. §2: `e`
@@ -707,10 +683,10 @@ msgstr ""
 #. §3: `x`
 #. §4: `u`
 #. §5: `P x`
-#. §6: `use`
-#. §7: `use`
+#. §6: `exist`
+#. §7: `exist`
 #. §8: ```
-#. use a
+#. exist a
 #. ```
 #: Game.Levels.QuantifierWorld.L03_quant
 msgid "## **Level 3**\n"
@@ -891,6 +867,10 @@ msgstr ""
 msgid "Proof-by-cases"
 msgstr ""
 
+#: Game.Levels.SetWorld.L12_set
+msgid "The left-hand side of the logical equivalence in our goal is a membership of an intersection. Let's rewrite that."
+msgstr ""
+
 #: Game.Levels.SetWorld.L03_set
 msgid "Set Intersection"
 msgstr ""
@@ -1066,6 +1046,19 @@ msgstr ""
 msgid "Existential elimination"
 msgstr ""
 
+#. §0: `exist`
+#. §1: `⊢ ∃ x, p x`
+#. §2: `y`
+#. §3: ```
+#. exist y
+#. ```
+#. §4: `⊢ p y`
+#: Game.Levels.QuantifierWorld.quant_docs
+msgid "The §0 tactic is useful for existential goals. Specifically, if the goal is of the form §1, then assuming §2 is a known object in the tactic state we get that\n"
+"§3\n"
+"Will change the goal to §4."
+msgstr ""
+
 #: Game.Levels.QuantifierWorld.L01_quant
 msgid "This valid argument is known as *Universal Specification*."
 msgstr ""
@@ -1083,6 +1076,18 @@ msgstr ""
 #. §0: `I`
 #: Game.Levels.SetWorld.L10_set
 msgid "See how the goal is an existentially quantified statement over the indexing set §0 now? We need a witness."
+msgstr ""
+
+#. §0: `B ∈ 𝒫 A`
+#. §1: `B ⊆ A`
+#. §2: `«{C}» ∈ 𝒫 A`
+#. §3: ```
+#. rw[mem_powerset_iff]
+#. ```
+#: Game.Levels.SetWorld.L13_set
+msgid "Great. Now, the membership proposition §0 means the same thing as §1. 👉 To rewrite §2 in this form, try\n"
+"§3\n"
+""
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
@@ -1133,6 +1138,10 @@ msgstr ""
 
 #: Game.Levels.QuantifierWorld.L01_quant
 msgid "Universal specification"
+msgstr ""
+
+#: Game.Levels.SetWorld.L11_set
+msgid "Great. Now we have a universally quantified statement as our goal. Let's introduce a generic variable."
 msgstr ""
 
 #. §0: $$ P ∨ T₀ ↔ T₀ $$
@@ -1645,6 +1654,10 @@ msgstr ""
 msgid "Set Union"
 msgstr ""
 
+#: Game.Levels.SetWorld.L13_set
+msgid "See if you can't finish the level! There's a theorem proven earlier in this world that you can use to one-shot it from here."
+msgstr ""
+
 #. §0: `⋂₀`
 #. §1: $$
 #. ⋂₀ F = ⋂_{t ∈ F} t
@@ -1670,19 +1683,6 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.L03_equiv
 msgid "An implication where the hypothesis is a chain of conjuntions is logically equivalent to a certain chain of implications."
-msgstr ""
-
-#. §0: `use`
-#. §1: `⊢ ∃ x, p x`
-#. §2: `y`
-#. §3: ```
-#. use y
-#. ```
-#. §4: `⊢ p y`
-#: Game.Levels.QuantifierWorld.quant_docs
-msgid "The §0 tactic use *use*ful (hehe) for existential goals. Specifically, if the goal is of the form §1, then assuming §2 is a known object in the tactic state we get that\n"
-"§3\n"
-"Will change the goal to §4."
 msgstr ""
 
 #. §0: `⋂`
@@ -2024,6 +2024,18 @@ msgid "This is the defintion of what it means to say that an integer is *even*. 
 "§0"
 msgstr ""
 
+#. §0: `univ`
+#. §1: ```
+#. univ = {x | True}
+#. ```
+#. §2: `set_eq_iff`
+#: Game.Levels.SetWorld.L12_set
+msgid "# **Level 12**\n"
+"The **universal-set** denoted §0 is defined as follows:\n"
+"§1\n"
+"Our current goal is a set equality; let's rewrite that goal using §2."
+msgstr ""
+
 #. §0: `«{hP}» : P`
 #: Game.Levels.ArgWorld.L06_arg
 msgid "We now have the hypothesis §0. We can clear the level in one line now if we're clever..."
@@ -2041,19 +2053,6 @@ msgid "### **💡 Pro-tip**\n"
 "The §0 tactic will push negations through logical connectives too. But be careful! For example, if §1, then §2 produces\n"
 "§3\n"
 "which *is* logically equivalent to §4 but perhaps you would have expected the latter. Lean prefers the former due its preference for currying."
-msgstr ""
-
-#. §0: `∅`
-#. §1: ```
-#. ∅ = {x | False}
-#. ```
-#. §2: `x ∈ ∅`
-#. §3: `False`
-#: Game.Levels.SetWorld.L11_set
-msgid "# **Level 11**\n"
-"The **empty-set** denoted §0 is defined as follows:\n"
-"§1\n"
-"So the membership proposition §2 means the same thing as §3."
 msgstr ""
 
 #. §0: `D`
@@ -2093,6 +2092,21 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
 msgid "The economic argument in symbols is given below."
+msgstr ""
+
+#. §0: `∅`
+#. §1: ```
+#. ∅ = {x | False}
+#. ```
+#. §2: ```
+#. rw[set_eq_iff]
+#. ```
+#: Game.Levels.SetWorld.L11_set
+msgid "# **Level 11**\n"
+"The **empty-set** denoted §0 is defined as follows:\n"
+"§1\n"
+"Our goal is an equality of sets. 👉 So let's get started with\n"
+"§2"
 msgstr ""
 
 #. §0: `rewrite`
@@ -2314,6 +2328,11 @@ msgstr ""
 msgid "Example 9"
 msgstr ""
 
+#. §0: `⊢ _ ∧ False ↔ False`
+#: Game.Levels.SetWorld.L11_set
+msgid "We now have §0 as our goal. There's a theorem from **Logical Equivalence World** that will clear the goal for us."
+msgstr ""
+
 #. §0: `«{hQR}» : Q ∧ R`
 #: Game.Levels.ArgWorld.L05_arg
 msgid "Now we have §0. Almost done..."
@@ -2410,8 +2429,8 @@ msgstr ""
 msgid "See how the assumption §0 is a universally quantified statement over the indexing set §1 now? We can clear this level with one more tactic call."
 msgstr ""
 
-#. §0: `use`
-#. §1: `use a`
+#. §0: `exist`
+#. §1: `exist a`
 #. §2: $a$
 #: Game.Levels.QuantifierWorld.L03_quant
 msgid "The §0 tactic supplies a *witness* to an existential goal; our job going forward is to prove that our witness truly satisfies the predicate.\n"
@@ -2433,7 +2452,7 @@ msgstr ""
 #. §2: `mem_union_iff`
 #. §3: `x ∈ A ∩ B ↔ x ∈ A ∨ x ∈ B`
 #. §4: ```
-#. mem_inter_iff
+#. mem_union_iff
 #.   {u : Type*}
 #.   (x : u)
 #.   (a b : Set u) :
@@ -2522,6 +2541,18 @@ msgid "# **Level 4**\n"
 "This valid argument is sometimes called the law of **Conjunctive Simplification**."
 msgstr ""
 
+#. §0: `x ∈ ∅`
+#. §1: `False`
+#. §2: `x ∈ ∅`
+#. §3: ```
+#. rw[mem_empty_iff_false]
+#. ```
+#: Game.Levels.SetWorld.L11_set
+msgid "Preem. Now, the membership proposition §0 means the same thing as §1. 👉 To rewrite §2 in this form try\n"
+"§3\n"
+""
+msgstr ""
+
 #. §0: `A`
 #. §1: `u`
 #. §2: `m`
@@ -2544,6 +2575,18 @@ msgstr ""
 #: Game.Levels.ArgWorld.arg_docs
 #: Game.Levels.ArgWorld.arg_docs
 msgid "The §0 tactic is useful for targeting goals that are disjunctions. Specifically, if our goal is of the form §1, the tactic §2 will make our new goal §3."
+msgstr ""
+
+#. §0: `x ∈ univ`
+#. §1: `True`
+#. §2: `x ∈ univ`
+#. §3: ```
+#. rw[mem_univ_iff_true]
+#. ```
+#: Game.Levels.SetWorld.L12_set
+msgid "The membership proposition §0 means the same thing as §1. 👉 To rewrite §2 in this form, try\n"
+"§3\n"
+""
 msgstr ""
 
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
@@ -2602,6 +2645,7 @@ msgid "Intersections of indexed families"
 msgstr ""
 
 #: Game.Levels.SetWorld.L04_set
+#: Game.Levels.SetWorld.L12_set
 msgid "Almost done."
 msgstr ""
 
@@ -2708,6 +2752,20 @@ msgstr ""
 #: Game.Levels.ArgWorld.ArgWorld_eg.L06_arg
 msgid "# **Level 6**\n"
 "Here's an abstract example."
+msgstr ""
+
+#. §0: `A : Set u`
+#. §1: `A`
+#. §2: `𝒫 A`
+#. §3: ```
+#. 𝒫 A := {s : Set u | s ⊆ A}
+#. ```
+#. §4: `intro`
+#: Game.Levels.SetWorld.L13_set
+msgid "# **Level 13: Power Sets**\n"
+"Given a set §0, the **power set** of §1, denoted §2 is defined as follows:\n"
+"§3\n"
+"Our current goal is a subset relation which we know is a unviersally quantified statement. Let's §4 the appropriate stuff."
 msgstr ""
 
 #: Game.Levels.PfWorld.PfWorld_eg.L14_pf
@@ -3027,27 +3085,6 @@ msgstr ""
 msgid "### **Level 6**"
 msgstr ""
 
-#. §0: `A : I → Set u`
-#. §1: `A`
-#. §2: `I`
-#. §3: `Set u`
-#. §4: `u`
-#. §5: `A`
-#. §6: `I = {1,2,3}`
-#. §7: ```
-#. ⋂ i, A i = { x | ∀ i, x ∈ A i}
-#. ```
-#: Game.Levels.SetWorld.L10_set
-msgid "# **Level 9: Unions of Indexed Families**\n"
-"| | | |\n"
-"|---|:---:|---|\n"
-"| | ![Venn diagram of intersection of an indexed family](images/venn_iinter.png) | |\n"
-">\n"
-"Let §0. This means that §1 is a function from §2 (an indexing set) to §3, sets in the universe §4. Or as we say in class, an **indexed** family of sets. The intersection of all members of §5 (illustrated above where §6) is defined by:\n"
-"§7\n"
-"But, as before, first and foremost our goal is a subset relation which we know is really just a universally quantified goal. Let's begin by introducing the appropriate stuff..."
-msgstr ""
-
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg
 msgid "Quantifier World Examples"
 msgstr ""
@@ -3067,6 +3104,10 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.L05_arg
 msgid "This valid argument is known as *Conjunctive Amplification*."
+msgstr ""
+
+#: Game.Levels.SetWorld.L11_set
+msgid "Super. We now need to prove this logical equivalence. We might start by rewriting what it means to be a member of an intersection..."
 msgstr ""
 
 #. §0: `∧`
@@ -3095,6 +3136,27 @@ msgid "This is the **Associative Law** for §0. It says that\n"
 "\n"
 "The proof of §2 is given in the truth-table below:\n"
 "§3"
+msgstr ""
+
+#. §0: `A : I → Set u`
+#. §1: `A`
+#. §2: `I`
+#. §3: `Set u`
+#. §4: `u`
+#. §5: `A`
+#. §6: `I = {1,2,3}`
+#. §7: ```
+#. ⋂ i, A i = { x | ∀ i, x ∈ A i}
+#. ```
+#: Game.Levels.SetWorld.L10_set
+msgid "# **Level 10: Unions of Indexed Families**\n"
+"| | | |\n"
+"|---|:---:|---|\n"
+"| | ![Venn diagram of intersection of an indexed family](images/venn_iinter.png) | |\n"
+">\n"
+"Let §0. This means that §1 is a function from §2 (an indexing set) to §3, sets in the universe §4. Or as we say in class, an **indexed** family of sets. The intersection of all members of §5 (illustrated above where §6) is defined by:\n"
+"§7\n"
+"But, as before, first and foremost our goal is a subset relation which we know is really just a universally quantified goal. Let's begin by introducing the appropriate stuff..."
 msgstr ""
 
 #. §0: `A B : Set u`

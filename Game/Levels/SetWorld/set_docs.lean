@@ -25,7 +25,7 @@ A ∪ B = {x | x ∈ A ∨ x ∈ B}
 ```
 So `mem_union_iff` says specifically that `x ∈ A ∩ B ↔ x ∈ A ∨ x ∈ B`. Here's how it looks in Lean:
 ```
-mem_inter_iff
+mem_union_iff
   {u : Type*}
   (x : u)
   (a b : Set u) :

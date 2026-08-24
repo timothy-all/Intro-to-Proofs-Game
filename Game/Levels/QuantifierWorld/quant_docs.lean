@@ -1,13 +1,13 @@
 import GameServer
 
 /--
-The `use` tactic use *use*ful (hehe) for existential goals. Specifically, if the goal is of the form `⊢ ∃ x, p x`, then assuming `y` is a known object in the tactic state we get that
+The `exist` tactic is useful for existential goals. Specifically, if the goal is of the form `⊢ ∃ x, p x`, then assuming `y` is a known object in the tactic state we get that
 ```
-use y
+exist y
 ```
 Will change the goal to `⊢ p y`.
 -/
-TacticDoc use
+TacticDoc exist
 
 
 /--
