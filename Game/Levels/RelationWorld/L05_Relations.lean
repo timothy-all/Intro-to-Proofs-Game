@@ -17,10 +17,10 @@ Let's check out that the set of ordered pairs for `Rel.id` is exactly what we ex
 Statement Rel_id_set {u : Type} : (Rel_id u).set = {(a,a) | a : u} := by
   apply double_inclusion
   intro x hx
-  unfold Rel.set at hx
-  use x.1
-  nth_rw 2 [hx]
-  intros x hx
+  rw[Rel.set] at hx
+  exist x.1
+  nth_rw 2 [hx] -- intro nth-rewrite
+  intro x hx
   obtain ⟨a,ha⟩ := hx
   rw [←ha]
   rfl

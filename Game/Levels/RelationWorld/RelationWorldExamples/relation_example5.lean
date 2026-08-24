@@ -13,13 +13,13 @@ Statement {u v : Type} (R S: Rel u v) : (Rel_union R S).inv = Rel_union R.inv S.
   apply Rel_double_inclusion
   apply double_inclusion
   intro x h
-  rcases h with hP | hQ
+  obtain hP | hQ := h
   left
   exact hP
   right
   exact hQ
   intro x h
-  rcases h with hP | hQ
+  obtain hP | hQ := h
   left
   exact hP
   right

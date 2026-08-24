@@ -10,18 +10,44 @@ Introduction "Double inclusion exercise involving Cartesian products.
 
 Note: It is possible to prove this just using rewrites, but the intent is to get double inclusion practice. Start with `apply double_inclusion` to set up your double inclusion proof."
 
-
+open Set
 
 Statement (u v: Type) (A: Set u) (B C: Set v) : A ×ˢ (B \ C) = (A ×ˢ B) \ (A ×ˢ C) := by
-  apply Set.Subset.antisymm
-  rw[Set.subset_def]
+  apply double_inclusion
+  --rw[subset_def]
   intro x
   intro h
-  rw [Set.mem_diff,Mem_prod,Mem_prod,Not_and,And_comm (x.1 ∈ A), And_assoc,And_or_left,And_not_self,False_or,← And_assoc, And_comm (x.2 ∈ B), And_assoc,← Set.mem_diff,← Mem_prod]
+  rw [mem_diff_iff,
+    Mem_prod, -- mem_prod_iff def
+    Mem_prod,
+    Not_and,
+    And_comm (x.1 ∈ A),
+    And_assoc,
+    And_or_left,
+    And_not_self,
+    False_or,
+    ← And_assoc,
+    And_comm (x.2 ∈ B),
+    And_assoc,
+    ← mem_diff_iff,
+    ← Mem_prod]
   exact h
   intro x
   intro h
-  rw [Set.mem_diff,Mem_prod,Mem_prod,Not_and,And_comm (x.1 ∈ A), And_assoc,And_or_left,And_not_self,False_or,← And_assoc, And_comm (x.2 ∈ B), And_assoc,← Set.mem_diff,← Mem_prod] at h
+  rw [mem_diff_iff,
+    Mem_prod,
+    Mem_prod,
+    Not_and,
+    And_comm (x.1 ∈ A),
+    And_assoc,
+    And_or_left,
+    And_not_self,
+    False_or,
+    ← And_assoc,
+    And_comm (x.2 ∈ B),
+    And_assoc,
+    ← mem_diff_iff,
+    ← Mem_prod] at h
   exact h
 
 

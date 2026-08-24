@@ -16,7 +16,7 @@ Let's prove it."
 Statement Fst_not_mem_not_mem_prod {u v: Type*} (A: Set u) (B: Set v) (x : u) (y: v) (h: x ∉ A) : (x,y) ∉ (A ×ˢ B) := by
   Hint "Use the previous level to simplify, then you'll need to use known facts about `or` statements."
   rw [Mem_prod,Not_and]
-  apply Or.intro_left
+  left
   exact h
 
 

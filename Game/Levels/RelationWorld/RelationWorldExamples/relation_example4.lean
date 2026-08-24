@@ -9,8 +9,8 @@ Introduction "Practice with inverses."
 
 Statement {u v : Type} (R S: Rel u v) (h: R.set ⊆ S.set) : R.inv.set ⊆ S.inv.set := by
   intro x k
-  obtain h': (x.2,x.1) ∈ R.set := by
-    exact k
+  obtain h': (x.2,x.1) ∈ R.set
+  exact k
   exact h h'
 
 Conclusion "Proof in English?"

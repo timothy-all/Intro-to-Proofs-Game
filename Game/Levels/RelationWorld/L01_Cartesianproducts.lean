@@ -15,12 +15,12 @@ Note: When discussing relations in Lean, we won't actually use Cartesian product
 
 The terms `x.fst` and `x.snd` showing up in the goal are how Lean denotes the first and second coordinates of `x`. We will often use the simpler `x.1` and `x.2` to access the coordinates. Check out your inventory for more information on the set Cartesian product `×ˢ`"
 
-
+open Set -- include this
 
 Statement Not_mem_prod {u v: Type*} {x : u} {y : v} (A: Set u) (B: Set v)  (h: (x,y) ∉ (A ×ˢ B)) : x ∉ A ∨ y ∉ B := by
   Hint "Let's start by unpacking what it means for `x` to be in a Cartesian product (so we can negate it).
-  Try rewriting the set membership using its definition: `rw [mem_prod] at h`."
-  rw [Mem_prod] at h
+  Try rewriting the set membership using its definition: `rw [Mem_prod] at h`."
+  rw [Mem_prod] at h -- rename mem_prod_iff and doc in defs
   Hint "Lean treats `(x,y).1` as the same thing as `x` - no need to rewrite it further to use it just like `x`, though in proofs written by hand we certainly would write just `x`. (This same notation works with Cartesian products of types later!)
   You should be able to finish it from here!"
   rw [Not_and] at h
@@ -34,4 +34,4 @@ Since `x ∉ A × B`, we know that it's not true that the first coordinate of `x
 
 NewDefinition Set.prod
 
-NewTheorem Mem_prod
+NewTheorem Mem_prod --change to NewDefinition

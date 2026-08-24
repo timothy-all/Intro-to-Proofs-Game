@@ -13,7 +13,10 @@ Introduction "
 
 open Set
 
+/-- This statement says
 
+$$ \displaystyle ⋂_{i ∈ I} A_i \setminus B_i = $$
+ -/
 Statement {u : Type*} {I : Type*} (A B : I → Set u) : ⋂ i, (A i \ B i) = (⋂ i, A i ) \ (⋃ i, B i) := by
   rw[set_eq_iff]
   intro x

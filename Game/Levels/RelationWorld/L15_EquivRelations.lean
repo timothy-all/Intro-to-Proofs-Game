@@ -19,9 +19,10 @@ Statement {u : Type*} (R: Rel_on u) (eq: isEquivalence R) : ⋃₀ (equivClassFa
   Hint "This is the direction where we have to say something - `intro a ha` to grab an arbitrary element of the universe."
   intro a ha
   Hint "We have to find an equivalence class containing `a`. What should it be?"
-  use (equivClass R a)
+  exist (equivClass R a)
   constructor
-  use a
+  exist a
+  rfl
   exact Equiv_class_has_rep R eq a
 
 

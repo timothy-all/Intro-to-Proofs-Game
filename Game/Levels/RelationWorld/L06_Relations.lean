@@ -18,7 +18,8 @@ Statement {u : Type} (R: Rel_on u) : (Rel_id u).set ⊆ R.set ↔ isReflexive R 
   rw [Rel_id_set] at k
   obtain l: (y,y) ∈ R.set
   apply k
-  use y
+  exist y
+  rfl
   exact l
   intro k y l
   rw [Rel_id_set] at l

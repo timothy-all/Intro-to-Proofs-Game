@@ -11,16 +11,16 @@ Statement {u v w : Type} (R: Rel u v) (S: Rel v w) (h: R.range ⊆ S.dom) : R.do
   intro x k
   obtain ⟨y, hy⟩ := k
   obtain hy2 : y ∈ R.range
-  use x
+  exist x
   exact hy
   apply h at hy2
   obtain ⟨z,hz⟩ := hy2
-  use z
-  use y
+  exist z
+  exist y
   constructor
   exact hy
   exact hz
 
 Conclusion "Proof in English?"
 
-/- Use these commands to add items to the game's inventory. -/
+/- exist these commands to add items to the game's inventory. -/

@@ -11,7 +11,7 @@ Statement {u : Type} (R S: Rel_on u) (hR: isReflexive R) (hS: isReflexive S) : i
   intro x
   obtain hR' := hR x
   obtain hS' := hS x
-  use x
+  exist x
   constructor
   exact hS'
   exact hR'

@@ -12,8 +12,8 @@ In the statement of the theorem below, we're assuming `A` and `C` come from the 
 
 Statement (u v: Type) (A C: Set u) (B D: Set v) (h: ((A ×ˢ B) ∩ (C ×ˢ D) = ∅)): (A ∩ C = ∅) ∨ (B ∩ D = ∅) := by
   by_contra! F
-  rw[Set.nonempty_def,Set.nonempty_def] at F
-  rcases F with ⟨⟨x,hx⟩,⟨y,hy⟩⟩
+  --rw[Set.nonempty_def,Set.nonempty_def] at F
+  obtain ⟨⟨x,hx⟩,⟨y,hy⟩⟩ := F
   obtain hAB : (x,y) ∈ A ×ˢ B := And.intro hx.left hy.left
   obtain hCD : (x,y) ∈ C ×ˢ D := And.intro hx.right hy.right
   obtain F : (x,y) ∈ (A ×ˢ B) ∩ (C ×ˢ D) := And.intro hAB hCD

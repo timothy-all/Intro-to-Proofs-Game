@@ -13,10 +13,11 @@ Statement {u : Type} (R: Rel_on u) : (R ∘ R).set ⊆ R.set ↔ isTransitive R 
   constructor
   intro h a b c k l
   obtain i : (a,c) ∈ (R ∘ R).set
-  use b
+  exist b
+  refine ⟨k,l⟩
   exact h i
   intro h x k
-  rcases k with ⟨y,hy⟩
+  obtain ⟨y,hy⟩ := k
   exact h hy.left hy.right
 
 
