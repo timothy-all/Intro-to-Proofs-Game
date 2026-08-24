@@ -25,3 +25,18 @@ Conclusion "English proof?"
 
 /-- `subsetOrder u` is the subset order relation on a type `u`.-/
 DefinitionDoc subsetOrder as "REL: subsetOrder"
+
+open Set
+
+example (u : Type*) : isSmallest (subsetOrder u) ∅ := by
+  Hint "Start by breaking up our `and` goal using `constructor`."
+  constructor
+  Hint "The `Set.univ` here is the universe of subsets of `S`, so having the empty set as an element is expected! `apply Set.mem_univ` to close the goal."
+  rw[mem_univ_iff_true]
+  exact trivial
+  Hint "Can you finish from here?"
+  intro h
+  intro k
+  rw[subsetOrder]
+  intro x hx
+  contradiction
