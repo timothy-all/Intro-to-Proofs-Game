@@ -12,9 +12,6 @@ The hypothesis `eq` tells us that `R` is an equivalence relation. You can use `e
 First, let's prove the fundamental fact that equivalence classes are nonempty. More specifically, the equivalence class of `a` contains `a`."
 
 
-/-- This is the proof that `a ∈ equivClass R a`. --/
-TheoremDoc Equiv_class_has_rep as "REL: Equiv_class_has_rep"
-
 
 Statement Equiv_class_has_rep {u : Type*} (R: Rel_on u) (eq: isEquivalence R) (a : u)
  : a ∈ equivClass R a := by
@@ -24,6 +21,4 @@ Statement Equiv_class_has_rep {u : Type*} (R: Rel_on u) (eq: isEquivalence R) (a
 
 Conclusion "English proof?"
 
-
-/-- If `R` is an equivalence relation on `u`, `equivClass R a` is the equivalence class of `a : u`; that is, `equivClass R a = { b | R a b}`.-/
-DefinitionDoc equivClass as "REL: equivClass"
+NewDefinition EquivClass

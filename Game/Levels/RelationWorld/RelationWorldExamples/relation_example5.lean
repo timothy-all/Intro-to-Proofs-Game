@@ -7,7 +7,7 @@ Title "Relations"
 
 Introduction "This exercise concerns the union of two relations. Since relations in the Intro Proofs Game use types, not sets, we have to be a bit careful about what this means.
 
-In short, `(Rel_union R S) u v` is true when either `R u v` or `S u v`. Try the problem below."
+In short, `(Rel_union R S) u v` is true when either `R u v` or `S u v`. Try the problem below, and check your inventory for more information on `Rel_union`."
 
 Statement {u v : Type} (R S: Rel u v) : (Rel_union R S).inv = Rel_union R.inv S.inv  := by
   apply Rel_double_inclusion
@@ -27,7 +27,4 @@ Statement {u v : Type} (R S: Rel u v) : (Rel_union R S).inv = Rel_union R.inv S.
 
 Conclusion "Proof in English?"
 
-/- Use these commands to add items to the game's inventory. -/
-
-/-- `Rel_union R S` is the "union" of the relations `R` and `S`. -/
-DefinitionDoc Rel_union as "REL: Rel_union"
+NewDefinition Rel_union

@@ -20,5 +20,3 @@ Statement {u : Type} (R: Rel_on u) : R.inv.set ⊆ R.set ↔ isSymmetric R := by
 
 
 Conclusion "English proof?"
-
-/- Use these commands to add items to the game's inventory. -/

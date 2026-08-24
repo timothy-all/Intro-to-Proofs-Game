@@ -24,9 +24,9 @@ infix:70 " ∘ " => Rel_comp
 
 def Rel_on (u : Type*) := Rel u u
 
-def Rel_id (u : Type*) : Rel_on u := fun (u1: u) (u2: u) => u1 = u2
+def Rel_id (u : Type*) : Rel_on u := fun u1 u2 => u1 = u2
 
-def Rel_union {u v : Type*} (R S : Rel u v) : Rel u v := fun (a : u) (b : v) => R a b ∨ S a b
+def Rel_union {u v : Type*} (R S : Rel u v) : Rel u v := fun a b => R a b ∨ S a b
 
 def isReflexive {u : Type*} (R: Rel_on u) := ∀ a, R a a
 
@@ -110,16 +110,25 @@ theorem Rel_double_inclusion {u v: Type*} (R: Rel u v) (S: Rel u v) : R.set = S.
   rw [← h] at h1
   exact h1
 
-theorem mem_union.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∪ b ↔ x ∈ a ∨ x ∈ b := by
-  rw[Set.mem_union]
+--theorem mem_union_iff.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∪ b ↔ x ∈ a ∨ x ∈ b := by
+--  rw[Set.mem_union]
 
-theorem mem_inter.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∩ b ↔ x ∈ a ∧ x ∈ b := by
+theorem mem_inter_iff.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∩ b ↔ x ∈ a ∧ x ∈ b := by
   rw [Set.mem_inter_iff]
 
-theorem mem_prod {α : Type u} {β : Type v} (s : Set α) (t : Set β) (p : α × β) : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
+theorem Mem_prod {α : Type u} {β : Type v} {p : α × β} (s : Set α) (t : Set β) : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
   exact Set.mem_prod
 
-theorem snd_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: y ∉ B) : (x,y) ∉ (A ×ˢ B) := by
-  rw [mem_prod,not_and_or]
+theorem Snd_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: y ∉ B) : (x,y) ∉ (A ×ˢ B) := by
+  rw [Mem_prod,not_and_or]
   apply Or.intro_right
   exact h
+
+open Lean Elab Tactic
+
+syntax "evaluate " term " at " term " with " ident ident ident : tactic
+elab_rules : tactic
+| `(tactic| evaluate $f at $a with $b $hbf $hbu) => do
+      evalTactic (← `(tactic|
+        obtain ⟨$b,⟨__a,__b⟩⟩ := $f $a; dsimp at __b; rename_i $hbu:ident; rename_i $hbf:ident;
+      ))

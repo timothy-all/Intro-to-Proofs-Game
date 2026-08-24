@@ -17,5 +17,3 @@ Statement {u : Type*} (R : Rel_on u) (B1 B2: Set u) (x1 x2: u) (h1: isSupremum R
   exact h1lub x2 x2ubB1
 
 Conclusion "Proof in English?"
-
-/- Use these commands to add items to the game's inventory. -/

@@ -39,5 +39,3 @@ Statement {u : Type*} (R S: Rel_on u) (eqR: isEquivalence R) (eqS: isEquivalence
   exact eqR.tran hx1y hx2
 
   Conclusion "Proof in English?"
-
-/- Use these commands to add items to the game's inventory. -/

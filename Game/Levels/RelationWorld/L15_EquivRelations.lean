@@ -12,7 +12,7 @@ Introduction "Next, toward our goal of proving that `equivClassFamily R` is a pa
 Statement {u : Type*} (R: Rel_on u) (eq: isEquivalence R) : ⋃₀ (equivClassFamily R) = univ := by
   Hint "This is an equality of sets, so as usual, `apply double_inclusion`."
   apply double_inclusion
-  Hint "Every set is a subset of the universe, so this is trivial & Lean knows it - `exact subset_univ (⋃₀ (equivClassFamily R))` closes the goal."
+  Hint "Every set is a subset of the universe, so this is trivial & Lean knows it - `exact subset_univ (⋃₀ (EquivClassFamily R))` closes the goal."
   exact subset_univ (⋃₀ (equivClassFamily R))
   Hint "This is the direction where we have to say something - `intro a ha` to grab an arbitrary element of the universe."
   intro a ha

@@ -1,4 +1,4 @@
-import Game.Metadata
+import Game.Levels.RelationWorld.Metadata_RelationWorld
 import Game.Levels.RelationWorld
 
 World "RelationWorldExamples"
@@ -17,11 +17,11 @@ Statement (u v: Type) (A: Set u) (B C: Set v) : A ×ˢ (B \ C) = (A ×ˢ B) \ (A
   rw[Set.subset_def]
   intro x
   intro h
-  rw [Set.mem_diff,mem_prod,mem_prod,Not_and,And_comm (x.1 ∈ A), And_assoc,And_or_left,And_not_self,False_or,← And_assoc, And_comm (x.2 ∈ B), And_assoc,← Set.mem_diff,← mem_prod]
+  rw [Set.mem_diff,Mem_prod,Mem_prod,Not_and,And_comm (x.1 ∈ A), And_assoc,And_or_left,And_not_self,False_or,← And_assoc, And_comm (x.2 ∈ B), And_assoc,← Set.mem_diff,← Mem_prod]
   exact h
   intro x
   intro h
-  rw [Set.mem_diff,mem_prod,mem_prod,Not_and,And_comm (x.1 ∈ A), And_assoc,And_or_left,And_not_self,False_or,← And_assoc, And_comm (x.2 ∈ B), And_assoc,← Set.mem_diff,← mem_prod] at h
+  rw [Set.mem_diff,Mem_prod,Mem_prod,Not_and,And_comm (x.1 ∈ A), And_assoc,And_or_left,And_not_self,False_or,← And_assoc, And_comm (x.2 ∈ B), And_assoc,← Set.mem_diff,← Mem_prod] at h
   exact h
 
 
@@ -35,6 +35,6 @@ Conclusion "Proof in English?"
 --TheoremDoc Set.eq_of_subset_of_subset as "double_inclusion"
 
 --NewTactic intro apply symm Or.inl obtain
-NewTheorem mem_prod Set.Subset.antisymm
+--NewTheorem Mem_prod Set.Subset.antisymm
 -- NewTheorem Nat.add_comm Nat.add_assoc
-NewDefinition Set.Prod
+--NewDefinition Set.Prod

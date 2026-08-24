@@ -27,22 +27,4 @@ Statement {u : Type} (R: Rel_on u) : (Rel_id u).set ⊆ R.set ↔ isReflexive R 
 
 Conclusion "English proof?"
 
-/- Use these commands to add items to the game's inventory. -/
-
-/-- `Rel_on A` is the same thing as `Rel A A`. Shorthand for a relation on a single set. -/
-DefinitionDoc Rel_on as "REL: Rel_on"
-
-/-- Makes a relation `R` reflexive. -/
-DefinitionDoc isReflexive as "REL: isReflexive"
-
-/-- Makes a relation `R` symmetric. -/
-DefinitionDoc isSymmetric as "REL: isSymmetric"
-
-/-- Makes a relation `R` anti-symmetric. -/
-DefinitionDoc isAntisymmetric as "REL: isAntiymmetric"
-
-/-- Makes a relation `R` transitive. -/
-DefinitionDoc isTransitive as "REL: isTransitive"
-
-/-- Makes a relation `R` an equivalence relation. -/
-DefinitionDoc isEquivalence as "REL: isEquivalence"
+NewDefinition isReflexive isSymmetric isAntisymmetric isTransitive isPartialOrder isEquivalence
