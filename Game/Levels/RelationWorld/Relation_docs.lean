@@ -15,7 +15,7 @@ DefinitionDoc Set.prod as "REL: ×ˢ"
 /--
 This tells us what it means to be a member of the Cartesian product of two **sets**. Here's how it looks in Lean:
 ```
-Mem_prod
+mem_prod_iff
 {u v : Type*}
 {x : u}
 {y : v}
@@ -26,7 +26,7 @@ Mem_prod
 ```
 Notice that `p` has type `u × v` - this is the **type** Cartesian product that is used extensively when talking about relations. It shows up here because `p` is an ordered pair that is not, a priori, known to have coordinates living in any sets.
 -/
-TheoremDoc Mem_prod as "REL: Mem_prod"
+DefinitionDoc mem_prod_iff as "REL: mem_prod_iff"
 
 
 /--

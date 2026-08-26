@@ -16,16 +16,16 @@ Statement (u v: Type) (A C: Set u) (B D: Set v) : (A ×ˢ B) \ (C ×ˢ D) = (A �
   intro x
   intro h
   rw[mem_diff_iff,
-    Mem_prod,
-    Mem_prod,
+    mem_prod_iff,
+    mem_prod_iff,
     Not_and,
     And_or_left] at h
   obtain h1 | h2 := h
-  rw[And_assoc, And_comm (x.2 ∈ B), ← And_assoc, ← mem_diff_iff,← Mem_prod] at h1
+  rw[And_assoc, And_comm (x.2 ∈ B), ← And_assoc, ← mem_diff_iff,← mem_prod_iff] at h1
   rw[mem_union_iff]
   apply Or.intro_right
   exact h1
-  rw[And_assoc, ← mem_diff_iff,← Mem_prod] at h2
+  rw[And_assoc, ← mem_diff_iff,← mem_prod_iff] at h2
   apply Or.intro_left
   exact h2
 
@@ -33,14 +33,14 @@ Statement (u v: Type) (A C: Set u) (B D: Set v) : (A ×ˢ B) \ (C ×ˢ D) = (A �
   intro h
   rw[mem_union_iff] at h
   obtain h1 | h2 := h
-  rw[Mem_prod, mem_diff_iff,← And_assoc, ← Mem_prod] at h1
+  rw[mem_prod_iff, mem_diff_iff,← And_assoc, ← mem_prod_iff] at h1
   rw[mem_diff_iff]
   constructor
   exact h1.left
   apply And.right at h1
   apply Snd_not_mem_not_mem_prod
   exact h1
-  rw[Mem_prod, mem_diff_iff,And_assoc, And_comm (x.1 ∉ C),← And_assoc, ← Mem_prod] at h2
+  rw[mem_prod_iff, mem_diff_iff,And_assoc, And_comm (x.1 ∉ C),← And_assoc, ← mem_prod_iff] at h2
   rw[mem_diff_iff]
   refine ⟨h2.left,?_⟩
   apply Fst_not_mem_not_mem_prod
