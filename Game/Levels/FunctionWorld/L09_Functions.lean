@@ -18,10 +18,10 @@ Statement {u v: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isInjective f) (U: 
   exact hc
   intro a ha
   evaluate hf at a with b hbf hbu
-  use b
-  constructor
-  use a
-  exact hbf
+  exist b
+  refine ⟨?_,hbf⟩
+  exist a
+  refine ⟨ha, hbf⟩
 
 
 Conclusion "."

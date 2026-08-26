@@ -19,7 +19,7 @@ Statement {u v: Type*} (f: Rel u v) (hf: isFunction f) :  isFunction f.inv → (
   exact Fun_output_equal f hf hmid1 hmid2
   intro x hx --Goal is (f ∘ f.inv) x.1 x.2, which is an existence statement
   evaluate finv at x.1 with b hbfinv hbu
-  use b
+  exist b
   refine ⟨hbfinv,?_⟩
   rw [← hx]
   exact hbfinv
@@ -29,7 +29,9 @@ Statement {u v: Type*} (f: Rel u v) (hf: isFunction f) :  isFunction f.inv → (
   intro x hx
   evaluate hf at x.1 with b hbf hbu
   evaluate finv at b with c hcfinv hcu
-  obtain finvfx1c : (f.inv ∘ f) x.1 c := by use b
+  obtain finvfx1c : (f.inv ∘ f) x.1 c
+  exist b
+  refine ⟨hbf,hcfinv⟩
   obtain finvffun : isFunction (f.inv ∘ f) := Fun_comp_fun f f.inv hf finv
   obtain hcx2 : x.2 = c := Fun_output_equal (f.inv ∘ f) finvffun hx finvfx1c
   rw[← hcx2] at hcu
@@ -37,7 +39,7 @@ Statement {u v: Type*} (f: Rel u v) (hf: isFunction f) :  isFunction f.inv → (
   --concludes difficult direction
   intro x hx
   evaluate hf at x.1 with b hbf hbu
-  use b
+  exist b
   refine ⟨hbf,?_⟩
   rw [← hx]
   exact hbf

@@ -10,18 +10,19 @@ Introduction "In the last few levels, we'll explore the equivalent conditions fo
 
 Let's start with bijections being invertible."
 
-/-- A bijection is invertible. -/
-TheoremDoc Fun_bij_is_invertible as "FUN: Fun_bij_is_invertible"
+
 
 Statement Fun_bij_is_invertible {u v: Type*} (f: Rel u v) (hf: isFunction f) : isBijection f → isFunction f.inv  := by
   intro h
   obtain ⟨finj,fsurj⟩ := h
   intro b
   obtain ⟨a,ha⟩ := fsurj b
-  use! a
-  refine ⟨ha,?_⟩
+  exist! a
+  exact ha
   intro y hy
   exact (finj ha hy).symm
 
 
 Conclusion "."
+
+NewTheorem Fun_bij_is_invertible

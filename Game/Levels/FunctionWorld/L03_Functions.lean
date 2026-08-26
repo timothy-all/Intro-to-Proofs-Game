@@ -8,8 +8,7 @@ Title "function"
 
 Introduction "Let's prove that the compositum of two functions is a function."
 
-/-- The compositum of two functions is also a function. -/
-TheoremDoc Fun_comp_fun as "FUN: Fun_comp_fun"
+
 
 Statement Fun_comp_fun {u v w: Type*} (f: Rel u v) (g: Rel v w) (hf: isFunction f) (hg: isFunction g) : isFunction (g ∘ f):= by
   Hint "Start with `intro a` to grab our arbitrary input."
@@ -18,10 +17,10 @@ Statement Fun_comp_fun {u v w: Type*} (f: Rel u v) (g: Rel v w) (hf: isFunction 
   evaluate hf at a with b hbf hbu
   Hint "Now, similarly, use `evaluate` to plug `b` into `g`. Call the output `c`."
   evaluate hg at b with c hcf hcu
-  Hint "So, intuitively, `g(f(a)) = c`. Let's prove it: `use! c`. Take it from here! It might continue to be helpful to use `Fun_output_equal` as you work through what has to be shown."
-  use! c
-  constructor
-  use b
+  Hint "So, intuitively, `g(f(a)) = c`. Let's prove it: `exist! c`. Take it from here! It might continue to be helpful to use `Fun_output_equal` as you work through what has to be shown."
+  exist! c
+  exist b
+  refine ⟨hbf,hcf⟩
   intro y hy
   obtain ⟨d, ⟨fad,gdy⟩⟩ := hy
   obtain db : b = d := Fun_output_equal f hf hbf fad
@@ -32,3 +31,5 @@ Statement Fun_comp_fun {u v w: Type*} (f: Rel u v) (g: Rel v w) (hf: isFunction 
 
 
 Conclusion "."
+
+NewTheorem Fun_comp_fun

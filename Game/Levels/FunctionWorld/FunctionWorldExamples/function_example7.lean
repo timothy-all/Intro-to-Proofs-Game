@@ -6,17 +6,18 @@ Level 7
 
 Title "f"
 
-Introduction "Compositum of surjective functions is surjective."
+Introduction "Compositum of surjective functions is surjective. This won't actually use that the relations are functions, so there are no `isFunction` hypotheses!"
 
-/-- Compositum of surjective functions is surjective. -/
-TheoremDoc Fun_comp_surj as "FUN: Fun_comp_surj"
 
-Statement Fun_comp_surj {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfs: isSurjective f) (g: Rel v w) (hg: isFunction g)  (hgs: isSurjective g) : isSurjective (g ∘ f) := by
+
+Statement Fun_comp_surj {u v w: Type*} (f: Rel u v) (hfs: isSurjective f) (g: Rel v w) (hgs: isSurjective g) : isSurjective (g ∘ f) := by
   intro c
   obtain ⟨b,hb⟩ := hgs c
   obtain ⟨a,ha⟩ := hfs b
-  use a
-  use b
+  exist a
+  exist b
+  refine ⟨ha,hb⟩
+
 
 
   /-b c gfac gfbc
@@ -42,3 +43,5 @@ Statement Fun_comp_surj {u v w: Type*} (f: Rel u v) (hf: isFunction f) (hfs: isS
 
 
 Conclusion "."
+
+NewTheorem Fun_comp_surj
