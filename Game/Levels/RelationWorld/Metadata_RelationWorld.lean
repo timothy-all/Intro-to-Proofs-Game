@@ -116,11 +116,11 @@ theorem Rel_double_inclusion {u v: Type*} (R: Rel u v) (S: Rel u v) : R.set = S.
 theorem mem_inter_iff.{u} {α : Type u} (x : α) (a b : Set α) : x ∈ a ∩ b ↔ x ∈ a ∧ x ∈ b := by
   rw [Set.mem_inter_iff]
 
-theorem Mem_prod {α : Type u} {β : Type v} {p : α × β} (s : Set α) (t : Set β) : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
+theorem mem_prod_iff {α : Type u} {β : Type v} {p : α × β} (s : Set α) (t : Set β) : p ∈ s ×ˢ t ↔ p.fst ∈ s ∧ p.snd ∈ t := by
   exact Set.mem_prod
 
 theorem Snd_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: y ∉ B) : (x,y) ∉ (A ×ˢ B) := by
-  rw [Mem_prod,not_and_or]
+  rw [mem_prod_iff,not_and_or]
   apply Or.intro_right
   exact h
 

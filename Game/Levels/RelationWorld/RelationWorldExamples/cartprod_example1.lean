@@ -18,8 +18,8 @@ Statement (u v: Type) (A: Set u) (B C: Set v) : A ×ˢ (B \ C) = (A ×ˢ B) \ (A
   intro x
   intro h
   rw [mem_diff_iff,
-    Mem_prod, -- mem_prod_iff def
-    Mem_prod,
+    mem_prod_iff, -- mem_prod_iff def
+    mem_prod_iff,
     Not_and,
     And_comm (x.1 ∈ A),
     And_assoc,
@@ -30,13 +30,13 @@ Statement (u v: Type) (A: Set u) (B C: Set v) : A ×ˢ (B \ C) = (A ×ˢ B) \ (A
     And_comm (x.2 ∈ B),
     And_assoc,
     ← mem_diff_iff,
-    ← Mem_prod]
+    ← mem_prod_iff]
   exact h
   intro x
   intro h
   rw [mem_diff_iff,
-    Mem_prod,
-    Mem_prod,
+    mem_prod_iff,
+    mem_prod_iff,
     Not_and,
     And_comm (x.1 ∈ A),
     And_assoc,
@@ -47,7 +47,7 @@ Statement (u v: Type) (A: Set u) (B C: Set v) : A ×ˢ (B \ C) = (A ×ˢ B) \ (A
     And_comm (x.2 ∈ B),
     And_assoc,
     ← mem_diff_iff,
-    ← Mem_prod] at h
+    ← mem_prod_iff] at h
   exact h
 
 
@@ -61,6 +61,6 @@ Conclusion "Proof in English?"
 --TheoremDoc Set.eq_of_subset_of_subset as "double_inclusion"
 
 --NewTactic intro apply symm Or.inl obtain
---NewTheorem Mem_prod Set.Subset.antisymm
+--NewTheorem mem_prod_iff Set.Subset.antisymm
 -- NewTheorem Nat.add_comm Nat.add_assoc
 --NewDefinition Set.Prod
