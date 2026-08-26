@@ -13,7 +13,7 @@ Statement (a b c : Int) (ha : isEven a) (hbc : (isOdd b) ∧ (isOdd c)) : Divide
   obtain ⟨i,hi⟩ := ha
   obtain ⟨j,hj⟩ := hbc.left
   obtain ⟨k,hk⟩ := hbc.right
-  use i*j + i*k + i
+  exist i*j + i*k + i
   rw[hi,hj,hk]
   simplify
 

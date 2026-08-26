@@ -23,15 +23,15 @@ Statement (n : Int) : ( Divides 5 n ∧ Divides 13 n) ↔ Divides 65 n := by
   obtain want : n = 26 * 5 * j - 25 * 13 * k
   rw[hj',hk']
   simplify
-  use 2 * j - 5 * k
+  exist 2 * j - 5 * k
   rw[want]
   simplify
   intro ⟨k,hk⟩
   constructor
-  use 13 *k
+  exist 13 *k
   rw[← hk]
   simplify
-  use 5 * k
+  exist 5 * k
   rw[← hk]
   simplify
 

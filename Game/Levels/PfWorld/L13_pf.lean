@@ -6,19 +6,18 @@ Level 13
 Title "Example 13"
 
 Introduction "
-### **Level 13**
+# **Level 13**
 "
 
-Statement {u : Type*} (A B C : Set u) (h : A Δ B ⊆ C) (hb : B ⊆ C) (hb' : Bᶜ ⊆ A): ∀ x, x ∈ C := by
+Statement : ∃! (d : Int), ∀ (x : Int), d * x = 0 := by
+  exist! 0
   intro x
-  by_cases hxb : x ∈ B
-  exact hb hxb
-  obtain hxa := hb' hxb
-  obtain want : x ∈ A Δ B
-  left
-  exact And.intro hxa hxb
-  exact h want
+  simplify
+  intro y h
+  obtain h' := h 1
+  rw[← h']
+  simplify
 
 Conclusion ""
 
-NewTactic by_cases
+NewTactic exist!

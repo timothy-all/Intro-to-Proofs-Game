@@ -1,0 +1,11 @@
+Tim: 
+    -make sure apply examples are a-plenty
+    -double-inclusion in set world or pf world (wherever appropriate)
+    -nth-rw in pf world
+    -obtain to open new goal is done somewhere
+    -refine in proof world
+    -empty set belongs to everything set world
+    -everything belongs to univ
+    -intro Set.Nonempty
+    -not empty vs nonempty 
+    -exist! <- the tactic and the exclamation

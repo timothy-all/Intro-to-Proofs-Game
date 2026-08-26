@@ -13,7 +13,7 @@ Introduction "
 
 Statement {u : Type} (P Q : u → Prop) (h₁ : ∃ x, P x) (h₂ : ∀ x, ¬ Q x) : ∃ x, P x ∨ Q x := by
   obtain ⟨x,hx⟩ := h₁
-  use x
+  exist x
   left
   exact hx
 

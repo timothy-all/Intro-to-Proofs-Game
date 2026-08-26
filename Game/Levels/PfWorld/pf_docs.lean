@@ -66,9 +66,9 @@ The tactic `apply h` attemps to match the conclusion of `h` to the current goal.
 TacticDoc apply
 
 /--
-The `use!` tactic is helpful for existence/uniqueness goals. Specifically, if the goal is of the form `∃! x, P x` and `a : u` is a witness to goal, then `use! a` will split the goal into two subgoals. The first goal is `⊢ P a` (the existence statement). The second goal is `⊢ ∀ y, P y → y = 0` (the uniqueness statement).
+The `exist!` tactic is helpful for existence/uniqueness goals. Specifically, if the goal is of the form `∃! x, P x` and `a : u` is a witness to goal, then `exist! a` will split the goal into two subgoals. The first goal is `⊢ P a` (the existence statement). The second goal is `⊢ ∀ y, P y → y = 0` (the uniqueness statement).
 -/
-TacticDoc use!
+TacticDoc exist!
 
 /--
 The `by_cases` tactic will split the goal into two cases. Specifically, if `P` is a proposition (supplied by the player), then `by_cases h : P` will add the hypothesis `h : P` to the first case while adding the hypothesis `h : ¬ P` to the second case.

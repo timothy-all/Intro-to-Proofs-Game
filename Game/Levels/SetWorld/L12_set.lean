@@ -3,34 +3,35 @@ import Game.Levels.SetWorld.L11_set
 World "SetWorld"
 Level 12
 
-Title "The whole universe"
+Title "Nonempty Sets"
 
 Introduction "
 # **Level 12**
-The **universal-set** denoted `univ` is defined as follows:
+A set `A` is **nonempty**, denoted in Lean with the *dot* notation `A.Nonempty`, means precisely the following:
 ```
-univ = {x | True}
+A.Nonempty ↔ ∃ x, x ∈ A
 ```
-Our current goal is a set equality; let's rewrite that goal using `set_eq_iff`.
+Our goal in this level is an implication, so let's introduce the hypothesis...
 "
 open Set
 
-
-Statement {u : Type} (A : Set u) : A ∩ univ = A := by
-  rw[set_eq_iff]
-  Hint "Our goal now is a universally quantified statement. Let's introduce a generic variable."
-  intro x
-  Hint "The left-hand side of the logical equivalence in our goal is a membership of an intersection. Let's rewrite that."
-  rw[mem_inter_iff]
-  Hint "The membership proposition `x ∈ univ` means the same thing as `True`. 👉 To rewrite `x ∈ univ` in this form, try
+Statement {u : Type*} (A B: Set u) (h : A.Nonempty) :  A ⊆ B → B.Nonempty :=  by
+  intro hAB
+  Hint "Great. Our hypothesis `h : A.Nonempty` is truly an existential statement. Let's grab a witness to that existential statement with `obtain`."
+  obtain ⟨x,hx⟩ := h
+  Hint "Our goal `⊢ B.Nonempty` is an existential statement. In order to see this existential statement explicitly, 👉 try
   ```
-  rw[mem_univ_iff_true]
+  rw[Set.Nonempty]
   ```
   "
-  rw[mem_univ_iff_true]
-  Hint "Almost done."
-  rw[And_true]
+  rw[Set.Nonempty]
+  Hint "See how our goal is now a `∃` statement? We need to supply a witness..."
+  exist x
+  Hint "Perfect. Now our goal is `⊢ {x} ∈ B`. If we're clever, we can clear this with one more line. "
+  exact hAB hx
 
-Conclusion ""
 
-NewDefinition mem_univ_iff_true
+Conclusion "### **💡 Pro-tip**
+Lean knows that `A.Nonempty` is definitionally the same as `∃ x, x ∈ A`. So the `rw[Set.Nonempty]` step of our proof could be omitted."
+
+NewDefinition Set.Nonempty

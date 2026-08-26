@@ -11,8 +11,8 @@ Introduction "
 
 Statement {u : Type*} (P : u → u → Prop) : (∃ x,∃ y, P x y) → (∃ y, ∃ x, P x y) := by
   intro ⟨x,y,hP⟩
-  use y
-  use x
+  exist y
+  exist x
   exact hP
 
 Conclusion ""

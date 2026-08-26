@@ -1,18 +1,6 @@
 import Game.Levels.QuantifierWorld.L02_quant
 --import Mathlib.Tactic.Use
 
-syntax "exist " term : tactic
-
-macro_rules
-  | `(tactic| exist $w) =>
-      `(tactic| refine Exists.intro $w ?_)
-
-syntax "use " term : tactic
-
-macro_rules
-  | `(tactic| use $w) =>
-      `(tactic| refine Exists.intro $w ?_)
-
 World "QuantifierWorld"
 Level 3
 
@@ -29,7 +17,7 @@ exist a
 "
 
 /-- This valid argument is called *Existential Generalization*. -/
-Statement {u : Type} (a : u) (P : u → Prop) (h : P a) : ∃ x, P x := by
+Statement {u : Type*} (a : u) (P : u → Prop) (h : P a) : ∃ x, P x := by
   --refine Exists.intro a ?_
   --try trivial
   --refine ⟨a,?_⟩
@@ -42,4 +30,4 @@ Conclusion "The `exist` tactic supplies a *witness* to an existential goal; our 
 In terms of translating Lean into a human-readable proof, it makes sense to translate a statement like `exist a` in this proof into
 > *Consider the known element $a$.*"
 
-NewTactic exist use
+NewTactic exist

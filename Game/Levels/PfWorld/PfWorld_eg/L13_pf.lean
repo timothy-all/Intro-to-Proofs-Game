@@ -11,7 +11,7 @@ Introduction "
 
 Statement {u : Type*} (U : Set u) : ∀ A ⊆ U, ∃! B ⊆ U, A Δ B = ∅ := by
   intro A hA
-  use! A
+  exist! A
   refine ⟨hA,Symm_diff_self⟩
   intro B hB
   rw[set_eq_iff]

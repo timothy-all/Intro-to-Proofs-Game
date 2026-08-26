@@ -17,10 +17,10 @@ The `a` is our witness, the `ha` is the proof that `P a`.
 "
 
 /-- We *destructure* our exisntential assumption using *Existential elimination*.-/
-Statement {u : Type} (P Q : u → Prop) (h₁ : ∀ x, P x → Q x) (h₂ : ∃ x, P x) : ∃ x, Q x := by
+Statement {u : Type*} (P Q : u → Prop) (h₁ : ∀ x, P x → Q x) (h₂ : ∃ x, P x) : ∃ x, Q x := by
   obtain ⟨a,ha⟩ := h₂
   Hint "See how we now have that `a : u` is a generic object, and `ha : P a` is an assumption? We now need to supply a witness to our existential goal..."
-  use a
+  exist a
   Hint "You're on the right track. In fact, you can one-shot it from here."
   exact h₁ a ha
 

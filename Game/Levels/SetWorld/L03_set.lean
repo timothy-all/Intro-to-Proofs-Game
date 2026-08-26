@@ -19,7 +19,7 @@ A ∩ B = {x | x ∈ A ∧ x ∈ B}
 ```
 This means that, definitionally, to say that `x ∈ A ∩ B` means the same thing as `x ∈ A ∧ x ∈ B`. 👉 To rewrite `x ∈ A ∩ B` as `x ∈ A ∧ x ∈ B` use
 ```
-rw[mem_inter_iff]
+rw[mem_inter_iff] at h
 ```
 "
 

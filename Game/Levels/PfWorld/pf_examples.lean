@@ -50,11 +50,11 @@ example (u : Type*) (F : Set (Set u)) (A : u → Set u) ( I : Set u): I = ⋃₀
   intro x
   constructor
   intro hx
-  rw[mem_iunion] at hx
+  rw[mem_iunion_iff] at hx
   rcases hx with ⟨i,⟨A',⟨⟨hi,hA'⟩,hx'⟩⟩⟩ -- this is dumb
   dsimp at hA'
   rw[h] at hi
-  rw[mem_funion] at hi -- haha, funions
+  rw[mem_funion_iff] at hi -- haha, funions
   rcases hi with ⟨X,hX⟩
   apply Set.mem_biUnion hX.left
   apply Set.mem_biUnion hX.right
@@ -63,11 +63,11 @@ example (u : Type*) (F : Set (Set u)) (A : u → Set u) ( I : Set u): I = ⋃₀
   intro hx
   rw[mem_bunion] at hx
   rcases hx with ⟨X,⟨hX,hX'⟩⟩
-  rw[mem_iunion] at hX'
+  rw[mem_iunion_iff] at hX'
   rcases hX' with ⟨i,⟨A',⟨⟨hi,hA'⟩,hx'⟩⟩⟩ -- this is dumb
   dsimp at hA'
   rw[← hA'] at hx'
-  rw[mem_iunion]
+  rw[mem_iunion_iff]
   use i
   use A i
   constructor

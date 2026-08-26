@@ -229,3 +229,9 @@ DefinitionDoc subset_iff as "SET: subset_iff"
 The relation `⊆` between sets is *transitive* meaning that if `A ⊆ B` and `B ⊆ C`, then `A ⊆ C`.
 -/
 TheoremDoc Subseteq_trans as "SET: Subseteq_trans"
+
+
+/--
+If `A` is a set, then `A.Nonempty` is the proposition `∃ x, x ∈ A`.
+-/
+DefinitionDoc Set.Nonempty as "SET: Set.Nonempty"

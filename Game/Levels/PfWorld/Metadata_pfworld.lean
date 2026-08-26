@@ -12,7 +12,7 @@ macro_rules
 | `(tactic| simplify) => `(tactic| push_cast; ring)
 
 
-syntax "use! " term : tactic
+syntax "exist! " term : tactic
 macro_rules
-  | `(tactic| use! $w) =>
+  | `(tactic| exist! $w) =>
       `(tactic| refine Exists.intro $w ?_; dsimp; refine ⟨?exist,?uniq⟩)

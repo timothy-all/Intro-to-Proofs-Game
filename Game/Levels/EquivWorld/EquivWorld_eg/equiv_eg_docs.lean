@@ -127,23 +127,7 @@ $$
 -/
 TheoremDoc And_true as "EQU: And_true"
 
-/--This is an **Identity Law**. It says that
 
-$$ P ∨ F₀ ↔ P $$
-
-where $F₀$ is a contradiction. We can prove the **Identity Law** with a truth-table:
-$$
-\begin{array}{|cc||c|}
-  \hline
-  P & F₀ & P ∨ F₀ \\
-  \hline
-  T & T & T \\
-  F & T & F \\
-  \hline
-\end{array}
-$$
--/
-TheoremDoc Or_false as "EQU: Or_false"
 
 
 /--This is a **Domination Law**. It says that

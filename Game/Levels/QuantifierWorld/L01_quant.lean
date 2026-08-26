@@ -1,6 +1,7 @@
 import Game.Levels.ArgWorld
 import Game.Levels.ArgWorld.ArgWorld_eg
 import Game.Levels.QuantifierWorld.quant_docs
+import Game.Levels.QuantifierWorld.Metadata_quant
 --import Mathlib.Tactic.TypeStar
 
 World "QuantifierWorld"
@@ -18,10 +19,9 @@ obtain this := h a
 ```
 "
 
-variable {u : Type}
 
 /-- This valid argument is known as *Universal Specification*. -/
-Statement (P : u → Prop) (a : u) (h : ∀ x, P x) : P a := by
+Statement {u : Type*} (P : u → Prop) (a : u) (h : ∀ x, P x) : P a := by
   obtain this := h a
   Hint "Note that `{this} : P a` is now known. The `exact` tactic ought to help us clear the goal now."
   exact this

@@ -16,7 +16,7 @@ intro a
 "
 
 /-- We use *Universal Generalization* to prove this statement.-/
-Statement {u : Type} (a : u) (P Q : u → Prop) (hPQ : ∀ x, P x → Q x) (hP : ∀ x, P x) : ∀ x, Q x := by
+Statement {u : Type*} (a : u) (P Q : u → Prop) (hPQ : ∀ x, P x → Q x) (hP : ∀ x, P x) : ∀ x, Q x := by
   intro a
   Hint "Notice that `a : u` (a generic element of type `u`) and our goal is to prove `Q a`? See if you can't finish this level off on your own."
   exact hPQ a (hP a)

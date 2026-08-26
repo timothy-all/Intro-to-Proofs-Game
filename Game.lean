@@ -8,8 +8,8 @@ import Game.Levels.SetWorld
 import Game.Levels.SetWorld.SetWorld_eg
 import Game.Levels.PfWorld
 import Game.Levels.PfWorld.PfWorld_eg
-import Game.Levels.RelationWorld
-import Game.Levels.RelationWorld.RelationWorldExamples
+--import Game.Levels.RelationWorld
+--import Game.Levels.RelationWorld.RelationWorldExamples
 
 --import Game.Levels.FunctionWorld
 --import Game.Levels.FunctionWorldExamples

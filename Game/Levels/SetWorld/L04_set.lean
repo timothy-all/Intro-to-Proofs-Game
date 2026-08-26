@@ -31,3 +31,5 @@ Statement {u : Type} (a : u) (A B : Set u) (h : a ∈ A) : a ∈ A ∪ B := by
 
 Conclusion "### **💡 Pro-tip**
 Lean knows that `A ∪ B` is definitionally a `∨` statement, so the `rw` step was unnecessary."
+
+NewDefinition mem_union_iff

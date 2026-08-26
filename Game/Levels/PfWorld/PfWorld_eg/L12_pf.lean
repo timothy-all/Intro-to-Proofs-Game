@@ -12,7 +12,7 @@ Introduction "
 open Set
 
 Statement {u : Type*} (U : Set u) : ∃! I ⊆ U, ∀ A ⊆ U, A Δ I = A := by
-  use! ∅
+  exist! ∅
   constructor
   intro x hx
   contradiction

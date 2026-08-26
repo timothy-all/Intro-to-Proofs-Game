@@ -24,7 +24,7 @@ Statement {u : Type*} {I : Type*} (A B : I → Set u) : ⋂ i, (A i \ B i) = (�
   rw[mem_diff_iff]
   rw[mem_iinter_iff]
   rw[mem_iunion_iff]
-  push_neg
+  rw[Not_exists]
   exact Forall_and  --hmm
 
 Conclusion ""

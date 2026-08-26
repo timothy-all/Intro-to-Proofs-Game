@@ -28,7 +28,8 @@ Statement {u : Type} (A : Set u) (F : Set (Set u)) (h : A ∈ F) : A ⊆ ⋃₀ 
   rw[mem_funion_iff]
   /- ⋃₀ F is sugar for SupSet F; the membership proposition x ∈ ⋃₀ F unpacks to ∃ (t : Set (Set u)), t ∈ F ∧ x ∈ t. -/
   Hint "Great. Now we have an existential goal. We need a witness..."
-  use A
+  exist A
+  exact And.intro h ha
   --refine ⟨A,?_⟩
   --exact And.intro h ha
 

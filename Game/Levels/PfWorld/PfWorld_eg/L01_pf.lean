@@ -8,7 +8,7 @@ Level 1
 Title "Example 1"
 
 Introduction "
-### **Level 1**
+# **Level 1**
 "
 
 Statement (m n : Int) :  (¬ isEven (m * n)) → (¬ isEven m ∧ ¬ isEven n) := by
@@ -16,12 +16,12 @@ Statement (m n : Int) :  (¬ isEven (m * n)) → (¬ isEven m ∧ ¬ isEven n) :
   intro h
   by_cases hm : isEven m
   obtain ⟨k,hk⟩ := hm
-  use k * n
+  exist k * n
   rw[hk]
   simplify
   obtain hn := h hm
   obtain ⟨k,hk⟩ := hn
-  use m * k
+  exist m * k
   rw[hk]
   simplify
 

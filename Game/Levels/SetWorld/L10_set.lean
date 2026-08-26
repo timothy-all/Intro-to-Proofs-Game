@@ -27,7 +27,8 @@ Statement {u I: Type*} (A : I → Set u) (j : I) : A j ⊆ ⋃ i, A i  := by
   "
   rw[mem_iunion_iff]
   Hint "See how the goal is an existentially quantified statement over the indexing set `I` now? We need a witness."
-  use j
+  exist j
+  exact hx
 
 
 
