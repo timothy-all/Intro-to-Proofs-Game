@@ -84,7 +84,7 @@ msgid "The definition of the **if-and-only-if** connective, denoted §0. Here's 
 "§1"
 msgstr ""
 
-#: Game.Levels.SetWorld.L13_set
+#: Game.Levels.SetWorld.L14_set
 msgid "The whole universe"
 msgstr ""
 
@@ -224,6 +224,10 @@ msgstr ""
 msgid "Our goal is definitionally the same as §0. How to clear it?"
 msgstr ""
 
+#: Game.Levels.QuantifierWorld.L07_quant
+msgid "Great. We can clear this with one line now."
+msgstr ""
+
 #. §0: `hk`
 #: Game.Levels.PfWorld.L05_pf
 msgid "Perfect. Let's rewrite the left-hand side of our goal with §0."
@@ -306,7 +310,7 @@ msgid "This is the valid argument known as *Modus Pwnens*."
 msgstr ""
 
 #. §0: `⊢ «{x}» ∈ B`
-#: Game.Levels.SetWorld.L12_set
+#: Game.Levels.SetWorld.L13_set
 msgid "Perfect. Now our goal is §0. If we're clever, we can clear this with one more line. "
 msgstr ""
 
@@ -447,7 +451,7 @@ msgstr ""
 msgid "Set Difference"
 msgstr ""
 
-#: Game.Levels.SetWorld.L13_set
+#: Game.Levels.SetWorld.L14_set
 msgid "Our goal now is a universally quantified statement. Let's introduce a generic variable."
 msgstr ""
 
@@ -480,6 +484,30 @@ msgid "## **Level 3**\n"
 "### **❯ The §6 tactic**\n"
 "The most direct way to prove an existential goal is to supply a **witness** to the statement. The §7 tactic is handy in this regard. Specifically, 👉 try:\n"
 "§8"
+msgstr ""
+
+#. §0: `A B : Set u`
+#. §1: `Δ`
+#. §2: ```
+#. A Δ B = (A \\ B) ∪ (B \\ A)
+#. ```
+#. §3: `x ∈ A Δ B`
+#. §4: `x ∈ A \\ B ∪ B \\ A`
+#. §5: ```
+#. rw[set_eq_iff]
+#. ```
+#: Game.Levels.SetWorld.L12_set
+msgid "# **Level 12: Symmetric Difference**\n"
+"| | | |\n"
+"|---|:---:|---|\n"
+"| | ![Venn diagram of the difference connective](images/venn_diff.png) | |\n"
+">\n"
+"If §0 then the set connective §1 (symmetric difference) is defined as follows:\n"
+"§2\n"
+"This means that, definitionally, to say that §3 means the same thing as §4.\n"
+">\n"
+"But first, we have a set equality to reckon with. 👉 Let's start with\n"
+"§5"
 msgstr ""
 
 #: Game.Levels.PfWorld.L08_pf
@@ -638,7 +666,7 @@ msgstr ""
 msgid "Set Intersection"
 msgstr ""
 
-#: Game.Levels.SetWorld.L13_set
+#: Game.Levels.SetWorld.L14_set
 msgid "The left-hand side of the logical equivalence in our goal is a membership of an intersection. Let's rewrite that."
 msgstr ""
 
@@ -797,18 +825,6 @@ msgstr ""
 msgid "The §0 tactic is helpful for existence/uniqueness goals. Specifically, if the goal is of the form §1 and §2 is a witness to goal, then §3 will split the goal into two subgoals. The first goal is §4 (the existence statement). The second goal is §5 (the uniqueness statement)."
 msgstr ""
 
-#. §0: `B ∈ 𝒫 A`
-#. §1: `B ⊆ A`
-#. §2: `«{C}» ∈ 𝒫 A`
-#. §3: ```
-#. rw[mem_powerset_iff]
-#. ```
-#: Game.Levels.SetWorld.L14_set
-msgid "Great. Now, the membership proposition §0 means the same thing as §1. 👉 To rewrite §2 in this form, try\n"
-"§3\n"
-""
-msgstr ""
-
 #: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
 msgid "More practice"
 msgstr ""
@@ -889,18 +905,6 @@ msgstr ""
 
 #: Game.Levels.QuantifierWorld.L02_quant
 msgid "We use *Universal Generalization* to prove this statement."
-msgstr ""
-
-#. §0: `A`
-#. §1: `A.Nonempty`
-#. §2: ```
-#. A.Nonempty ↔ ∃ x, x ∈ A
-#. ```
-#: Game.Levels.SetWorld.L12_set
-msgid "# **Level 12**\n"
-"A set §0 is **nonempty**, denoted in Lean with the *dot* notation §1, means precisely the following:\n"
-"§2\n"
-"Our goal in this level is an implication, so let's introduce the hypothesis..."
 msgstr ""
 
 #. §0: `intro`
@@ -986,6 +990,15 @@ msgid "**Here's what happened:** Lean searched for the **first instance** of\n"
 "In order to pretty-print symbols like §11 use §12 or §13."
 msgstr ""
 
+#. §0: ```
+#. constructor
+#. ```
+#: Game.Levels.PfWorld.L08_pf
+msgid "# **Level 8: Goal management**\n"
+"We have another biconditional statement to wrangle here. 👉 So let's get going with\n"
+"§0"
+msgstr ""
+
 #. §0: `` set connective. Specifically,
 #. `
 #. §1: ``
@@ -1005,15 +1018,6 @@ msgstr ""
 #. ``
 #: Game.Levels.SetWorld.set_docs
 msgid "This helps to define the §0§1§2mem_diff_iff§3x ∈ A \\\\ B ↔ x ∈ A ∧ x ∉ B§4§5`"
-msgstr ""
-
-#. §0: ```
-#. constructor
-#. ```
-#: Game.Levels.PfWorld.L08_pf
-msgid "# **Level 8: Goal management**\n"
-"We have another biconditional statement to wrangle here. 👉 So let's get going with\n"
-"§0"
 msgstr ""
 
 #. §0: `obtain`
@@ -1207,10 +1211,6 @@ msgstr ""
 
 #: Game.Levels.SetWorld.L04_set
 msgid "Set Union"
-msgstr ""
-
-#: Game.Levels.SetWorld.L14_set
-msgid "See if you can't finish the level! There's a theorem proven earlier in this world that you can use to one-shot it from here."
 msgstr ""
 
 #: Game.Levels.EquivWorld.L03_equiv
@@ -1523,6 +1523,10 @@ msgid "# **Level 11**\n"
 "§2"
 msgstr ""
 
+#: Game.Levels.SetWorld.L12_set
+msgid "Symmetric Difference"
+msgstr ""
+
 #: Game.Levels.PfWorld.PfWorld_eg.L10_pf
 msgid "### **Level 10**"
 msgstr ""
@@ -1738,6 +1742,11 @@ msgid "The §0 tactic supplies a *witness* to an existential goal; our job going
 "> *Consider the known element §2.*"
 msgstr ""
 
+#. §0: `intro`
+#: Game.Levels.SetWorld.L12_set
+msgid "Now let's §0 a generic variable."
+msgstr ""
+
 #: Game.Levels.SetWorld.SetWorld_eg.L04_set
 #: Game.Levels.PfWorld.PfWorld_eg.L04_pf
 msgid "### **Level 4**"
@@ -1783,7 +1792,7 @@ msgstr ""
 #. §0: `A.Nonempty`
 #. §1: `∃ x, x ∈ A`
 #. §2: `rw[Set.Nonempty]`
-#: Game.Levels.SetWorld.L12_set
+#: Game.Levels.SetWorld.L13_set
 msgid "### **💡 Pro-tip**\n"
 "Lean knows that §0 is definitionally the same as §1. So the §2 step of our proof could be omitted."
 msgstr ""
@@ -1792,6 +1801,20 @@ msgstr ""
 #. §1: `∃ d, n = 7 * d`
 #: Game.Levels.PfWorld.L05_pf
 msgid "We now have an *Active Goal* and a *Goal 2*. We can tab over to *Goal 2* if we like, but might as well address them in order. To prove §0, we need to profer a witness to the underlying existential statement §1. Can you find such a witness?"
+msgstr ""
+
+#. §0: `∀`
+#. §1: `∧`
+#. §2: `∧`
+#. §3: `∀`
+#. §4: `∧`
+#. §5: ```
+#. intro x
+#. ```
+#: Game.Levels.QuantifierWorld.L07_quant
+msgid "# **Level 7**\n"
+"The §0 quantifier distributes over §1 statements. Logically, this makes sense given that we know that the §2 connective is associative and commutative, and what is §3 but a giant §4 connective. We have a universal quantifier to reckon with, so let's start with\n"
+"§5"
 msgstr ""
 
 #. §0: `⊻`
@@ -1827,6 +1850,11 @@ msgstr ""
 msgid "Preem. Now, the membership proposition §0 means the same thing as §1. 👉 To rewrite §2 in this form try\n"
 "§3\n"
 ""
+msgstr ""
+
+#. §0: `⊢ False ↔ (x ∈ ∅)`
+#: Game.Levels.SetWorld.L12_set
+msgid "What logical equivalences will help us out here? Try to get our goal into the shape §0."
 msgstr ""
 
 #. §0: `A`
@@ -1872,7 +1900,7 @@ msgstr ""
 #. §3: ```
 #. rw[mem_univ_iff_true]
 #. ```
-#: Game.Levels.SetWorld.L13_set
+#: Game.Levels.SetWorld.L14_set
 msgid "The membership proposition §0 means the same thing as §1. 👉 To rewrite §2 in this form, try\n"
 "§3\n"
 ""
@@ -2009,6 +2037,18 @@ msgid "### **💡 Pro-tip\n"
 "Lean truly thinks of this statement as more of a *function* whose first input is §2 and whose second input is §3. The output is (a proof of) the statement §4. When we write §5 with no inputs, Lean will attempt to apply the *fucntion* wherever it can (or throw an error if it can't). Getting used to this takes a little practice."
 msgstr ""
 
+#. §0: `univ`
+#. §1: ```
+#. univ = {x | True}
+#. ```
+#. §2: `set_eq_iff`
+#: Game.Levels.SetWorld.L14_set
+msgid "# **Level 14**\n"
+"The **universal-set** denoted §0 is defined as follows:\n"
+"§1\n"
+"Our current goal is a set equality; let's rewrite that goal using §2."
+msgstr ""
+
 #: Game.Levels.ArgWorld.ArgWorld_eg.L08_arg
 msgid "# **Level 8**"
 msgstr ""
@@ -2058,6 +2098,15 @@ msgstr ""
 #. §1: `h2 : 16 * n = 80 * j`
 #: Game.Levels.PfWorld.L09_pf
 msgid "Super. Now, using the same ideas, §0 the hypothesis §1."
+msgstr ""
+
+#. §0: ```
+#. rw[mem_diff_iff]
+#. ```
+#: Game.Levels.SetWorld.L12_set
+msgid "👉 Finally, let's unravel the set-difference with\n"
+"§0\n"
+""
 msgstr ""
 
 #. §0: `A ∪ B`
@@ -2292,7 +2341,7 @@ msgstr ""
 #.   (A B : Set u) :
 #.   x ∈ (A Δ B) ↔ x ∈ (A \\ B) ∪ (B \\ A)
 #. ```
-#: Game.Levels.SetWorld.SetWorld_eg.set_eg_docs
+#: Game.Levels.SetWorld.set_docs
 msgid "This helps to define the §0 (symmetric difference) operator on sets. Specifically,\n"
 "\n"
 "§1\n"
@@ -2328,6 +2377,15 @@ msgstr ""
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L08_quant
 #: Game.Levels.PfWorld.PfWorld_eg.L08_pf
 msgid "Example 8"
+msgstr ""
+
+#. §0: ```
+#. rw[mem_union_iff]
+#. ```
+#: Game.Levels.SetWorld.L12_set
+msgid "👉 Now let's unravel the union with\n"
+"§0\n"
+""
 msgstr ""
 
 #: Game.Levels.SetWorld.L06_set
@@ -2401,7 +2459,7 @@ msgstr ""
 
 #. §0: `h : A.Nonempty`
 #. §1: `obtain`
-#: Game.Levels.SetWorld.L12_set
+#: Game.Levels.SetWorld.L13_set
 msgid "Great. Our hypothesis §0 is truly an existential statement. Let's grab a witness to that existential statement with §1."
 msgstr ""
 
@@ -2444,6 +2502,16 @@ msgstr ""
 #. §1: `P`
 #: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
 msgid "If §0 leads to a contradiction, then it must be that §1 is true."
+msgstr ""
+
+#. §0: `x ∈ A Δ A`
+#. §1: ```
+#. rw[mem_symm_diff_iff]
+#. ```
+#: Game.Levels.SetWorld.L12_set
+msgid "Let's unravel the membership of §0. 👉 We can do this with\n"
+"§1\n"
+""
 msgstr ""
 
 #. §0: `A B : Set u`
@@ -2932,15 +3000,15 @@ msgid "# **Level 10: Disjunctive hypotheses**\n"
 "Our initial goal is a subset relation. So let's §5 the appropriate material to reckon with the unversal quantifier and if-then statement underneath the §6 relation."
 msgstr ""
 
+#: Game.Levels.ArgWorld.L07_arg
+msgid "One more line ought to clear this level..."
+msgstr ""
+
 #. §0: `h`
 #. §1: `h : ∃ x, ¬ P x`
 #: Game.Levels.QuantifierWorld.L05_quant
 #: Game.Levels.QuantifierWorld.L06_quant
 msgid "See how §0 is now the hypothesis §1? We're almost done."
-msgstr ""
-
-#: Game.Levels.ArgWorld.L07_arg
-msgid "One more line ought to clear this level..."
 msgstr ""
 
 #. §0: `F : Set (Set u)`
@@ -2975,7 +3043,7 @@ msgid "# **Level 2: Contraposition**\n"
 "§1"
 msgstr ""
 
-#: Game.Levels.SetWorld.SetWorld_eg.set_eg_docs
+#: Game.Levels.SetWorld.set_docs
 msgid "The symmetric difference between a set and itself is the empty set."
 msgstr ""
 
@@ -3158,18 +3226,6 @@ msgstr ""
 msgid "Universal specification"
 msgstr ""
 
-#. §0: `univ`
-#. §1: ```
-#. univ = {x | True}
-#. ```
-#. §2: `set_eq_iff`
-#: Game.Levels.SetWorld.L13_set
-msgid "# **Level 13**\n"
-"The **universal-set** denoted §0 is defined as follows:\n"
-"§1\n"
-"Our current goal is a set equality; let's rewrite that goal using §2."
-msgstr ""
-
 #: Game.Levels.SetWorld.L11_set
 msgid "Great. Now we have a universally quantified statement as our goal. Let's introduce a generic variable."
 msgstr ""
@@ -3192,7 +3248,7 @@ msgstr ""
 msgid "Intro to Proofs Game"
 msgstr ""
 
-#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.quant_eg_docs
+#: Game.Levels.QuantifierWorld.quant_docs
 msgid "Forall distributes over ands"
 msgstr ""
 
@@ -3254,7 +3310,7 @@ msgstr ""
 #. §1: ```
 #. rw[Set.Nonempty]
 #. ```
-#: Game.Levels.SetWorld.L12_set
+#: Game.Levels.SetWorld.L13_set
 msgid "Our goal §0 is an existential statement. In order to see this existential statement explicitly, 👉 try\n"
 "§1\n"
 ""
@@ -3441,6 +3497,7 @@ msgstr ""
 #: Game.Levels.ArgWorld.ArgWorld_eg.L09_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L10_arg
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
+#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L03_quant
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L04_quant
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L05_quant
@@ -3451,7 +3508,7 @@ msgstr ""
 #: Game.Levels.SetWorld.L09_set
 #: Game.Levels.SetWorld.L10_set
 #: Game.Levels.SetWorld.L11_set
-#: Game.Levels.SetWorld.L13_set
+#: Game.Levels.SetWorld.L12_set
 #: Game.Levels.SetWorld.L14_set
 #: Game.Levels.SetWorld.SetWorld_eg.L01_set
 #: Game.Levels.SetWorld.SetWorld_eg.L02_set
@@ -3542,24 +3599,6 @@ msgid "This helps to define the §0 (intersection of families) operator on a fam
 "\n"
 "So §2 says specifically that §3. Here's what it looks like in Lean:\n"
 "§4"
-msgstr ""
-
-#. §0: `A : Set u`
-#. §1: `A`
-#. §2: `𝒫 A`
-#. §3: ```
-#. 𝒫 A := {s : Set u | s ⊆ A}
-#. ```
-#. §4: `intro`
-#. §5: `𝒫`
-#. §6: `\\powerset`
-#: Game.Levels.SetWorld.L14_set
-msgid "# **Level 14: Power Sets**\n"
-"Given a set §0, the **power set** of §1, denoted §2 is defined as follows:\n"
-"§3\n"
-"Our current goal is a subset relation which we know is a unviersally quantified statement. Let's §4 the appropriate stuff.\n"
-"### **⌨ Typesetting tip**\n"
-"In order to typeset the symbol §5 use §6."
 msgstr ""
 
 #. §0: `obtain`
@@ -3691,6 +3730,16 @@ msgid "This is an **Idempotent Law**. It says that\n"
 "§1"
 msgstr ""
 
+#. §0: ```
+#. (∀ x, P x) ∧ (∀ x, Q x) ↔ ∀ x, P x ∧ Q x
+#. ```
+#. §1: `Forall_and`
+#: Game.Levels.QuantifierWorld.L07_quant
+msgid "The converse of this is also true. From here on out the logical equivalence\n"
+"§0\n"
+"is available and called §1."
+msgstr ""
+
 #. §0: `obtain`
 #. §1: `a ∈ A ∧ a ∈ B`
 #: Game.Levels.PfWorld.L04_pf
@@ -3704,6 +3753,10 @@ msgstr ""
 #. §4: `h : ¬ P`
 #: Game.Levels.PfWorld.pf_docs
 msgid "The §0 tactic will split the goal into two cases. Specifically, if §1 is a proposition (supplied by the player), then §2 will add the hypothesis §3 to the first case while adding the hypothesis §4 to the second case."
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.L07_quant
+msgid "Forall distributes over and"
 msgstr ""
 
 #. §0: `∧`
@@ -4002,12 +4055,12 @@ msgstr ""
 msgid "Proof Strategy World"
 msgstr ""
 
-#: Game.Levels.SetWorld.L12_set
+#: Game.Levels.SetWorld.L13_set
 msgid "Nonempty Sets"
 msgstr ""
 
 #. §0: `∃`
-#: Game.Levels.SetWorld.L12_set
+#: Game.Levels.SetWorld.L13_set
 msgid "See how our goal is now a §0 statement? We need to supply a witness..."
 msgstr ""
 
@@ -4035,10 +4088,6 @@ msgstr ""
 msgid "The §0 tactic is useful for targeting goals that are disjunctions. Specifically, if our goal is of the form §1, the tactic §2 will make our new goal §3."
 msgstr ""
 
-#: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
-msgid "The converse of this is also true."
-msgstr ""
-
 #: Game.Levels.ArgWorld.L04_arg
 msgid "This valid argument is known as *Conjunctive Simplification*."
 msgstr ""
@@ -4053,7 +4102,7 @@ msgid "Tautologies"
 msgstr ""
 
 #: Game.Levels.SetWorld.L04_set
-#: Game.Levels.SetWorld.L13_set
+#: Game.Levels.SetWorld.L14_set
 msgid "Almost done."
 msgstr ""
 
@@ -4097,6 +4146,18 @@ msgid "# **Level 4**\n"
 "To grab a witness of an existential assumption, we use the §5 tactic with some extra syntax. In our case, 👉 try:\n"
 "§6\n"
 "The §7 is our witness, the §8 is the proof that §9."
+msgstr ""
+
+#. §0: `A`
+#. §1: `A.Nonempty`
+#. §2: ```
+#. A.Nonempty ↔ ∃ x, x ∈ A
+#. ```
+#: Game.Levels.SetWorld.L13_set
+msgid "# **Level 13**\n"
+"A set §0 is **nonempty**, denoted in Lean with the *dot* notation §1, means precisely the following:\n"
+"§2\n"
+"Our goal in this level is an implication, so let's introduce the hypothesis..."
 msgstr ""
 
 #. §0: `obtain`
@@ -4187,6 +4248,10 @@ msgstr ""
 msgid "The world's most canonical contradiction is undoubtedly §0."
 msgstr ""
 
+#: Game.Levels.SetWorld.L12_set
+msgid "Great. We're almost home."
+msgstr ""
+
 #. §0: `⊼`
 #: Game.Levels.EquivWorld.EquivWorld_eg.L08_equiv
 msgid "# **Level 8: Or and Nand**\n"
@@ -4201,10 +4266,6 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L06_equiv
 msgid "Not and Nand"
-msgstr ""
-
-#: Game.Levels.SetWorld.L14_set
-msgid "The Power Set"
 msgstr ""
 
 #. §0: `apply h`
@@ -4255,6 +4316,12 @@ msgstr ""
 #: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
 msgid "### **Level 2**\n"
 "This argument is sometimes called the law of **Conditional Proof**. It is strongly related to currying..."
+msgstr ""
+
+#. §0: `(∀ x, P x) ∧ (∀ x, Q x)`
+#. §1: `∀ x, P x ∧ Q x`
+#: Game.Levels.QuantifierWorld.L07_quant
+msgid "To say §0 means the same thing as §1."
 msgstr ""
 
 #: GameServer.RpcHandlers

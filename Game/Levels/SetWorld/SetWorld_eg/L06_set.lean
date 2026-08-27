@@ -12,19 +12,18 @@ Introduction "
 set_option pp.parens true
 open Set
 
-Statement Symm_diff_self {u : Type*} {A: Set u} : A Δ A = ∅ := by
+Statement {u : Type*} {A B : Set u} : A \ B = ∅ → A Δ B = B \ A := by
+  intro h
   rw[set_eq_iff]
   intro x
   rw[mem_symm_diff_iff]
   rw[mem_union_iff]
-  rw[mem_diff_iff]
-  rw[And_not_self]
-  rw[Or_false]
+  rw[h]
   rw[mem_empty_iff_false]
+  rw[Or_comm, Or_false]
 
 Conclusion ""
 
-NewDefinition mem_symm_diff_iff
 
 /- Save this for proof by contradiction example
 Statement {u : Type} (A B : Set u) : A ⊆ B ↔ A \ B = ∅ := by

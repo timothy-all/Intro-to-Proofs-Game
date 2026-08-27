@@ -16,9 +16,3 @@ What does `hpf` contain? The formal proof that `h` can be destructured into `⟨
 There's a difference between the angled brackets `⟨ ⟩` and the relations `< >`. In order to produce the *angled brackets* use `\\langle` and `\\rangle`.
 -/
 TacticDoc rcases
-
-
-/--
-Forall distributes over ands
--/
-TheoremDoc Forall_and as "QUA: Forall_and"

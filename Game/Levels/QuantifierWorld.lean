@@ -5,6 +5,7 @@ import Game.Levels.QuantifierWorld.L03_quant
 import Game.Levels.QuantifierWorld.L04_quant
 import Game.Levels.QuantifierWorld.L05_quant
 import Game.Levels.QuantifierWorld.L06_quant
+import Game.Levels.QuantifierWorld.L07_quant
 
 World "QuantifierWorld"
 Title "Quantifier World"

@@ -77,8 +77,4 @@ Statement  {u : Type*} (A B : Set u) (h : 𝒫 (A ∪ B) = 𝒫 A ∪ 𝒫 B) : 
 
 Conclusion ""
 
-<<<<<<< HEAD
 NewTactic by_cases
-=======
-NewTactic exist!
->>>>>>> 0e46092 (Initial FunctionWorld docs. Changed use! to exist! and refactored where needed)

@@ -41,3 +41,8 @@ $$
 $$
 -/
 TheoremDoc Not_exists as "QUA: Not_exists"
+
+/--
+Forall distributes over ands
+-/
+TheoremDoc Forall_and as "QUA: Forall_and"

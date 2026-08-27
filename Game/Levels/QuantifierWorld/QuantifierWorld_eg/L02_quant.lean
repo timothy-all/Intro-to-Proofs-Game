@@ -9,8 +9,10 @@ Introduction "
 ## **Level 2**
 "
 
-Statement {u : Type*} {P Q : u → Prop} (h: (∀ x, P x) ∧ (∀ x, Q x)) : ∀ x, P x ∧ Q x := by
-  intro x
-  exact And.intro (h.left x) (h.right x)
+Statement {u : Type*} {P Q : u → Prop} (h : (∃ x, P x) ∧ (∃ x, Q x) ) : ∃ x, P x ∨ Q x := by
+  obtain ⟨ ⟨x,hx⟩, ⟨y,hy⟩⟩ := h
+  exist x
+  left
+  exact hx
 
-Conclusion "The converse of this is also true."
+Conclusion ""

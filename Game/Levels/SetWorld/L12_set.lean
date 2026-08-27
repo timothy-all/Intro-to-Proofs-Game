@@ -1,6 +1,6 @@
 import Game.Levels.SetWorld.L11_set
 
-World "SetWorld_eg"
+World "SetWorld"
 Level 12
 
 Title "Symmetric Difference"

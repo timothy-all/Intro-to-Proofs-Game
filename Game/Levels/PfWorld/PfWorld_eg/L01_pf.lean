@@ -12,17 +12,15 @@ Introduction "
 "
 
 Statement (m n : Int) :  (¬ isEven (m * n)) → (¬ isEven m ∧ ¬ isEven n) := by
-  contrapose!
+  contrapose
+  rw[Not_and,Not_not,Not_not,Not_not]
   intro h
-  by_cases hm : isEven m
-  obtain ⟨k,hk⟩ := hm
+  obtain ⟨k,hk⟩ | ⟨j,hj⟩ := h
   exist k * n
   rw[hk]
   simplify
-  obtain hn := h hm
-  obtain ⟨k,hk⟩ := hn
-  exist m * k
-  rw[hk]
+  exist j * m
+  rw[hj]
   simplify
 
 
