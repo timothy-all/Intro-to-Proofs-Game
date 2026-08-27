@@ -12,6 +12,7 @@ Here's an example of a biconditional statement where the **forward** direction i
 
 open Set
 
+/-- Let $n$ be an integer. Then $40$ divides $n$ if and only if if $8$ divides $n$ and $5$ divides $n$.-/
 Statement (n : ℤ) : 40 ∣ n ↔ (8 ∣ n ∧ 5 ∣ n) := by
   constructor
   intro ⟨k,hk⟩

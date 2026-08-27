@@ -26,6 +26,5 @@ Statement {u : Type*} (A B C : Set u) : A \ B ∩ A = A \ B := by
 
 Conclusion ""
 
-NewDefinition mem_diff_iff
 
 --Statement {u : Type} (A B : Set u) : A ∩ B = ∅ → A ⊆ A \ B := by

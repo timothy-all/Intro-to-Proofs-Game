@@ -1,37 +1,67 @@
 import Game.Levels.SetWorld.L11_set
 
-World "SetWorld"
+World "SetWorld_eg"
 Level 12
 
-Title "Nonempty Sets"
+Title "Symmetric Difference"
 
 Introduction "
-# **Level 12**
-A set `A` is **nonempty**, denoted in Lean with the *dot* notation `A.Nonempty`, means precisely the following:
+# **Level 12: Symmetric Difference**
+| | | |
+|---|:---:|---|
+| | ![Venn diagram of the difference connective](images/venn_diff.png) | |
+>
+If `A B : Set u` then the set connective `Δ` (symmetric difference) is defined as follows:
 ```
-A.Nonempty ↔ ∃ x, x ∈ A
+A Δ B = (A \\ B) ∪ (B \\ A)
 ```
-Our goal in this level is an implication, so let's introduce the hypothesis...
+This means that, definitionally, to say that `x ∈ A Δ B` means the same thing as `x ∈ A \\ B ∪ B \\ A`.
+>
+But first, we have a set equality to reckon with. 👉 Let's start with
+```
+rw[set_eq_iff]
+```
+
 "
+
+set_option pp.parens true
 open Set
 
-Statement {u : Type*} (A B: Set u) (h : A.Nonempty) :  A ⊆ B → B.Nonempty :=  by
-  intro hAB
-  Hint "Great. Our hypothesis `h : A.Nonempty` is truly an existential statement. Let's grab a witness to that existential statement with `obtain`."
-  obtain ⟨x,hx⟩ := h
-  Hint "Our goal `⊢ B.Nonempty` is an existential statement. In order to see this existential statement explicitly, 👉 try
+Statement Symm_diff_self {u : Type*} {A: Set u} : A Δ A = ∅ := by
+  rw[set_eq_iff]
+  Hint "Now let's `intro` a generic variable."
+  intro x
+  Hint "Let's unravel the membership of `x ∈ A Δ A`. 👉 We can do this with
   ```
-  rw[Set.Nonempty]
+  rw[mem_symm_diff_iff]
   ```
   "
-  rw[Set.Nonempty]
-  Hint "See how our goal is now a `∃` statement? We need to supply a witness..."
-  exist x
-  Hint "Perfect. Now our goal is `⊢ {x} ∈ B`. If we're clever, we can clear this with one more line. "
-  exact hAB hx
+  rw[mem_symm_diff_iff]
+  Hint "👉 Now let's unravel the union with
+  ```
+  rw[mem_union_iff]
+  ```
+  "
+  rw[mem_union_iff]
+  Hint "👉 Finally, let's unravel the set-difference with
+  ```
+  rw[mem_diff_iff]
+  ```
+  "
+  rw[mem_diff_iff]
+  Hint "What logical equivalences will help us out here? Try to get our goal into the shape `⊢ False ↔ (x ∈ ∅)`."
+  rw[And_not_self]
+  rw[Or_false]
+  Hint "Great. We're almost home."
+  rw[mem_empty_iff_false]
 
+Conclusion ""
 
-Conclusion "### **💡 Pro-tip**
-Lean knows that `A.Nonempty` is definitionally the same as `∃ x, x ∈ A`. So the `rw[Set.Nonempty]` step of our proof could be omitted."
+NewDefinition mem_symm_diff_iff
 
-NewDefinition Set.Nonempty
+/- Save this for proof by contradiction example
+Statement {u : Type} (A B : Set u) : A ⊆ B ↔ A \ B = ∅ := by
+
+Save this for proof of or
+Statement {u : Type} (A B C: Set u) : (A ∪ B) \ (C \ A) ⊆ A ∪ (B \ C) := by
+-/

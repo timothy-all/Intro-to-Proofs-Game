@@ -15,6 +15,7 @@ constructor
 ```
 "
 
+/-- Let $A$ be a set. Then $A = ∅$ if and only if for all $x$, $x$ is not in $A$.-/
 Statement {u : Type*} (A : Set u) : A = ∅ ↔ ∀ {x}, x ∉ A := by
   constructor
   Hint "There's a few different paths we could take here. But let's take the opportunity to introduce ...

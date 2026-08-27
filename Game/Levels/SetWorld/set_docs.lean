@@ -235,3 +235,27 @@ TheoremDoc Subseteq_trans as "SET: Subseteq_trans"
 If `A` is a set, then `A.Nonempty` is the proposition `∃ x, x ∈ A`.
 -/
 DefinitionDoc Set.Nonempty as "SET: Set.Nonempty"
+
+
+/--
+The symmetric difference between a set and itself is the empty set.
+-/
+TheoremDoc Symm_diff_self as "SET : Symm_diff_self"
+
+/--
+This helps to define the `Δ` (symmetric difference) operator on sets. Specifically,
+
+$$
+A \mathop{Δ} B  = (A \ B) ∪ (B \ A)
+$$
+
+So `mem_symm_diff_iff` says specifically that `x ∈ A Δ B ↔ x ∈ (A \ B) ∨ (x ∈ B \ A)`. Here's what it looks like in Lean:
+```
+mem_symm_diff_iff
+  {u : Type*}
+  {x : u}
+  (A B : Set u) :
+  x ∈ (A Δ B) ↔ x ∈ (A \ B) ∪ (B \ A)
+```
+-/
+DefinitionDoc mem_symm_diff_iff as "SET: mem_symm_diff_iff"

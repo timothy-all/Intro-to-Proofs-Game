@@ -15,6 +15,7 @@ rw[set_eq_iff]
 ```
 "
 
+/-- If $A ⊆ B$ and $B ⊆ A$, then $A = B$.-/
 Statement {u : Type*} (A B : Set u) (hAB : A ⊆ B) (hBA : B ⊆ A): A = B := by
   rw[set_eq_iff]
   Hint "Let's `intro x` to reckon with the universal quantifier."

@@ -19,4 +19,3 @@ Statement {u : Type*} (P : u → u → Prop) : (∀ x, ∀ y, P x y) → (∀ y,
 Conclusion ""
 
 
-NewTheorem Forall_and

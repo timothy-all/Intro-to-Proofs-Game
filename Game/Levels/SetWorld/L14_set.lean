@@ -3,32 +3,34 @@ import Game.Levels.SetWorld.L13_set
 World "SetWorld"
 Level 14
 
-Title "The Power Set"
+Title "The whole universe"
 
 Introduction "
-# **Level 14: Power Sets**
-Given a set `A : Set u`, the **power set** of `A`, denoted `𝒫 A` is defined as follows:
+# **Level 14**
+The **universal-set** denoted `univ` is defined as follows:
 ```
-𝒫 A := {s : Set u | s ⊆ A}
+univ = {x | True}
 ```
-Our current goal is a subset relation which we know is a unviersally quantified statement. Let's `intro` the appropriate stuff.
-### **⌨ Typesetting tip**
-In order to typeset the symbol `𝒫` use `\\powerset`.
+Our current goal is a set equality; let's rewrite that goal using `set_eq_iff`.
 "
 open Set
 
-Statement {u : Type} (A B: Set u) (h : A ⊆ B) : 𝒫 A ⊆ 𝒫 B := by
-  intro C hC
-  Hint "Great. Now, the membership proposition `B ∈ 𝒫 A` means the same thing as `B ⊆ A`. 👉 To rewrite `{C} ∈ 𝒫 A` in this form, try
+
+Statement {u : Type} (A : Set u) : A ∩ univ = A := by
+  rw[set_eq_iff]
+  Hint "Our goal now is a universally quantified statement. Let's introduce a generic variable."
+  intro x
+  Hint "The left-hand side of the logical equivalence in our goal is a membership of an intersection. Let's rewrite that."
+  rw[mem_inter_iff]
+  Hint "The membership proposition `x ∈ univ` means the same thing as `True`. 👉 To rewrite `x ∈ univ` in this form, try
   ```
-  rw[mem_powerset_iff]
+  rw[mem_univ_iff_true]
   ```
   "
-  rw[mem_powerset_iff] at hC ⊢
-  Hint "See if you can't finish the level! There's a theorem proven earlier in this world that you can use to one-shot it from here."
-  exact Subseteq_trans hC h
-
+  rw[mem_univ_iff_true]
+  Hint "Almost done."
+  rw[And_true]
 
 Conclusion ""
 
-NewDefinition Set.mem_powerset_iff
+NewDefinition mem_univ_iff_true

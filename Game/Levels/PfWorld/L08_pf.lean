@@ -13,6 +13,7 @@ constructor
 ```
 "
 
+/-- The intersection of two unions of families of sets is contained in the union of the intersection of the families if and only if for every set $A$ in the first family and for every set $B$ in the second family, we have that the the intersection $A ∩ B$ belongs to the union of the intersection of the two families. -/
 Statement (u : Type*) (F G : Set (Set u)) : ⋃₀ F ∩ ⋃₀ G ⊆ ⋃₀ (F ∩ G) ↔ ∀ A ∈ F, ∀ B ∈ G, A ∩ B ⊆ ⋃₀ (F ∩ G) := by
   constructor
   Hint "For the **forward** direction, we have a lot of objects/assumptions to `intro`. 👉 Let's start with

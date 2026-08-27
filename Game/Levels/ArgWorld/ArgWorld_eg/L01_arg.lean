@@ -19,4 +19,3 @@ Statement (P : Prop) (h : ¬ P → False) : P := by
 
 Conclusion ""
 
-NewTheorem Or_false
