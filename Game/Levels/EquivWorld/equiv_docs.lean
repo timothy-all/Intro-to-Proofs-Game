@@ -207,3 +207,31 @@ $$
 $$
 -/
 TheoremDoc Or_false as "EQU: Or_false"
+
+
+/--
+The negation of $P → Q$ is logically equivalent to $P ∧ ¬ Q$.
+-/
+TheoremDoc Not_imp as "EQU : Not_imp"
+
+
+/--
+This is half of **DeMorgan's Law**. It says that
+
+$$¬ (P ∨ Q) ↔ (¬ P ∧ ¬ Q)$$
+
+We can prove DeMorgan's Law with a truth-table:
+$$
+\begin{array}{|cc||c||cc||c|}
+  \hline
+  P & Q & ¬ (P ∨ Q) & ¬ P & ¬ Q & ¬ P ∧ ¬ Q  \\
+  \hline
+  T & T & F & F & F & F \\
+  T & F & F & F & T & F \\
+  F & T & F & T & F & F \\
+  F & F & T & T & T & T \\
+  \hline
+\end{array}
+$$
+-/
+TheoremDoc Not_or as "EQU: Not_or"

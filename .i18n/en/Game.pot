@@ -64,15 +64,15 @@ msgstr ""
 msgid "Goal cleared! We now need to profer a witness to our current existential goal..."
 msgstr ""
 
-#: Game.Levels.QuantifierWorld.L05_quant
-msgid "Negated Universal"
-msgstr ""
-
 #. §0: `rw`
 #. §1: `rewrite`
 #. §2: `rfl`
 #: Game.Levels.EquivWorld.equiv_docs
 msgid "The tactic §0 is the same as §1 except it automatically attempts to clear the goal with §2 at the end. This can often save us a line."
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.L05_quant
+msgid "Negated Universal"
 msgstr ""
 
 #. §0: `↔`
@@ -237,6 +237,10 @@ msgstr ""
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
 #: Game.Levels.PfWorld.PfWorld_eg.L02_pf
 msgid "Example 2"
+msgstr ""
+
+#: Game.Levels.EquivWorld.L06_equiv
+msgid "Negated Implication"
 msgstr ""
 
 #: Game.Levels.PfWorld.PfWorld_eg.L09_pf
@@ -1369,16 +1373,16 @@ msgstr ""
 msgid "Excellent. Let's focus on proving the §0-hand side of our goal now (since we know that §1)."
 msgstr ""
 
-#: Game.Levels.QuantifierWorld.L04_quant
-msgid "You're on the right track. In fact, you can one-shot it from here."
-msgstr ""
-
 #: Game.Levels.ArgWorld.L06_arg
 msgid "Law of the syllogism"
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
 msgid "Psuedo Conditional Law"
+msgstr ""
+
+#: Game.Levels.QuantifierWorld.L04_quant
+msgid "You're on the right track. In fact, you can one-shot it from here."
 msgstr ""
 
 #. §0: `A : Set u`
@@ -2070,6 +2074,12 @@ msgid "We wish to prove that §0 -- our goal, itself, is an implication. We know
 ""
 msgstr ""
 
+#. §0: $P → Q$
+#. §1: $P ∧ ¬ Q$
+#: Game.Levels.EquivWorld.L06_equiv
+msgid "The negation of §0 is equivalent to §1."
+msgstr ""
+
 #: Game.Levels.EquivWorld.L02_equiv
 msgid "Contrapositives"
 msgstr ""
@@ -2232,6 +2242,10 @@ msgstr ""
 msgid "# **Level 10**"
 msgstr ""
 
+#: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
+msgid "Conditional Proof"
+msgstr ""
+
 #. §0: `∀`
 #. §1: `∃`
 #. §2: `∀`
@@ -2245,10 +2259,6 @@ msgstr ""
 msgid "# **Level 5**\n"
 "A negated §0-statement turns into an §1-statement and vice versa. This follows (essentially) from DeMorgan's law (remember: §2 statements are like gigantic §3-statements). The theorem §4 codifies this relationship for us; 🔍 check out the entry for §5 in the **Theorems** tab. 👉 For our purposes here, try\n"
 "§6"
-msgstr ""
-
-#: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
-msgid "Conditional Proof"
 msgstr ""
 
 #. §0: $A ⊆ B$
@@ -2281,6 +2291,10 @@ msgid "We're almost home. Let's introduce a new tactic ...\n"
 "## **❯ The §0 tactic**\n"
 "The §1 tactic is identical to §2 except that it automatically attempts to clear the goal with §3 at the end. Give it a try!\n"
 ""
+msgstr ""
+
+#: Game.Levels.EquivWorld.L06_equiv
+msgid "# **Level 6: Negated Implication**"
 msgstr ""
 
 #. §0: $$ ¬ ¬ P ↔ P $$
@@ -2717,6 +2731,12 @@ msgstr ""
 msgid "There are more indirect ways to clear disjunctive goals. We'll tackle these in Proof Strategies World."
 msgstr ""
 
+#. §0: $P → Q$
+#. §1: $P ∧ ¬ Q$
+#: Game.Levels.EquivWorld.equiv_docs
+msgid "The negation of §0 is logically equivalent to §1."
+msgstr ""
+
 #. §0: `A ∩ B`
 #. §1: `«{hAB}»`
 #. §2: `∅`
@@ -3073,6 +3093,10 @@ msgstr ""
 msgid "DeMorgan : Compliment of a Union"
 msgstr ""
 
+#: Game.Levels.PfWorld.L07_pf
+msgid "We've got a couple options to clear the goal now."
+msgstr ""
+
 #. §0: `P`
 #. §1: `Q`
 #. §2: `Prop`
@@ -3104,10 +3128,6 @@ msgid "# **Logical Equivalences**\n"
 "You can 🔍 check out the entries for this theorems in the **Theorems** tab on the right. Everything at the moment is 🔒 locked (since we're just getting started), but you can still view the entries. Give it a try! And don't worry, you'll get used to the funny naming conventions.\n"
 ">\n"
 "The purpose of this world is to practice writing proofs of logical equivalences *using* known logical equivalences (like those above and others we'll learn about). Let's get started!"
-msgstr ""
-
-#: Game.Levels.PfWorld.L07_pf
-msgid "We've got a couple options to clear the goal now."
 msgstr ""
 
 #: Game.Levels.SetWorld.L02_set
@@ -3488,6 +3508,7 @@ msgid "# **Predicates & Quantifiers**\n"
 msgstr ""
 
 #: Game.Levels.EquivWorld.L05_equiv
+#: Game.Levels.EquivWorld.L06_equiv
 #: Game.Levels.ArgWorld.L06_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L01_arg
 #: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
@@ -3688,7 +3709,7 @@ msgstr ""
 #. \\end{array}
 #. $$
 #: Game.Levels.EquivWorld.equiv_docs
-#: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
+#: Game.Levels.EquivWorld.equiv_docs
 msgid "This is half of **DeMorgan's Law**. It says that\n"
 "\n"
 "§0\n"

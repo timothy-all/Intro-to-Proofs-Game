@@ -19,11 +19,12 @@ Statement {u : Type*} (F G H : Set (Set u)) : (∀ A ∈ F, ∀ B ∈ G, A ∪ B
   intro B hB
   --change ¬ x ∈ ⋂₀ F at hF --real confusing: internally things changed but the terminal delaborates the same way
   rw[mem_finter_iff] at hF
-  push_neg at hF
-  obtain ⟨ A, hA,hxA'⟩ := hF
-  obtain hAB := h A hA B hB
-  obtain hxA | hxB := hx (A ∪ B) hAB
+  rw[Not_forall] at hF
+  obtain ⟨A,hA⟩ := hF
+  rw[Not_imp] at hA
+  obtain f | t := hx (A ∪ B) (h A hA.left B hB)
+  obtain f' := hA.right
   contradiction
-  exact hxB
+  exact t
 
 Conclusion ""
