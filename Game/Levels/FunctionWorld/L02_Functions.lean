@@ -17,11 +17,9 @@ Recall that the point of the uniqueness part of `isFunction f` is that inputs ha
 We'll often know that `f a b` and `f a c`, at which point `b = c` (the outputs are the same) as long as `f` is a function. Prove this to get some practice with the uniqueness of function outputs."
 
 
-/-- If `hf : isFunction f`, the `evaluate` tactic lets us "plug in" `a` to `f`. For instance, `evaluate hf at a with b hbf hbu` will make the output `b` with `hbf` being the information that  `f(a) = b` and `hbu` being the corresponding uniqueness statement. -/
-TacticDoc evaluate
 
-/--  If `f` is a function such that `f a b` and `f a c`, then `b = c`. -/
-TheoremDoc Fun_output_equal as "FUN: Fun_output_equal"
+
+
 
 Statement Fun_output_equal {u v: Type*} {a : u} {b c : v} (f: Rel u v) (hf: isFunction f)  : f a b → f a c → b = c := by
   Hint "Start by naming the assumptions: `intro fab fbc`."
@@ -37,3 +35,7 @@ Statement Fun_output_equal {u v: Type*} {a : u} {b c : v} (f: Rel u v) (hf: isFu
 
 
 Conclusion "."
+
+
+NewTactic evaluate
+NewTheorem Fun_output_equal

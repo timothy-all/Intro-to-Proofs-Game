@@ -18,6 +18,4 @@ Statement {u v w: Type*} (f: Rel u v) (hf: isFunction f) (g: Rel v w) (hg: isFun
 
 Conclusion "."
 
-
-/-- If `f : Rel u v` is a function, `isInjective f` means that `f` is one-to-one. -/
-DefinitionDoc isInjective as "FUN: isInjective"
+NewDefinition isInjective

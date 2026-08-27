@@ -18,10 +18,10 @@ Statement {u v: Type*} (f: Rel u v) (hf: isFunction f) (hfi: isSurjective f) (V:
   exact hc
   intro b hb
   obtain ⟨a,ha⟩ := hfi b
-  use a
-  constructor
-  use b
-  exact ha
+  exist a
+  refine ⟨?_,ha⟩
+  exist b
+  refine ⟨hb,ha⟩
 
 
 

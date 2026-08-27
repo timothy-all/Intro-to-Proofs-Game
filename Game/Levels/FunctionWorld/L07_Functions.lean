@@ -12,11 +12,10 @@ Statement {u v w: Type*} (f: Rel u v) (hf: isFunction f) (g: Rel v w) (hg: isFun
   intro c
   --Line below unpacks surjectivity condition & composite all at once
   obtain ⟨a,⟨b,⟨hab,hbc⟩⟩⟩ := hgf c
-  use b
+  exist b
+  exact hbc
 
 
 Conclusion "."
 
-
-/-- If `f : Rel u v` is a function, `isSurjective f` means that `f` is onto. -/
-DefinitionDoc isSurjective as "FUN: isSurjective"
+NewDefinition isSurjective
