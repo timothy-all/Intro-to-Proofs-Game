@@ -32,6 +32,17 @@ msgstr ""
 msgid "There's no choice of §0 or §1 values for §2 and §3 that would make the left-hand statement on the left-hand side of this iff true."
 msgstr ""
 
+#. §0: ```
+#. Rel_inv_inv
+#. {u v : Type}
+#. (R: Rel u v) :
+#.   (R.inv).inv = R
+#. ```
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "The inverse of the inverse of a relation is itself. In Lean,\n"
+"§0"
+msgstr ""
+
 #. §0: `«{hx}»`
 #. §1: `∨`
 #. §2: `x ∈ {a,b}`
@@ -51,6 +62,27 @@ msgstr ""
 #. §0: `P ∨ ¬ P`
 #: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
 msgid "The world's most canonical tautology is undoubtedly §0."
+msgstr ""
+
+#. §0: ```
+#. Rel_double_inclusion
+#. {u v: Type*}
+#. (R: Rel u v)
+#. (S: Rel u v) :
+#.   R.set = S.set → R = S
+#. ```
+#. §1: `R = S → R.set = S.set`
+#. §2: `rw`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "Swaps out relation equality with the underlying set equality. In Lean,\n"
+"§0\n"
+"Of course it is also true that §1, but the proof of this is just a simple §2."
+msgstr ""
+
+#. §0: `and`
+#. §1: `constructor`
+#: Game.Levels.RelationWorld.L10_OrderRelations
+msgid "Start by breaking up our §0 goal using §1."
 msgstr ""
 
 #. §0: $x$
@@ -73,6 +105,20 @@ msgstr ""
 
 #: Game.Levels.QuantifierWorld.L05_quant
 msgid "Negated Universal"
+msgstr ""
+
+#. §0: `b ∈ equivClass R a`
+#. §1: `equivclass R a = equivClass R b`
+#: Game.Levels.RelationWorld.L13_EquivRelations
+msgid "## **Level 13**\n"
+"\n"
+"Another important and basic fact about equivalence classes is the fact that equivalence classes are independent of representative; that is, if §0, then §1. Let's prove this."
+msgstr ""
+
+#: Game.Levels.RelationWorld.L07_Relations
+msgid "## **Level 7**\n"
+"\n"
+"Here is a standard symmetric example."
 msgstr ""
 
 #. §0: `↔`
@@ -122,6 +168,10 @@ msgstr ""
 msgid "Now our goal is §0 and §1. Using what we know from Set World and Logical Equivalence World, let's rewrite §2 in the form:\n"
 "§3\n"
 ""
+msgstr ""
+
+#: Game.Levels.RelationWorld.L04_Relations
+msgid "Can you finish from here? The goal is existentially quantified, even if the quantifier isn't written explicitly."
 msgstr ""
 
 #. §0: `«{hx}»`
@@ -181,6 +231,16 @@ msgid "This helps to define §0 relation. Specifically, §1 means\n"
 "§5\n"
 "Here's a Venn diagram of the §6 relation:\n"
 "![Venn diagram of union connective](images/venn_subset.png)"
+msgstr ""
+
+#. §0: `apply double_inclusion`
+#. §1: `intro x hx`
+#: Game.Levels.RelationWorld.L13_EquivRelations
+msgid "Equivalence classes are sets! Let's prove this using double inclusion: §0 then unpack the forall goal with §1."
+msgstr ""
+
+#: Game.Levels.RelationWorld.RelationWorldExamples
+msgid "Relation World Examples"
 msgstr ""
 
 #. §0: `obtain`
@@ -243,6 +303,14 @@ msgstr ""
 msgid "Negated Implication"
 msgstr ""
 
+#: Game.Levels.RelationWorld.L04_Relations
+msgid "## **Level 4**\n"
+"\n"
+"Composite relations are tricky to work with, but are super important.\n"
+"Let's get some practice with composites by proving the theorem in this level.\n"
+"You also have the domain and range for a relation added to your inventory - check out their definitions before proceeding."
+msgstr ""
+
 #: Game.Levels.PfWorld.PfWorld_eg.L09_pf
 msgid "### **Level 9**"
 msgstr ""
@@ -281,9 +349,23 @@ msgid "# **Examples of Arguments**\n"
 "Let's get some practice validating arguments! This is really the beginning of *proof-writing* (the logical bones of it, anyway). The graphic of this world is the truth-table proof of the ***invalid*** argument that says: if §0 and §1 are true, then §2 must be true. See the highlighted row where the hypotheses are true, but the conclusion is false?"
 msgstr ""
 
+#: Game.Levels.RelationWorld.L07_Relations
+msgid "Relations 5"
+msgstr ""
+
 #. §0: `intro`
 #: Game.Levels.PfWorld.L08_pf
 msgid "Perfect. We now need to prove the **backward** implication. Let's §0 all the things."
+msgstr ""
+
+#. §0: `R`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "Makes a relation §0 transitive."
+msgstr ""
+
+#. §0: `intro X Y hX hY hXY`
+#: Game.Levels.RelationWorld.L16_EquivRelations
+msgid "There's a lot to unpack here - §0 to name all the assumptions."
 msgstr ""
 
 #. §0: `h: ∀ x, P x`
@@ -324,6 +406,12 @@ msgid "# **Level 5**\n"
 "In this level, we'll learn how to glue a couple known assumptions together with the §0 connective. Sometimes this is referred to as **Conjunctive Amplification**."
 msgstr ""
 
+#: Game.Levels.RelationWorld.L16_EquivRelations
+msgid "## **Level 16**\n"
+"\n"
+"Finally, we need to show that equivalence classes are pairwise disjoint. This is RelationWorld's boss level!"
+msgstr ""
+
 #. §0: `a : u`
 #. §1: `u`
 #. §2: `Q a`
@@ -349,6 +437,10 @@ msgstr ""
 #: Game.Levels.PfWorld.L03_pf
 msgid "# **Level 3: Contraposition**\n"
 "Here's a classic example of a statement we should approach via contraposition."
+msgstr ""
+
+#: Game.Levels.RelationWorld
+msgid "### ***Lean :)***"
 msgstr ""
 
 #: Game.Levels.QuantifierWorld.L05_quant
@@ -527,6 +619,13 @@ msgid "### **💡 Pro-tip**\n"
 "The result of this level tells you that if you want to prove and if-then statement where the hypothesis is a disjunction, then you may do so by... **assuming** that §0 is true and showing that §1 must follow, ***and*** as a separate goal assuming that §2 is true and showing that §3 must following in this case as well."
 msgstr ""
 
+#. §0: `apply double_inclusion`
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+msgid "Double inclusion exercise involving Cartesian products.\n"
+"\n"
+"Note: It is possible to prove this just using rewrites, but the intent is to get double inclusion practice. Start with §0 to set up your double inclusion proof."
+msgstr ""
+
 #. §0: $$ P ∧ ¬ P ↔ F₀ $$
 #. §1: $F₀$
 #. §2: $$
@@ -635,6 +734,16 @@ msgid "### **💡 All the food for thought**\n"
 "The binary operator §0 can be expressed in terms of §1. The last three examples show that the unary operator §2 and the binary operators §3 and §4 can be expressed in terms of §5. In fact, *any* binary operator on §6 and §7 can be expressed in terms of §8!"
 msgstr ""
 
+#. §0: `R`
+#. §1: `u`
+#. §2: `isInfimum R l B`
+#. §3: `l`
+#. §4: `B`
+#. §5: `u`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "If §0 is a relation on §1, §2 means that §3 is the greatest lower bound for the subset §4 of §5."
+msgstr ""
+
 #. §0: `intro`
 #. §1: ```
 #. intro «{h}» «{A}» «{hA}» «{B}» «{hB}» «{x}» «{hx}»
@@ -672,6 +781,16 @@ msgstr ""
 
 #: Game.Levels.SetWorld.L14_set
 msgid "The left-hand side of the logical equivalence in our goal is a membership of an intersection. Let's rewrite that."
+msgstr ""
+
+#. §0: `R`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "Makes a relation §0 an equivalence relation."
+msgstr ""
+
+#. §0: `by_contra h`
+#: Game.Levels.RelationWorld.L14_EquivRelations
+msgid "Let's argue by contradiction: §0."
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L07_arg
@@ -796,6 +915,21 @@ msgid "### **💡 Pro-tip:**\n"
 "There are smoother ways to write this proof, but this is the most logically direct translation from Lean to human-readable."
 msgstr ""
 
+#. §0: `R`
+#. §1: `u`
+#. §2: `isMinimal R b`
+#. §3: `b`
+#. §4: `u`
+#. §5: `b`
+#. §6: `B`
+#. §7: `u`
+#. §8: `isMinimal R b B`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "If §0 is a relation on §1, §2 means that §3 is a minimal element of §4.\n"
+"\n"
+"If we want to specify that §5 is a minimal element of a subset §6 of §7, write §8."
+msgstr ""
+
 #. §0: `⊼`
 #. §1: ```
 #. nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q)
@@ -805,6 +939,14 @@ msgid "The definition of the **Negated Conjunction** connective, denoted §0. He
 "§1"
 msgstr ""
 
+#: Game.Levels.RelationWorld.RelationWorldExamples.equivrelation_example1
+msgid "If equivalence relations have the same family of equivalence classes, they're the same relation."
+msgstr ""
+
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example2
+msgid "This level gives some good practice with composite relations."
+msgstr ""
+
 #. §0: ```
 #. intro h
 #. ```
@@ -812,6 +954,10 @@ msgstr ""
 msgid "Great. Now we need to prove the **backward** direction of our bicondtional. Let's attack this somewhat directly. 👉 Let's start with\n"
 "§0\n"
 ""
+msgstr ""
+
+#: Game.Levels.RelationWorld.RelationWorldExamples
+msgid "### ***In-class examples and HW problems***"
 msgstr ""
 
 #. §0: `I`
@@ -827,6 +973,23 @@ msgstr ""
 #. §5: `⊢ ∀ y, P y → y = 0`
 #: Game.Levels.PfWorld.pf_docs
 msgid "The §0 tactic is helpful for existence/uniqueness goals. Specifically, if the goal is of the form §1 and §2 is a witness to goal, then §3 will split the goal into two subgoals. The first goal is §4 (the existence statement). The second goal is §5 (the uniqueness statement)."
+msgstr ""
+
+#. §0: `S`
+#. §1: `u`
+#. §2: `subsetOrder S`
+#. §3: `S`
+#. §4: `F`
+#. §5: `⋂F`
+#: Game.Levels.RelationWorld.RelationWorldExamples.orderrelation_example2
+msgid "Recall that, if §0 is a subset of §1, §2 is the subset partial order on §3.\n"
+"\n"
+"In this exercise, you'll prove that the greatest lower bound of a family of sets §4 is §5."
+msgstr ""
+
+#. §0: `or`
+#: Game.Levels.RelationWorld.L02_Cartesianproducts
+msgid "Use the previous level to simplify, then you'll need to use known facts about §0 statements."
 msgstr ""
 
 #: Game.Levels.EquivWorld.EquivWorld_eg.L05_equiv
@@ -876,6 +1039,20 @@ msgstr ""
 #. §1: $A ⊆ A \\ B$
 #: Game.Levels.PfWorld.L04_pf
 msgid "Suppose §0 are sets such that their intersection is empty. Then §1."
+msgstr ""
+
+#: Game.Levels.RelationWorld.L02_Cartesianproducts
+msgid "## **Level 2**\n"
+"\n"
+"The previous level suggests that we can conclude that an element fails to be in a Cartesian product as long as at least one coordinate fails to be in the required set.\n"
+"Let's prove it."
+msgstr ""
+
+#. §0: `R b x`
+#. §1: `h : R a b`
+#. §2: `hx : R a x`
+#: Game.Levels.RelationWorld.L13_EquivRelations
+msgid "The goal amounts to proving §0. We know §1 and §2. Use equivalence relation properties to take it from here!"
 msgstr ""
 
 #. §0: $$ P ∨ T₀ ↔ T₀ $$
@@ -1037,6 +1214,11 @@ msgid "🔧 The §0 tactic is a real multi-purpose tool! We'll see more uses for
 "> *Let §3 be an element such that §4 is true; we know such an element exists from the assumption §5.*"
 msgstr ""
 
+#. §0: `R a a`
+#: Game.Levels.RelationWorld.L12_EquivRelations
+msgid "The goal is simply to show §0. Which equivalence relation property tells us this?"
+msgstr ""
+
 #. §0: $$(P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))$$
 #. §1: $$
 #. \\begin{array}{|ccc||cc|}
@@ -1071,6 +1253,19 @@ msgid "Here you can put additional information about the game. It is accessible\
 "For example: Game version, Credits, Link to Github and Zulip, etc.\n"
 "\n"
 "Use **markdown**."
+msgstr ""
+
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example2
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example3
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example4
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example5
+msgid "Relations"
+msgstr ""
+
+#. §0: `constructor`
+#: Game.Levels.RelationWorld.L11_OrderRelations
+msgid "Start with §0 to break down the least upper bound conditions."
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L08_arg
@@ -1128,6 +1323,17 @@ msgstr ""
 #. §3: `Q`
 #: Game.Levels.EquivWorld.EquivWorld_eg.L04_equiv
 msgid "There's no choice of §0 or §1 values for §2 and §3 that would make the left-hand statement on the left-hand side of this iff false."
+msgstr ""
+
+#. §0: `x ∉ A × B`
+#. §1: `x`
+#. §2: `A`
+#. §3: `x`
+#. §4: `A`
+#. §5: `B`
+#: Game.Levels.RelationWorld.L01_Cartesianproducts
+msgid "As a proof in English, our steps here translate to:\n"
+"Since §0, we know that it's not true that the first coordinate of §1 is in §2 and the second coordinate of §3 is in B. This means that either the first coordinate isn't in §4 or the second coordinate isn't in §5, which is what we wanted to prove."
 msgstr ""
 
 #. §0: `(A ∩ B)ᶜ = Aᶜ ∪ Bᶜ`
@@ -1209,6 +1415,10 @@ msgid "### **🤔 More food for thought**\n"
 "The binary operator §0 can be expressed in terms of §1 too ..."
 msgstr ""
 
+#: Game.Levels.RelationWorld.L10_OrderRelations
+msgid "Can you finish from here?"
+msgstr ""
+
 #: Game.Levels.PfWorld.PfWorld_eg.L13_pf
 msgid "Example 13"
 msgstr ""
@@ -1217,8 +1427,46 @@ msgstr ""
 msgid "Set Union"
 msgstr ""
 
+#. §0: `a ∈ equivClass R a`
+#. §1: ```
+#. Equiv_class_has_rep
+#. {u : Type*}
+#. (R: Rel_on u)
+#. (eq: isEquivalence R)
+#. (a : u) :
+#.   a ∈ equivClass R a
+#. ```
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "This is the proof that §0; more precisely,\n"
+"§1\n"
+"To use this, notice that you have to tell Lean that your relation is an equivalence relation."
+msgstr ""
+
+#. §0: `R`
+#. §1: `po: isPartialOrder R`
+#. §2: `po.refl`
+#. §3: `po.anti`
+#. §4: `po.tran`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "Makes a relation §0 a partial order. If §1, use §2, §3, §4 to access the reflexive, anti-symmetric, and transitive properties, respectively."
+msgstr ""
+
 #: Game.Levels.EquivWorld.L03_equiv
 msgid "An implication where the hypothesis is a chain of conjuntions is logically equivalent to a certain chain of implications."
+msgstr ""
+
+#. §0: `Rel_id u`
+#. §1: `u`
+#. §2: ```
+#. Rel_id
+#. (u : Type*) :
+#.   Rel_on u := fun u1 u2 => u1 = u2
+#. ```
+#. §3: `fun`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "§0 is the identity relation on the universe (type) §1. Under the hood, this is how it's defined:\n"
+"§2\n"
+"The §3 keyword tells Lean we're providing \"function\" inputs - this works here because, in Lean, a relation is a function whose output is a proposition, and that proposition's truth value tells is whether the inputs are related. So, for the identity relation, that proposition is simply equality."
 msgstr ""
 
 #. §0: `a : u`
@@ -1329,6 +1577,21 @@ msgstr ""
 msgid "Modus Ponens"
 msgstr ""
 
+#. §0: `S`
+#. §1: `u`
+#. §2: `subsetOrder S`
+#. §3: `∅`
+#. §4: `S`
+#: Game.Levels.RelationWorld.L10_OrderRelations
+msgid "## **Level 10**\n"
+"\n"
+"A standard order relation is the 'subset partial order' on a family of sets. If §0 is a subset of §1, we can write §2 to get this partial order.\n"
+"\n"
+"To get some practice working with this explicit example, prove that the empty set is the smallest element of a power set using this order.\n"
+"\n"
+"A weird caveat: The empty set symbol §3 is bundled with a proof that it's a subset of §4 - don't worry about this too much."
+msgstr ""
+
 #. §0: `A`
 #. §1: `A.Nonempty`
 #. §2: `∃ x, x ∈ A`
@@ -1371,6 +1634,11 @@ msgstr ""
 #. §1: `«{hAB}» : ¬ A ⊆ B`
 #: Game.Levels.PfWorld.L11_pf
 msgid "Excellent. Let's focus on proving the §0-hand side of our goal now (since we know that §1)."
+msgstr ""
+
+#. §0: `h`
+#: Game.Levels.RelationWorld.L03_Relations
+msgid "Lean knows that the inverse just swaps the coordinates, so §0 is already definitionally equal to the goal! In English, you'd want to mention that the coordinates swap twice."
 msgstr ""
 
 #: Game.Levels.ArgWorld.L06_arg
@@ -1468,6 +1736,11 @@ msgstr ""
 msgid "Great. Notice how our *Active Goal* is now §0 while *Goal 2* gets back to our original goal. See if you can't clear this subgoal on your own."
 msgstr ""
 
+#. §0: `R`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "Makes a relation §0 reflexive."
+msgstr ""
+
 #. §0: `D`
 #. §1: `A`
 #. §2: `H`
@@ -1499,6 +1772,13 @@ msgid "### **💡 Pro-tip**\n"
 "We've learned that if §0, then §1 is a proof of §2. 🤔 Can you take a wild guess at what §3 proves? What if §4 ... what is §5 a proof of?"
 msgstr ""
 
+#. §0: `set`
+#. §1: `u`
+#. §2: `(a,a)`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "Replaces the §0 of the identity relation on §1 with the more concrete set of ordered pairs of the form §2."
+msgstr ""
+
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
 msgid "The economic argument in symbols is given below."
 msgstr ""
@@ -1510,6 +1790,11 @@ msgstr ""
 msgid "👉Let's get rid of the double negative with\n"
 "§0\n"
 ""
+msgstr ""
+
+#. §0: `obtain ⟨b,hb⟩ := h`
+#: Game.Levels.RelationWorld.L04_Relations
+msgid "Use §0 to unpack the existentially quantified given."
 msgstr ""
 
 #. §0: `∅`
@@ -1527,8 +1812,19 @@ msgid "# **Level 11**\n"
 "§2"
 msgstr ""
 
+#. §0: `Set.univ`
+#. §1: `S`
+#. §2: `apply Set.mem_univ`
+#: Game.Levels.RelationWorld.L10_OrderRelations
+msgid "The §0 here is the universe of subsets of §1, so having the empty set as an element is expected! §2 to close the goal."
+msgstr ""
+
 #: Game.Levels.SetWorld.L12_set
 msgid "Symmetric Difference"
+msgstr ""
+
+#: Game.Levels.RelationWorld.L05_Relations
+msgid "Relations 3"
 msgstr ""
 
 #: Game.Levels.PfWorld.PfWorld_eg.L10_pf
@@ -1571,6 +1867,20 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.L02_arg
 msgid "This valid argument is known as *Modus Tolens*."
+msgstr ""
+
+#: Game.Levels.RelationWorld.L06_Relations
+#: Game.Levels.RelationWorld.L07_Relations
+#: Game.Levels.RelationWorld.L08_Relations
+#: Game.Levels.RelationWorld.L09_OrderRelations
+#: Game.Levels.RelationWorld.L10_OrderRelations
+#: Game.Levels.RelationWorld.L11_OrderRelations
+#: Game.Levels.RelationWorld.L12_EquivRelations
+#: Game.Levels.RelationWorld.L13_EquivRelations
+#: Game.Levels.RelationWorld.L14_EquivRelations
+#: Game.Levels.RelationWorld.L15_EquivRelations
+#: Game.Levels.RelationWorld.L16_EquivRelations
+msgid "English proof?"
 msgstr ""
 
 #: Game.Levels.ArgWorld.L04_arg
@@ -1627,6 +1937,29 @@ msgid "# **Level 3 : Currying**\n"
 "In order to pretty-print subscripts like in §2 use §3."
 msgstr ""
 
+#. §0: `eq`
+#. §1: `R`
+#. §2: `eq.refl`
+#. §3: `eq.symm`
+#. §4: `eq.tran`
+#. §5: `a`
+#. §6: `a`
+#: Game.Levels.RelationWorld.L12_EquivRelations
+msgid "## **Level 12**\n"
+"\n"
+"Let's see how to work with equivalence relations in Lean. Fundamental to equivalence relations are their equivalence classes - check your inventory for Lean's terminology for equivalence classes.\n"
+"\n"
+"The hypothesis §0 tells us that §1 is an equivalence relation. You can use §2, §3, §4 to access the reflexive, symmetric, and transitive properties.\n"
+"\n"
+"First, let's prove the fundamental fact that equivalence classes are nonempty. More specifically, the equivalence class of §5 contains §6."
+msgstr ""
+
+#: Game.Levels.RelationWorld.L08_Relations
+msgid "## **Level 8**\n"
+"\n"
+"Here is a standard transitive example."
+msgstr ""
+
 #. §0: `«{hx}»`
 #. §1: `∧`
 #. §2: `obtain`
@@ -1672,6 +2005,21 @@ msgid "# **Level 4 : Proof by Contradiction**\n"
 ">\n"
 "First and foremost, our goal is a subset relation. So let's introduce the appropriate stuff with\n"
 "§1"
+msgstr ""
+
+#. §0: `Rel_union R S`
+#. §1: `R`
+#. §2: `S`
+#. §3: `fun`
+#. §4: ```
+#. Rel_union
+#. {u v : Type*}
+#. (R S : Rel u v) :
+#.   Rel u v := fun a b => R a b ∨ S a b
+#. ```
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "§0 is the \"union\" of the relations §1 and §2. The Lean definition needs a §3 to explicitly describe the relation:\n"
+"§4"
 msgstr ""
 
 #. §0: `exact`
@@ -1734,6 +2082,11 @@ msgstr ""
 #. §0: `constructor`
 #: Game.Levels.PfWorld.L07_pf
 msgid "We've come to yet another biconditional! Let's use §0 to split our goals."
+msgstr ""
+
+#. §0: `apply double_inclusion`
+#: Game.Levels.RelationWorld.L15_EquivRelations
+msgid "This is an equality of sets, so as usual, §0."
 msgstr ""
 
 #. §0: `exist`
@@ -1834,6 +2187,16 @@ msgstr ""
 msgid "### **Level 1**"
 msgstr ""
 
+#. §0: `R`
+#. §1: `u`
+#. §2: `isUpperBound R s B`
+#. §3: `u`
+#. §4: `B`
+#. §5: `u`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "If §0 is a relation on §1, §2 means that §3 is an upper bound for the subset §4 of §5."
+msgstr ""
+
 #: Game.Levels.ArgWorld.L04_arg
 msgid "# **Level 4**\n"
 "This valid argument is sometimes called the law of **Conjunctive Simplification**."
@@ -1914,11 +2277,31 @@ msgstr ""
 msgid "Intersections of indexed families"
 msgstr ""
 
+#: Game.Levels.RelationWorld.L08_Relations
+msgid "Relations 6"
+msgstr ""
+
 #. §0: `«{hab}»`
 #. §1: `𝒫 A ∪ 𝒫 B`
 #. §2: `𝒫 (A ∪ B)`
 #: Game.Levels.PfWorld.L11_pf
 msgid "Terrific. Let's rewrite the assumption §0 to use §1 instead of §2."
+msgstr ""
+
+#. §0: `intro x h`
+#. §1: `(S ∘ R).dom`
+#: Game.Levels.RelationWorld.L04_Relations
+msgid "Start with §0 to grab an arbitrary element of §1."
+msgstr ""
+
+#. §0: `constructor`
+#. §1: `b`
+#. §2: `hb`
+#. §3: `b ∈ B`
+#. §4: `R`
+#. §5: `po.anti`
+#: Game.Levels.RelationWorld.L09_OrderRelations
+msgid "Now use §0 to unpack the conditions for §1 to be minimal, and use §2 to prove §3. Can you finish from there? You'll eventually need to use that §4 is anti-symmetric! Remember that this fact is called §5 here."
 msgstr ""
 
 #: Game.Levels.PfWorld.PfWorld_eg.L14_pf
@@ -1928,6 +2311,15 @@ msgstr ""
 #: Game.Levels.ArgWorld.ArgWorld_eg.L06_arg
 msgid "# **Level 6**\n"
 "Here's an abstract example."
+msgstr ""
+
+#. §0: `R`
+#. §1: `u`
+#. §2: `equivClass R a`
+#. §3: `a : u`
+#. §4: `equivClass R a = { b | R a b}`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "If §0 is an equivalence relation on §1, §2 is the equivalence class of §3; that is, §4."
 msgstr ""
 
 #: Game.Levels.PfWorld.PfWorld_eg.L14_pf
@@ -1994,6 +2386,14 @@ msgid "Great! We now have\n"
 ""
 msgstr ""
 
+#. §0: `R.inv`
+#. §1: `R`
+#. §2: `R a b`
+#. §3: `R.inv b a`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "§0 is the inverse of the relation §1. More precisely, §2 if and only if §3. -"
+msgstr ""
+
 #: Game.Levels.PfWorld.PfWorld_eg
 msgid "Proof Strategy World Examples"
 msgstr ""
@@ -2001,6 +2401,19 @@ msgstr ""
 #: Game.Levels.SetWorld.SetWorld_eg.L05_set
 #: Game.Levels.PfWorld.PfWorld_eg.L05_pf
 msgid "### **Level 5**"
+msgstr ""
+
+#. §0: `Rel.id`
+#. §1: `Rel_on u`
+#. §2: `Rel u u`
+#. §3: `Rel.id`
+#: Game.Levels.RelationWorld.L05_Relations
+msgid "## **Level 5**\n"
+"\n"
+"Let's get a bit of experience working with a simple explicit relation - the identity relation.\n"
+"Check out §0 in your inventory - do you see how this mirrors the definition of our identity relation?\n"
+"Note also the new definition for §1 - this is simply a shorthand for §2, just as we use in class.\n"
+"Let's check out that the set of ordered pairs for §3 is exactly what we expect."
 msgstr ""
 
 #. §0: `0`
@@ -2119,12 +2532,36 @@ msgid "👉 Finally, let's unravel the set-difference with\n"
 ""
 msgstr ""
 
+#. §0: ```
+#. mem_prod_iff
+#. {u v : Type*}
+#. {x : u}
+#. {y : v}
+#. (A : Set u)
+#. (B : Set v)
+#. (p : u × v) :
+#.   p ∈ A ×ˢ B ↔ p.1 ∈ A ∧ p.2 ∈ B
+#. ```
+#. §1: `p`
+#. §2: `u × v`
+#. §3: `p`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "This tells us what it means to be a member of the Cartesian product of two **sets**. Here's how it looks in Lean:\n"
+"§0\n"
+"Notice that §1 has type §2 - this is the **type** Cartesian product that is used extensively when talking about relations. It shows up here because §3 is an ordered pair that is not, a priori, known to have coordinates living in any sets."
+msgstr ""
+
 #. §0: `A ∪ B`
 #. §1: `∨`
 #. §2: `rw`
 #: Game.Levels.SetWorld.L04_set
 msgid "### **💡 Pro-tip**\n"
 "Lean knows that §0 is definitionally a §1 statement, so the §2 step was unnecessary."
+msgstr ""
+
+#. §0: `(S ∘ R).dom`
+#: Game.Levels.RelationWorld.L04_Relations
+msgid "You don't need to use unfold first to unpack the existential quantifier in §0; we could grab it directly too. The English analog of this is how we don't write the existential quantifier in ''indexed'' set builder notation."
 msgstr ""
 
 #: Game.Levels.QuantifierWorld.L03_quant
@@ -2163,6 +2600,16 @@ msgstr ""
 msgid "### **Level 6**"
 msgstr ""
 
+#. §0: `R.dom`
+#. §1: `R`
+#. §2: ```
+#. R.dom = { a | ∃ b, R a b }
+#. ```
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "§0 is the domain of the relation §1. This is a **set**:\n"
+"§2"
+msgstr ""
+
 #: Game.Levels.ArgWorld.L05_arg
 msgid "This valid argument is known as *Conjunctive Amplification*."
 msgstr ""
@@ -2173,6 +2620,15 @@ msgstr ""
 
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg
 msgid "Quantifier World Examples"
+msgstr ""
+
+#: Game.Levels.RelationWorld.RelationWorldExamples.orderrelation_example1
+msgid "Let's prove a theorem about how least upper bounds of subsets compare when the subsets are nested."
+msgstr ""
+
+#. §0: `exact subset_univ (⋃₀ (EquivClassFamily R))`
+#: Game.Levels.RelationWorld.L15_EquivRelations
+msgid "Every set is a subset of the universe, so this is trivial & Lean knows it - §0 closes the goal."
 msgstr ""
 
 #. §0: `∧`
@@ -2242,6 +2698,16 @@ msgstr ""
 msgid "# **Level 10**"
 msgstr ""
 
+#. §0: `R`
+#. §1: `u`
+#. §2: `isSupremum R s B`
+#. §3: `s`
+#. §4: `B`
+#. §5: `u`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "If §0 is a relation on §1, §2 means that §3 is the least upper bound for the subset §4 of §5."
+msgstr ""
+
 #: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
 msgid "Conditional Proof"
 msgstr ""
@@ -2266,6 +2732,12 @@ msgstr ""
 #. §2: $A = B$
 #: Game.Levels.PfWorld.L06_pf
 msgid "If §0 and §1, then §2."
+msgstr ""
+
+#. §0: `funext x y`
+#: Game.Levels.RelationWorld.L03_Relations
+msgid "Relation facts can also be proven by using their core definition - as Lean functions. If you want to also try this, §0 will unpack the equality in this way.\n"
+"We'll work with functions much more explicitly in Function World."
 msgstr ""
 
 #. §0: `«{hxb}» : x ∈ B \\ A`
@@ -2293,6 +2765,10 @@ msgid "We're almost home. Let's introduce a new tactic ...\n"
 ""
 msgstr ""
 
+#: Game.Levels.RelationWorld.L04_Relations
+msgid "Relations 2"
+msgstr ""
+
 #: Game.Levels.EquivWorld.L06_equiv
 msgid "# **Level 6: Negated Implication**"
 msgstr ""
@@ -2301,6 +2777,10 @@ msgstr ""
 #: Game.Levels.EquivWorld.equiv_docs
 msgid "This is the **Double Negation Law**. It says that\n"
 "§0"
+msgstr ""
+
+#: Game.Levels.RelationWorld.L03_Relations
+msgid "Relations 1"
 msgstr ""
 
 #. §0: `h1`
@@ -2329,6 +2809,10 @@ msgstr ""
 
 #: Game.Levels.PfWorld.L04_pf
 msgid "Proof by Contradiction"
+msgstr ""
+
+#: Game.Levels.RelationWorld.L06_Relations
+msgid "Relations 4"
 msgstr ""
 
 #. §0: `⊢ ∀ A ∈ F, ...`
@@ -2386,6 +2870,11 @@ msgid "This helps to define the §0 (complement) unary operator on sets. Specifi
 "§1\n"
 "So §2 says specifically that §3. Here's what it looks like in Lean:\n"
 "§4"
+msgstr ""
+
+#. §0: `X = Y`
+#: Game.Levels.RelationWorld.L16_EquivRelations
+msgid "Now you're tasked with proving §0 - you can take it from here! There are many ways to do this using what we've done so far."
 msgstr ""
 
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L08_quant
@@ -2489,6 +2978,11 @@ msgstr ""
 #: Game.Levels.PfWorld.pf_docs
 msgid "This is the defintion of what it means to say that an integer is *odd*. Here's what it looks like in Lean:\n"
 "§0"
+msgstr ""
+
+#. §0: `R`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "Makes a relation §0 symmetric."
 msgstr ""
 
 #. §0: $$ P ∧ F₀ ↔ F₀ $$
@@ -2619,6 +3113,17 @@ msgid "That was a good first step. You might want to apply the **Conditional Law
 ""
 msgstr ""
 
+#. §0: `subsetOrder u`
+#. §1: `u`
+#. §2: `A`
+#. §3: `B`
+#. §4: `u`
+#. §5: `(subsetOrder u) A B`
+#. §6: `A ⊆ B`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "§0 is the subset order relation on a type §1. If §2 and §3 are sets of elements of §4 , then §5 is a fancy way of writing §6."
+msgstr ""
+
 #: Game.Levels.PfWorld.L11_pf
 msgid "Disjunctive Goals"
 msgstr ""
@@ -2630,6 +3135,27 @@ msgstr ""
 msgid "Super. Let's clean up our hypotheses before tackling this goal. First, let's rewrite §0 using §1 and §2."
 msgstr ""
 
+#. §0: `x`
+#. §1: `rw [mem_prod_iff] at h`
+#: Game.Levels.RelationWorld.L01_Cartesianproducts
+msgid "Let's start by unpacking what it means for §0 to be in a Cartesian product (so we can negate it).\n"
+"Try rewriting the set membership using its definition: §1."
+msgstr ""
+
+#. §0: ```
+#. Equiv_class_rep_ind
+#. {u : Type*}
+#. (R: Rel_on u)
+#. (eq: isEquivalence R)
+#. (a b: u)
+#. (h: b ∈ EquivClass R a) :
+#.   equivClass R a = equivClass R b
+#. ```
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "This is the proof that equivalence classes are \"representative-independent\"; you may choose any element of an element's equivalence class as the class's representative. This is very useful in equivalence relation proofs.\n"
+"§0"
+msgstr ""
+
 #. §0: `x ∉ ...`
 #. §1: `¬ x ∈ ...`
 #. §2: ```
@@ -2639,6 +3165,10 @@ msgstr ""
 msgid "Lean writes §0 as short-hand for §1. So let's try\n"
 "§2\n"
 ""
+msgstr ""
+
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example3
+msgid "One more level with composite practice. This one is much simpler."
 msgstr ""
 
 #: Game.Levels.PfWorld.PfWorld_eg.L12_pf
@@ -2684,6 +3214,12 @@ msgstr ""
 msgid "Test"
 msgstr ""
 
+#. §0: `rw[Rel.dom] at h`
+#. §1: `S ∘ R`
+#: Game.Levels.RelationWorld.L04_Relations
+msgid "Use §0 to see what it means to be in the domain of §1. "
+msgstr ""
+
 #. §0: `∀ x, Q x`
 #. §1: `Q x`
 #. §2: `u`
@@ -2727,6 +3263,25 @@ msgid "This is the constructor for the §0 logical connective. As a (curried) fu
 "will introduce the new hypothesis §4 into the proof-state."
 msgstr ""
 
+#. §0: `(a,b)`
+#. §1: `A ×ˢ B`
+#. §2: `a ∉ A`
+#. §3: ```
+#. Fst_not_mem_not_mem_prod
+#. {u v: Type*}
+#. (A: Set u)
+#. (B: Set v)
+#. (x : u)
+#. (y: v)
+#. (h: x ∉ A) :
+#.   (x,y) ∉ (A ×ˢ B)
+#. ```
+#: Game.Levels.RelationWorld.Relation_docs
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "An ordered pair §0 fails to be in the Cartesian product §1 as long as §2. In Lean,\n"
+"§3"
+msgstr ""
+
 #: Game.Levels.ArgWorld.L07_arg
 msgid "There are more indirect ways to clear disjunctive goals. We'll tackle these in Proof Strategies World."
 msgstr ""
@@ -2744,6 +3299,11 @@ msgstr ""
 msgid "Amazing. Now let's rewrite §0 in §1 as §2."
 msgstr ""
 
+#. §0: `R`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "Makes a relation §0 anti-symmetric."
+msgstr ""
+
 #. §0: `P`
 #. §1: `Q`
 #. §2: `P`
@@ -2752,6 +3312,12 @@ msgstr ""
 #. §5: `R`
 #: Game.Levels.ArgWorld.ArgWorld_eg.L02_arg
 msgid "If §0 and §1 are true and §2 implies §3 implies §4, then it must be that §5 is true."
+msgstr ""
+
+#. §0: `hb`
+#. §1: `obtain <c,hc> := hb`
+#: Game.Levels.RelationWorld.L04_Relations
+msgid "§0 is also existentially quantified! Use §1 to unpack it. This is typically how we'll work with composites."
 msgstr ""
 
 #: Game
@@ -2804,6 +3370,16 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "Intro to Lean"
+msgstr ""
+
+#. §0: `R.range`
+#. §1: `R`
+#. §2: ```
+#. R.range = { b | ∃ a, R a b }
+#. ```
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "§0 is the range of the relation §1. This is a **set**:\n"
+"§2 -"
 msgstr ""
 
 #. §0: `a ∈ ⋂₀ F`
@@ -2885,6 +3461,21 @@ msgid "Notice that we now have §0 as an assumption. But this is our goal too! T
 ""
 msgstr ""
 
+#. §0: `R`
+#. §1: `u`
+#. §2: `isSmallest R b`
+#. §3: `b`
+#. §4: `u`
+#. §5: `b`
+#. §6: `B`
+#. §7: `u`
+#. §8: `isSmallest R b B`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "If §0 is a relation on §1, §2 means that §3 is the smallest element of §4.\n"
+"\n"
+"If we want to specify that §5 is the smallest element of a subset §6 of §7, write §8."
+msgstr ""
+
 #. §0: `intro`
 #. §1: `intro a`
 #. §2: $a$
@@ -2922,6 +3513,22 @@ msgid "This helps to define the §0 set connective. Specifically,\n"
 "![Venn diagram of union connective](images/venn_inter.png)"
 msgstr ""
 
+#: Game.Levels.RelationWorld.L05_Relations
+msgid "."
+msgstr ""
+
+#. §0: `partition`
+#. §1: `equivClassFamily`
+#: Game.Levels.RelationWorld.L14_EquivRelations
+msgid "## **Level 14**\n"
+"\n"
+"Recall that the family of equivalence classes of an equivalence relation give a §0 of the set our relation is on.\n"
+"\n"
+"Check your inventory for §1, the notation for the family of equivalence classes.\n"
+"\n"
+"To get more equivalence relation practice, let's prove the three partition properties. Let's start with showing that the family has no empty elements."
+msgstr ""
+
 #: Game.Levels.PfWorld.PfWorld_eg.L11_pf
 msgid "Example 11"
 msgstr ""
@@ -2933,10 +3540,31 @@ msgstr ""
 msgid "Our *Active Goal* is §0 while §1 is §2. See if you can't finish from here."
 msgstr ""
 
+#. §0: `Supremum`
+#. §1: `upperBounds`
+#: Game.Levels.RelationWorld.L11_OrderRelations
+msgid "## **Level 11**\n"
+"\n"
+"Lastly, let's get some practice with bounds. Let's prove that largest elements are automatically also least upper bounds. Remember that §0 is the fancy math word for least upper bound.\n"
+"\n"
+"Note: Usually for definitions, the first letter is lowercase, but §1 is already declared in Lean with a more complicated definition than what we need."
+msgstr ""
+
 #. §0: `intro`
 #. §1: `x ∈ B`
 #: Game.Levels.PfWorld.L02_pf
 msgid "Now, let's tackle ***this*** if then statement directly. Specifically, let's §0 the hypothesis §1."
+msgstr ""
+
+#. §0: `Snd_not_mem_not_mem_prod.`
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
+msgid "Double inclusion exercise involving Cartesian products.\n"
+"\n"
+"Check your inventory for a new theorem: §0 This is similar to the theorem proven in level 2 of RelationWorld, just using the second coordinate instead of the first. Both of these are useful in this level."
+msgstr ""
+
+#: Game.Levels.RelationWorld.L02_Cartesianproducts
+msgid "Include a proof in English"
 msgstr ""
 
 #. §0: `constructor`
@@ -3085,6 +3713,18 @@ msgstr ""
 msgid "Our goal is now an *existential* statement. We need to profer a witness..."
 msgstr ""
 
+#. §0: `A × B`
+#. §1: `C × D`
+#. §2: `A`
+#. §3: `C`
+#. §4: `B`
+#. §5: `D`
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
+msgid "Cartesian products: What does it mean for §0 and §1 to be disjoint?\n"
+"\n"
+"In the statement of the theorem below, we're assuming §2 and §3 come from the same universe; similar for §4 and §5. Of course, if either fails, the conclusion is automatically true."
+msgstr ""
+
 #: Game.Levels.ArgWorld.L03_arg
 msgid "Disjunctive Syllogism"
 msgstr ""
@@ -3132,6 +3772,23 @@ msgstr ""
 
 #: Game.Levels.SetWorld.L02_set
 msgid "The subset relation is transitive."
+msgstr ""
+
+#. §0: `Rel.on A`
+#. §1: `Rel A A`
+#. §2: `isReflexive`
+#. §3: `isSymmetric`
+#. §4: `isAntisymmetric`
+#. §5: `isTransitive`
+#. §6: `isPartialOrder`
+#. §7: `isEquivalence`
+#: Game.Levels.RelationWorld.L06_Relations
+msgid "## **Level 6**\n"
+"\n"
+"Let's see how to use some of the special relation definitions that go into partial orders and equivalence relations. Since these are relations on single sets, we have the new definition §0 as a shorthand for §1.\n"
+"The names for our familiar definitions are §2, §3, §4, and §5. The definitions §6 and §7 combine the relevant definitions. Check them out in your inventory.\n"
+"\n"
+"Let's go through a few basic examples."
 msgstr ""
 
 #: Game.Levels.QuantifierWorld.L04_quant
@@ -3256,6 +3913,11 @@ msgstr ""
 msgid "Note that §0 is now known. The §1 tactic ought to help us clear the goal now."
 msgstr ""
 
+#. §0: `a`
+#: Game.Levels.RelationWorld.L15_EquivRelations
+msgid "We have to find an equivalence class containing §0. What should it be?"
+msgstr ""
+
 #. §0: $P$
 #. §1: $¬ P$
 #: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
@@ -3263,9 +3925,64 @@ msgstr ""
 msgid "The negated conjunction of §0 with itself is logically equivalent to §1."
 msgstr ""
 
+#. §0: `A`
+#. §1: `u`
+#. §2: `B`
+#. §3: `v`
+#. §4: `A : Set u`
+#. §5: `B: Set v`
+#. §6: ```
+#. A ×ˢ B = { (a,b) | a ∈ A ∧ b ∈ B}.
+#. ```
+#. §7: `p ∈ A ×ˢ B`
+#. §8: `p`
+#. §9: `p.1`
+#. §10: `p.2`
+#. §11: `p.fst`
+#. §12: `p.snd`
+#. §13: `\\xs`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "This is the **set** Cartesian product symbol, used in set Cartesian product levels found in RelationWorld and RelationWorldExamples. So, if §0 is a set of elements from type §1 and §2 is a set of elements from type §3 (in Lean: §4, §5), §6\n"
+"If §7, you can access the coordinates of §8 by using §9 and §10 (or §11 and §12 - first and second).\n"
+"\n"
+"To type this symbol, write §13."
+msgstr ""
+
+#: Game.Levels.RelationWorld
+msgid "Relation World"
+msgstr ""
+
+#. §0: `equivClassFamily R`
+#. §1: `u`
+#: Game.Levels.RelationWorld.L15_EquivRelations
+msgid "## **Level 15**\n"
+"\n"
+"Next, toward our goal of proving that §0 is a partition, let's prove that every element of §1 belongs to some equivalence class."
+msgstr ""
+
 #: Game
 #: Game
 msgid "Intro to Proofs Game"
+msgstr ""
+
+#. §0: `B`
+#. §1: `b ∈ B`
+#. §2: `b`
+#. §3: `B`
+#. §4: `h`
+#. §5: `obtain ⟨hb,small⟩ := h`
+#: Game.Levels.RelationWorld.L09_OrderRelations
+msgid "Minimal elements of §0 have to be in the set, so Lean needs you to first prove that §1. But since §2 is the smallest element of §3, this is given to use in hypothesis §4. So first, §5 to access this."
+msgstr ""
+
+#. §0: `(Rel_union R S) u v`
+#. §1: `R u v`
+#. §2: `S u v`
+#. §3: `Rel_union`
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example5
+msgid "This exercise concerns the union of two relations. Since relations in the Intro Proofs Game use types, not sets, we have to be a bit careful about what this means.\n"
+"\n"
+"In short, §0 is true when either §1 or §2. Try the problem below, and check your inventory for more information on §3."
 msgstr ""
 
 #: Game.Levels.QuantifierWorld.quant_docs
@@ -3326,6 +4043,23 @@ msgid "# **Level 9: Antisymmetric biconditional**\n"
 "Here's an example of a biconditional statement where the **forward** direction is quite straightforward whereas the **backward** direction is quite tricky! Use §0 to split your goals and clear the first goal on your own."
 msgstr ""
 
+#. §0: `R`
+#. §1: `R a b`
+#. §2: `R`
+#. §3: `R.set`
+#. §4: `R a b`
+#. §5: `(a,b) ∈ R`
+#. §6: `(a,b) ∈ R.set`
+#. §7: `Rel.inv`
+#: Game.Levels.RelationWorld.L03_Relations
+msgid "## **Level 3**\n"
+"\n"
+"Relations in the Intro Proofs Game are defined with the ''aRb'' notation in mind, but this ''infix'' notation isn't used. If §0 is a relation from A to B, we'll write §1 to say that a relates to b.\n"
+"Given a relation §2, we can access the corresponding **set** of ordered pairs by using §3. To be clear, if §4 is true, then we can't just write §5 - we will have to write §6.\n"
+"To get used to this, let's prove something very basic - the inverse of a relation's inverse is the original relation.\n"
+"Check your inventory for the exact definition of §7 so you can use it in your proof."
+msgstr ""
+
 #. §0: `⊢ B.Nonempty`
 #. §1: ```
 #. rw[Set.Nonempty]
@@ -3334,6 +4068,21 @@ msgstr ""
 msgid "Our goal §0 is an existential statement. In order to see this existential statement explicitly, 👉 try\n"
 "§1\n"
 ""
+msgstr ""
+
+#. §0: `R`
+#. §1: `u`
+#. §2: `isLargest R b`
+#. §3: `b`
+#. §4: `u`
+#. §5: `b`
+#. §6: `B`
+#. §7: `u`
+#. §8: `isLargest R b B`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "If §0 is a relation on §1, §2 means that §3 is the largest element of §4.\n"
+"\n"
+"If we want to specify that §5 is the largest element of a subset §6 of §7, write §8."
 msgstr ""
 
 #. §0: `{a,b} ∈ 𝒫 (A ∪ B)`
@@ -3390,6 +4139,13 @@ msgstr ""
 
 #: Game.Levels.SetWorld.L11_set
 msgid "Empty Set"
+msgstr ""
+
+#. §0: `∅ ∈ equivClassFamily R`
+#. §1: `obtain <a,ha> := h`
+#. §2: `a`
+#: Game.Levels.RelationWorld.L14_EquivRelations
+msgid "§0 means ∅ is the equivalence class of something - this is an existentially quantified given. Let's §1 to say it's the equivalence class of §2."
 msgstr ""
 
 #. §0: ```
@@ -3599,6 +4355,12 @@ msgstr ""
 msgid "See how our goal is now §0 and §1 is a generic **Object** in our proof state? We're nearly done."
 msgstr ""
 
+#. §0: `obtain ⟨a,⟨haX,haY⟩⟩ := h`
+#. §1: `a`
+#: Game.Levels.RelationWorld.L16_EquivRelations
+msgid "Now use §0 to grab the element §1. The embedded angle brackets further deconstruct the intersection into assumptions for each set."
+msgstr ""
+
 #. §0: `⋂₀`
 #. §1: $$
 #. ⋂₀ F = ⋂_{t ∈ F} t
@@ -3622,10 +4384,30 @@ msgid "This helps to define the §0 (intersection of families) operator on a fam
 "§4"
 msgstr ""
 
+#. §0: `functions`
+#. §1: `apply Rel_double_inclusion`
+#: Game.Levels.RelationWorld.L03_Relations
+msgid "Lean views this as an equality of §0. To replace relation equality with the more familiar double inclusion set proofs from class, we can §1."
+msgstr ""
+
 #. §0: `obtain`
 #. §1: `«{hAB}»`
 #: Game.Levels.PfWorld.L11_pf
 msgid "Now let's use §0 to grab a witness from the existential statement in §1."
+msgstr ""
+
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example2
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example3
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example4
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example5
+#: Game.Levels.RelationWorld.RelationWorldExamples.orderrelation_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.orderrelation_example2
+#: Game.Levels.RelationWorld.RelationWorldExamples.equivrelation_example1
+msgid "Proof in English?"
 msgstr ""
 
 #: Game.Levels.ArgWorld.L03_arg
@@ -3730,6 +4512,21 @@ msgid "We simply need to destructure the assumption §0. 👉 Try:\n"
 ""
 msgstr ""
 
+#. §0: `po`
+#. §1: `R`
+#. §2: `po.refl`
+#. §3: `po.anti`
+#. §4: `po.tran`
+#: Game.Levels.RelationWorld.L09_OrderRelations
+msgid "## **Level 9**\n"
+"\n"
+"All of the standard order relation definitions have been added to your inventory.\n"
+"\n"
+"The hypothesis §0 tells us that §1 is a partial order. You can use §2, §3, §4 to access the reflexive, anti-symmetric, and transitive properties.\n"
+"\n"
+"Give the problem below a shot: prove that a smallest element of a set is minimal."
+msgstr ""
+
 #. §0: $$ P ∨ P ↔ P $$
 #. §1: $$
 #. \\begin{array}{|c||c|}
@@ -3827,6 +4624,12 @@ msgstr ""
 msgid "# **Level 9**"
 msgstr ""
 
+#. §0: `Rel_on u`
+#. §1: `Rel u u`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "§0 is shorthand for §1."
+msgstr ""
+
 #. §0: $$ \\displaystyle ⋂_{i ∈ I} A_i \\setminus B_i = $$
 #: Game.Levels.SetWorld.SetWorld_eg.L08_set
 msgid "This statement says\n"
@@ -3842,6 +4645,11 @@ msgstr ""
 msgid "Suppose §0 are sets and that §1. Then the symmetric difference §2 is contained in §3."
 msgstr ""
 
+#. §0: `Ran(R) ⊆ Dom(S)`
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example1
+msgid "Let's prove that the subset statement in level 4 of Relation World is an equality if we assume §0."
+msgstr ""
+
 #. §0: `rewrite`
 #: Game.Levels.EquivWorld.L01_equiv
 msgid "We should now §0 the left-hand side of our goal using the **Conditional Law**. 🔍 Check the **Theorems** tab to find the appropriate theorem in the inventory."
@@ -3853,6 +4661,23 @@ msgstr ""
 
 #: Game.Levels.PfWorld.L01_pf
 msgid "The sum of two even integers is even."
+msgstr ""
+
+#: Game.Levels.RelationWorld.L12_EquivRelations
+#: Game.Levels.RelationWorld.L13_EquivRelations
+#: Game.Levels.RelationWorld.L14_EquivRelations
+#: Game.Levels.RelationWorld.L15_EquivRelations
+#: Game.Levels.RelationWorld.L16_EquivRelations
+#: Game.Levels.RelationWorld.RelationWorldExamples.equivrelation_example1
+msgid "Equivalence Relations"
+msgstr ""
+
+#. §0: `UpperBounds R B`
+#. §1: `b`
+#. §2: `B`
+#. §3: `intro`
+#: Game.Levels.RelationWorld.L11_OrderRelations
+msgid "§0 is the set of upper bounds of B, so the new goal asks us to prove §1 is an upper bound of §2. Unpack hypotheses using §3, then work from there!"
 msgstr ""
 
 #: Game.Levels.EquivWorld.L01_equiv
@@ -3992,6 +4817,15 @@ msgstr ""
 msgid "Example 9"
 msgstr ""
 
+#. §0: `(x,y).1`
+#. §1: `x`
+#. §2: `x`
+#. §3: `x`
+#: Game.Levels.RelationWorld.L01_Cartesianproducts
+msgid "Lean treats §0 as the same thing as §1 - no need to rewrite it further to use it just like §2, though in proofs written by hand we certainly would write just §3. (This same notation works with Cartesian products of types later!)\n"
+"You should be able to finish it from here!"
+msgstr ""
+
 #. §0: `h`
 #. §1: `h : x ∈ A ∧ x ∉ B`
 #: Game.Levels.SetWorld.L05_set
@@ -4047,8 +4881,42 @@ msgstr ""
 msgid "See how the assumption §0 is a universally quantified statement over the indexing set §1 now? We can clear this level with one more tactic call."
 msgstr ""
 
+#. §0: `intro a ha`
+#: Game.Levels.RelationWorld.L15_EquivRelations
+msgid "This is the direction where we have to say something - §0 to grab an arbitrary element of the universe."
+msgstr ""
+
 #: Game.Levels.PfWorld.L08_pf
 msgid "Goal management"
+msgstr ""
+
+#. §0: `x`
+#. §1: `A`
+#. §2: `B`
+#. §3: `u`
+#. §4: `v`
+#. §5: `x.fst`
+#. §6: `x.snd`
+#. §7: `x`
+#. §8: `x.1`
+#. §9: `x.2`
+#. §10: `×ˢ`
+#: Game.Levels.RelationWorld.L01_Cartesianproducts
+msgid "## **Level 1**\n"
+"\n"
+"As a tutorial for how to work with Cartesian products of sets in Lean, we will verify what it means for §0 to **not** be in a Cartesian product. We'll assume we have sets §1 and §2 coming from universes §3 and §4.\n"
+"\n"
+"Note: When discussing relations in Lean, we won't actually use Cartesian products of **sets**, but instead Cartesian products of **types**. Despite this, getting some practice with Cartesian products of sets now will help you write proofs involving Cartesian products of sets (and relations!) outside of Lean.\n"
+"\n"
+"The terms §5 and §6 showing up in the goal are how Lean denotes the first and second coordinates of §7. We will often use the simpler §8 and §9 to access the coordinates. Check out your inventory for more information on the set Cartesian product §10"
+msgstr ""
+
+#: Game.Levels.RelationWorld.L01_Cartesianproducts
+#: Game.Levels.RelationWorld.L02_Cartesianproducts
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
+#: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example3
+msgid "Cartesian products"
 msgstr ""
 
 #. §0: `∅`
@@ -4098,6 +4966,21 @@ msgstr ""
 #. §6: `R`
 #: Game.Levels.EquivWorld.EquivWorld_eg.L01_equiv
 msgid "The statement *if §0 or §1, then §2* is logically equivalent to *§3 implies §4 and §5 implies §6.*"
+msgstr ""
+
+#. §0: ```
+#. Not_mem_prod
+#. {u v: Type*}
+#. {x : u}
+#. {y : v}
+#. (A: Set u)
+#. (B: Set v)
+#. (h: (x,y) ∉ (A ×ˢ B)) :
+#.   x ∉ A ∨ y ∉ B
+#. ```
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "This tells us what it means not to be an element of the Cartesian product of two **sets**. In Lean:\n"
+"§0"
 msgstr ""
 
 #. §0: `left`
@@ -4181,6 +5064,14 @@ msgid "# **Level 13**\n"
 "Our goal in this level is an implication, so let's introduce the hypothesis..."
 msgstr ""
 
+#: Game.Levels.RelationWorld.L09_OrderRelations
+#: Game.Levels.RelationWorld.L10_OrderRelations
+#: Game.Levels.RelationWorld.L11_OrderRelations
+#: Game.Levels.RelationWorld.RelationWorldExamples.orderrelation_example1
+#: Game.Levels.RelationWorld.RelationWorldExamples.orderrelation_example2
+msgid "Order Relations"
+msgstr ""
+
 #. §0: `obtain`
 #. §1: `obtain`
 #. §2: ```
@@ -4253,6 +5144,10 @@ msgstr ""
 #. §7: $C$
 #: Game.Levels.PfWorld.L12_pf
 msgid "Let §0 be sets and suppose the following: the symmetric difference §1 is contained in §2, §3 is contained in §4, and §5 is contained in §6. Then everything belongs to §7."
+msgstr ""
+
+#: Game.Levels.RelationWorld.L14_EquivRelations
+msgid "But can equivalence classes be empty? Use an equivalence relation property to derive a contradiction!"
 msgstr ""
 
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L01_quant
@@ -4371,8 +5266,23 @@ msgstr ""
 msgid "The §0 tacic turns a goal of the form §1 into §2 and pushes negations through (with §3)."
 msgstr ""
 
+#. §0: `apply double_inclusion`
+#. §1: `intro x h`
+#: Game.Levels.RelationWorld.L03_Relations
+msgid "Now do a double inclusion proof from here! Start with §0 then §1."
+msgstr ""
+
 #: Game.Levels.PfWorld.L12_pf
 msgid "Perfect. See if you can't finish this level on your own."
+msgstr ""
+
+#. §0: `R`
+#. §1: `u`
+#. §2: `equivClassFamily R`
+#. §3: `R`
+#. §4: `{ equivClass R a | a : u}`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "If §0 is an equivalence relation on type §1, §2 is the set of equivalence classes of §3; that is, §4."
 msgstr ""
 
 #. §0: $n$
@@ -4405,6 +5315,16 @@ msgstr ""
 #: Game.Levels.SetWorld.set_docs
 msgid "This helps to define the §0 relation between sets. We say that two sets §1 are equal to mean that for every §2, §3 if and only if §4. Here's what it looks like in Lean:\n"
 "§5"
+msgstr ""
+
+#. §0: `R`
+#. §1: `u`
+#. §2: `isLowerBound R l B`
+#. §3: `l`
+#. §4: `B`
+#. §5: `u`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "If §0 is a relation on §1, §2 means that §3 is a lower bound for the subset §4 of §5."
 msgstr ""
 
 #: Game.Levels.EquivWorld.L04_equiv
@@ -4496,6 +5416,10 @@ msgid "See how the hypothesis §0 is now rewritten according to the definition? 
 ""
 msgstr ""
 
+#: Game.Levels.RelationWorld.RelationWorldExamples.relation_example4
+msgid "Practice with inverses."
+msgstr ""
+
 #. §0: $A$
 #. §1: $B$
 #. §2: $A ∩ B$
@@ -4514,6 +5438,21 @@ msgstr ""
 #: Game.Levels.EquivWorld.EquivWorld_eg.L02_equiv
 msgid "### **💡 Pro-tip**\n"
 "The result of this level tells you that if you want to prove and if-then statement where the conclusion is a disjunction, then you may do so by... **assuming** that §0 and §1 are true, and then showing that §2 must follow."
+msgstr ""
+
+#. §0: `R`
+#. §1: `u`
+#. §2: `isMaximal R b`
+#. §3: `b`
+#. §4: `u`
+#. §5: `b`
+#. §6: `B`
+#. §7: `u`
+#. §8: `isMaximal R b B`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "If §0 is a relation on §1, §2 means that §3 is a maximal element of §4.\n"
+"\n"
+"If we want to specify that §5 is a maximal element of a subset §6 of §7, write §8."
 msgstr ""
 
 #: Game.Levels.ArgWorld.L02_arg
@@ -4591,4 +5530,10 @@ msgid "# **Level 10: Unions of Indexed Families**\n"
 "Let §0. This means that §1 is a function from §2 (an indexing set) to §3, sets in the universe §4. Or as we say in class, an **indexed** family of sets. The intersection of all members of §5 (illustrated above where §6) is defined by:\n"
 "§7\n"
 "But, as before, first and foremost our goal is a subset relation which we know is really just a universally quantified goal. Let's begin by introducing the appropriate stuff..."
+msgstr ""
+
+#. §0: `nonempty_iff_ne_empty`
+#. §1: `rw [←nonempty_iff_ne_empty] at hXY`
+#: Game.Levels.RelationWorld.L16_EquivRelations
+msgid "A set being nonempty means that it has an element. Lean calls this fact §0, so let's §1."
 msgstr ""
