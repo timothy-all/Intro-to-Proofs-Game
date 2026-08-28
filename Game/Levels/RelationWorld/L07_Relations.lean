@@ -9,10 +9,10 @@ Introduction " ## **Level 7**
 
 Here is a standard symmetric example."
 
-Statement {u : Type} (R: Rel_on u) : R.inv.set ⊆ R.set ↔ isSymmetric R := by
+Statement {u : Type} (R: Rel_on u) : R.inv.pairs ⊆ R.pairs ↔ isSymmetric R := by
   constructor
   intro h x a k
-  obtain i : (a,x) ∈ R.inv.set
+  obtain i : (a,x) ∈ R.inv.pairs
   exact k
   apply h at i
   exact i

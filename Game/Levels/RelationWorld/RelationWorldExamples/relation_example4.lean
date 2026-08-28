@@ -7,9 +7,9 @@ Title "Relations"
 
 Introduction "Practice with inverses."
 
-Statement {u v : Type} (R S: Rel u v) (h: R.set ⊆ S.set) : R.inv.set ⊆ S.inv.set := by
+Statement {u v : Type} (R S: Rel u v) (h: R.pairs ⊆ S.pairs) : R.inv.pairs ⊆ S.inv.pairs := by
   intro x k
-  obtain h': (x.2,x.1) ∈ R.set
+  obtain h': (x.2,x.1) ∈ R.pairs
   exact k
   exact h h'
 

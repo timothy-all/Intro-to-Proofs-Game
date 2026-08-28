@@ -8,7 +8,7 @@ Title "Relations 1"
 Introduction "  ## **Level 3**
 
 Relations in the Intro Proofs Game are defined with the ''aRb'' notation in mind, but this ''infix'' notation isn't used. If `R` is a relation from A to B, we'll write `R a b` to say that a relates to b.
-Given a relation `R`, we can access the corresponding **set** of ordered pairs by using `R.set`. To be clear, if `R a b` is true, then we can't just write `(a,b) ∈ R` - we will have to write `(a,b) ∈ R.set`.
+Given a relation `R`, we can access the corresponding **set** of ordered pairs by using `R.pairs`. To be clear, if `R a b` is true, then we can't just write `(a,b) ∈ R` - we will have to write `(a,b) ∈ R.pairs`.
 To get used to this, let's prove something very basic - the inverse of a relation's inverse is the original relation.
 Check your inventory for the exact definition of `Rel.inv` so you can use it in your proof."
 
