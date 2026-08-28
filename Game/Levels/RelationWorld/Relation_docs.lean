@@ -76,6 +76,10 @@ TheoremDoc Rel_double_inclusion as "REL: Rel_double_inclusion"
 /-- `R.inv` is the inverse of the relation `R`. More precisely, `R a b` if and only if `R.inv b a`. --/
 DefinitionDoc Rel.inv as "REL: Rel.inv"
 
+/-- If `R : Rel u v`, `R.pairs` is the set of ordered pairs `(x,y)` with the property that `R x y`.
+-/
+DefinitionDoc Rel.pairs as "REL: Rel.pairs"
+
 
 /-- The inverse of the inverse of a relation is itself. In Lean,
 ```

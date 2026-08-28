@@ -108,5 +108,5 @@ theorem mem_prod_iff {α : Type u} {β : Type v} {p : α × β} (s : Set α) (t 
 
 theorem Snd_not_mem_not_mem_prod (u v: Type) (A: Set u) (B: Set v) (x : u) (y: v) (h: y ∉ B) : (x,y) ∉ (A ×ˢ B) := by
   rw [mem_prod_iff,not_and_or]
-  apply Or.intro_right
+  right
   exact h

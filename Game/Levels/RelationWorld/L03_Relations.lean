@@ -34,4 +34,4 @@ We'll work with functions much more explicitly in Function World."
 
 
 NewTheorem Fst_not_mem_not_mem_prod Rel_double_inclusion
-NewDefinition Rel.inv
+NewDefinition Rel.inv Rel.pairs
