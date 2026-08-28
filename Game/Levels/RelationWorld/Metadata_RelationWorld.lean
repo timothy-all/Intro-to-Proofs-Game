@@ -10,6 +10,8 @@ def Rel (u v: Type*) := u → v → Prop
 
 def Rel.set {u v : Type*} (R: Rel u v) := {(a,b) | R a b}
 
+def Rel.pairs {u v : Type*} (R: Rel u v) := {(a,b) | R a b}
+
 def Rel.inv {u v : Type*} (R: Rel u v) : Rel v u := fun (b : v) (a : u) => R a b
 
 def Rel_subrel {u v : Type*} (R: Rel u v) (S: Rel u v) : Prop := ∀ a b, R a b → S a b
