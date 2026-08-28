@@ -74,3 +74,8 @@ TacticDoc exist!
 The `by_cases` tactic will split the goal into two cases. Specifically, if `P` is a proposition (supplied by the player), then `by_cases h : P` will add the hypothesis `h : P` to the first case while adding the hypothesis `h : ¬ P` to the second case.
 -/
 TacticDoc by_cases
+
+/--
+If $A ⊆ B$ and $B ⊆ A$, then $A = B$.
+-/
+TheoremDoc Double_inclusion as "SET: Double_inclusion"
