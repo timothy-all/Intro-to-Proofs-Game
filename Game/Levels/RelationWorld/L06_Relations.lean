@@ -12,11 +12,11 @@ The names for our familiar definitions are `isReflexive`, `isSymmetric`, `isAnti
 
 Let's go through a few basic examples."
 
-Statement {u : Type} (R: Rel_on u) : (Rel_id u).set ⊆ R.set ↔ isReflexive R := by
+Statement {u : Type} (R: Rel_on u) : (Rel_id u).pairs ⊆ R.pairs ↔ isReflexive R := by
   constructor
   intro k y
   rw [Rel_id_set] at k
-  obtain l: (y,y) ∈ R.set
+  obtain l: (y,y) ∈ R.pairs
   apply k
   exist y
   rfl

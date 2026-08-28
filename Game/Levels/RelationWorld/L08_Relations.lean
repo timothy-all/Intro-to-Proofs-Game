@@ -9,10 +9,10 @@ Introduction " ## **Level 8**
 
 Here is a standard transitive example."
 
-Statement {u : Type} (R: Rel_on u) : (R ∘ R).set ⊆ R.set ↔ isTransitive R := by
+Statement {u : Type} (R: Rel_on u) : (R ∘ R).pairs ⊆ R.pairs ↔ isTransitive R := by
   constructor
   intro h a b c k l
-  obtain i : (a,c) ∈ (R ∘ R).set
+  obtain i : (a,c) ∈ (R ∘ R).pairs
   exist b
   refine ⟨k,l⟩
   exact h i

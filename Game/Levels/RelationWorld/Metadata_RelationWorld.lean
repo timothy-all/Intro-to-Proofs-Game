@@ -8,7 +8,7 @@ exact h₂
 
 def Rel (u v: Type*) := u → v → Prop
 
-def Rel.set {u v : Type*} (R: Rel u v) := {(a,b) | R a b}
+def Rel.pairs {u v : Type*} (R: Rel u v) := {(a,b) | R a b}
 
 def Rel.inv {u v : Type*} (R: Rel u v) : Rel v u := fun (b : v) (a : u) => R a b
 
@@ -77,23 +77,23 @@ def equivClassFamily {u : Type*} (R: Rel_on u) := {equivClass R x | x : u}
 def isFunction {u v: Type*} (R: Rel u v) := ∀ a, ∃! b, R a b
 
 
-theorem Rel_subrel_set {u v : Type*} (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.set ⊆ S.set := by
+theorem Rel_subrel_set {u v : Type*} (R: Rel u v) (S: Rel u v) (h: Rel_subrel R S) : R.pairs ⊆ S.pairs := by
   intro x
   intro h1
   apply h at h1
   exact h1
 
-theorem Rel_double_inclusion {u v: Type*} (R: Rel u v) (S: Rel u v) : R.set = S.set → R = S := by
+theorem Rel_double_inclusion {u v: Type*} (R: Rel u v) (S: Rel u v) : R.pairs = S.pairs → R = S := by
   intro h
   funext x y
   simp
   constructor
   intro h1
-  obtain h2 : (x,y) ∈ R.set := by exact h1
+  obtain h2 : (x,y) ∈ R.pairs := by exact h1
   rw [h] at h2
   exact h2
   intro h1
-  obtain h2 : (x,y) ∈ S.set := h1
+  obtain h2 : (x,y) ∈ S.pairs := h1
   rw [← h] at h1
   exact h1
 

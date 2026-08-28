@@ -7,11 +7,11 @@ Title "Relations"
 
 Introduction "This level gives some good practice with composite relations."
 
-Statement {u : Type} (R S: Rel_on u) (hR: isTransitive R) (hS: isTransitive S) (h: (S ∘ R).set ⊆ (R ∘ S).set) : isTransitive (R ∘ S) := by
+Statement {u : Type} (R S: Rel_on u) (hR: isTransitive R) (hS: isTransitive S) (h: (S ∘ R).pairs ⊆ (R ∘ S).pairs) : isTransitive (R ∘ S) := by
   intro a b c kab kbc
   rcases kab with ⟨mid1,hmid1⟩
   rcases kbc with ⟨mid2,hmid2⟩
-  obtain l1: (mid1,mid2) ∈ (S ∘ R).set
+  obtain l1: (mid1,mid2) ∈ (S ∘ R).pairs
   exist b
   constructor
   exact hmid1.right
