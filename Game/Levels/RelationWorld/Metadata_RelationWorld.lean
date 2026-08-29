@@ -1,11 +1,6 @@
 import Game.Levels.SetWorld.Metadata_setworld
 import Game.Levels.PfWorld.Metadata_pfworld
 
-theorem double_inclusion {α : Type u} {a b : Set α} (h₁ : a ⊆ b) (h₂ : b ⊆ a) : a = b := by
-apply Set.Subset.antisymm
-exact h₁
-exact h₂
-
 def Rel (u v: Type*) := u → v → Prop
 
 def Rel.pairs {u v : Type*} (R: Rel u v) := {(a,b) | R a b}

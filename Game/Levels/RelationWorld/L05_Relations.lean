@@ -14,8 +14,8 @@ Let's check out that the set of ordered pairs for `Rel.id` is exactly what we ex
 
 
 
-Statement Rel_id_set {u : Type} : (Rel_id u).pairs = {(a,a) | a : u} := by
-  apply double_inclusion
+Statement Rel_id_pairs {u : Type} : (Rel_id u).pairs = {(a,a) | a : u} := by
+  apply Double_inclusion
   intro x hx
   rw[Rel.pairs] at hx
   exist x.1

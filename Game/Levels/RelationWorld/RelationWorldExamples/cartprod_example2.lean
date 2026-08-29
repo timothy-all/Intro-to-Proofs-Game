@@ -12,7 +12,7 @@ Check your inventory for a new theorem: `Snd_not_mem_not_mem_prod.` This is simi
 
 
 Statement (u v: Type) (A C: Set u) (B D: Set v) : (A ×ˢ B) \ (C ×ˢ D) = (A ×ˢ (B \ D)) ∪ ((A \ C) ×ˢ B) := by
-  apply double_inclusion
+  apply Double_inclusion
   intro x
   intro h
   rw[mem_diff_iff,

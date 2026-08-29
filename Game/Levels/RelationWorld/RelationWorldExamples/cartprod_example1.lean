@@ -8,12 +8,12 @@ Title "Cartesian products"
 
 Introduction "Double inclusion exercise involving Cartesian products.
 
-Note: It is possible to prove this just using rewrites, but the intent is to get double inclusion practice. Start with `apply double_inclusion` to set up your double inclusion proof."
+Note: It is possible to prove this just using rewrites, but the intent is to get double inclusion practice. Start with `apply Double_inclusion` to set up your double inclusion proof."
 
 open Set
 
 Statement (u v: Type) (A: Set u) (B C: Set v) : A ×ˢ (B \ C) = (A ×ˢ B) \ (A ×ˢ C) := by
-  apply double_inclusion
+  apply Double_inclusion
   --rw[subset_def]
   intro x
   intro h

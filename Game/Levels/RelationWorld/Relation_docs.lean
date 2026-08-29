@@ -119,7 +119,7 @@ The `fun` keyword tells Lean we're providing "function" inputs - this works here
 DefinitionDoc Rel_id as "REL: Rel_id"
 
 /--Replaces the `set` of the identity relation on `u` with the more concrete set of ordered pairs of the form `(a,a)`.-/
-TheoremDoc Rel_id_set as "REL: Rel_id_set"
+TheoremDoc Rel_id_pairs as "REL: Rel_id_pairs"
 
 
 

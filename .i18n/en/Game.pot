@@ -107,6 +107,13 @@ msgstr ""
 msgid "Negated Universal"
 msgstr ""
 
+#. §0: `f : Rel u v`
+#. §1: `isBijection f`
+#. §2: `f`
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "If §0 is a function, §1 means that §2 is both one-to-one and onto."
+msgstr ""
+
 #. §0: `b ∈ equivClass R a`
 #. §1: `equivclass R a = equivClass R b`
 #: Game.Levels.RelationWorld.L13_EquivRelations
@@ -128,6 +135,28 @@ msgstr ""
 #: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
 msgid "The definition of the **if-and-only-if** connective, denoted §0. Here's what it looks like in Lean:\n"
 "§1"
+msgstr ""
+
+#. §0: `f : Rel u v`
+#. §1: `isInjective f`
+#. §2: `f`
+#. §3: ```
+#. isInjective
+#. {u v : Type*}
+#. (R: Rel u v) :=
+#.   ∀ {a b c}, R a c → R b c → a = b
+#. ```
+#. §4: `isFunction R`
+#. §5: `isFunction R`
+#. §6: `R`
+#. §7: `R a c`
+#. §8: `R b c`
+#. §9: `f(a)`
+#. §10: `f(b)`
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "If §0 is a function, §1 means that §2 is one-to-one. This is very slightly different than the typical definition of one-to-one: see the Lean code below.\n"
+"§3\n"
+"Notice that there's no need to pass §4 for this to make sense, but the tradeoff is that, without knowing §5, there is no way to \"plug in\" something to §6. So, we use both input and output values (§7 and §8) instead of using just input values and implicitly grabbing output values (such as §9 and §10)."
 msgstr ""
 
 #: Game.Levels.SetWorld.L14_set
@@ -208,6 +237,18 @@ msgid "The negation of a univeral statement is an existential statement. Here's 
 "§0"
 msgstr ""
 
+#. §0: `R: Rel u v`
+#. §1: `isFunction R`
+#. §2: `R`
+#. §3: `u`
+#. §4: `v`
+#. §5: `a : u`
+#. §6: `b : v`
+#. §7: `R a b`
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "If §0, §1 means that §2 is a function from §3 to §4; that is, for every §5, there is a unique §6 such that §7. -"
+msgstr ""
+
 #. §0: `⊆`
 #. §1: $A ⊆ B$
 #. §2: $$
@@ -233,7 +274,7 @@ msgid "This helps to define §0 relation. Specifically, §1 means\n"
 "![Venn diagram of union connective](images/venn_subset.png)"
 msgstr ""
 
-#. §0: `apply double_inclusion`
+#. §0: `apply Double_inclusion`
 #. §1: `intro x hx`
 #: Game.Levels.RelationWorld.L13_EquivRelations
 msgid "Equivalence classes are sets! Let's prove this using double inclusion: §0 then unpack the forall goal with §1."
@@ -341,6 +382,14 @@ msgstr ""
 msgid "Great. Now we have an existential goal. We need a witness..."
 msgstr ""
 
+#. §0: `evaluate`
+#. §1: `b`
+#. §2: `g`
+#. §3: `c`
+#: Game.Levels.FunctionWorld.L03_Functions
+msgid "Now, similarly, use §0 to plug §1 into §2. Call the output §3."
+msgstr ""
+
 #. §0: `P → Q`
 #. §1: `Q`
 #. §2: `P`
@@ -395,6 +444,18 @@ msgstr ""
 msgid "This is the valid argument known as *Modus Pwnens*."
 msgstr ""
 
+#. §0: `R : Rel u v`
+#. §1: `R`
+#. §2: `∀ a : u, ∃! b : v, R a b`
+#. §3: `isFunction R`
+#: Game.Levels.FunctionWorld.L01_Functions
+msgid "We'll view functions in Lean as relations with an additional special property, just as we did in class.\n"
+"\n"
+"If §0, §1 will be a function if §2. We'll call this property §3.\n"
+"\n"
+"Let's start very simple to get practice with this: we'll prove that the identity relation is a function."
+msgstr ""
+
 #. §0: `⊢ «{x}» ∈ B`
 #: Game.Levels.SetWorld.L13_set
 msgid "Perfect. Now our goal is §0. If we're clever, we can clear this with one more line. "
@@ -440,6 +501,7 @@ msgid "# **Level 3: Contraposition**\n"
 msgstr ""
 
 #: Game.Levels.RelationWorld
+#: Game.Levels.FunctionWorld
 msgid "### ***Lean :)***"
 msgstr ""
 
@@ -475,6 +537,10 @@ msgstr ""
 msgid "For the **forward** direction, we have a lot of objects/assumptions to §0. 👉 Let's start with\n"
 "§1\n"
 ""
+msgstr ""
+
+#: Game.Levels.FunctionWorld.FunctionWorldExamples
+msgid "Function World Examples"
 msgstr ""
 
 #: Game.Levels.ArgWorld.L06_arg
@@ -619,7 +685,7 @@ msgid "### **💡 Pro-tip**\n"
 "The result of this level tells you that if you want to prove and if-then statement where the hypothesis is a disjunction, then you may do so by... **assuming** that §0 is true and showing that §1 must follow, ***and*** as a separate goal assuming that §2 is true and showing that §3 must following in this case as well."
 msgstr ""
 
-#. §0: `apply double_inclusion`
+#. §0: `apply Double_inclusion`
 #: Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
 msgid "Double inclusion exercise involving Cartesian products.\n"
 "\n"
@@ -771,6 +837,10 @@ msgid "### **💡 Pro-tip**\n"
 ""
 msgstr ""
 
+#: Game.Levels.FunctionWorld
+msgid "Function World"
+msgstr ""
+
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L05_quant
 msgid "## **Level 5**"
 msgstr ""
@@ -827,6 +897,25 @@ msgstr ""
 
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L02_quant
 msgid "## **Level 2**"
+msgstr ""
+
+#. §0: `f : Rel u v`
+#. §1: `V : Set v`
+#. §2: `v`
+#. §3: `invimage f V`
+#. §4: `u`
+#. §5: `f(u) ∈ V`
+#. §6: `f`
+#. §7: `invimage f V`
+#. §8: `u ∈ U`
+#. §9: `f u v`
+#. §10: `v ∈ V`
+#. §11: `v`
+#. §12: `f(u)`
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "If §0 is a function and §1 is a set of elements of §2, then §3 is the set of elements of §4 with the property that §5.\n"
+"\n"
+"Since we can't directly \"plug in\" stuff to §6, the set §7 is defined as the set of §8 with the property that §9 for some §10. Of course, we know there is only one such possible §11, the one we usually call §12."
 msgstr ""
 
 #. §0: $$ ((P ∧ Q) → R) ↔ (P → (Q → R)) $$
@@ -957,6 +1046,7 @@ msgid "Great. Now we need to prove the **backward** direction of our bicondtiona
 msgstr ""
 
 #: Game.Levels.RelationWorld.RelationWorldExamples
+#: Game.Levels.FunctionWorld.FunctionWorldExamples
 msgid "### ***In-class examples and HW problems***"
 msgstr ""
 
@@ -1035,6 +1125,15 @@ msgid "We can clear the goal in two different ways. Our goal is §0; this is §1
 ""
 msgstr ""
 
+#. §0: `rw`
+#. §1: `image`
+#. §2: `invimage`
+#: Game.Levels.FunctionWorld.L04_Functions
+msgid "Let's look at images and inverse images of sets. These quantities are of fundamental importance in understanding what a function tells us about relationships between the domain and codomain.\n"
+"\n"
+"Check your inventory for the new definitions, then try the problem below that will test your understanding of the definitions. You can use §0 to swap out §1 and §2 with their set-builder notation definitions if you'd like, or you can work with them directly."
+msgstr ""
+
 #. §0: $A,B$
 #. §1: $A ⊆ A \\ B$
 #: Game.Levels.PfWorld.L04_pf
@@ -1046,6 +1145,18 @@ msgid "## **Level 2**\n"
 "\n"
 "The previous level suggests that we can conclude that an element fails to be in a Cartesian product as long as at least one coordinate fails to be in the required set.\n"
 "Let's prove it."
+msgstr ""
+
+#. §0: ```
+#. Fun_invertible_is_bij
+#. {u v: Type*}
+#. (f: Rel u v)
+#. (hf: isFunction f) :
+#.   isFunction f.inv → isBijection f
+#. ```
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "Invertible functions are bijections.\n"
+"§0"
 msgstr ""
 
 #. §0: `R b x`
@@ -1214,6 +1325,11 @@ msgid "🔧 The §0 tactic is a real multi-purpose tool! We'll see more uses for
 "> *Let §3 be an element such that §4 is true; we know such an element exists from the assumption §5.*"
 msgstr ""
 
+#. §0: `isFunction`
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example7
+msgid "Compositum of surjective functions is surjective. This won't actually use that the relations are functions, so there are no §0 hypotheses!"
+msgstr ""
+
 #. §0: `R a a`
 #: Game.Levels.RelationWorld.L12_EquivRelations
 msgid "The goal is simply to show §0. Which equivalence relation property tells us this?"
@@ -1317,6 +1433,32 @@ msgstr ""
 msgid "The relation §0 between sets is *transitive* meaning that if §1 and §2, then §3."
 msgstr ""
 
+#: Game.Levels.FunctionWorld.L01_Functions
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example1
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example2
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example3
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example4
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example5
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example6
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example7
+msgid "f"
+msgstr ""
+
+#. §0: `R`
+#. §1: `u`
+#. §2: `v`
+#. §3: `u`
+#. §4: ```
+#. Rel_fiberrel
+#. {u v: Type*}
+#. (R: Rel u v) :
+#.   Rel_on u := fun x1 x2 => ∃ y, R x1 y ∧ R x2 y
+#. ```
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "Given a relation §0 from type §1 to type §2, the corresponding fiber relation relates first coordinates if they share a second coordinate. So it is a relation on §3. In Lean,\n"
+"§4"
+msgstr ""
+
 #. §0: `True`
 #. §1: `False`
 #. §2: `P`
@@ -1415,7 +1557,25 @@ msgid "### **🤔 More food for thought**\n"
 "The binary operator §0 can be expressed in terms of §1 too ..."
 msgstr ""
 
+#. §0: ```
+#. Fun_comp_fun
+#. {u v w: Type*}
+#. (f: Rel u v)
+#. (g: Rel v w)
+#. (hf: isFunction f)
+#. (hg: isFunction g) :
+#.   isFunction (g ∘ f)
+#. ```
+#. §1: `f`
+#. §2: `g`
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "The compositum of two functions is also a function. In Lean,\n"
+"§0\n"
+"Notice that you have to tell Lean that §1 and §2 are functions for this to work. Many theorems about functions require this!"
+msgstr ""
+
 #: Game.Levels.RelationWorld.L10_OrderRelations
+#: Game.Levels.FunctionWorld.L01_Functions
 msgid "Can you finish from here?"
 msgstr ""
 
@@ -1556,6 +1716,14 @@ msgid "### **💡 Pro-tip**\n"
 "so that the variable §6 was *explicit*, then we'd need to use §7 instead of the shorter version above."
 msgstr ""
 
+#. §0: `(a,a)`
+#. §1: `a`
+#. §2: `b`
+#. §3: `exist! a`
+#: Game.Levels.FunctionWorld.L01_Functions
+msgid "Since the identity relation is only supposed to have pairs §0, let's claim that §1 is the unique §2 the goal is asking for: §3."
+msgstr ""
+
 #. §0: `hPQ : P → Q`
 #. §1: `P`
 #. §2: `Q`
@@ -1575,6 +1743,10 @@ msgstr ""
 
 #: Game.Levels.ArgWorld.L01_arg
 msgid "Modus Ponens"
+msgstr ""
+
+#: Game.Levels.FunctionWorld.L07_Functions
+msgid "Now let's do a straightforward onto example."
 msgstr ""
 
 #. §0: `S`
@@ -1731,6 +1903,10 @@ msgid "# **Level 13: Existence & Uniqueness**\n"
 "§5"
 msgstr ""
 
+#: Game.Levels.FunctionWorld.L11_Functions
+msgid "This is the converse of the previous level: invertible functions are bijections."
+msgstr ""
+
 #. §0: `⊢ 15 * n = 120 * k`
 #: Game.Levels.PfWorld.L09_pf
 msgid "Great. Notice how our *Active Goal* is now §0 while *Goal 2* gets back to our original goal. See if you can't clear this subgoal on your own."
@@ -1823,6 +1999,13 @@ msgstr ""
 msgid "Symmetric Difference"
 msgstr ""
 
+#. §0: `f : Rel u v`
+#. §1: `isSurjective f`
+#. §2: `f`
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "If §0 is a function, §1 means that §2 is onto."
+msgstr ""
+
 #: Game.Levels.RelationWorld.L05_Relations
 msgid "Relations 3"
 msgstr ""
@@ -1849,6 +2032,10 @@ msgid "# **Level 3**\n"
 "* §2 : the GDP is going up\n"
 "* §3 : there will be a recession.\n"
 "See how the statement of this level is precisely this argument?"
+msgstr ""
+
+#: Game.Levels.FunctionWorld.L09_Functions
+msgid "Try to prove the theorem below - it's a bit more difficult than previous levels in this world, but you've got this!"
 msgstr ""
 
 #: Game.Levels.PfWorld.L05_pf
@@ -2079,14 +2266,36 @@ msgstr ""
 msgid "Logical Equivalence World Examples"
 msgstr ""
 
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example2
+msgid "A function that is an equivalence relation can only be the identity function."
+msgstr ""
+
+#: Game.Levels.FunctionWorld.L03_Functions
+#: Game.Levels.FunctionWorld.L04_Functions
+#: Game.Levels.FunctionWorld.L05_Functions
+#: Game.Levels.FunctionWorld.L06_Functions
+#: Game.Levels.FunctionWorld.L07_Functions
+#: Game.Levels.FunctionWorld.L08_Functions
+#: Game.Levels.FunctionWorld.L09_Functions
+#: Game.Levels.FunctionWorld.L10_Functions
+#: Game.Levels.FunctionWorld.L11_Functions
+#: Game.Levels.FunctionWorld.L12_Functions
+#: Game.Levels.FunctionWorld.L13_Functions
+msgid "function"
+msgstr ""
+
 #. §0: `constructor`
 #: Game.Levels.PfWorld.L07_pf
 msgid "We've come to yet another biconditional! Let's use §0 to split our goals."
 msgstr ""
 
-#. §0: `apply double_inclusion`
+#. §0: `apply Double_inclusion`
 #: Game.Levels.RelationWorld.L15_EquivRelations
 msgid "This is an equality of sets, so as usual, §0."
+msgstr ""
+
+#: Game.Levels.FunctionWorld.L03_Functions
+msgid "Let's prove that the compositum of two functions is a function."
 msgstr ""
 
 #. §0: `exist`
@@ -2154,6 +2363,13 @@ msgid "### **💡 Pro-tip**\n"
 "Lean knows that §0 is definitionally the same as §1. So the §2 step of our proof could be omitted."
 msgstr ""
 
+#. §0: `hdu`
+#. §1: `b = d`
+#. §2: `c = d`
+#: Game.Levels.FunctionWorld.L02_Functions
+msgid "From here, use §0 to prove that §1 and §2. Then we're basically done!"
+msgstr ""
+
 #. §0: `⊢ 7 ∣ n`
 #. §1: `∃ d, n = 7 * d`
 #: Game.Levels.PfWorld.L05_pf
@@ -2174,6 +2390,12 @@ msgid "# **Level 7**\n"
 "§5"
 msgstr ""
 
+#. §0: `intro a`
+#. §1: `u`
+#: Game.Levels.FunctionWorld.L01_Functions
+msgid "Let's unpack what it means to be a function. Start with §0 to grab an arbitrary element of §1."
+msgstr ""
+
 #. §0: `⊻`
 #. §1: ```
 #. xor_def {a b : Prop} : ((a ⊻ b) ↔ ((a ∧ ¬b) ∨ (b ∧ ¬a)))
@@ -2181,6 +2403,12 @@ msgstr ""
 #: Game.Levels.EquivWorld.EquivWorld_eg.equiv_eg_docs
 msgid "The definition of the **exclusive-or** connective, denoted §0. Here's what it looks like in Lean:\n"
 "§1"
+msgstr ""
+
+#. §0: `isInjective`
+#. §1: `evaluate`
+#: Game.Levels.FunctionWorld.L06_Functions
+msgid "Let's work toward using bijections and inverses in Lean. We'll start with one-to-one functions: check your inventory for the new §0 definition. Remember, we can't really plug an input into a function without using the §1 tactic, so you might be surprised that the definition also has an arbitrary codomain element in it. It functionally works the same as the definition we know though!"
 msgstr ""
 
 #: Game.Levels.SetWorld.SetWorld_eg.L01_set
@@ -2313,6 +2541,19 @@ msgid "# **Level 6**\n"
 "Here's an abstract example."
 msgstr ""
 
+#. §0: `hf : isFunction f`
+#. §1: `evaluate`
+#. §2: `a`
+#. §3: `f`
+#. §4: `evaluate hf at a with b hbf hbu`
+#. §5: `b`
+#. §6: `hbf`
+#. §7: `f(a) = b`
+#. §8: `hbu`
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "If §0, the §1 tactic lets us \"plug in\" §2 to §3. For instance, §4 will make the output §5 with §6 being the information that  §7 and §8 being the corresponding uniqueness statement."
+msgstr ""
+
 #. §0: `R`
 #. §1: `u`
 #. §2: `equivClass R a`
@@ -2361,6 +2602,19 @@ msgstr ""
 #: Game.Levels.PfWorld.L04_pf
 msgid "### **💡 Pro-tip**\n"
 "The §0 tactic is most useful when discharging cases that are trivially contradictory."
+msgstr ""
+
+#. §0: `isBijection`
+#. §1: ```
+#. Fun_bij_is_invertible
+#. {u v: Type*}
+#. (f: Rel u v)
+#. (hf: isFunction f) :
+#.   isBijection f → isFunction f.inv
+#. ```
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "A bijection is invertible. It is important to note that, while the definition of §0 doesn't require the input relation to be a function, this statement does:\n"
+"§1"
 msgstr ""
 
 #: Game.Levels.ArgWorld.ArgWorld_eg.L03_arg
@@ -2495,6 +2749,30 @@ msgstr ""
 
 #: Game.Levels.EquivWorld.L02_equiv
 msgid "Contrapositives"
+msgstr ""
+
+#. §0: `isFunction f`
+#. §1: `evaluate`
+#. §2: `evaluate`
+#. §3: `evaluate`
+#. §4: `evaluate`
+#. §5: `evaluate`
+#. §6: `isFunction f`
+#. §7: `f(x) = y`
+#. §8: `f a b`
+#. §9: `f a c`
+#. §10: `b = c`
+#. §11: `f`
+#: Game.Levels.FunctionWorld.L02_Functions
+msgid "In practice, we'll rarely directly need to unpack §0 directly thanks to the §1 tactic. Check your inventory for information about §2.\n"
+"\n"
+"As the naming suggests, we'll use §3 whenever we need to plug a domain element into a function. There's not a super nice way to do this directly, so don't forget about §4!\n"
+"\n"
+"To get some initial practice with §5, we'll prove a very useful fact for working with functions.\n"
+"\n"
+"Recall that the point of the uniqueness part of §6 is that inputs have a unique output. When writing proofs by hand, we use this fact seamlessly by utilizing the §7 notation. In Lean, we'll need to be a bit more careful.\n"
+"\n"
+"We'll often know that §8 and §9, at which point §10 (the outputs are the same) as long as §11 is a function. Prove this to get some practice with the uniqueness of function outputs."
 msgstr ""
 
 #. §0: `And_true`
@@ -2730,6 +3008,7 @@ msgstr ""
 #. §0: $A ⊆ B$
 #. §1: $B ⊆ A$
 #. §2: $A = B$
+#: Game.Levels.PfWorld.pf_docs
 #: Game.Levels.PfWorld.L06_pf
 msgid "If §0 and §1, then §2."
 msgstr ""
@@ -2752,6 +3031,10 @@ msgstr ""
 #: Game.Levels.SetWorld.SetWorld_eg.L03_set
 #: Game.Levels.PfWorld.PfWorld_eg.L03_pf
 msgid "### **Level 3**"
+msgstr ""
+
+#: Game.Levels.FunctionWorld.L13_Functions
+msgid "This is the converse of the last level, a fitting boss for FunctionWorld!"
 msgstr ""
 
 #. §0: `rw`
@@ -2895,6 +3178,15 @@ msgstr ""
 msgid "See how our goal is now a universal statement? Let's introduce a generic variable to reckon with the universal quantifier"
 msgstr ""
 
+#: Game.Levels.FunctionWorld.L05_Functions
+msgid "This is the converse of the previous level; it's also true!"
+msgstr ""
+
+#. §0: `intro fab fbc`
+#: Game.Levels.FunctionWorld.L02_Functions
+msgid "Start by naming the assumptions: §0."
+msgstr ""
+
 #. §0: `constructor`
 #. §1: `hP : P`
 #. §2: `hQ : Q`
@@ -2907,6 +3199,16 @@ msgstr ""
 msgid "### **💡 Pro-tip**\n"
 "The §0 tactic is definitely handy but don't overuse it. For example, if you have two hypotheses, say §1 and §2, and your goal is §3, then the §4 tactic is overkill. Simply use\n"
 "§5"
+msgstr ""
+
+#. §0: `evaluate`
+#. §1: `a`
+#. §2: `f`
+#. §3: `evaluate hf at a with d hdf hdu`
+#. §4: `a`
+#. §5: `hdu`
+#: Game.Levels.FunctionWorld.L02_Functions
+msgid "Use §0 to access the uniqueness statement for plugging §1 into §2: §3. This will give the uniqueness statement for plugging in §4 the name §5."
 msgstr ""
 
 #. §0: `constructor`
@@ -3282,6 +3584,13 @@ msgid "An ordered pair §0 fails to be in the Cartesian product §1 as long as �
 "§3"
 msgstr ""
 
+#. §0: `Rel_id u a a`
+#. §1: `a = a`
+#. §2: `rfl`
+#: Game.Levels.FunctionWorld.L01_Functions
+msgid "By definition, §0 means §1. Cite the reflexive property of equality: §2."
+msgstr ""
+
 #: Game.Levels.ArgWorld.L07_arg
 msgid "There are more indirect ways to clear disjunctive goals. We'll tackle these in Proof Strategies World."
 msgstr ""
@@ -3393,8 +3702,19 @@ msgstr ""
 msgid "## **Level 8**"
 msgstr ""
 
+#. §0: `isBijection`
+#: Game.Levels.FunctionWorld.L08_Functions
+msgid "A bijection is a function that is both one-to-one and onto. We'll bundle these properties together into §0; check your inventory. Prove that the identity function is a bijection to get a bit of practice. This will be useful in CardinalityWorld later, so this fact will be added to your inventory too!"
+msgstr ""
+
 #: Game.Levels.PfWorld.L13_pf
 msgid "Great. Now we need to prove uniqueness. Give it a try."
+msgstr ""
+
+#. §0: `Rel_id u`
+#. §1: `u`
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "The identity relation §0 on set §1 is a function."
 msgstr ""
 
 #. §0: `rewrite[e]`
@@ -3476,6 +3796,14 @@ msgid "If §0 is a relation on §1, §2 means that §3 is the smallest element o
 "If we want to specify that §5 is the smallest element of a subset §6 of §7, write §8."
 msgstr ""
 
+#. §0: `R : Rel u v`
+#. §1: `R.pairs`
+#. §2: `(x,y)`
+#. §3: `R x y`
+#: Game.Levels.RelationWorld.Relation_docs
+msgid "If §0, §1 is the set of ordered pairs §2 with the property that §3."
+msgstr ""
+
 #. §0: `intro`
 #. §1: `intro a`
 #. §2: $a$
@@ -3514,7 +3842,33 @@ msgid "This helps to define the §0 set connective. Specifically,\n"
 msgstr ""
 
 #: Game.Levels.RelationWorld.L05_Relations
+#: Game.Levels.FunctionWorld.L01_Functions
+#: Game.Levels.FunctionWorld.L02_Functions
+#: Game.Levels.FunctionWorld.L03_Functions
+#: Game.Levels.FunctionWorld.L04_Functions
+#: Game.Levels.FunctionWorld.L05_Functions
+#: Game.Levels.FunctionWorld.L06_Functions
+#: Game.Levels.FunctionWorld.L07_Functions
+#: Game.Levels.FunctionWorld.L08_Functions
+#: Game.Levels.FunctionWorld.L09_Functions
+#: Game.Levels.FunctionWorld.L10_Functions
+#: Game.Levels.FunctionWorld.L11_Functions
+#: Game.Levels.FunctionWorld.L12_Functions
+#: Game.Levels.FunctionWorld.L13_Functions
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example1
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example2
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example3
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example4
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example5
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example6
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example7
 msgid "."
+msgstr ""
+
+#: Game.Levels.FunctionWorld.L12_Functions
+msgid "Let's see how you can check that a function is invertible by getting the identity function by composing the function with its inverse relation in both directions. This is used all the time to check that functions defined by explicit formulas are invertible!\n"
+"\n"
+"This one's pretty challenging!"
 msgstr ""
 
 #. §0: `partition`
@@ -3606,6 +3960,10 @@ msgstr ""
 msgid "Terrific. Now, let's rewrite §0 to say\n"
 "§1\n"
 ""
+msgstr ""
+
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "The identity relation is a bijection."
 msgstr ""
 
 #: Game.Levels.PfWorld.L05_pf
@@ -3948,8 +4306,20 @@ msgid "This is the **set** Cartesian product symbol, used in set Cartesian produ
 "To type this symbol, write §13."
 msgstr ""
 
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example6
+msgid "A function with a left inverse is one-to-one."
+msgstr ""
+
 #: Game.Levels.RelationWorld
 msgid "Relation World"
+msgstr ""
+
+#. §0: `f`
+#. §1: `f a b`
+#. §2: `f a c`
+#. §3: `b = c`
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "If §0 is a function such that §1 and §2, then §3."
 msgstr ""
 
 #. §0: `equivClassFamily R`
@@ -4620,6 +4990,11 @@ msgstr ""
 msgid "Goal cleared! See if you can't clear this last goal on your own."
 msgstr ""
 
+#. §0: `f`
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example3
+msgid "A function §0 with a right inverse is onto."
+msgstr ""
+
 #: Game.Levels.ArgWorld.ArgWorld_eg.L09_arg
 msgid "# **Level 9**"
 msgstr ""
@@ -4691,6 +5066,22 @@ msgstr ""
 
 #: Game.Levels.PfWorld.L09_pf
 msgid "We're finally ready to profer a witness to our existential goal. Try to finish this level off on your own from here."
+msgstr ""
+
+#. §0: ```
+#. Fun_comp_surj
+#. {u v w: Type*}
+#. (f: Rel u v)
+#. (hfs: isSurjective f)
+#. (g: Rel v w)
+#. (hgs: isSurjective g)
+#.   : isSurjective (g ∘ f)
+#. ```
+#. §1: `isFunction`
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "Compositum of surjective functions is surjective. In Lean:\n"
+"§0\n"
+"This doesn't actually use that the relations are functions, so there are no §1 hypotheses!"
 msgstr ""
 
 #. §0: `univ`
@@ -4792,6 +5183,22 @@ msgid "This is an **Inverse Law**. It says that\n"
 "§2"
 msgstr ""
 
+#. §0: ```
+#. Fun_comp_inj
+#. {u v w: Type*}
+#. (f: Rel u v)
+#. (hf: isFunction f)
+#. (hfi: isInjective f)
+#. (g: Rel v w)
+#. (hg: isFunction g)
+#. (hgi: isInjective g) :
+#.   isInjective (g ∘ f)
+#. ```
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "Compositum of injective functions is injective. There are lots of inputs due to needing to know both inputs are functions:\n"
+"§0"
+msgstr ""
+
 #. §0: `A B : Set u`
 #. §1: `A = B`
 #. §2: ```
@@ -4815,6 +5222,10 @@ msgstr ""
 
 #: Game.Levels.PfWorld.PfWorld_eg.L09_pf
 msgid "Example 9"
+msgstr ""
+
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example4
+msgid "Compositum of injective functions is injective."
 msgstr ""
 
 #. §0: `(x,y).1`
@@ -4890,6 +5301,12 @@ msgstr ""
 msgid "Goal management"
 msgstr ""
 
+#. §0: `evaluate`
+#. §1: `Fun_output_equal`
+#: Game.Levels.FunctionWorld.L02_Functions
+msgid "The §0 tactic and §1"
+msgstr ""
+
 #. §0: `x`
 #. §1: `A`
 #. §2: `B`
@@ -4953,6 +5370,15 @@ msgstr ""
 msgid "See how our goal is now a §0 statement? We need to supply a witness..."
 msgstr ""
 
+#. §0: `a`
+#. §1: `evaluate`
+#. §2: `evaluate hf at a with b hbf hbu`
+#. §3: `a`
+#. §4: `f`
+#: Game.Levels.FunctionWorld.L03_Functions
+msgid "So, what does §0 map to? Of course it's g(f(a)); we'll have to use §1 carefully to access it. First, §2 to plug §3 into §4."
+msgstr ""
+
 #: Game.Levels.QuantifierWorld.QuantifierWorld_eg.L03_quant
 msgid "## **Level 3**"
 msgstr ""
@@ -4990,6 +5416,15 @@ msgstr ""
 #: Game.Levels.ArgWorld.arg_docs
 #: Game.Levels.ArgWorld.arg_docs
 msgid "The §0 tactic is useful for targeting goals that are disjunctions. Specifically, if our goal is of the form §1, the tactic §2 will make our new goal §3."
+msgstr ""
+
+#. §0: `isFunction f.inv`
+#. §1: `R`
+#. §2: `R.inv`
+#: Game.Levels.FunctionWorld.L10_Functions
+msgid "In the last few levels, we'll explore the equivalent conditions for functions to be invertible; that is, for §0 to be true. (Remember that if §1 is a relation, §2 is its inverse.)\n"
+"\n"
+"Let's start with bijections being invertible."
 msgstr ""
 
 #: Game.Levels.ArgWorld.L04_arg
@@ -5174,6 +5609,13 @@ msgid "# **Level 8: Or and Nand**\n"
 "One last example involving §0. Are you noticing something interesting?"
 msgstr ""
 
+#. §0: `Rel_fiberrel`
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example1
+msgid "Fibers (inverse images of single elements) form equivalence classes.\n"
+"\n"
+"Check your inventory for the definition of §0."
+msgstr ""
+
 #. §0: `«{ha}»`
 #. §1: `«{a}» ∈ A ∧ «{a}» ∉ B`
 #: Game.Levels.PfWorld.L11_pf
@@ -5266,10 +5708,15 @@ msgstr ""
 msgid "The §0 tacic turns a goal of the form §1 into §2 and pushes negations through (with §3)."
 msgstr ""
 
-#. §0: `apply double_inclusion`
+#. §0: `apply Double_inclusion`
 #. §1: `intro x h`
 #: Game.Levels.RelationWorld.L03_Relations
 msgid "Now do a double inclusion proof from here! Start with §0 then §1."
+msgstr ""
+
+#. §0: `intro a`
+#: Game.Levels.FunctionWorld.L03_Functions
+msgid "Start with §0 to grab our arbitrary input."
 msgstr ""
 
 #: Game.Levels.PfWorld.L12_pf
@@ -5360,6 +5807,13 @@ msgstr ""
 msgid "Proof-by-contradiction"
 msgstr ""
 
+#. §0: `g(f(a)) = c`
+#. §1: `exist! c`
+#. §2: `Fun_output_equal`
+#: Game.Levels.FunctionWorld.L03_Functions
+msgid "So, intuitively, §0. Let's prove it: §1. Take it from here! It might continue to be helpful to use §2 as you work through what has to be shown."
+msgstr ""
+
 #: Game.Levels.EquivWorld.L02_equiv
 msgid "# **Level 2: Contrapositives**\n"
 "Let's use the laws of logic to prove that the ***Contrapositive*** of an implication is logically equivalent to the original implication."
@@ -5427,6 +5881,12 @@ msgstr ""
 msgid "The intersection of two unions of families of sets is contained in the union of the intersection of the families if and only if for every set §0 in the first family and for every set §1 in the second family, we have that the the intersection §2 belongs to the union of the intersection of the two families."
 msgstr ""
 
+#. §0: `image`
+#. §1: `invimage`
+#: Game.Levels.FunctionWorld.FunctionWorldExamples.function_example5
+msgid "For onto functions, §0 undoes §1."
+msgstr ""
+
 #. §0: `contradiction`
 #: Game.Levels.PfWorld.L10_pf
 msgid "This case seems contradictory... you need to a little work before you can use the §0 tactic to clear it though."
@@ -5462,6 +5922,23 @@ msgstr ""
 
 #: Game.Levels.SetWorld
 msgid "Set World"
+msgstr ""
+
+#. §0: `f : Rel u v`
+#. §1: `U : Set u`
+#. §2: `u`
+#. §3: `image f U`
+#. §4: `f(u)`
+#. §5: `u ∈ U`
+#. §6: `f`
+#. §7: `image f U`
+#. §8: `v ∈ V`
+#. §9: `f u v`
+#. §10: `u ∈ U`
+#: Game.Levels.FunctionWorld.Function_docs
+msgid "If §0 is a function and §1 is a set of elements of §2, then §3 is the set of elements §4 where §5.\n"
+"\n"
+"Since we can't directly \"plug in\" stuff to §6, the set §7 is defined as the set of §8 with the property that §9 for some §10."
 msgstr ""
 
 #. §0: `⊢ a ∈ A \\ B`
