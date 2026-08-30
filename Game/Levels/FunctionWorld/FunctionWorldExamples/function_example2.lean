@@ -11,7 +11,7 @@ Introduction "A function that is an equivalence relation can only be the identit
 
 Statement {u: Type*} (f: Rel_on u) (hf: isFunction f) (hfe: isEquivalence f) : f = Rel_id u := by
   apply Rel_double_inclusion
-  apply double_inclusion
+  apply Double_inclusion
   intro x hx
   evaluate hf at x.1 with b hbf hbu
   obtain hbx1 : x.1 = b := hbu x.1 (hfe.refl x.1)

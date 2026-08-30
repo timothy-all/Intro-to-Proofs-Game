@@ -20,7 +20,9 @@ Statement Fun_bij_is_invertible {u v: Type*} (f: Rel u v) (hf: isFunction f) : i
   exist! a
   exact ha
   intro y hy
-  exact (finj ha hy).symm
+  obtain eq : a = y
+  exact (finj ha hy)
+  rw [eq]
 
 
 Conclusion "."

@@ -11,7 +11,7 @@ In short, `(Rel_union R S) u v` is true when either `R u v` or `S u v`. Try the 
 
 Statement {u v : Type} (R S: Rel u v) : (Rel_union R S).inv = Rel_union R.inv S.inv  := by
   apply Rel_double_inclusion
-  apply double_inclusion
+  apply Double_inclusion
   intro x h
   obtain hP | hQ := h
   left

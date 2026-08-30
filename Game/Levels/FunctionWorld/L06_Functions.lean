@@ -11,8 +11,12 @@ Introduction "Let's work toward using bijections and inverses in Lean. We'll sta
 Statement {u v w: Type*} (f: Rel u v) (hf: isFunction f) (g: Rel v w) (hg: isFunction g) (hgf: isInjective (g ∘ f)) : isInjective f := by
   intro a1 a2 b fa1b fa2b
   evaluate hg at b with c hcg hcu
-  obtain gfa1c : (g ∘ f) a1 c := by use b
-  obtain gfa2c : (g ∘ f) a2 c := by use b
+  obtain gfa1c : (g ∘ f) a1 c
+  exist b
+  refine ⟨fa1b,hcg⟩
+  obtain gfa2c : (g ∘ f) a2 c
+  exist b
+  refine ⟨fa2b,hcg⟩
   exact hgf gfa1c gfa2c
 
 

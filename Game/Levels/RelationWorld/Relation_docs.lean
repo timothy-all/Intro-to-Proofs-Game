@@ -118,8 +118,15 @@ The `fun` keyword tells Lean we're providing "function" inputs - this works here
  -/
 DefinitionDoc Rel_id as "REL: Rel_id"
 
+
+/-- The `nth_rw` tactic does a targeted rewrite of the goal at only a specific position. For instance, `nth_rw 2 [h]` will swap out whatever equality `h` gives at the second place it occurs in the goal.
+
+You can also do `nth_rw 2 [h] at k` to do the same thing to hypothesis `k`. -/
+TacticDoc nth_rw
+
+
 /--Replaces the `set` of the identity relation on `u` with the more concrete set of ordered pairs of the form `(a,a)`.-/
-TheoremDoc Rel_id_set as "REL: Rel_id_set"
+TheoremDoc Rel_id_pairs as "REL: Rel_id_pairs"
 
 
 

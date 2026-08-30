@@ -9,7 +9,7 @@ Introduction "If equivalence relations have the same family of equivalence class
 
 Statement {u : Type*} (R S: Rel_on u) (eqR: isEquivalence R) (eqS: isEquivalence S) (h: equivClassFamily R = equivClassFamily S) : R = S := by
   apply Rel_double_inclusion
-  apply double_inclusion
+  apply Double_inclusion
   intro x hx
   obtain k : equivClass R x.1 ∈ equivClassFamily S
   rw[← h]

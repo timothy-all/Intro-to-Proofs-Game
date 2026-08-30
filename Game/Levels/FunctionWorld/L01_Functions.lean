@@ -27,7 +27,7 @@ Statement Fun_identity_fun {u : Type*} : isFunction (Rel_id u) := by
   Hint "Can you finish from here?"
   intro y hy
   rw [Rel_id] at hy
-  exact hy.symm
+  rw [hy]
 
 
 

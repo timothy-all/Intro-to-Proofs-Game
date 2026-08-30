@@ -13,7 +13,7 @@ Statement {u v: Type*} (f: Rel u v) (hf: isFunction f) :  isFunction f.inv → (
   intro finv
   constructor
   apply Rel_double_inclusion
-  apply double_inclusion
+  apply Double_inclusion
   intro x hx --Goal is x.1 = x.2
   obtain ⟨mid, ⟨hmid1,hmid2⟩⟩ := hx
   exact Fun_output_equal f hf hmid1 hmid2
@@ -25,7 +25,7 @@ Statement {u v: Type*} (f: Rel u v) (hf: isFunction f) :  isFunction f.inv → (
   exact hbfinv
   --this direction felt somewhat difficult, can it be simplified somehow?
   apply Rel_double_inclusion
-  apply double_inclusion
+  apply Double_inclusion
   intro x hx
   evaluate hf at x.1 with b hbf hbu
   evaluate finv at b with c hcfinv hcu
