@@ -7,7 +7,7 @@ Title "Example 7"
 
 Introduction "
 # **Level 7**
-Possibly depending on how you go about things, you might find the following freshly unlocked theorem helpful here:
+Possibly depending on how you go about things, you might find the following freshly 🔓 unlocked theorem helpful here:
 ```
 not_false_iff : ¬ False ↔ True
 ```

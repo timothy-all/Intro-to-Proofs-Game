@@ -7,6 +7,8 @@ Title "Example 4"
 
 Introduction "
 # **Level 4**
+Here's a venn diagram that might be helpful. **Note:** in the illustration $C ⊆ A ∪ B$. The shaded region is $C \\setminus A$.
+![A venn diagram illustrating the validity of the if-then statement of the exericse.](images/venn_example4.png)
 "
 
 set_option pp.parens true

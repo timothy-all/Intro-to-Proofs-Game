@@ -28,11 +28,11 @@ Statement {u : Type*} (A : Set u) : A = ∅ ↔ ∀ {x}, x ∉ A := by
   by_contra! F
   Hint "Notice that our goal is `⊢ False` while the hypothesis `{F} : A = ∅ ∧ ∃ x, x ∈ A` -- this is the simplified negation of `A = ∅ → ∀ x, x ∉ A`. Let's obtain a witness to the right-hand side of the conjunction in `{F}`."
   obtain ⟨x,hx⟩ := F.right
-  Hint "Great. Now let's rewrite the hypothesis `{hx} : x ∈ A` using `{F}.left`."
+  Hint "***Great.*** Now let's rewrite the hypothesis `{hx} : x ∈ A` using `{F}.left`."
   rw[F.left] at hx
   Hint "We've got a couple options to clear the goal now."
   exact hx
-  Hint "Great. Now we need to prove the **backward** direction of our bicondtional. Let's attack this somewhat directly. 👉 Let's start with
+  Hint "***Good.*** Now we need to prove the **backward** direction of our bicondtional. Let's attack this somewhat directly. 👉 Let's start with
   ```
   intro h
   ```
@@ -40,19 +40,20 @@ Statement {u : Type*} (A : Set u) : A = ∅ ↔ ∀ {x}, x ∉ A := by
   intro h
   Hint "We now have a set-equality to prove. Let's rewrite this using `set_eq_iff`."
   rw[set_eq_iff]
-  Hint "OK. Now, let's take care of the universal quantifier and `intro` a generic variable."
+  Hint "***OK.*** Now, let's take care of the universal quantifier and `intro` a generic variable."
   intro x
   Hint "We've come to yet another biconditional! Let's use `constructor` to split our goals."
   constructor
-  Hint "Great. Let's `intro` the hypothesis of the **forward** direction."
+  Hint "***Stupendous.*** Let's `intro` the hypothesis of the **forward** direction."
   intro hx
-  Hint "Our goal is definitionally `⊢ False` (this is what `x ∈ ∅` truly means). We have `{h} : ∀ \{x : u}, x ∉ A`. Lean has a funny way of interpreting not-statements. In particular, Lean considers the following to be definitionally equaly:
+  Hint "### **💡 Important tip**
+  Our goal is definitionally `⊢ False` (this is what `x ∈ ∅` truly means). We have `{h} : ∀ \{x : u}, x ∉ A`. Lean has a funny way of interpreting not-statements. In particular, Lean considers the following to be definitionally equaly:
   ```
   (¬ P) = (P → False)
   ```
   This means that if `nP : ¬ P` and `hP : P`, then `nP hP` is a proof of `False`. 👉 Let's try this here with
   ```
-  exact h hx
+  exact {h} {hx}
   ```
   "
   exact h hx

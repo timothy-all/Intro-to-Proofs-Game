@@ -46,11 +46,11 @@ Statement : ∀ n : ℤ, 21 ∣ n → ( 7 ∣ n ∧ 3 ∣ n) := by
   constructor
   Hint "We now have an *Active Goal* and a *Goal 2*. We can tab over to *Goal 2* if we like, but might as well address them in order. To prove `⊢ 7 ∣ n`, we need to profer a witness to the underlying existential statement `∃ d, n = 7 * d`. Can you find such a witness?"
   exist 3 * k
-  Hint "Perfect. Let's rewrite the left-hand side of our goal with `hk`."
+  Hint "***Perfect.*** Let's rewrite the left-hand side of our goal with `hk`."
   rw[hk]
   Hint "If only there were a tactic that could help us `simplify` basic arithmetic like in our current goal..."
   simplify
-  Hint "You got it. See if you can't finish from here."
+  Hint "***You got it.*** See if you can't finish from here."
   exist 7 * k
   rw[hk]
   simplify

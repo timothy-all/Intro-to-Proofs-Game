@@ -30,7 +30,7 @@ Statement Double_inclusion {u : Type*} (A B : Set u) (hAB : A ⊆ B) (hBA : B �
   ```
   "
   constructor
-  Hint "Our *Active Goal* is `⊢ x ∈ A → x ∈ B` while `Goal 2` is `⊢ x ∈ B → x ∈ A`. See if you can't finish from here."
+  Hint "Our *Active Goal* is `⊢ x ∈ A → x ∈ B` while *Goal 2* is `⊢ x ∈ B → x ∈ A`. See if you can't finish from here."
   intro hxA
   exact hAB hxA
   intro hxB

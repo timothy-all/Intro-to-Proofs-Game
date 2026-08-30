@@ -36,17 +36,17 @@ Statement {u : Type*} (A B : Set u) (h : A ∩ B = ∅): A ⊆ A \ B := by
   ```
   "
   rw[mem_diff_iff,Not_and,Not_not,← Imp_iff_not_or] at F
-  Hint "Great. We're aiming to show that `a ∈ A ∩ B` -- but this is `False` since we know `h : A ∩ B = ∅`. To get there, let's `obtain` the fact that `a ∈ B`."
+  Hint "***Great.*** We're aiming to show that `a ∈ A ∩ B` -- but this is `False` since we know `h : A ∩ B = ∅`. To get there, let's `obtain` the fact that `a ∈ B`."
   obtain hb := F ha
-  Hint "Super. Now let's `obtain` the fact that `a ∈ A ∧ a ∈ B`."
+  Hint "***Super.*** Now let's `obtain` the fact that `a ∈ A ∧ a ∈ B`."
   obtain hAB := And.intro ha hb
-  Hint "Terrific. Now, let's rewrite `{hAB}` to say
+  Hint "***Terrific.*** Now, let's rewrite `{hAB}` to say
   ```
   {hAB} : a ∈ A ∩ B
   ```
   "
   rw[← Set.mem_inter_iff] at hAB
-  Hint "Amazing. Now let's rewrite `A ∩ B` in `{hAB}` as `∅`."
+  Hint "***Amazing.*** Now let's rewrite `A ∩ B` in `{hAB}` as `∅`."
   rw[h] at hAB
   Hint "We can clear the goal in two different ways. Our goal is `⊢ False`; this is `exact`ly what is being said in `{hAB}`. Alternatively, we could use ...
   ### **❯ The `contradiction` tactic**

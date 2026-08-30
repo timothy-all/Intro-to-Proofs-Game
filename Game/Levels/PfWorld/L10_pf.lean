@@ -26,7 +26,7 @@ Our initial goal is a subset relation. So let's `intro` the appropriate material
 /-- Suppose $A,B,C$ are sets and that $A ∪ C = B ∪ C$. Then the symmetric difference $(A \setminus B) ∪ (B \setminus A)$ is contained in $C$. -/
 Statement {u : Type*} (A B C : Set u) (h : A ∪ C = B ∪ C) : (A \ B ∪ B \ A) ⊆ C := by
   intro x hx
-  Hint "Great. Look at our introduced hypothesis `{hx}`. This is an `∨` statement. How to `obtain` the two cases `{x} ∈ A \\ B` and `{x} ∈ B \\ A`? We use the `obtain` tactic! 👉 Specifically, try
+  Hint "***Fantastic.*** Look at our introduced hypothesis `{hx}`. This is an `∨` statement. How to `obtain` the two cases `{x} ∈ A \\ B` and `{x} ∈ B \\ A`? We use the `obtain` tactic! 👉 Specifically, try
   ```
   obtain hxa | hxb := {hx}
   ```
@@ -49,7 +49,7 @@ Statement {u : Type*} (A B C : Set u) (h : A ∪ C = B ∪ C) : (A \ B ∪ B \ A
   Hint "This case seems contradictory... you need to a little work before you can use the `contradiction` tactic to clear it though."
   obtain hxB' := hxa.right
   contradiction
-  Hint "Great. The goal in this case is `exact`ly one of our hypotheses."
+  Hint "***Great.*** The goal in this case is `exact`ly one of our hypotheses."
   exact hxC
   Hint "We're now in the original *second* case, that being, we're now assuming `{hxb} : x ∈ B \\ A`. See if you can't clear this on your own now that we've walked through the first case together."
   obtain hxBC : x ∈ B ∪ C

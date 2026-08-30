@@ -7,6 +7,8 @@ Title "Example 2"
 
 Introduction "
 # **Level 2**
+Here's a venn diagram with $(A \\setminus B) \\setminus C$ (or equivalently $A \\setminus (B ∪ C)$) shaded.
+![A venn diagram of A less the union of B and C](images/venn_example2.png)
 "
 set_option pp.parens true
 

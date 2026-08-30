@@ -33,7 +33,7 @@ Statement (u : Type*) (A B C D : Set u) (h : A ∩ B ⊆ C \ D) (x : u) : x ∈ 
   rw[Not_not]
   Hint "Now, let's tackle ***this*** if then statement directly. Specifically, let's `intro` the hypothesis `x ∈ B`."
   intro hxB
-  Hint "We now have the hypotheses {hxA} and {hxB}. Using `h`, we should be able to `obtain` the hypothesis that `x ∈ C \\ D`. And from there we're pretty much home free. See if you can't finish."
+  Hint "We now have the hypotheses `{hxA}` and `{hxB}`. Using `h`, we should be able to `obtain` the hypothesis that `x ∈ C \\ D`. And from there we're pretty much home free. See if you can't finish."
   obtain hx_diff := h (And.intro hxA hxB)
   exact hx_diff.right
 

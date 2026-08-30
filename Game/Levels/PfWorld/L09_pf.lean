@@ -23,14 +23,14 @@ Statement (n : ℤ) : 40 ∣ n ↔ (8 ∣ n ∧ 5 ∣ n) := by
   exist  8 * k
   rw[hk]
   simplify
-  Hint "Excellent. Things are about to get harder. Let's introduce the right stuff. We can do this in one go with
+  Hint "***Excellent.*** Things are about to get harder. Let's introduce the right stuff. We can do this in one go with
   ```
   intro ⟨ ⟨k,hk⟩, ⟨j,hj⟩ ⟩
   ```
   The *outer* angled brackets tell Lean that your introducing components of a conjunction; the inner angled brackets destructure the existential statements that are being glued together by `∧`.
   "
   intro ⟨⟨k,hk⟩, ⟨j,hj⟩⟩
-  Hint "Perfect. We now need a clever idea. What's the first multiple of `5` that differs from a multiple of `8` by `1`? The answer: `15` and `16`.
+  Hint "***Perfect.*** We now need a clever idea. What's the first multiple of `5` that differs from a multiple of `8` by `1`? The answer: `15` and `16`.
 
   Now, let's obtain the fact that `15 * n = 120 * k`. We need to open a new subgoal to prove this. We can use the `obtain` tactic to do so with the following syntax. 👉 Try
   ```
@@ -38,14 +38,14 @@ Statement (n : ℤ) : 40 ∣ n ↔ (8 ∣ n ∧ 5 ∣ n) := by
   ```
   "
   obtain h1 : 15 * n = 120 * k
-  Hint "Great. Notice how our *Active Goal* is now `⊢ 15 * n = 120 * k` while *Goal 2* gets back to our original goal. See if you can't clear this subgoal on your own."
+  Hint "***Amaze, amaze.*** Notice how our *Active Goal* is now `⊢ 15 * n = 120 * k` while *Goal 2* gets back to our original goal. See if you can't clear this subgoal on your own."
   rw[hk]
   simplify
-  Hint "Super. Now, using the same ideas, `obtain` the hypothesis `h2 : 16 * n = 80 * j`."
+  Hint "***Super.*** Now, using the same ideas, `obtain` the hypothesis `h2 : 16 * n = 80 * j`."
   obtain h2 : 16 * n = 80 * j
   rw[hj]
   simplify
-  Hint "Look at you go. Now, `obtain` one more hypothesis. Specifically, obtain the hypothesis that starts with `h3 : n = ...` -- the right-hand side of this equality ought to be a difference of multiples of `40`."
+  Hint "***Look at you go.*** Now, `obtain` one more hypothesis. Specifically, obtain the hypothesis that starts with `h3 : n = ...` -- the right-hand side of this equality ought to be a difference of multiples of `40`."
   obtain h3 : n = 80 * j - 120 * k
   rw[← h1,← h2]
   simplify

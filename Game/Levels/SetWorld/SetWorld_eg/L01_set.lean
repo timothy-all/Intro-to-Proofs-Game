@@ -10,6 +10,7 @@ Title "Example 1"
 
 Introduction "
 # **Level 1**
+Here's a straightforward one to get us going.
 "
 open Set
 

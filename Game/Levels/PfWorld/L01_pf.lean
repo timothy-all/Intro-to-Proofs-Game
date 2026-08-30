@@ -25,7 +25,7 @@ Statement (x y : ℤ) (hx : isEven x) (hy: isEven y) : isEven (x + y) := by
   obtain ⟨l,hl⟩ := hy
   Hint "Our goal is also an existential statement. So in order to prove this existential statement, we need to profer a witness."
   exist k+l
-  Hint "Excellent. Now try
+  Hint "***Excellent.*** Now try
   ```
   rw[{hk},{hl}]
   ```

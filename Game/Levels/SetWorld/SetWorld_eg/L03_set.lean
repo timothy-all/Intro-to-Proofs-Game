@@ -7,6 +7,8 @@ Title "Example 3"
 
 Introduction "
 # **Level 3**
+Here's a venn diagram with $A ∪ (B \\setminus C)$ (or equivalently $(A ∪ B) \\setminus (C \\setminus A)$) shaded.
+![A venn diagram of A union the difference of B and C](images/venn_example3a.png)
 "
 
 set_option pp.parens true

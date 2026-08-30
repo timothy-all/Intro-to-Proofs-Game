@@ -34,7 +34,7 @@ Statement (u : Type*) (F G : Set (Set u)) : ⋃₀ F ∩ ⋃₀ G ⊆ ⋃₀ (F 
   ```
   "
   intro hA
-  Hint "Second verse, same as the first."
+  Hint "***Second verse, same as the first.***"
   intro B
   intro hB
   Hint "We now have a subset relation as a goal. This is secretly a universally quantified statement. 👉 So let's introduce a generic variable with
@@ -64,7 +64,7 @@ Statement (u : Type*) (F G : Set (Set u)) : ⋃₀ F ∩ ⋃₀ G ⊆ ⋃₀ (F 
   ```
   "
   apply h
-  Hint "Notice how our goal is now `⊢ x ∈ ⋃₀ F ∩ ⋃₀ G`. Here's what happened in the last step: the hypothesis `{h}` is definitionally
+  Hint "***Fantastic.*** Notice how our goal is now `⊢ x ∈ ⋃₀ F ∩ ⋃₀ G`. Here's what happened in the last step: the hypothesis `{h}` is definitionally
   ```
   {h} : ∀ x, x ∈ ⋃₀ F ∩ ⋃₀ G → x ∈ ⋃₀ (F ∩ G)
   ```
@@ -78,19 +78,19 @@ Statement (u : Type*) (F G : Set (Set u)) : ⋃₀ F ∩ ⋃₀ G ⊆ ⋃₀ (F 
   constructor
   Hint "Our goal is now an *existential* statement. We need to profer a witness..."
   exist A
-  Hint "Great. We might be tempted to use the `constructor` tactic again here. But we can save ourselves some time with ...
-  ### **❯ The `refine` tactic **
+  Hint "***Great.*** We might be tempted to use the `constructor` tactic again here. But we can save ourselves some time with ...
+  ### **❯ The `refine` tactic**
   The refine tactic acts like a combination of `constructor` and `exact`. In our particular case, notice that the left-hand side of our goal is exactly `{hA}` while the right-hand side of our goal is exactly `{hx}.left`. 👉 So we can clear our goal with
   ```
   refine ⟨ {hA}, {hx}.left ⟩
   ```
   "
   refine ⟨hA,hx.left⟩
-  Hint "Goal cleared! We now need to profer a witness to our current existential goal..."
+  Hint "***Goal cleared!*** We now need to profer a witness to our current existential goal..."
   exist B
-  Hint "Right on. Try to clear the current goal with `refine` similarly to how we did it before."
+  Hint "***Right on.*** Try to clear the current goal with `refine` similarly to how we did it before."
   refine ⟨hB,hx.right⟩
-  Hint "Perfect. We now need to prove the **backward** implication. Let's `intro` all the things."
+  Hint "***Perfect.*** We now need to prove the **backward** implication. Let's `intro` all the things."
   intro h x hx
   Hint "Consider the assumption `{hx}`. This assumption is really just two existential statements glued together with `∧`. Use `obtain` to grab witnesses to these two individual existential statements. 👉 Specifically, try
   ```
@@ -98,7 +98,7 @@ Statement (u : Type*) (F G : Set (Set u)) : ⋃₀ F ∩ ⋃₀ G ⊆ ⋃₀ (F 
   ```
   "
   obtain ⟨A,hA,hxA⟩ := hx.left
-  Hint "OK. Now, in the same way, grab a witness to the other existential in `{hx}.right`."
+  Hint "***OK.*** Now, in the same way, grab a witness to the other existential in `{hx}.right`."
   obtain ⟨B,hB,hxB⟩ := hx.right
   Hint "Let's use the assumption `{h}` to get a new assumption saying that
   ```
@@ -106,7 +106,7 @@ Statement (u : Type*) (F G : Set (Set u)) : ⋃₀ F ∩ ⋃₀ G ⊆ ⋃₀ (F 
   ```
   "
   obtain hAB := h A hA B hB
-  Hint "Great. Now, look at our goal and look at the assumption you just introduced, namely `{hAB}`. It ***suffices*** to prove that `x ∈ A ∩ B`. What tactic did we just learn about that could be helpful here?"
+  Hint "***Excellent.*** Now, look at our goal and look at the assumption you just introduced, namely `{hAB}`. It ***suffices*** to prove that `x ∈ A ∩ B`. What tactic did we just learn about that could be helpful here?"
   apply hAB
   Hint "Almost home."
   exact And.intro hxA hxB

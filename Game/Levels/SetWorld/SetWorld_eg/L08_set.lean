@@ -7,6 +7,7 @@ Title "Example 8"
 
 Introduction "
 # **Level 8**
+This one should give us some practice with intersection and unions of indexed families. 🔓 We've unlocked the definition `mem_iunion_iff`. Check it out in the **Definitions** tab.
 "
 
 --set_option pp.parens true

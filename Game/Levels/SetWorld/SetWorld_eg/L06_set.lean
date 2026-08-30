@@ -7,6 +7,7 @@ Title "Example 6"
 
 Introduction "
 # **Level 6**
+Here's a practice problem that involve the empty set.
 "
 
 set_option pp.parens true

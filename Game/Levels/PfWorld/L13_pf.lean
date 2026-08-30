@@ -12,7 +12,7 @@ These kinds of statement are **all over** mathematics. Not only do we want to kn
 (∃! x, P x) ↔ (∃ x, P x ∧ (∀ y, P y → x = y))
 ```
 How do we address such goals in Lean? We use...
-### **❯ The `exist!` tactic
+### **❯ The `exist!` tactic**
 The `exist!` tactic will split your goal into subgoals -- the first goal is the **existence** statement while the second goal is the **uniqueness** statement. A witness to the existential must be provided. 👉 In our case, try
 ```
 exists! 0
@@ -25,7 +25,7 @@ Statement : ∃! (d : ℤ), ∀ (x : ℤ), d * x = 0 := by
   Hint "We now have two goals. The *Active Goal* is the existence statement, that being, that `0` actually satisfies the predicate `∀ x : ℤ, 0 * x = 0`. Try to clear this goal."
   intro x
   simplify
-  Hint "Great. Now we need to prove uniqueness. Give it a try."
+  Hint "***Magnificent.*** Now we need to prove uniqueness. Give it a try."
   intro y h
   obtain h' := h 1
   rw[← h']
