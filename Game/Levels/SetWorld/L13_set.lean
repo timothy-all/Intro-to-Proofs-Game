@@ -15,6 +15,7 @@ Our goal in this level is an implication, so let's introduce the hypothesis...
 "
 open Set
 
+/-- If $A$ is nonempty and $A$ is contained in $B$, then $B$ is nonempty. -/
 Statement {u : Type*} (A B: Set u) (h : A.Nonempty) :  A ⊆ B → B.Nonempty :=  by
   intro hAB
   Hint "Great. Our hypothesis `h : A.Nonempty` is truly an existential statement. Let's grab a witness to that existential statement with `obtain`."

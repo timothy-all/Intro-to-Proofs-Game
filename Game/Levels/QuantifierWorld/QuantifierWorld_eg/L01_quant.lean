@@ -8,9 +8,9 @@ Title "Example 1"
 
 Introduction "
 # **Level 1**
-![test](images/pic0.png)
+This example ought to give you practice reckoning with a universally quantified goal.
 "
-
+/-- This statement is essentially quantified conjunctive simplification.-/
 Statement {u : Type*} (P Q : u → Prop) (h: ∀ x, P x ∧ Q x) : (∀ x, P x) := by
   intro x
   exact (h x).left

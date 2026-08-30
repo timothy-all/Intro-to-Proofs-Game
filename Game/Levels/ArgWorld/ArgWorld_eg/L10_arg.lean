@@ -3,7 +3,7 @@ import Game.Levels.ArgWorld.ArgWorld_eg.L09_arg
 World "ArgWorld_eg"
 Level 10
 
-Title "Test"
+Title "Example 8"
 
 Introduction "
 # **Level 10**

@@ -7,9 +7,7 @@ Title "Unions of families"
 
 Introduction "
 # **Level 9: Unions of Families**
-| | | |
-|---|:---:|---|
-| | ![Venn diagram of union of a family of sets](images/venn_funion.png) | |
+![Venn diagram of union of a family of sets](images/venn_funion.png)
 >
 Let `F : Set (Set u)`. The **union** of all members of `F` is defined by:
 ```
@@ -18,6 +16,7 @@ Let `F : Set (Set u)`. The **union** of all members of `F` is defined by:
 But first and foremost, our goal is a subset relation. So we should begin, like you do, by introducing the appropriate material.
 "
 
+/-- Any individual member of a family of sets is contained in the union of the family. -/
 Statement {u : Type} (A : Set u) (F : Set (Set u)) (h : A ∈ F) : A ⊆ ⋃₀ F := by
   intro a ha
   Hint "The membership proposition `{a} ∈ ⋃₀ F` means the same thing as `∃ (t : Set (Set u)), t ∈ F ∧ {a} ∈ t`. 👉 To rewrite the goal in this form in this form, try
@@ -35,6 +34,7 @@ Statement {u : Type} (A : Set u) (F : Set (Set u)) (h : A ∈ F) : A ⊆ ⋃₀ 
 
 
 
-Conclusion ""
+Conclusion "### **💡 Pro-tip**
+  Lean knows that `a ∈ ⋃₀ F` is definitionally an existential statement, so the `rw` step of this proof can be omitted."
 
 NewDefinition mem_funion_iff

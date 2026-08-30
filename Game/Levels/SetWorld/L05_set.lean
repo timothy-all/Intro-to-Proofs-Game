@@ -7,9 +7,7 @@ Title "Set Difference"
 
 Introduction "
 # **Level 4: Difference**
-| | | |
-|---|:---:|---|
-| | ![Venn diagram of the difference connective](images/venn_diff.png) | |
+![Venn diagram of the difference connective](images/venn_diff.png)
 >
 If `A B : Set u` then the set connective `\\` (set-difference) is defined as follows:
 ```
@@ -21,6 +19,7 @@ rw[mem_diff_iff] at h
 ```
 "
 
+/-- If $a ∈ A \setminus B$, then $a ∉ B$.-/
 Statement {u : Type} (a : u) (A B : Set u) (h : a ∈ A \ B) : a ∉ B := by
   rw[mem_diff_iff] at h
   Hint "See how `h` is now the more verbose `h : x ∈ A ∧ x ∉ B`? Almost done."

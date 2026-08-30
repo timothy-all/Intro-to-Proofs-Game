@@ -23,7 +23,7 @@ Our initial goal is a subset relation. So let's `intro` the appropriate material
 
 --Or statement
 
-/-- Suppose $A,B,C$ are sets and that $A ∪ C = B ∪ C$. Then the symmetric difference $(A \ B) ∪ (B \ A)$ is contained in $C$. -/
+/-- Suppose $A,B,C$ are sets and that $A ∪ C = B ∪ C$. Then the symmetric difference $(A \setminus B) ∪ (B \setminus A)$ is contained in $C$. -/
 Statement {u : Type*} (A B C : Set u) (h : A ∪ C = B ∪ C) : (A \ B ∪ B \ A) ⊆ C := by
   intro x hx
   Hint "Great. Look at our introduced hypothesis `{hx}`. This is an `∨` statement. How to `obtain` the two cases `{x} ∈ A \\ B` and `{x} ∈ B \\ A`? We use the `obtain` tactic! 👉 Specifically, try

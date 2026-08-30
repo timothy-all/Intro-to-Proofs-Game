@@ -11,7 +11,7 @@ Introduction "
 # **Level 6: Equality & Compliments**
 If `A B : Set u`, then we say `A = B` to mean that
 ```
-∀ x, x ∈ A ↔ x ∈ B
+set_eq_iff : ∀ x, x ∈ A ↔ x ∈ B
 ```
 👉 To rewrite `(A ∪ B)ᶜ = Aᶜ ∩ Bᶜ` in this way use
 ```
@@ -21,6 +21,7 @@ rw[set_eq_iff]
 
 open Set
 
+/-- The compliment of a union is the intersection of the individual compliments.-/
 Statement {u : Type*} (A B : Set u) : (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ := by
   rw[set_eq_iff] -- or we could just use Set.ext_iff
   Hint "See how our goal is now a universal statement? Let's introduce a generic variable to reckon with the universal quantifier"

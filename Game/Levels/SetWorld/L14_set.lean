@@ -15,7 +15,7 @@ Our current goal is a set equality; let's rewrite that goal using `set_eq_iff`.
 "
 open Set
 
-
+/-- The intersection of any set $A$ with the universal set is equal to $A$.-/
 Statement {u : Type} (A : Set u) : A ∩ univ = A := by
   rw[set_eq_iff]
   Hint "Our goal now is a universally quantified statement. Let's introduce a generic variable."

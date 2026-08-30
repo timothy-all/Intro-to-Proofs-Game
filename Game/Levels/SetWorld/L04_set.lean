@@ -7,9 +7,7 @@ Title "Set Union"
 
 Introduction "
 # **Level 4: Unions**
-| | | |
-|---|:---:|---|
-| | ![Venn diagram of union connective](images/venn_union.png) | |
+![Venn diagram of union connective](images/venn_union.png)
 >
 If `A B : Set u` then the set connective `∪` (union) is defined as follows:
 ```
@@ -20,7 +18,7 @@ This means that, definitionally, to say that `x ∈ A ∪ B` means the same thin
 rw[mem_union_iff]
 ```
 "
-
+/-- If $a ∈ A$, then $a ∈ A ∪ B$..-/
 Statement {u : Type} (a : u) (A B : Set u) (h : a ∈ A) : a ∈ A ∪ B := by
   rw[mem_union_iff]
   Hint "So we have to prove an or-statement. At the moment, our only approach is a direct one. Do we want to try to prove the *left* or *right* side of this or-statement?"

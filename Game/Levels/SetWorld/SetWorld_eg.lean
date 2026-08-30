@@ -15,5 +15,8 @@ World "SetWorld_eg"
 Title "Set World Examples"
 
 Introduction "
-### ***What a world!***
+# **Set World Examples**
+Let's get some practice with sets! Each of these examples unfolds in the same way. First, unravel all the set definitions. From there, use what we know from Logical Equivalence World and Argument World to demonstrate your claim. In a sense, there's nothing super new here. We're investigating the same kinds of problems as before, it's just that there's the extra layer of set-theory language to peel back first.
 "
+
+Image "images/venn_eg.png"

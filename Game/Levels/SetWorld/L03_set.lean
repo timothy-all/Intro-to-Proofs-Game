@@ -9,9 +9,7 @@ open Set
 
 Introduction "
 # **Level 3: Intersections**
-| | | |
-|---|:---:|---|
-| | ![Venn diagram of intersection connective](images/venn_inter.png) | |
+![Venn diagram of intersection connective](images/venn_inter.png)
 >
 If `A B : Set u` then the set connective `∩` (intersection), illustrated above, is defined as follows:
 ```
@@ -23,6 +21,7 @@ rw[mem_inter_iff] at h
 ```
 "
 
+/-- If $A ∈ A ∩ B$, then $a ∈ A$.-/
 Statement {u : Type} (a : u) (A B : Set u) (h : a ∈ A ∩ B) : a ∈ A := by
   rw[mem_inter_iff] at h -- not even needed
   Hint "Almost done; we can clear this level with one more line."

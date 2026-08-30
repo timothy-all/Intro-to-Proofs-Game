@@ -18,6 +18,7 @@ rw[set_eq_iff]
 "
 open Set
 
+/-- The intersection of any set with the empty set is the empty set.-/
 Statement {u : Type} (A : Set u) : A ∩ ∅ = ∅ := by
   rw[set_eq_iff]
   Hint "Great. Now we have a universally quantified statement as our goal. Let's introduce a generic variable."

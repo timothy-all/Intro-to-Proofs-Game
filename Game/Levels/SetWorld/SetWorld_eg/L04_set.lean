@@ -3,10 +3,10 @@ import Game.Levels.SetWorld.SetWorld_eg.L03_set
 World "SetWorld_eg"
 Level 4
 
-Title "name"
+Title "Example 4"
 
 Introduction "
-### **Level 4**
+# **Level 4**
 "
 
 set_option pp.parens true

@@ -17,6 +17,7 @@ In order to typeset the symbol `𝒫` use `\\powerset`.
 "
 open Set
 
+/-- If $A$ is contained in $B$, then the power set of $A$ is contained in the power set of $B$.-/
 Statement {u : Type} (A B: Set u) (h : A ⊆ B) : 𝒫 A ⊆ 𝒫 B := by
   intro C hC
   Hint "Great. Now, the membership proposition `B ∈ 𝒫 A` means the same thing as `B ⊆ A`. 👉 To rewrite `{C} ∈ 𝒫 A` in this form, try

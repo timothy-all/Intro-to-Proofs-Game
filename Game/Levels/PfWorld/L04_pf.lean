@@ -19,7 +19,7 @@ intro a ha
 ```
 "
 
-/-- Suppose $A,B$ are sets such that their intersection is empty. Then $A ⊆ A \ B$.-/
+/-- Suppose $A,B$ are sets such that their intersection is empty. Then $A ⊆ A \setminus B$.-/
 Statement {u : Type*} (A B : Set u) (h : A ∩ B = ∅): A ⊆ A \ B := by
   intro a ha
   Hint "Our goal is now `⊢ a ∈ A \\ B`. Let's try to implement the proof-by-contradiction strategy. We can do this with the help of ...

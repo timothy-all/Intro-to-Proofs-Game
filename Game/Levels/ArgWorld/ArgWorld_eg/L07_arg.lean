@@ -7,6 +7,7 @@ Title "Example 5"
 
 Introduction "
 # **Level 7**
+Here's another abstract example. This one has six component propositions! But don't get overwhelmed -- think in small steps and don't try to see the whole thing at once. For example, we might notice that `¬ T` can be deduced from what is assumed.
 "
 
 set_option pp.parens true

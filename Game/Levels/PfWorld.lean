@@ -30,4 +30,4 @@ But there are many other proof strategies that can be more appropriate (given th
 We'll mostly learn by example here, but we'll justify our proof strategies along the way too. Let's get started!
 "
 
-Image "images/pf1.png"
+Image "images/pf2.png"

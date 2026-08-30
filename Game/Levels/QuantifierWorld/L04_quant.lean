@@ -8,15 +8,17 @@ Title "Existential elimination"
 Introduction "
 # **Level 4**
 In this level, we have an assumption that is existentially quantified. In order to use that assumption, we need to use the principle of **Existential elimination**. Specifically, if we know that `∃ x, P x`, then we can deduce that there must be some specific element `a` of type `u` such that `P a` is true. In order to *obtain* such a witness we use ...
-### ❯ The `obtain` tactic ... again
+### **❯ The `obtain` tactic ... again**
 To grab a witness of an existential assumption, we use the `obtain` tactic with some extra syntax. In our case, 👉 try:
 ```
 obtain ⟨a, ha⟩ := h₂
 ```
 The `a` is our witness, the `ha` is the proof that `P a`.
+### **⌨ Typesetting tip**
+In order to get the *angled brackets* `⟨` and `⟩` use `\\langle` and `\\rangle`.
 "
 
-/-- We *destructure* our exisntential assumption using *Existential elimination*.-/
+/-- We *destructure* our existential assumption using *Existential elimination*.-/
 Statement {u : Type*} (P Q : u → Prop) (h₁ : ∀ x, P x → Q x) (h₂ : ∃ x, P x) : ∃ x, Q x := by
   obtain ⟨a,ha⟩ := h₂
   Hint "See how we now have that `a : u` is a generic object, and `ha : P a` is an assumption? We now need to supply a witness to our existential goal..."

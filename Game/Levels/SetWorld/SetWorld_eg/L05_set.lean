@@ -3,16 +3,17 @@ import Game.Levels.SetWorld.SetWorld_eg.L04_set
 World "SetWorld_eg"
 Level 5
 
-Title "name"
+Title "Example 5"
 
 Introduction "
-### **Level 5**
+# **Level 5**
 "
 
 set_option pp.parens true
 
 open Set
 
+/-- If $C$ less $A$ is contained in $B$, then $C$ is contained the union of $A$ and $B$.-/
 Statement {u : Type} (A B C : Set u) : C \ A ⊆ B → C ⊆ A ∪ B := by
   intro h x
   rw[Imp_iff_not_or]

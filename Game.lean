@@ -10,9 +10,9 @@ import Game.Levels.PfWorld
 import Game.Levels.PfWorld.PfWorld_eg
 import Game.Levels.RelationWorld
 import Game.Levels.RelationWorld.RelationWorldExamples
-
---import Game.Levels.FunctionWorld
+import Game.Levels.FunctionWorld
 --import Game.Levels.FunctionWorldExamples
+
 --import Game.Levels.LeanFunctionWorld
 --import Game.Levels.InductionWorld
 --import Game.Levels.CardinalityWorld
@@ -34,12 +34,9 @@ The world map is in the center pane. Individual world-levels are the pearls enci
 "
 
 Info "
-Here you can put additional information about the game. It is accessible
-from the starting through the drop-down menu.
+This game was written by Drs. Timothy All and Tyler Billingsley at Rose-Hulman Institute of Technology.
 
-For example: Game version, Credits, Link to Github and Zulip, etc.
-
-Use **markdown**.
+This is version 1.0.
 "
 
 --Dependency SetWorld → PfWorld

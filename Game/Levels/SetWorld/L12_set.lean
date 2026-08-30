@@ -7,9 +7,7 @@ Title "Symmetric Difference"
 
 Introduction "
 # **Level 12: Symmetric Difference**
-| | | |
-|---|:---:|---|
-| | ![Venn diagram of the difference connective](images/venn_diff.png) | |
+![Venn diagram of the difference connective](images/venn_symm.png)
 >
 If `A B : Set u` then the set connective `Δ` (symmetric difference) is defined as follows:
 ```
@@ -21,12 +19,12 @@ But first, we have a set equality to reckon with. 👉 Let's start with
 ```
 rw[set_eq_iff]
 ```
-
 "
 
 set_option pp.parens true
 open Set
 
+/-- The symmetric difference of a set with itself is the empty set.-/
 Statement Symm_diff_self {u : Type*} {A: Set u} : A Δ A = ∅ := by
   rw[set_eq_iff]
   Hint "Now let's `intro` a generic variable."
@@ -55,7 +53,7 @@ Statement Symm_diff_self {u : Type*} {A: Set u} : A Δ A = ∅ := by
   Hint "Great. We're almost home."
   rw[mem_empty_iff_false]
 
-Conclusion ""
+Conclusion "This theorem will be helpful again in the future."
 
 NewDefinition mem_symm_diff_iff
 

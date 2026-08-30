@@ -18,9 +18,6 @@ exist a
 
 /-- This valid argument is called *Existential Generalization*. -/
 Statement {u : Type*} (a : u) (P : u → Prop) (h : P a) : ∃ x, P x := by
-  --refine Exists.intro a ?_
-  --try trivial
-  --refine ⟨a,?_⟩
   exist a
   Hint "See how our goal is now `⊢ P a` and `a : u` is a generic **Object** in our proof state? We're nearly done."
   exact h

@@ -6,7 +6,8 @@ Level 4
 Title "Example 4"
 
 Introduction "
-## **Level 4**
+# **Level 4**
+You'll need to use `And.intro` to finish this level.
 "
 
 Statement {u : Type*} (P R S : u → Prop) (h1 : ∀ x, P (x) → R (x)) (h2 : ∀ x, P (x) ∧ S (x) ) : ∀ x, R (x) ∧ S (x) := by

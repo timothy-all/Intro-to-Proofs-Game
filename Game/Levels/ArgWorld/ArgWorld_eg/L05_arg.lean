@@ -16,6 +16,7 @@ Let's validate this argument. We use:
 * `C` : Colonel Tigh is a cylon
 * `H` : The crew hates Colonel Tigh
 * `J` : Colonel Tigh is doing his job
+>
 See how the statement of this level is precisely this argument?
 "
 
@@ -23,6 +24,7 @@ set_option pp.parens true
 
 /-- The Battlestar Galactica argument in symbols is given below.-/
 Statement (C H J : Prop) (h1: C ∨ (J ∧ H)) (h2: C → H) : ¬ J → H := by
+  Hint "The contrapositive might be easier to prove here."
   rw[Contrapositive] at ⊢ h2
   rw[Not_not]
   intro nH

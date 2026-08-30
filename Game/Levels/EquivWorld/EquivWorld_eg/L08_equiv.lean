@@ -12,6 +12,7 @@ One last example involving `⊼`. Are you noticing something interesting?
 
 set_option pp.parens true
 
+/-- The $∨$ connective can be expressed in terms of the $⊼$ connective.-/
 Statement (P Q : Prop) : ((P ⊼ P) ⊼ (Q ⊼ Q)) ↔ (P ∨ Q) := by
   rw[Nand_self]
   rw[Nand_self]

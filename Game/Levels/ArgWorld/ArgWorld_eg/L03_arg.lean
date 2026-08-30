@@ -18,6 +18,7 @@ Let's validate this argument. We use:
 * `U` : the unemployment is going up
 * `G` : the GDP is going up
 * `R` : there will be a recession.
+>
 See how the statement of this level is precisely this argument?
 "
 

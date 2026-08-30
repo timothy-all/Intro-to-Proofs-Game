@@ -20,7 +20,9 @@ Statement {u : Type*} (P : u → Prop) (h : ¬ ∃ x, P x) : ∀ x, ¬ P x := by
   exact h
 
 Conclusion "### **💡 Pro-tip**
-
+To remember that `∃` flips to `∀` when negated, it's helpful to remember that `∃`-statements are just big disjunctions (i.e. `∨`-statements). When we negate an `∨`-statement, we get an `∧`-statement. And since `∀`-statements are really just big conjunctions (i.e. `∧`-statements), it's no wonder that `∃` flips to `∀` when negated.
+>
+In a sense, `Not_exists` is just a rehash of `Not_or`.
 "
 
 --NewTactic push_neg

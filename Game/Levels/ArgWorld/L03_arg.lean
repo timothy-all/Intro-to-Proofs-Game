@@ -11,9 +11,9 @@ This valid argument is sometimes referred to as the law of the **Disjunctive Syl
 "
 
 /-- This valid argument is known as *Disjunctive Syllogism*.-/
-Statement (P Q : Prop) (h1 : P ∨ Q) (h2 : ¬ P) : Q := by
-  rw[← Not_not P] at h1
-  rw[← Imp_iff_not_or] at h1
-  exact h1 h2
+Statement (P Q : Prop) (hPorQ : P ∨ Q) (nP : ¬ P) : Q := by
+  rw[← Not_not P] at hPorQ
+  rw[← Imp_iff_not_or] at hPorQ
+  exact hPorQ nP
 
 Conclusion "***💪 Challenge:*** Try to complete this level using only two tactic calls."

@@ -3,15 +3,16 @@ import Game.Levels.SetWorld.SetWorld_eg.L01_set
 World "SetWorld_eg"
 Level 2
 
-Title "name"
+Title "Example 2"
 
 Introduction "
-### **Level 2**
+# **Level 2**
 "
 set_option pp.parens true
 
 open Set
 
+/-- The set $A$ less $B$ with $C$ removed from the result is equal to $A$ less the union of $B$ and $C$.-/
 Statement {u : Type} (A B C : Set u) : (A \ B) \ C = A \ (B ∪ C) := by
   rw[set_eq_iff]
   intro x
