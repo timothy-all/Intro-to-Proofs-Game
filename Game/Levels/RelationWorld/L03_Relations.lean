@@ -5,24 +5,24 @@ Level 3
 
 Title "Relations 1"
 
-Introduction "  ## **Level 3**
+Introduction "  ## **Level 3: Relatons**
 
 Relations in the Intro Proofs Game are defined with the ''aRb'' notation in mind, but this ''infix'' notation isn't used. If `R` is a relation from A to B, we'll write `R a b` to say that a relates to b.
 Given a relation `R`, we can access the corresponding **set** of ordered pairs by using `R.pairs`. To be clear, if `R a b` is true, then we can't just write `(a,b) ∈ R` - we will have to write `(a,b) ∈ R.pairs`.
 To get used to this, let's prove something very basic - the inverse of a relation's inverse is the original relation.
-Check your inventory for the exact definition of `Rel.inv` so you can use it in your proof."
+🔍 Check your inventory for the exact definition of `Rel.inv` so you can use it in your proof."
 
 
 
 
-
+/-- Taking the inverse of a relation twice gets you the original relation. -/
 Statement Rel_inv_inv {u v : Type} (R: Rel u v) : (R.inv).inv = R := by
-  Hint "Lean views this as an equality of `functions`. To replace relation equality with the more familiar double inclusion set proofs from class, we can `apply Rel_double_inclusion`."
+  Hint "Lean views this as an equality of `functions`. 👉 To replace relation equality with the more familiar double inclusion set proofs from class, we can `apply Rel_double_inclusion`."
   apply Rel_double_inclusion
-  Hint "Now do a double inclusion proof from here! Start with `apply Double_inclusion` then `intro x h`."
+  Hint "Now do a double inclusion proof from here! 👉 Start with `apply Double_inclusion` then `intro x h`."
   apply Double_inclusion
   intro x h
-  Hint "Lean knows that the inverse just swaps the coordinates, so `h` is already definitionally equal to the goal! So you can close it with `exact h`."
+  Hint "Lean knows that the inverse just swaps the coordinates, so `h` is already definitionally equal to the goal! 👉 So you can close it with `exact h`."
   exact h
   Hint "Finish the other inclusion on your own."
   intro x

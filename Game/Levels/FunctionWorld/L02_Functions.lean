@@ -29,8 +29,7 @@ Statement Fun_output_equal {u v: Type*} {a : u} {b c : v} (f: Rel u v) (hf: isFu
   Hint "From here, use `hdu` to prove that `b = d` and `c = d`. Then we're basically done!"
   obtain bd := hdu b fab
   obtain cd := hdu c fac
-  rw [bd]
-  exact cd.symm
+  rw [bd,cd]
 
 
 

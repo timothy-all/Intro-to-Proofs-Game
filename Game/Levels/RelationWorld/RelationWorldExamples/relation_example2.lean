@@ -9,8 +9,8 @@ Introduction "This level gives some good practice with composite relations."
 
 Statement {u : Type} (R S: Rel_on u) (hR: isTransitive R) (hS: isTransitive S) (h: (S ∘ R).pairs ⊆ (R ∘ S).pairs) : isTransitive (R ∘ S) := by
   intro a b c kab kbc
-  rcases kab with ⟨mid1,hmid1⟩
-  rcases kbc with ⟨mid2,hmid2⟩
+  obtain ⟨mid1,hmid1⟩ := kab
+  obtain ⟨mid2,hmid2⟩ := kbc
   obtain l1: (mid1,mid2) ∈ (S ∘ R).pairs
   exist b
   constructor
