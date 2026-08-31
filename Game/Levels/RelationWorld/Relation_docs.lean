@@ -91,6 +91,14 @@ Rel_inv_inv
 -/
 TheoremDoc Rel_inv_inv as "REL: Rel_inv_inv"
 
+/-- If `R` is a relation from `u` to `v` and `S` is a relation from `v` to `w`, then `S ∘ R` is a relation from `u` to `w` defined in the following way: `(S ∘ R) a c` as long as there exists `b` with the property that `R a b` and `S b c`. This means that if you want to *prove* `(S ∘ R) a c` you have to *provide* `b` (say, by using the `exists` tactic), and if you have `h : (S ∘ R) a c` you can use `obtain` to *grab* `b`.
+
+# **⌨ Typesetting Tip**
+
+To get the composition circle ∘, you can type "\circ".
+-/
+DefinitionDoc Rel.comp as "REL: ∘"
+
 /-- `R.dom` is the domain of the relation `R`. This is a **set**:
 ```
 R.dom = { a | ∃ b, R a b }
