@@ -63,7 +63,7 @@ Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q)
   rw[And_comm Q]
 
 
-Conclusion "### **💡 Pro-tip
+Conclusion "### **💡 Pro-tip**
 The theorem `And_comm` says
 ```
 And_comm: (P Q : Prop) : P ∧ Q ↔ Q ∧ P

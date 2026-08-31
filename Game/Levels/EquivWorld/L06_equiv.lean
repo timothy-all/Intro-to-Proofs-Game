@@ -7,6 +7,7 @@ Title "Negated Implication"
 
 Introduction "
 # **Level 6: Negated Implication**
+The negation of $P → Q$ is logically equivalent to saying $P ∧ ¬ Q$. This one is useful enought that we name for future use.
 "
 
 set_option pp.parens true
