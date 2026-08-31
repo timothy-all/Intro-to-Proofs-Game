@@ -51,13 +51,15 @@ require "leanprover-community" / mathlib @ git leanVersion
 ```
  -/
 
---require "leanprover-community" / mathlib @ git leanVersion
-
+require "leanprover-community" / mathlib @ git leanVersion
+/-
 require mathlib from git
   "https://github.com/leanprover-community/mathlib4.git" @ "v4.29.0"
 
 require GameServer from git
   "https://github.com/leanprover-community/lean4game.git" @ "v4.29.0" / "server"
+
+-/
 
 /-!
 # PACKAGE CONFIGURATION

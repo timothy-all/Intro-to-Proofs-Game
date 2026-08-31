@@ -454,6 +454,11 @@ msgstr ""
 msgid "Great. Now we have an existential goal. We need a witness..."
 msgstr ""
 
+#: Game.Levels.RelationWorld
+msgid "# **Relation World**\n"
+"A relation is ..."
+msgstr ""
+
 #. §0: `evaluate`
 #. §1: `b`
 #. §2: `g`
@@ -619,7 +624,6 @@ msgid "# **Level 3: Contraposition**\n"
 "Here's a classic example of a statement we should approach via contraposition."
 msgstr ""
 
-#: Game.Levels.RelationWorld
 #: Game.Levels.FunctionWorld
 msgid "### ***Lean :)***"
 msgstr ""
