@@ -20,7 +20,7 @@ rw[mem_diff_iff] at h
 "
 
 /-- If $a ∈ A \setminus B$, then $a ∉ B$.-/
-Statement {u : Type} (a : u) (A B : Set u) (h : a ∈ A \ B) : a ∉ B := by
+Statement {u : Type*} (a : u) (A B : Set u) (h : a ∈ A \ B) : a ∉ B := by
   rw[mem_diff_iff] at h
   Hint "See how `h` is now the more verbose `h : x ∈ A ∧ x ∉ B`? Almost done."
   exact h.right

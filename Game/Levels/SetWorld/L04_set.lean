@@ -19,7 +19,7 @@ rw[mem_union_iff]
 ```
 "
 /-- If $a ∈ A$, then $a ∈ A ∪ B$..-/
-Statement {u : Type} (a : u) (A B : Set u) (h : a ∈ A) : a ∈ A ∪ B := by
+Statement {u : Type*} (a : u) (A B : Set u) (h : a ∈ A) : a ∈ A ∪ B := by
   rw[mem_union_iff]
   Hint "So we have to prove an or-statement. At the moment, our only approach is a direct one. Do we want to try to prove the *left* or *right* side of this or-statement?"
   left

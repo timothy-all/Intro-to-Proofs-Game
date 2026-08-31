@@ -3,55 +3,114 @@ import Game.Levels.PfWorld.L08_pf
 World "PfWorld"
 Level 9
 
-Title "Antisymmetric biconditional"
+Title "Goal management"
 
 Introduction "
-# **Level 9: Antisymmetric biconditional**
-Here's an example of a biconditional statement where the **forward** direction is quite straightforward whereas the **backward** direction is quite tricky! Use `constructor` to split your goals and clear the first goal on your own.
+# **Level 9: Goal management**
+We have another biconditional statement to wrangle here. 👉 So let's get going with
+```
+constructor
+```
 "
 
-open Set
-
-/-- Let $n$ be an integer. Then $40$ divides $n$ if and only if if $8$ divides $n$ and $5$ divides $n$.-/
-Statement (n : ℤ) : 40 ∣ n ↔ (8 ∣ n ∧ 5 ∣ n) := by
+/-- The intersection of two unions of families of sets is contained in the union of the intersection of the families if and only if for every set $A$ in the first family and for every set $B$ in the second family, we have that the the intersection $A ∩ B$ belongs to the union of the intersection of the two families. -/
+Statement (u : Type*) (F G : Set (Set u)) : ⋃₀ F ∩ ⋃₀ G ⊆ ⋃₀ (F ∩ G) ↔ ∀ A ∈ F, ∀ B ∈ G, A ∩ B ⊆ ⋃₀ (F ∩ G) := by
   constructor
-  intro ⟨k,hk⟩
-  constructor
-  exist  5 * k
-  rw[hk]
-  simplify
-  exist  8 * k
-  rw[hk]
-  simplify
-  Hint "***Excellent.*** Things are about to get harder. Let's introduce the right stuff. We can do this in one go with
+  Hint "For the **forward** direction, we have a lot of objects/assumptions to `intro`. 👉 Let's start with
   ```
-  intro ⟨ ⟨k,hk⟩, ⟨j,hj⟩ ⟩
-  ```
-  The *outer* angled brackets tell Lean that your introducing components of a conjunction; the inner angled brackets destructure the existential statements that are being glued together by `∧`.
-  "
-  intro ⟨⟨k,hk⟩, ⟨j,hj⟩⟩
-  Hint "***Perfect.*** We now need a clever idea. What's the first multiple of `5` that differs from a multiple of `8` by `1`? The answer: `15` and `16`.
-
-  Now, let's obtain the fact that `15 * n = 120 * k`. We need to open a new subgoal to prove this. We can use the `obtain` tactic to do so with the following syntax. 👉 Try
-  ```
-  obtain h1 : 15 * n = 120 * k
+  intro h
   ```
   "
-  obtain h1 : 15 * n = 120 * k
-  Hint "***Amaze, amaze.*** Notice how our *Active Goal* is now `⊢ 15 * n = 120 * k` while *Goal 2* gets back to our original goal. See if you can't clear this subgoal on your own."
-  rw[hk]
-  simplify
-  Hint "***Super.*** Now, using the same ideas, `obtain` the hypothesis `h2 : 16 * n = 80 * j`."
-  obtain h2 : 16 * n = 80 * j
-  rw[hj]
-  simplify
-  Hint "***Look at you go.*** Now, `obtain` one more hypothesis. Specifically, obtain the hypothesis that starts with `h3 : n = ...` -- the right-hand side of this equality ought to be a difference of multiples of `40`."
-  obtain h3 : n = 80 * j - 120 * k
-  rw[← h1,← h2]
-  simplify
-  Hint "We're finally ready to profer a witness to our existential goal. Try to finish this level off on your own from here."
-  exist  2*j - 3*k
-  rw[h3]
-  simplify
+  intro h
+  Hint "We now have a universal quantifier to deal with, namely `⊢ ∀ A ∈ F, ...`. At its core, this goal is `⊢ ∀ A : Set u, A ∈ F → ...`. 👉 So let's try
+  ```
+  intro A
+  ```
+  "
+  intro A
+  Hint "Notice how our goal is now an if-then statement. 👉 Let's introduce the hypothesis with
+  ```
+  intro hA
+  ```
+  "
+  intro hA
+  Hint "***Second verse, same as the first.***"
+  intro B
+  intro hB
+  Hint "We now have a subset relation as a goal. This is secretly a universally quantified statement. 👉 So let's introduce a generic variable with
+  ```
+  intro x
+  ```
+  "
+  intro x
+  Hint "Finally, our goal is another if-then. 👉 Let's introduce the hypothesis with
+  ```
+  intro hx
+  ```
+  "
+  intro hx
+  Hint "### **💡 Pro-tip**
+  We could have `intro`ed all these items in one go with
+  ```
+  intro {h} {A} {hA} {B} {hB} {x} {hx}
+  ```
+  Though that can be hard to see without the benefit of hindsight.
+  >
+  Now, in light of assumption `{h}`, we realize at this point that to prove our goal, it **suffices** to prove that `x ∈ ⋃₀ F ∩ ⋃₀ G`. In order to implement this strategy we use...
+  ### **❯ The `apply` tactic**
+  If our goal is of the form `⊢ Q` and we have a hypothesis of the form `h : P → Q`, then `apply h` will transform the goal into `⊢ P`. 👉 In our case, try
+  ```
+  apply {h}
+  ```
+  "
+  apply h
+  Hint "***Fantastic.*** Notice how our goal is now `⊢ x ∈ ⋃₀ F ∩ ⋃₀ G`. Here's what happened in the last step: the hypothesis `{h}` is definitionally
+  ```
+  {h} : ∀ x, x ∈ ⋃₀ F ∩ ⋃₀ G → x ∈ ⋃₀ (F ∩ G)
+  ```
+  So the line `apply {h}` unified our previous goal with the conclusion of `{h}`; subsequently, our new goal is the hypothesis of `{h}`.
+  >
+  Now, our goal is actually a `∧`-statement. 👉 So let's use
+  ```
+  constructor
+  ```
+  "
+  constructor
+  Hint "Our goal is now an *existential* statement. We need to profer a witness..."
+  exist A
+  Hint "***Great.*** We might be tempted to use the `constructor` tactic again here. But we can save ourselves some time with ...
+  ### **❯ The `refine` tactic**
+  The refine tactic acts like a combination of `constructor` and `exact`. In our particular case, notice that the left-hand side of our goal is exactly `{hA}` while the right-hand side of our goal is exactly `{hx}.left`. 👉 So we can clear our goal with
+  ```
+  refine ⟨ {hA}, {hx}.left ⟩
+  ```
+  "
+  refine ⟨hA,hx.left⟩
+  Hint "***Goal cleared!*** We now need to profer a witness to our current existential goal..."
+  exist B
+  Hint "***Right on.*** Try to clear the current goal with `refine` similarly to how we did it before."
+  refine ⟨hB,hx.right⟩
+  Hint "***Perfect.*** We now need to prove the **backward** implication. Let's `intro` all the things."
+  intro h x hx
+  Hint "Consider the assumption `{hx}`. This assumption is really just two existential statements glued together with `∧`. Use `obtain` to grab witnesses to these two individual existential statements. 👉 Specifically, try
+  ```
+  obtain ⟨A,hA,hxA⟩ := {hx}.left
+  ```
+  "
+  obtain ⟨A,hA,hxA⟩ := hx.left
+  Hint "***OK.*** Now, in the same way, grab a witness to the other existential in `{hx}.right`."
+  obtain ⟨B,hB,hxB⟩ := hx.right
+  Hint "Let's use the assumption `{h}` to get a new assumption saying that
+  ```
+  A ∩ B ⊆ ⋃₀ (F ∩ G)
+  ```
+  "
+  obtain hAB := h A hA B hB
+  Hint "***Excellent.*** Now, look at our goal and look at the assumption you just introduced, namely `{hAB}`. It ***suffices*** to prove that `x ∈ A ∩ B`. What tactic did we just learn about that could be helpful here?"
+  apply hAB
+  Hint "Almost home."
+  exact And.intro hxA hxB
 
 Conclusion ""
+
+NewTactic refine apply

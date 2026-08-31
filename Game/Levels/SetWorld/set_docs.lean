@@ -259,3 +259,14 @@ mem_symm_diff_iff
 ```
 -/
 DefinitionDoc mem_symm_diff_iff as "SET: mem_symm_diff_iff"
+
+
+/--
+Every set `A` is a subset of `univ`
+-/
+TheoremDoc Subset_univ as "SET: Subset_univ"
+
+/--
+`True` is, shockingly, true.
+-/
+TheoremDoc trivial as "trivial"

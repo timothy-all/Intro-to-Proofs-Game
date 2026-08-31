@@ -3,63 +3,55 @@ import Game.Levels.PfWorld.L09_pf
 World "PfWorld"
 Level 10
 
-Title "Disjunctive hypotheses"
+Title "Antisymmetric biconditional"
 
 Introduction "
-# **Level 10: Disjunctive hypotheses**
-How do we use an `∨` hypothesis in a proof? We use cases! The following logical equivalence justifies our approach:
-$$
-\\begin{aligned}
-  (P ∨ Q) → R &↔ ¬ (P ∨ Q) ∨ R \\\\
-  &↔ (¬ P ∧ ¬ Q) ∨ R \\\\
-  &↔ (¬ P ∨ R) ∧ (¬ Q ∨ R) \\\\
-  &↔ (P → R) ∧ (Q → R)
-\\end{aligned}
-$$
-In other words, if we have a hypothesis like `h : P ∨ Q`. Then we should split our goal into two: one in which we assume `P` and the other in which we assume `Q`. Let's see how this works in Lean.
->
-Our initial goal is a subset relation. So let's `intro` the appropriate material to reckon with the unversal quantifier and if-then statement underneath the `⊆` relation.
+# **Level 10: Antisymmetric biconditional**
+Here's an example of a biconditional statement where the **forward** direction is quite straightforward whereas the **backward** direction is quite tricky! Use `constructor` to split your goals and clear the first goal on your own.
 "
 
---Or statement
+open Set
 
-/-- Suppose $A,B,C$ are sets and that $A ∪ C = B ∪ C$. Then the symmetric difference $(A \setminus B) ∪ (B \setminus A)$ is contained in $C$. -/
-Statement {u : Type*} (A B C : Set u) (h : A ∪ C = B ∪ C) : (A \ B ∪ B \ A) ⊆ C := by
-  intro x hx
-  Hint "***Fantastic.*** Look at our introduced hypothesis `{hx}`. This is an `∨` statement. How to `obtain` the two cases `{x} ∈ A \\ B` and `{x} ∈ B \\ A`? We use the `obtain` tactic! 👉 Specifically, try
+/-- Let $n$ be an integer. Then $40$ divides $n$ if and only if if $8$ divides $n$ and $5$ divides $n$.-/
+Statement (n : ℤ) : 40 ∣ n ↔ (8 ∣ n ∧ 5 ∣ n) := by
+  constructor
+  intro ⟨k,hk⟩
+  constructor
+  exist  5 * k
+  rw[hk]
+  simplify
+  exist  8 * k
+  rw[hk]
+  simplify
+  Hint "***Excellent.*** Things are about to get harder. Let's introduce the right stuff. We can do this in one go with
   ```
-  obtain hxa | hxb := {hx}
+  intro ⟨ ⟨k,hk⟩, ⟨j,hj⟩ ⟩
   ```
-  The **vertical bar** tells Lean that `{hx}` is an `∨`-statement and that we wish to split our goal into two; the first in which we obtain the hypothesis `hxa : x ∈ A \\ B` and the second in which we obtain the hypothesis `hxb : x ∈ B \\ A`.
+  The *outer* angled brackets tell Lean that your introducing components of a conjunction; the inner angled brackets destructure the existential statements that are being glued together by `∧`.
   "
-  obtain hxa | hxb := hx -- here
-  Hint "Notice our assumption `{hxa} : {x} ∈ A \\ B` is now in our proof-state, what's more, we have two goals. Let's make a third goal! Given `h` it seems like it would be good to obtain `{x} ∈ A ∪ C`. 👉 So let's try
-  ```
-  obtain hxAC : {x} ∈ A ∪ C
-  ```
-  "
-  obtain hxAC : x ∈ A ∪ C
-  Hint "Now we have three goals! Our *Active Goal* is to prove `⊢ {x} ∈ A ∪ C`. See if you can't clear this on your own."
-  left
-  exact hxa.left
-  Hint "Let's use `h` to rewrite `{hxAC}` to say that `x ∈ A ∪ B`."
-  rw[h] at hxAC
-  Hint "We have another `∨` hypothesis, namely `{hxAC} : {x} ∈ B ∪ C`. Use `obtain` to split our proof into cases."
-  obtain hxB | hxC := hxAC
-  Hint "This case seems contradictory... you need to a little work before you can use the `contradiction` tactic to clear it though."
-  obtain hxB' := hxa.right
-  contradiction
-  Hint "***Great.*** The goal in this case is `exact`ly one of our hypotheses."
-  exact hxC
-  Hint "We're now in the original *second* case, that being, we're now assuming `{hxb} : x ∈ B \\ A`. See if you can't clear this on your own now that we've walked through the first case together."
-  obtain hxBC : x ∈ B ∪ C
-  left
-  exact hxb.left
-  rw[← h] at hxBC
-  obtain hxA | hxC := hxBC
-  obtain hxA' := hxb.right
-  contradiction
-  exact hxC
+  intro ⟨⟨k,hk⟩, ⟨j,hj⟩⟩
+  Hint "***Perfect.*** We now need a clever idea. What's the first multiple of `5` that differs from a multiple of `8` by `1`? The answer: `15` and `16`.
 
+  Now, let's obtain the fact that `15 * n = 120 * k`. We need to open a new subgoal to prove this. We can use the `obtain` tactic to do so with the following syntax. 👉 Try
+  ```
+  obtain h1 : 15 * n = 120 * k
+  ```
+  "
+  obtain h1 : 15 * n = 120 * k
+  Hint "***Amaze, amaze.*** Notice how our *Active Goal* is now `⊢ 15 * n = 120 * k` while *Goal 2* gets back to our original goal. See if you can't clear this subgoal on your own."
+  rw[hk]
+  simplify
+  Hint "***Super.*** Now, using the same ideas, `obtain` the hypothesis `h2 : 16 * n = 80 * j`."
+  obtain h2 : 16 * n = 80 * j
+  rw[hj]
+  simplify
+  Hint "***Look at you go.*** Now, `obtain` one more hypothesis. Specifically, obtain the hypothesis that starts with `h3 : n = ...` -- the right-hand side of this equality ought to be a difference of multiples of `40`."
+  obtain h3 : n = 80 * j - 120 * k
+  rw[← h1,← h2]
+  simplify
+  Hint "We're finally ready to profer a witness to our existential goal. Try to finish this level off on your own from here."
+  exist  2*j - 3*k
+  rw[h3]
+  simplify
 
 Conclusion ""

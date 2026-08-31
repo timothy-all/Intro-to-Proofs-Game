@@ -22,7 +22,7 @@ rw[mem_inter_iff] at h
 "
 
 /-- If $A ∈ A ∩ B$, then $a ∈ A$.-/
-Statement {u : Type} (a : u) (A B : Set u) (h : a ∈ A ∩ B) : a ∈ A := by
+Statement {u : Type*} (a : u) (A B : Set u) (h : a ∈ A ∩ B) : a ∈ A := by
   rw[mem_inter_iff] at h -- not even needed
   Hint "Almost done; we can clear this level with one more line."
   exact h.left

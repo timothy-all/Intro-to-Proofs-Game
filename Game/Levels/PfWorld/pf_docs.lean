@@ -79,3 +79,7 @@ TacticDoc by_cases
 If $A ⊆ B$ and $B ⊆ A$, then $A = B$.
 -/
 TheoremDoc Double_inclusion as "SET: Double_inclusion"
+
+
+/-- If $A$ is not equal to the empty set, then there exists an element $x$ such that $x ∈ A$ (i.e., $A$ is nonempty).-/
+TheoremDoc Ne_empty_iff_nonempty as "SET: Ne_empty_iff_nonempty"

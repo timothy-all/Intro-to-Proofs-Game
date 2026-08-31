@@ -17,7 +17,7 @@ But first and foremost, our goal is a subset relation. So we should begin, like 
 "
 
 /-- Any individual member of a family of sets is contained in the union of the family. -/
-Statement {u : Type} (A : Set u) (F : Set (Set u)) (h : A ∈ F) : A ⊆ ⋃₀ F := by
+Statement {u : Type*} (A : Set u) (F : Set (Set u)) (h : A ∈ F) : A ⊆ ⋃₀ F := by
   intro a ha
   Hint "The membership proposition `{a} ∈ ⋃₀ F` means the same thing as `∃ (t : Set (Set u)), t ∈ F ∧ {a} ∈ t`. 👉 To rewrite the goal in this form in this form, try
   ```

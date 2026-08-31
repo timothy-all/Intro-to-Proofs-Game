@@ -15,9 +15,14 @@ Finally, we need to show that equivalence classes are pairwise disjoint. This is
 Statement {u : Type*} (R: Rel_on u) (eq: isEquivalence R) : ∀ X Y, X ∈ equivClassFamily R → Y ∈ equivClassFamily R → X ∩ Y ≠ ∅ → X = Y  := by
   Hint "There's a lot to unpack here - 👉 `intro X Y hX hY hXY` to name all the assumptions."
   intro X Y hX hY hXY
-  Hint "A set being nonempty means that it has an element. Lean calls this fact `nonempty_iff_ne_empty`, so let's 👉 `rw [←nonempty_iff_ne_empty] at hXY`."
-  rw [←nonempty_iff_ne_empty] at hXY
+  Hint "A set being nonempty means that it has an element. We proved this in Proof Strategy World and called the result `Ne_empty_iff_nonempty`, so let's 👉
+  ```
+  rw [Ne_empty_iff_nonempty] at hXY
+  ```
+  "
+  --rw [←nonempty_iff_ne_empty] at hXY
   --push_neg at hXY --rewrite hint to use push_neg (but we're not using push_neg now?)
+  rw[Ne_empty_iff_nonempty] at hXY
   Hint "Now use `obtain ⟨a,⟨haX,haY⟩⟩ := h` to grab the element `a`. The embedded angle brackets further deconstruct the intersection into assumptions for each set."
   obtain ⟨a,⟨haX,haY⟩⟩ := hXY
   Hint "Now you're tasked with proving `X = Y` - you can take it from here! There are many ways to do this using what we've done so far."
