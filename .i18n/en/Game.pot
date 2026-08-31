@@ -3401,6 +3401,13 @@ msgstr ""
 msgid "There exists a unique integer §0 such that for every integer §1, we have that §2."
 msgstr ""
 
+#. §0: `rewrite`
+#: Game.Levels.EquivWorld.L01_equiv
+msgid "***See*** how our proof-state changed? The ***current*** proof-state is closest to the bottom of the center pane. The previous proof-state is right above.\n"
+">\n"
+"We should now §0 the left-hand side of our goal using the **Conditional Law**. 🔍 Check the **Theorems** tab to find the appropriate theorem in the inventory."
+msgstr ""
+
 #: Game.Levels.ArgWorld.ArgWorld_eg.L04_arg
 msgid "The Bladerunner argument in symbols is given below."
 msgstr ""
@@ -5593,11 +5600,6 @@ msgstr ""
 #. §0: `Ran(R) ⊆ Dom(S)`
 #: Game.Levels.RelationWorld.RelationWorldExamples.relation_example1
 msgid "Let's prove that the subset statement in level 4 of Relation World is an equality if we assume §0."
-msgstr ""
-
-#. §0: `rewrite`
-#: Game.Levels.EquivWorld.L01_equiv
-msgid "We should now §0 the left-hand side of our goal using the **Conditional Law**. 🔍 Check the **Theorems** tab to find the appropriate theorem in the inventory."
 msgstr ""
 
 #: Game.Levels.PfWorld.L09_pf

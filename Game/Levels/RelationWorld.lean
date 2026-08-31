@@ -21,5 +21,8 @@ World "RelationWorld"
 Title "Relation World"
 
 Introduction "
-### ***Lean :)***
+# **Relation World**
+A relation is ...
 "
+
+Image "images/relworld.png"

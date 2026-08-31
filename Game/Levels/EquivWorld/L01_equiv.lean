@@ -24,7 +24,9 @@ set_option pp.parens true
 /-- The implication `P → Q` is logically equivalent to `Q ∨ ¬ P`.-/
 Statement (P Q : Prop) : (P → Q) ↔ (Q ∨ ¬ P) := by
   rewrite[Or_comm]
-  Hint "We should now `rewrite` the left-hand side of our goal using the **Conditional Law**. 🔍 Check the **Theorems** tab to find the appropriate theorem in the inventory."
+  Hint "***See*** how our proof-state changed? The ***current*** proof-state is closest to the bottom of the center pane. The previous proof-state is right above.
+  >
+  We should now `rewrite` the left-hand side of our goal using the **Conditional Law**. 🔍 Check the **Theorems** tab to find the appropriate theorem in the inventory."
   rewrite[Imp_iff_not_or]
   Hint "
   ### **❯ The `rfl` tactic**
