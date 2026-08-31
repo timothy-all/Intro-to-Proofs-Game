@@ -18,5 +18,9 @@ World "FunctionWorld"
 Title "Function World"
 
 Introduction "
-### ***Lean :)***
+## **Function World**
+
+Functions are no different from what you've always known about them: a rule that gives you a unique output for each input. But this is somewhat vague - what *really* is a function, rigorously? We'll use relations to put the idea of a function on sound footing and, in doing so, recover many important facts you already know about functions: what it means to ``pass the vertical line test``, how inverses work, and more.
+
+Since functions are a special kind of relation, there is a huge amount of value in using them to study relationships between sets as well. Keep an eye out for the idea of a `bijection`, a concept that will be indispensible when discussing sizes of sets in Cardinality World.
 "

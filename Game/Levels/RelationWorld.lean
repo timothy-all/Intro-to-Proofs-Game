@@ -21,8 +21,13 @@ World "RelationWorld"
 Title "Relation World"
 
 Introduction "
-# **Relation World**
-A relation is ...
+## **Relation World**
+
+A relation from `A` to `B` is a set containing ordered pairs of the form `(a,b)` with `a` coming from `A` and `b` coming from `B`. This is an extremely general concept that has, as special cases, several fundamental mathematical ideas: partial orders (relations like ≤, for instance), equivalence relations (modular arithmetic, for instance), and functions. In this world, we'll first spend a couple levels working with ordered pairs to get used to how they work in Lean, then we'll start working with proofs involving relations.
+
+# **💡 Pro-tip**
+
+Keep an eye out for the difference between *types* (the logical foundation Lean is built in) and *sets* (the logical foundation typically used for mathematics). Much of Relation World is written using types because the way the work is sometimes indistinguishable from sets & makes the proofs smoother, but sets make an important appearance too!
 "
 
 Image "images/relworld.png"
