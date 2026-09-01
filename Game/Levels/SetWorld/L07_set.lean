@@ -6,7 +6,7 @@ Level 7
 Title "Intersections of families"
 
 Introduction "
-# **Level 6: Family Intersection**
+# **Level 7: Family Intersection**
 ![Venn diagram of an intersection of a family](images/venn_finter.png)
 >
 Let `F : Set (Set u)`. This means that `F` is a *set of sets*, or as we say in class, a family of sets. The intersection of all members of `F`, illustrated above when `F = {A,B,C}`, is defined by:
