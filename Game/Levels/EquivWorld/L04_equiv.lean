@@ -31,7 +31,7 @@ Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q)
     ```
     rw[← And_assoc Q]
     ```
-    This will apply the associative law *in reverse*...
+    This will apply the associative law ***in reverse*** (shifting parentheses from the right-hand side to the left of an expression)...
     ### **⌨ Typesetting Tip**
     To prety print the left arrow `←` use `\\left`. You can also use `<-` if you're not interested in pretty printing.
     "
@@ -41,7 +41,7 @@ Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q)
     Q ∧ (_ ∧ _)
     ```
     where the underscores are wildcards. The first underscore was matched with `R`, the second with `S`. Lean then applied `← And_assoc` (from ***right-to-left***) to this instance. In particular, Lean substituted `(Q ∧ R) ∧ S` for `Q ∧ (R ∧ S)`.
-
+    >
     Now we'd like to **commute** the expression `(Q ∧ R) ∧ S` to get `S ∧ (Q ∧ R)`. 👉 We can accomplish this with either:
     ```
     rw[And_comm (Q ∧ R)]
@@ -58,7 +58,7 @@ Statement (P Q R S : Prop) : (P ∧ Q) ∧ (R ∧ S) ↔ (P ∧ S) ∧ (R ∧ Q)
     ### **⌨ Typesetting Tip**
   In order to pretty-print symbols like `∧` use `\\wedge` or `\\and`."
   rw[And_comm (Q ∧ R)]
-  Hint "Great, we're almost home. Try to to finish this level off on your own."
+  Hint "Great, we're almost home. Try to to finish this level off on your own. You'll need the 🔓 unlocked theorem `And_comm`."
   rw[← And_assoc]
   rw[And_comm Q]
 

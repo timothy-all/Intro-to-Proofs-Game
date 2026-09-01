@@ -31,6 +31,7 @@ Statement : ∃! (d : ℤ), ∀ (x : ℤ), d * x = 0 := by
   rw[← h']
   simplify
 
-Conclusion ""
+Conclusion "### **🥳 Congrats!**
+You've beaten Proof Strategy World! Next up: Relation World."
 
 NewTactic exist!

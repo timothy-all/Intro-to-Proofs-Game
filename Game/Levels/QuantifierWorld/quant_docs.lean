@@ -43,6 +43,6 @@ $$
 TheoremDoc Not_exists as "QUA: Not_exists"
 
 /--
-Forall distributes over ands
+Forall distributes over `∧`. In other words, to say ''*For all $x$, $P(x)$ and $Q(x)$ are true*'' is the same as saying ''*For all $x$, $P(x)$ is true*'' **and** ''*For all $x$, $Q(x)$ is true.*''
 -/
 TheoremDoc Forall_and as "QUA: Forall_and"

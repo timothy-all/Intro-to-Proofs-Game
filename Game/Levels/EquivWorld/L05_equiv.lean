@@ -16,6 +16,7 @@ set_option pp.parens true
 Statement (P Q : Prop) : (¬ P → False) ↔ P := by
   rw[Imp_iff_not_or]
   rw[Not_not]
+  Hint "***Great.*** You can finish this level off with the now 🔓 unlocked theorem `Or_false`."
   rw[Or_false]
 
 Conclusion "

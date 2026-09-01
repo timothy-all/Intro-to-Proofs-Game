@@ -23,6 +23,8 @@ Conclusion "The converse of this is also true. From here on out the logical equi
 ```
 (∀ x, P x) ∧ (∀ x, Q x) ↔ ∀ x, P x ∧ Q x
 ```
-is available and called `Forall_and`."
+is available and called `Forall_and`.
+### **🥳 Congrats!**
+You've beaten Quantifier World! As always, Quantifier Examples World contains a lot of practice levels. The next new world is Set World."
 
 NewTheorem Forall_and

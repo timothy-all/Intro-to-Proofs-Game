@@ -18,6 +18,11 @@ h₁ → (h₂ → P)
 This exercise demonstrates that this process of translating the first form into the second (called ***currying***) is logically valid.
 ### **⌨ Typesetting Tip**
 In order to pretty-print subscripts like in `H₁` use `H\\_1`.
+>
+👉 To start, let's try
+```
+rw[Imp_iff_not_or]
+```
 "
 
 set_option pp.parens true
@@ -26,13 +31,13 @@ set_option pp.parens true
 /-- An implication where the hypothesis is a chain of conjuntions is logically equivalent to a certain chain of implications. -/
 Statement Curry (P Q R : Prop) : ((P ∧ Q) → R) ↔ (P → (Q → R)) := by --currying
   rw[Imp_iff_not_or]
-  Hint "That was a good first step. You might want to apply the **Conditional Law** codified in `Imp_iff_not_or` two more times. You can do this in one step with:
+  Hint "You probably want to apply the **Conditional Law** codified in `Imp_iff_not_or` two more times. You can do this in one step with:
   ```
   rw[Imp_iff_not_or,Imp_iff_not_or]
   ```
   "
   rw[Imp_iff_not_or,Imp_iff_not_or]
-  Hint "🔍 Check out two freshly unlocked laws of logic in the **Theorems** tab, namely `Not_and` and `Or_assoc`."
+  Hint "🔍 Check out two freshly unlocked laws of logic in the **Theorems** tab, namely `Not_and` and `Or_assoc`. See if you can't use the `rw` tactic with these new theorems to finish this level."
   rw[Not_and]
   rw[Or_assoc]
 

@@ -30,6 +30,7 @@ Statement {u : Type} (A B: Set u) (h : A ⊆ B) : 𝒫 A ⊆ 𝒫 B := by
   exact Subseteq_trans hC h
 
 
-Conclusion ""
+Conclusion "### **🥳 Congrats!**
+You've beaten Set World! Next up: Proof Strategy World."
 
 NewDefinition Set.mem_powerset_iff

@@ -170,8 +170,8 @@ $$
   \hline
   P & P ∨ P \\
   \hline
-  T & T & T \\
-  F & T & F \\
+  T &  T \\
+  F &  F \\
   \hline
 \end{array}
 $$
@@ -189,8 +189,8 @@ $$
   \hline
   P & P ∧ P \\
   \hline
-  T & T & T \\
-  F & T & F \\
+  T & T  \\
+  F & F  \\
   \hline
 \end{array}
 $$
@@ -218,6 +218,6 @@ This theorem says that
 
 $$ (P → (Q ∨ R)) ↔ (P → (¬ Q → R))$$
 
-In other words, if you want to prove and if-then statement where the conclusion is a disjunction, then you may do so by... **assuming** that `P` and `¬ Q` are true (by **currying**), and then showing that `R` must follow.
+In other words, if you want to prove an if-then statement where the conclusion is a disjunction, then you may do so by... **assuming** that `P` and `¬ Q` are true (by **currying**), and then showing that `R` must follow.
 -/
 TheoremDoc Imp_or_iff_imp_not_imp as "EQU: Imp_or_iff_imp_not_imp"
