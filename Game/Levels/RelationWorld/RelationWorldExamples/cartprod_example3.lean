@@ -3,13 +3,13 @@ import Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example2
 World "RelationWorldExamples"
 Level 3
 
-Title "Cartesian products"
+Title "Cartesian product Example 3"
 
 Introduction "Cartesian products: What does it mean for `A × B` and `C × D` to be disjoint?
 
 In the statement of the theorem below, we're assuming `A` and `C` come from the same universe; similar for `B` and `D`. Of course, if either fails, the conclusion is automatically true."
 
-
+/-- If $A, B, C, D$ are sets such that $(A × B) ∩ (C × D) = ∅$, then either $A ∩ C = ∅$ or $B ∩ D = ∅$.-/
 Statement (u v: Type) (A C: Set u) (B D: Set v) (h: ((A ×ˢ B) ∩ (C ×ˢ D) = ∅)): (A ∩ C = ∅) ∨ (B ∩ D = ∅) := by
   by_contra! F
   --rw[Set.nonempty_def,Set.nonempty_def] at F
@@ -20,7 +20,7 @@ Statement (u v: Type) (A C: Set u) (B D: Set v) (h: ((A ×ˢ B) ∩ (C ×ˢ D) =
   rw[h] at F
   contradiction
 
-Conclusion "Proof in English?"
+Conclusion "In less-fancy terms, this is saying that an intersection of Cartesian products being empty means that either no first coordinates are shared or no second coordinates are shared between the sets."
 
 
 /- Original proof; avoid using `have`

@@ -3,10 +3,10 @@ import Game.Levels.RelationWorld.RelationWorldExamples.relation_example1
 World "RelationWorldExamples"
 Level 5
 
-Title "Relations"
+Title "Relation Example 2"
 
 Introduction "This level gives some good practice with composite relations."
-
+/-- If $R$ and $S$ are transitive relations on $u$ such that $S ∘ R ⊆ R ∘ S,$ then $R ∘ S$ is transitive. -/
 Statement {u : Type} (R S: Rel_on u) (hR: isTransitive R) (hS: isTransitive S) (h: (S ∘ R).pairs ⊆ (R ∘ S).pairs) : isTransitive (R ∘ S) := by
   intro a b c kab kbc
   obtain ⟨mid1,hmid1⟩ := kab
@@ -29,6 +29,6 @@ Statement {u : Type} (R S: Rel_on u) (hR: isTransitive R) (hS: isTransitive S) (
   refine ⟨l2,l3⟩
 
 
-Conclusion "Proof in English?"
+Conclusion "Transitivity is a complex condition, but it's absolutely essential to how partial orders and equivalence relations function. Good work!"
 
 /- exist these commands to add items to the game's inventory. -/

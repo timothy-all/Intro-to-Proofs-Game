@@ -3,9 +3,13 @@ import Game.Levels.RelationWorld.RelationWorldExamples.orderrelation_example2
 World "RelationWorldExamples"
 Level 11
 
-Title "Equivalence Relations"
+Title "Equivalence Relation Example 1"
 
-Introduction "If equivalence relations have the same family of equivalence classes, they're the same relation."
+Introduction "If equivalence relations have the same family of equivalence classes, they're the same relation.
+
+### **💡 Pro-tip**
+
+Don't forget about some of our results from Relation World, such as `Equiv_class_has_rep`!"
 
 Statement {u : Type*} (R S: Rel_on u) (eqR: isEquivalence R) (eqS: isEquivalence S) (h: equivClassFamily R = equivClassFamily S) : R = S := by
   apply Rel_double_inclusion
@@ -40,4 +44,4 @@ Statement {u : Type*} (R S: Rel_on u) (eqR: isEquivalence R) (eqS: isEquivalence
   obtain hx1y : R x.1 y := eqR.symm hx1
   exact eqR.tran hx1y hx2
 
-  Conclusion "Proof in English?"
+  Conclusion "If you're seeing this, good job! This is not an easy formalization!"

@@ -17,5 +17,5 @@ Title "Relation World Examples"
 Introduction "
 ### **Relation World Examples**
 
-This world contains Lean files for many in-class examples and HW problems. There's no harm in jumping around in these levels if you want to try to find a specific proof - set the rules to `relaxed` using the slider in the top-right if you want to look around.
+This world contains Lean files for many in-class examples and HW problems (and more!). There's no harm in jumping around in these levels if you want to try to find a specific proof - set the rules to `relaxed` using the slider in the top-right if you want to look around.
 "

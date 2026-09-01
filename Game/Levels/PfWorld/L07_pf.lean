@@ -6,7 +6,7 @@ Level 7
 Title "Lots-o-tactics"
 
 Introduction "
-# **Level 7: Not equals empty **
+# **Level 7: Not equals empty**
 This level will require a mix of tactics/strategies. First, we have an iff-statement. 👉 So let's start by splitting our goals with
 ```
 constructor

@@ -15,7 +15,7 @@ How do we address such goals in Lean? We use...
 ### **❯ The `exist!` tactic**
 The `exist!` tactic will split your goal into subgoals -- the first goal is the **existence** statement while the second goal is the **uniqueness** statement. A witness to the existential must be provided. 👉 In our case, try
 ```
-exists! 0
+exist! 0
 ```
 "
 

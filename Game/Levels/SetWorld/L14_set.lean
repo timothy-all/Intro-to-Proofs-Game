@@ -11,7 +11,7 @@ The **universal-set** denoted `univ` is defined as follows:
 ```
 univ = {x | True}
 ```
-Our current goal subset relation; let's introduce the appropriate stuff.
+Our current goal is a subset relation; let's introduce the appropriate stuff.
 "
 open Set
 

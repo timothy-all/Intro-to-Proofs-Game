@@ -3,14 +3,14 @@ import Game.Levels.RelationWorld.RelationWorldExamples.cartprod_example1
 World "RelationWorldExamples"
 Level 2
 
-Title "Cartesian products"
+Title "Cartesian product Example 2"
 
 Introduction "Double inclusion exercise involving Cartesian products.
 
 🔍 Check your inventory for a new theorem: `Snd_not_mem_not_mem_prod.` This is similar to the theorem proven in level 2 of RelationWorld, just using the second coordinate instead of the first. Both of these are useful in this level."
 
 
-
+/-- If $A, B, C, D$ are sets, then $(A × B) \setminus (C × D) = (A × (B \setminus D)) ∪ ((A \setminus C) × B).$ -/
 Statement (u v: Type) (A C: Set u) (B D: Set v) : (A ×ˢ B) \ (C ×ˢ D) = (A ×ˢ (B \ D)) ∪ ((A \ C) ×ˢ B) := by
   apply Double_inclusion
   intro x
@@ -47,6 +47,6 @@ Statement (u v: Type) (A C: Set u) (B D: Set v) : (A ×ˢ B) \ (C ×ˢ D) = (A �
   exact h2.right
 
 
-Conclusion "Proof in English?"
+Conclusion "Compare your work with a proof in English. Which steps do you think need to be mentioned carefully, and which do you think readers will infer automatically?"
 
 NewTheorem Snd_not_mem_not_mem_prod

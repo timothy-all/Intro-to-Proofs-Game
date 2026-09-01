@@ -4,7 +4,7 @@ import Game.Levels.RelationWorld
 World "RelationWorldExamples"
 Level 1
 
-Title "Cartesian products"
+Title "Cartesian product Example 1"
 
 Introduction "Double inclusion exercise involving Cartesian products.
 
@@ -12,6 +12,7 @@ Note: It is possible to prove this just using rewrites, but you can also use thi
 
 open Set
 
+/-- If $A, B, C$ are sets, then $A × (B \setminus C) = (A × B) \setminus (A × C).$ -/
 Statement (u v: Type) (A: Set u) (B C: Set v) : A ×ˢ (B \ C) = (A ×ˢ B) \ (A ×ˢ C) := by
   apply Double_inclusion
   --rw[subset_def]
@@ -53,16 +54,4 @@ Statement (u v: Type) (A: Set u) (B C: Set v) : A ×ˢ (B \ C) = (A ×ˢ B) \ (A
   exact h
 
 
-Conclusion "Proof in English?"
-
-/- Use these commands to add items to the game's inventory. -/
-
---DefinitionDoc Set.Prod as "×ˢ"
-
-
---TheoremDoc Set.eq_of_subset_of_subset as "double_inclusion"
-
---NewTactic intro apply symm Or.inl obtain
---NewTheorem mem_prod_iff Set.Subset.antisymm
--- NewTheorem Nat.add_comm Nat.add_assoc
---NewDefinition Set.Prod
+Conclusion "This one's kind of tough! Formal mathematics is difficult, but all of the steps even go on under-the-hood in an English proof!"
