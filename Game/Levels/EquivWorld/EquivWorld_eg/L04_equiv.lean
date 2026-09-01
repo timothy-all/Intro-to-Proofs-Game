@@ -14,7 +14,7 @@ We've unlocked a few more laws of logic for this example. 🔍 Check out the ent
 
 set_option pp.parens true
 
-/-- There's no choice of `True` or `False` values for `P` and `Q` that would make the left-hand statement on the left-hand side of this iff false.-/
+/-- Any choices of `True` or `False` values for `P` and `Q` make the statement on the left-hand side of this iff true.-/
 Statement (P Q : Prop) : P → (P ∨ Q) ↔ True := by
   rw[Imp_iff_not_or]
   rw[← Or_assoc]

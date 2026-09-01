@@ -28,7 +28,7 @@ Statement Contrapositive {P Q : Prop} : (P → Q) ↔ (¬ Q → ¬ P) := by
   "
   rw[Not_not]
   Hint "We're almost home. Let's take the time to introduce a new tactic ...
-  ## **❯ The `rw` tactic**
+  ### **❯ The `rw` tactic**
   The `rw` tactic is identical to `rewrite` except that it automatically attempts to clear the goal with `rfl` at the end. Give it a try!
   "
   rw[Or_comm]

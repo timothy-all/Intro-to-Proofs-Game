@@ -66,6 +66,8 @@ mem_inter_iff
   (a b : Set u) :
     x ∈ a \ b ↔ x ∈ a ∧ x ∉ b
 ```
+Here's a Venn diagram of the `\` connective:
+![Venn diagram of union connective](images/venn_diff.png)
 -/
 DefinitionDoc mem_diff_iff as "SET: mem_diff_iff"
 
@@ -95,6 +97,8 @@ mem_finter_iff
   (F : Set (Set u)) :
   x ∈ ⋂₀ F ↔ ∀ (t : Set u), t ∈ F → x ∈ t
 ```
+Here's a Venn diagram of the `⋂₀` operator on a family:
+![Venn diagram of union connective](images/venn_finter.png)
 -/
 DefinitionDoc mem_finter_iff as "SET: mem_finter_iff"
 
@@ -114,6 +118,8 @@ mem_iinter_iff
   (A : I → Set u) :
     x ∈ ⋂ i, A i ↔ ∀ (i : I), x ∈ A i
 ```
+Here's a Venn diagram of the `⋂` operator on an indexed family:
+![Venn diagram of union connective](images/venn_iinter.png)
 -/
 DefinitionDoc mem_iinter_iff as "SET: mem_iinter_iff"
 
@@ -132,6 +138,8 @@ mem_funion_iff
   (F : Set (Set u)) :
     x ∈ ⋃₀ F ↔ ∃ t ∈ F, x ∈ t
 ```
+Here's a Venn diagram of the `⋃₀` operator on a family:
+![Venn diagram of union connective](images/venn_funion.png)
 -/
 DefinitionDoc mem_funion_iff as "SET: mem_funion_iff"
 
@@ -151,6 +159,8 @@ mem_iunion_iff
   (A : I → Set u) :
     x ∈ ⋃ i, A i ↔ ∃ (i : I), x ∈ A i
 ```
+Here's a Venn diagram of the `⋃` operator on an indexed family:
+![Venn diagram of union connective](images/venn_iunion.png)
 -/
 DefinitionDoc mem_iunion_iff as "SET : mem_iunion_iff"
 
@@ -257,6 +267,8 @@ mem_symm_diff_iff
   (A B : Set u) :
   x ∈ (A Δ B) ↔ x ∈ (A \ B) ∪ (B \ A)
 ```
+Here's a Venn diagram of the `Δ` connective:
+![Venn diagram of union connective](images/venn_symm.png)
 -/
 DefinitionDoc mem_symm_diff_iff as "SET: mem_symm_diff_iff"
 

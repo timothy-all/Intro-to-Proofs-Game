@@ -15,7 +15,7 @@ We'll need two new laws of logic to pass this level. 🔍 Check out the entries 
 
 set_option pp.parens true
 
-/-- The statement *if `P` or `Q`, then `R`* is logically equivalent to *`P` implies `R` and `Q` implies `R`.*-/
+/-- The statement *''if `P` or `Q`, then `R`''* is logically equivalent to *''`P` implies `R` and `Q` implies `R`.''*-/
 Statement (P Q R : Prop) : ((P ∨ Q) → R) ↔ ((P → R) ∧ (Q → R)) := by
   rw[Imp_iff_not_or]
   rw[Not_or]

@@ -12,7 +12,7 @@ We've unlocked the theorem `And_true` for this level. 🔍 Check out the entry f
 
 set_option pp.parens true
 
-/-- The statement *`P` implies `Q`* is logically equivalent to *`P` and `Q`, or not `P`*.-/
+/-- The statement *''`P` implies `Q`''* is logically equivalent to *''`P` and `Q`, or not `P`''.*-/
 Statement (P Q : Prop) : (P → Q) ↔ (P ∧ Q) ∨ ¬ P := by
   rw[Imp_iff_not_or]
   rw[Or_comm _ (¬ P)]

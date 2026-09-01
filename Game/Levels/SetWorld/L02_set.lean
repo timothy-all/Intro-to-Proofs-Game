@@ -9,7 +9,7 @@ Introduction "
 # **Level 2**
 The **subset** relation is transitive. This means that if $A ⊆ B$ and $B ⊆ C$, then $A ⊆ C$. Let's prove this in Lean. Our goal is to prove `A ⊆ C`. Remember: this is just short-hand for:
 ```
-∀ x, x ∈ A → x ∈ C
+∀ {x}, x ∈ A → x ∈ C
 ```
 Let's `intro` a generic variable, say `a`, and the assumption that `a ∈ A`.
 "

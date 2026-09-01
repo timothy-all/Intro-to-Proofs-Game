@@ -24,7 +24,7 @@ set_option pp.parens true
 /-- The implication `P → Q` is logically equivalent to `Q ∨ ¬ P`.-/
 Statement (P Q : Prop) : (P → Q) ↔ (Q ∨ ¬ P) := by
   rewrite[Or_comm]
-  Hint "***See*** how our proof-state changed? The ***current*** proof-state is closest to the bottom of the center pane. The previous proof-state is right above.
+  Hint "***See*** how our goal changed? The ***current*** proof-state is closest to the bottom of the center pane. The previous proof-state is right above. The `rewrite` tactic has deduced that our previous goal `⊢ (P → Q) ↔ (Q ∨ ¬ P)` is logically equivalent to our current goal `⊢ (P → Q) ↔ (¬ P ∨ Q)` -- so it suffices to prove the latter in order to prove the former.
   >
   We should now `rewrite` the left-hand side of our goal using the **Conditional Law**. 🔍 Check the **Theorems** tab to find the appropriate theorem in the inventory."
   rewrite[Imp_iff_not_or]
@@ -40,6 +40,14 @@ Statement (P Q : Prop) : (P → Q) ↔ (Q ∨ ¬ P) := by
 Conclusion "
 ### ***🥳 Congrats!***
 You beat the first level! We'll add more **Theorems** (known logical equivalences) as we progress through the world.
+### **✍ Important Proof Writing Tip**
+Here is how we might directly translate what we've done in Lean into a hand-written proof:
+> *We wish to prove that $(P → Q) ↔ (Q ∨ ¬ P)$. By commutativity, this is logically equivalent to $(P → Q) ↔ (¬ P ∨ Q)$. By the conditional law, this is equivalent to $(¬ P ∨ Q) ↔ (¬ P ∨ Q)$. Since this last statement is obviously true, the original statement is true.*
+>
+Notice how this reads somewhat awkwardly? Here would be a better translation:
+> *We know that $P → Q$ is logically equivalent to $¬ P ∨ Q$ by the conditional law. But $¬ P ∨ Q$ is logically equivalent to $Q ∨ ¬ P$ by commutativity. Hence $P → Q$ is logically equivalent to $Q ∨ ¬ P$.*
+>
+**Point being:** some care can be taken in translating Lean proofs to what a human being would expect.
 "
 
 NewTactic rewrite rfl

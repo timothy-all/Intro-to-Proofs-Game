@@ -2,7 +2,8 @@ import GameServer
 
 
 /--
-This is the **set** Cartesian product symbol, used in set Cartesian product levels found in RelationWorld and RelationWorldExamples. So, if `A` is a set of elements from type `u` and `B` is a set of elements from type `v` (in Lean: `A : Set u`, `B: Set v`), ```
+This is the **set** Cartesian product symbol, used in set Cartesian product levels found in RelationWorld and RelationWorldExamples. So, if `A` is a set of elements from type `u` and `B` is a set of elements from type `v` (in Lean: `A : Set u`, `B: Set v`),
+ ```
 A ×ˢ B = { (a,b) | a ∈ A ∧ b ∈ B}.
 ```
 If `p ∈ A ×ˢ B`, you can access the coordinates of `p` by using `p.1` and `p.2` (or `p.fst` and `p.snd` - first and second).
@@ -106,10 +107,12 @@ R.dom = { a | ∃ b, R a b }
 -/
 DefinitionDoc Rel.dom as "REL: Rel.dom"
 
-/-- `R.range` is the range of the relation `R`. This is a **set**:
+/--
+`R.range` is the range of the relation `R`. This is a **set**:
 ```
 R.range = { b | ∃ a, R a b }
-``` --/
+```
+-/
 DefinitionDoc Rel.range as "REL: Rel.range"
 
 /-- `Rel_on u` is shorthand for `Rel u u`.
@@ -195,7 +198,8 @@ DefinitionDoc subsetOrder as "REL: subsetOrder"
 DefinitionDoc equivClass as "REL: equivClass"
 
 
-/-- This is the proof that `a ∈ equivClass R a`; more precisely,
+/--
+This is the proof that `a ∈ equivClass R a`; more precisely,
 ```
 Equiv_class_has_rep
 {u : Type*}
@@ -204,7 +208,8 @@ Equiv_class_has_rep
 (a : u) :
   a ∈ equivClass R a
 ```
-To use this, notice that you have to tell Lean that your relation is an equivalence relation. -/
+To use this, notice that you have to tell Lean that your relation is an equivalence relation.
+-/
 TheoremDoc Equiv_class_has_rep as "REL: Equiv_class_has_rep"
 
 /--

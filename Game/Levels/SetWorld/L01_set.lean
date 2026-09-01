@@ -20,7 +20,7 @@ In order to write the symbol `⊆` use `\\subseteq`. To write the symbol `∈` u
 >
 The curly braces around the first `x` in `subset_iff` indicate that Lean considers this argument to be *implicit*. This means that Lean will infer what `x` is from the argument `x ∈ A`. 👉 To start, try
 ```
-rw[subset_iff] at h₁
+rw[subset_iff] at hAB
 ```
 "
 

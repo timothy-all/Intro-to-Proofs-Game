@@ -68,7 +68,7 @@ The theorem `And_comm` says
 ```
 And_comm: (P Q : Prop) : P ∧ Q ↔ Q ∧ P
 ```
-Lean truly thinks of this statement as more of a *function* whose first input is `P` and whose second input is `Q`. The output is (a proof of) the statement `P ∧ Q ↔ Q ∧ P`. When we write `And_comm` with no inputs, Lean will attempt to apply the *fucntion* wherever it can (or throw an error if it can't). Getting used to this takes a little practice.
+Lean truly thinks of this statement as more of a *function* whose first input is `P` and whose second input is `Q`. The output is (a proof of) the statement `P ∧ Q ↔ Q ∧ P`. When we write `And_comm` with no inputs, Lean will attempt to apply the *function* wherever it can (or throw an error if it can't). Getting used to this takes a little practice.
 "
 
 NewTheorem And_assoc And_comm
