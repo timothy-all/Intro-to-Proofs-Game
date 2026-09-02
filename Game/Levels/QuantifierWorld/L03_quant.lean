@@ -19,7 +19,7 @@ exist a
 /-- This valid argument is called *Existential Generalization*. -/
 Statement {u : Type*} (a : u) (P : u → Prop) (h : P a) : ∃ x, P x := by
   exist a
-  Hint "See how our goal is now `⊢ P a` and `a : u` is a generic **Object** in our proof state? We're nearly done."
+  Hint "See how our goal is now `⊢ P {a}` and `{a} : u` is a generic **Object** in our proof state? We're nearly done."
   exact h
 
 Conclusion "The `exist` tactic supplies a *witness* to an existential goal; our job going forward is to prove that our witness truly satisfies the predicate.

@@ -21,11 +21,11 @@ open Set
 /-- The intersection of any set with the empty set is the empty set.-/
 Statement {u : Type*} (A : Set u) : A ∩ ∅ = ∅ := by
   rw[set_eq_iff]
-  Hint "Great. Now we have a universally quantified statement as our goal. Let's introduce a generic variable."
+  Hint "***Great.*** Now we have a universally quantified statement as our goal. Let's introduce a generic variable."
   intro x
-  Hint "Super. We now need to prove this logical equivalence. We might start by rewriting what it means to be a member of an intersection..."
+  Hint "***Super.*** We now need to prove this logical equivalence. We might start by rewriting what it means to be a member of an intersection..."
   rw[mem_inter_iff]
-  Hint "Preem. Now, the membership proposition `x ∈ ∅` means the same thing as `False`. 👉 To rewrite `x ∈ ∅` in this form try
+  Hint "***Preem.*** Now, the membership proposition `{x} ∈ ∅` means the same thing as `False`. 👉 To rewrite `{x} ∈ ∅` in this form try
   ```
   rw[mem_empty_iff_false]
   ```

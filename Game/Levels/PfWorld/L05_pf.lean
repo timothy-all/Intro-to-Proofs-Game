@@ -28,25 +28,25 @@ intro n ⟨k,hk⟩
 /-- For all integers $n$, if $21$ divides $n$, then $7$ divides $n$ and $3$ divides $n$.-/
 Statement : ∀ n : ℤ, 21 ∣ n → ( 7 ∣ n ∧ 3 ∣ n) := by
   intro n ⟨k,hk⟩
-  Hint "Notice that `n k` are **Objects** and we have the assumption `hk : n = 21 * k`. The line
+  Hint "Notice that `{n} {k}` are **Objects** and we have the assumption `{hk} : n = 21 * k`. The line
   ```
-  intro n ⟨n,hk⟩
+  intro {n} ⟨{k},{hk}⟩
   ```
   is essentially short-hand for
   ```
-  intro n h
-  obtain ⟨n,hk⟩ := h
+  intro {n} h
+  obtain ⟨{k},{hk}⟩ := h
   ```
-  Now, our goal is `⊢ 7 ∣ n ∧ 3 ∣ n`. We can split our work into two goals with the help of ...
+  Now, our goal is `⊢ 7 ∣ {n} ∧ 3 ∣ {n}`. We can split our work into two goals with the help of ...
   ### **❯ The `constructor` tactic**
   The `constructor` tactic will take a goal like `⊢ Q ∧ R` and split it into subgoals. The first subgoal is `⊢ Q` (under the same hypotheses as before) and the second subgoal is `⊢ R` (again, under the same hypotheses as before). 👉 Try it out with
   ```
   constructor
   ```"
   constructor
-  Hint "We now have an *Active Goal* and a *Goal 2*. We can tab over to *Goal 2* if we like, but might as well address them in order. To prove `⊢ 7 ∣ n`, we need to profer a witness to the underlying existential statement `∃ d, n = 7 * d`. Can you find such a witness?"
+  Hint "We now have an *Active Goal* and a *Goal 2*. We can tab over to *Goal 2* if we like, but might as well address them in order. To prove `⊢ 7 ∣ {n}`, we need to profer a witness to the underlying existential statement `∃ d, n = 7 * d`. Can you find such a witness?"
   exist 3 * k
-  Hint "***Perfect.*** Let's rewrite the left-hand side of our goal with `hk`."
+  Hint "***Perfect.*** Let's rewrite the left-hand side of our goal with `{hk}`."
   rw[hk]
   Hint "If only there were a tactic that could help us `simplify` basic arithmetic like in our current goal..."
   simplify

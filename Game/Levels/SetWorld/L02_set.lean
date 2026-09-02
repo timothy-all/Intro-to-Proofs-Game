@@ -20,7 +20,7 @@ Statement Subseteq_trans {u : Type*} {A B C: Set u} (hAB : A ⊆ B) (hBC : B ⊆
     intro a
     Hint "This is fine. But you could have introduced more! ⏮ Click the **Retry** button at the previous prompt and try
     ```
-    intro a ha
+    intro {a} ha
     ```
     "
   intro a ha

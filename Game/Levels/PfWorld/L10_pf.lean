@@ -32,16 +32,16 @@ Statement (n : ℤ) : 40 ∣ n ↔ (8 ∣ n ∧ 5 ∣ n) := by
   intro ⟨⟨k,hk⟩, ⟨j,hj⟩⟩
   Hint "***Perfect.*** We now need a clever idea. What's the first multiple of `5` that differs from a multiple of `8` by `1`? The answer: `15` and `16`.
 
-  Now, let's obtain the fact that `15 * n = 120 * k`. We need to open a new subgoal to prove this. We can use the `obtain` tactic to do so with the following syntax. 👉 Try
+  Now, let's obtain the fact that `15 * n = 120 * {k}`. We need to open a new subgoal to prove this. We can use the `obtain` tactic to do so with the following syntax. 👉 Try
   ```
-  obtain h1 : 15 * n = 120 * k
+  obtain h1 : 15 * n = 120 * {k}
   ```
   "
   obtain h1 : 15 * n = 120 * k
-  Hint "***Amaze, amaze.*** Notice how our *Active Goal* is now `⊢ 15 * n = 120 * k` while *Goal 2* gets back to our original goal. See if you can't clear this subgoal on your own."
+  Hint "***Amaze, amaze.*** Notice how our *Active Goal* is now `⊢ 15 * n = 120 * {k}` while *Goal 2* gets back to our original goal. See if you can't clear this subgoal on your own."
   rw[hk]
   simplify
-  Hint "***Super.*** Now, using the same ideas, `obtain` the hypothesis `h2 : 16 * n = 80 * j`."
+  Hint "***Super.*** Now, using the same ideas, `obtain` the hypothesis `h2 : 16 * n = 80 * {j}`."
   obtain h2 : 16 * n = 80 * j
   rw[hj]
   simplify

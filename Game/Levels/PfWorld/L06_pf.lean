@@ -20,9 +20,9 @@ Statement Double_inclusion {u : Type*} (A B : Set u) (hAB : A ⊆ B) (hBA : B �
   rw[set_eq_iff]
   Hint "Let's `intro x` to reckon with the universal quantifier."
   intro x
-  Hint "Our goal is a **biconditional** statement (an *iff*) namely `x ∈ A ↔ x ∈ B`. Logically, this is equivalent to
+  Hint "Our goal is a **biconditional** statement (an *iff*) namely `{x} ∈ A ↔ {x} ∈ B`. Logically, this is equivalent to
   ```
-  (x ∈ A → x ∈ B) ∧ (x ∈ B → x ∈ A)
+  ({x} ∈ A → {x} ∈ B) ∧ ({x} ∈ B → {x} ∈ A)
   ```
   The `constructor` tactic will split our goal into two subgoals accordingly. 👉 Try it out with
   ```
@@ -30,7 +30,7 @@ Statement Double_inclusion {u : Type*} (A B : Set u) (hAB : A ⊆ B) (hBA : B �
   ```
   "
   constructor
-  Hint "Our *Active Goal* is `⊢ x ∈ A → x ∈ B` while *Goal 2* is `⊢ x ∈ B → x ∈ A`. See if you can't finish from here."
+  Hint "Our *Active Goal* is `⊢ {x} ∈ A → {x} ∈ B` while *Goal 2* is `⊢ {x} ∈ B → {x} ∈ A`. See if you can't finish from here."
   intro hxA
   exact hAB hxA
   intro hxB

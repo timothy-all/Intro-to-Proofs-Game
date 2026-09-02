@@ -29,7 +29,7 @@ Statement Symm_diff_self {u : Type*} {A: Set u} : A Δ A = ∅ := by
   rw[set_eq_iff]
   Hint "Now let's `intro` a generic variable."
   intro x
-  Hint "Let's unravel the membership of `x ∈ A Δ A`. 👉 We can do this with
+  Hint "Let's unravel the membership of `{x} ∈ A Δ A`. 👉 We can do this with
   ```
   rw[mem_symm_diff_iff]
   ```
@@ -47,7 +47,7 @@ Statement Symm_diff_self {u : Type*} {A: Set u} : A Δ A = ∅ := by
   ```
   "
   rw[mem_diff_iff]
-  Hint "What logical equivalences will help us out here? Try to get our goal into the shape `⊢ False ↔ (x ∈ ∅)`."
+  Hint "What logical equivalences will help us out here? Try to get our goal into the shape `⊢ False ↔ ({x} ∈ ∅)`."
   rw[And_not_self]
   rw[Or_false]
   Hint "Great. We're almost home."

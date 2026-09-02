@@ -18,7 +18,7 @@ intro a
 /-- We use *Universal Generalization* to prove this statement.-/
 Statement {u : Type*} (a : u) (P Q : u → Prop) (hPQ : ∀ x, P x → Q x) (hP : ∀ x, P x) : ∀ x, Q x := by
   intro a
-  Hint "Notice that `a : u` (a generic element of type `u`) and our goal is to prove `Q a`? See if you can't finish this level off on your own."
+  Hint "Notice that `{a} : u` (a generic element of type `u`) and our goal is to prove `Q {a}`? See if you can't finish this level off on your own."
   exact hPQ a (hP a)
 
 Conclusion "🔧 The `intro` tactic can not only introduce hypotheses as assumptions, but (as we've seen here) can also introduce generic elements of universally quantified goals.

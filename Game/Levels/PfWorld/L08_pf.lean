@@ -28,7 +28,7 @@ Statement {u : Type*} (A : Set u) : A = ∅ ↔ ∀ {x}, x ∉ A := by
   by_contra! F
   Hint "Notice that our goal is `⊢ False` while the hypothesis `{F} : A = ∅ ∧ ∃ x, x ∈ A` -- this is the simplified negation of `A = ∅ → ∀ x, x ∉ A`. Let's obtain a witness to the right-hand side of the conjunction in `{F}`."
   obtain ⟨x,hx⟩ := F.right
-  Hint "***Great.*** Now let's rewrite the hypothesis `{hx} : x ∈ A` using `{F}.left`."
+  Hint "***Great.*** Now let's rewrite the hypothesis `{hx} : {x} ∈ A` using `{F}.left`."
   rw[F.left] at hx
   Hint "We've got a couple options to clear the goal now."
   exact hx
@@ -47,7 +47,7 @@ Statement {u : Type*} (A : Set u) : A = ∅ ↔ ∀ {x}, x ∉ A := by
   Hint "***Stupendous.*** Let's `intro` the hypothesis of the **forward** direction."
   intro hx
   Hint "### **💡 Important tip**
-  Our goal is definitionally `⊢ False` (this is what `x ∈ ∅` truly means). We have `{h} : ∀ \{x : u}, x ∉ A`. Lean has a funny way of interpreting not-statements. In particular, Lean considers the following to be definitionally equaly:
+  Our goal is definitionally `⊢ False` (this is what `{x} ∈ ∅` truly means). We have `{h} : ∀ \{x : u}, x ∉ A`. Lean has a funny way of interpreting not-statements. In particular, Lean considers the following to be definitionally equaly:
   ```
   (¬ P) = (P → False)
   ```

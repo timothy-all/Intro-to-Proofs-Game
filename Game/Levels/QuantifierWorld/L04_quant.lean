@@ -11,7 +11,7 @@ In this level, we have an assumption that is existentially quantified. In order 
 ### **❯ The `obtain` tactic ... again**
 To grab a witness of an existential assumption, we use the `obtain` tactic with some extra syntax. In our case, 👉 try:
 ```
-obtain ⟨a, ha⟩ := h₂
+obtain ⟨a, ha⟩ := h2
 ```
 The `a` is our witness, the `ha` is the proof that `P a`.
 ### **⌨ Typesetting tip**
@@ -19,12 +19,12 @@ In order to get the *angled brackets* `⟨` and `⟩` use `\\langle` and `\\rang
 "
 
 /-- We *destructure* our existential assumption using *Existential elimination*.-/
-Statement {u : Type*} (P Q : u → Prop) (h₁ : ∀ x, P x → Q x) (h₂ : ∃ x, P x) : ∃ x, Q x := by
-  obtain ⟨a,ha⟩ := h₂
-  Hint "See how we now have that `a : u` is a generic object, and `ha : P a` is an assumption? We now need to supply a witness to our existential goal..."
+Statement {u : Type*} (P Q : u → Prop) (h1 : ∀ x, P x → Q x) (h2 : ∃ x, P x) : ∃ x, Q x := by
+  obtain ⟨a,ha⟩ := h2
+  Hint "See how we now have that `{a} : u` is a generic object, and `{ha} : P {a}` is an assumption? We now need to supply a witness to our existential goal..."
   exist a
   Hint "You're on the right track. In fact, you can one-shot it from here."
-  exact h₁ a ha
+  exact h1 a ha
 
 Conclusion "🔧 The `obtain` tactic is a real multi-purpose tool! We'll see more uses for `obtain` going forward.
 ### **🌐 How to translate**
