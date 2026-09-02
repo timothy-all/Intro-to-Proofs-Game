@@ -10,6 +10,7 @@ Introduction "## **Level 7 : Surjective (onto) Functions**
 
 Now let's do a straightforward onto example. Fortunately, onto is quite a bit simpler to work with in Lean - 🔍 check your inventory for details."
 
+/-- If $f$ and $g$ are functions such that $g ∘ f$ is surjective, then $g$ is surjective. -/
 Statement {u v w: Type*} (f: Rel u v) (hf: isFunction f) (g: Rel v w) (hg: isFunction g) (hgfs: isSurjective (g ∘ f)) : isSurjective g := by
   Hint "Let's grab our arbitrary codomain element: 👉 `intro c`."
   intro c

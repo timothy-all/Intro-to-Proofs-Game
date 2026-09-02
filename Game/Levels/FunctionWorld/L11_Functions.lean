@@ -4,24 +4,27 @@ import Game.Levels.FunctionWorld.L10_Functions
 World "FunctionWorld"
 Level 11
 
-Title "function"
+Title "Functions 11"
 
-Introduction "This is the converse of the previous level: invertible functions are bijections."
+Introduction "## **Level 11 : Invertible functions are bijections**
+
+This is the converse of the previous level: invertible functions are bijections."
 
 
-
-Statement Fun_invertible_is_bij {u v: Type*} (f: Rel u v) (hf: isFunction f) : isFunction f.inv → isBijection f := by
-  intro finv
+/--Invertible functions are bijections. -/
+Statement Fun_invertible_is_bij {u v: Type*} (f: Rel u v) (hf: isFunction f) (hfinv: isFunction f.inv) : isBijection f := by
+  Hint "Start with 👉 `constructor` to break the goal into injective and surjective parts. The injective part will be first, so grab the large number of terms that we need to manipulate for it: 👉 `intro a b c fac fbc`."
   constructor
   intro a b c fac fbc
-  --Recall that f a c is definitionally equal to f.inv c a
-  exact Fun_output_equal f.inv finv fac fbc
+  Hint "Lean views `f.inv c a` as literally the same thing as `f a c`. Can you see how to use that `f` is a function to close the goal? Remember, we proved 🔍 `Fun_output_equal` many levels ago..."
+  exact Fun_output_equal f.inv hfinv fac fbc
+  Hint "For the surjective part, here's one major hint: because `f.inv` is a function you can *plug stuff into it*. You may even say we can `evaluate` it..."
   intro b
-  evaluate finv at b with a hafinv hau
+  evaluate hfinv at b with a hafinv hau
   exist a
   exact hafinv
 
 
-Conclusion "."
+Conclusion "With the last two levels, we know that a function is invertible if and only if it's a bijection. The last thing we'll look at in the main Function World levels is the relationship between invertible functions and the identity function."
 
 NewTheorem Fun_invertible_is_bij
