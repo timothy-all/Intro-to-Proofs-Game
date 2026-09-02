@@ -19,5 +19,8 @@ World "PfWorld_eg"
 Title "Proof Strategy World Examples"
 
 Introduction "
-### ***What a world!***
+# **Proof World Examples**
+Let's get some practice with proofs! The graphic of this example world is a visual proof that $√2$ is irrational. Can you see how? If not, don't worry. We'll understand this once we get through **Induction World.**
 "
+
+Image "images/sqrt2.png"

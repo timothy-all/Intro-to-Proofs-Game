@@ -157,7 +157,7 @@ The definition of the **Negated Conjunction** connective, denoted `⊼`. Here's 
 nand_def (P Q : Prop) : P ⊼ Q ↔ ¬ (P ∧ Q)
 ```
 -/
-DefinitionDoc nand_def as "nand_def"
+DefinitionDoc nand_def as "EQU: nand_def"
 
 /--
 This is an **Idempotent Law**. It says that

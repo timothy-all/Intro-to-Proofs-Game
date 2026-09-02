@@ -30,6 +30,10 @@ Lean (stylized as L∃∀N) is a proof assistant and programming language -- thi
 ### **How to play?**
 
 The world map is in the center pane. Individual world-levels are the pearls encircling the worlds. Once you've cleared a level, you can move onto the next. The same thing is true with worlds. You can replay any level by navigating to it from the world map. **Start** with **Logical Equivalence World**.
+
+### **Game Rules**
+
+You can change the game rules at any time from this page. See the box in the upper-right corner of the center pane. It's recommended to keep *regular rules* for the non-example worlds and to progress through these in order. But you can skip around the example worlds by adjusting the rules if desired, especially if your instructor references specific examples.
 "
 
 Info "

@@ -14,6 +14,8 @@ rw[Not_forall] at h
 ```
 "
 
+set_option pp.parens true
+
 Statement {u : Type*} (P : u → Prop) (h : ¬ ∀ x, P x) : ∃ x, ¬ P x := by
   rw[Not_forall] at h
   Hint "See how `h` is now the hypothesis `h : ∃ x, ¬ P x`? We're almost done."

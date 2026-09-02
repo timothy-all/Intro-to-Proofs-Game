@@ -22,7 +22,7 @@ This is the defintion of what it means to say that an integer is *even*. Here's 
 isEven (x : Int) := ∃ k, x = 2 * k
 ```
 -/
-DefinitionDoc isEven as "isEven"
+DefinitionDoc isEven as "NT: isEven"
 
 /--
 This is the defintion of what it means to say that an integer is *odd*. Here's what it looks like in Lean:
@@ -30,7 +30,7 @@ This is the defintion of what it means to say that an integer is *odd*. Here's w
 isOdd (x : Int) := ∃ k, x = 2 * k + 1
 ```
 -/
-DefinitionDoc isOdd as "isOdd"
+DefinitionDoc isOdd as "NT: isOdd"
 
 /--
 The tactic `by_contra` changes a goal of the form `⊢ P` to `⊢ False` and adds the hypothesis `this : ¬ P` to the proof-state. One can name the introduced hypothesis `this` with an optional identifier. For example, `by_contra F` changes the goal to `⊢ False` and adds the hypothesis `F : ¬ P`.

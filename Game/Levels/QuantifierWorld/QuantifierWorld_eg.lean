@@ -14,7 +14,7 @@ World "QuantifierWorld_eg"
 Title "Quantifier World Examples"
 
 Introduction "
-# **Quantifier Examples**
-Let's get more practice with quantifiers!
+# **Quantifier World Examples**
+Let's get more practice with quantifiers! The graphic of this world represents the fact that $∀$ distributes over $∧$ while $∃$ distributes over $∨$.
 "
-Image "images/pic0.png"
+Image "images/quant2.png"

@@ -18,11 +18,11 @@ A **predicate** is a variable proposition where the variable comes from some uni
 >
 We use **quantifiers** `∀` (forall) and `∃` (exists) to scope predicates into propositions. The quantified statement `∀ x : u, P x` is like a gigantic `∧` statement:
 $$
-∀ x ∈ U, P x ↔ ⋀_{x ∈ U} P x
+∀ x , P x ↔ ⋀ P x
 $$
 Similarly, the quantified statement `∃ x : u, P x` is like a gigantic `∨` statement:
 $$
-∃ x ∈ U, P x ↔ ⋁_{x ∈ U} P x
+∃ x , P x ↔ ⋁ P x
 $$
 The graphic of this world illustrates a small-scale version of this interpretation.
 >
