@@ -13,7 +13,7 @@ A bijection is a function that is both one-to-one and onto. We'll bundle these p
 
 /-- The identity function is a bijection.-/
 Statement Fun_identity_bij {u: Type*} : isBijection (Rel_id u) := by
-  Hint "👉 Start with `constructor` to split `isBijection` into injective and surjective goals. From there, use techniques like the previous two levels!"
+  Hint "👉 Start with ```constructor``` to split `isBijection` into injective and surjective goals. From there, use techniques like the previous two levels!"
   constructor
   intro a b c hac hbc
   rw [hac, hbc] --rfl not needed

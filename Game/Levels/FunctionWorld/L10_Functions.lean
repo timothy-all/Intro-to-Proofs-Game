@@ -15,7 +15,7 @@ Let's start by proving that bijections are invertible."
 
 /--Bijections are invertible.-/
 Statement Fun_bij_is_invertible {u v: Type*} (f: Rel u v) (hf: isFunction f) (hbij : isBijection f) : isFunction f.inv := by
-  Hint "Start by unpacking what it means for `f` to be a bijection: 👉 `obtain ⟨finj,fsurj⟩ := hbij`."
+  Hint "Start by unpacking what it means for `f` to be a bijection: 👉 ```obtain ⟨finj,fsurj⟩ := hbij```"
   obtain ⟨finj,fsurj⟩ := hbij
   Hint "It's been awhile since we've proven that a relation is a function - 🔍 take a look back at the definition to remind yourself of what needs to be shown!"
   intro b

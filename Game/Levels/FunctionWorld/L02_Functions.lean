@@ -24,9 +24,9 @@ We'll often know that `f a b` and `f a c`, at which point `b = c` (the outputs a
 
 
 Statement Fun_output_equal {u v: Type*} {a : u} {b c : v} (f: Rel u v) (hf: isFunction f)  : f a b → f a c → b = c := by
-  Hint "👉 Start by naming the assumptions: `intro fab fbc`."
+  Hint "👉 Start by naming the assumptions: ```intro fab fbc```"
   intro fab fac
-  Hint "👉 Use `evaluate` to access the uniqueness statement for plugging `a` into `f`: `evaluate hf at a with d hdf hdu`.
+  Hint "👉 Use `evaluate` to access the uniqueness statement for plugging `a` into `f`: ```evaluate hf at a with d hdf hdu```
 
   This will give the uniqueness statement for plugging in `a` the name `hdu`."
   evaluate hf at a with d hdf hdu

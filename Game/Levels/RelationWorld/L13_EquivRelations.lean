@@ -13,7 +13,7 @@ Another important and basic fact about equivalence classes is the fact that equi
 
 /--If $a$ and $b$ are two elements of the same equivalence class, then either one can be used at the class's representative.-/
 Statement Equiv_class_rep_ind {u : Type*} (R: Rel_on u) (eq: isEquivalence R) (a b: u) (h: b ∈ equivClass R a) : equivClass R a = equivClass R b := by
-  Hint "Equivalence classes are sets! Let's prove this using double inclusion: 👉 `apply Double_inclusion` then unpack the forall goal with 👉 `intro x hx`."
+  Hint "Equivalence classes are sets! Let's prove this using double inclusion: 👉 ```apply Double_inclusion``` then unpack the forall goal with 👉 ```intro x hx```"
   apply Double_inclusion
   intro x hx
   Hint "The goal amounts to proving `R b x`. We know `h : R a b` and `hx : R a x`. Use equivalence relation properties to take it from here!"

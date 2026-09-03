@@ -17,7 +17,7 @@ open Set
 
 /-- The smallest element of the subset partial order on any set is ∅.-/
 Statement (u : Type*) : isSmallest (subsetOrder u) ∅ := by
-  Hint "👉 Start by breaking up our `and` goal using `constructor`."
+  Hint "👉 Start by breaking up our `and` goal using ```constructor```"
   constructor
   Hint "It might be helpful to look back at some results from `SetWorld` - anything should be an element of the universe, right?"
   rw[mem_univ_iff_true] -- introd in set world LV12, so they can recall this

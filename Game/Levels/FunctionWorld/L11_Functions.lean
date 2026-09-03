@@ -13,7 +13,7 @@ This is the converse of the previous level: invertible functions are bijections.
 
 /--Invertible functions are bijections. -/
 Statement Fun_invertible_is_bij {u v: Type*} (f: Rel u v) (hf: isFunction f) (hfinv: isFunction f.inv) : isBijection f := by
-  Hint "Start with 👉 `constructor` to break the goal into injective and surjective parts. The injective part will be first, so grab the large number of terms that we need to manipulate for it: 👉 `intro a b c fac fbc`."
+  Hint "Start with 👉 ```constructor``` to break the goal into injective and surjective parts. The injective part will be first, so grab the large number of terms that we need to manipulate for it: 👉 ```intro a b c fac fbc```"
   constructor
   intro a b c fac fbc
   Hint "Lean views `f.inv c a` as literally the same thing as `f a c`. Can you see how to use that `f` is a function to close the goal? Remember, we proved 🔍 `Fun_output_equal` many levels ago..."

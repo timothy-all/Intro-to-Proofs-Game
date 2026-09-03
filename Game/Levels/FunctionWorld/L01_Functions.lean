@@ -20,11 +20,11 @@ Let's start very simple to get practice with this: we'll prove that the identity
 
 /-- The identity relation is a function.-/
 Statement Fun_identity_fun {u : Type*} : isFunction (Rel_id u) := by
-  Hint "Let's unpack what it means to be a function. 👉 Start with `intro a` to grab an arbitrary element of `u`."
+  Hint "Let's unpack what it means to be a function. 👉 Start with ```intro a``` to grab an arbitrary element of `u`."
   intro a
-  Hint "Since the identity relation is only supposed to have pairs `(a,a)`, let's claim that `a` is the unique `b` the goal is asking for: 👉 `exist! a`."
+  Hint "Since the identity relation is only supposed to have pairs `(a,a)`, let's claim that `a` is the unique `b` the goal is asking for: 👉 ```exist! a```"
   exist! a
-  Hint "By definition, `Rel_id u a a` means `a = a`. Cite the reflexive property of equality: 👉 `rfl`."
+  Hint "By definition, `Rel_id u a a` means `a = a`. Cite the reflexive property of equality: 👉 ```rfl```"
   rfl
   Hint "Can you finish from here?"
   intro y hy

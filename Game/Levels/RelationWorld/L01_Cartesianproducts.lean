@@ -20,7 +20,7 @@ open Set -- include this
 /-- A pair $(x,y)$ fails to be in the Cartesian product $A ×ˢ B$ if either $x ∉ A$ or $y ∉ B$. -/
 Statement Not_mem_prod {u v: Type*} {x : u} {y : v} (A: Set u) (B: Set v)  (h: (x,y) ∉ (A ×ˢ B)) : x ∉ A ∨ y ∉ B := by
   Hint "Let's start by unpacking what it means for `x` to be in a Cartesian product (so we can negate it).
-  👉 Try rewriting the set membership using its definition: `rw [mem_prod_iff] at h`."
+  👉 Try rewriting the set membership using its definition: ```rw [mem_prod_iff] at h```"
   rw [mem_prod_iff] at h -- rename mem_prod_iff and doc in defs
   Hint "Lean treats `(x,y).1` as the same thing as `x` - no need to rewrite it further to use it just like `x`, though in proofs written by hand we certainly would write just `x`. (This same notation works with Cartesian products of types later!)
   You should be able to finish it from here!"

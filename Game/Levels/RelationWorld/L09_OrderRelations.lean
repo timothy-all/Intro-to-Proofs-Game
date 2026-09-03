@@ -15,9 +15,9 @@ Give the problem below a shot."
 
 /-- The smallest element of a set (if it exists) is a minimal element.-/
 Statement {u : Type*} (R: Rel_on u) (po: isPartialOrder R) (B : Set u) (b: u) (h: isSmallest R b B) : isMinimal R b B := by
-  Hint "Minimal elements of `B` have to be in the set, so Lean needs you to first prove that `b ∈ B`. But since `b` is the smallest element of `B`, this is given to use in hypothesis `h`. 👉 So first, `obtain ⟨hb,small⟩ := h` to access this."
+  Hint "Minimal elements of `B` have to be in the set, so Lean needs you to first prove that `b ∈ B`. But since `b` is the smallest element of `B`, this is given to use in hypothesis `h`. 👉 So first, ```obtain ⟨hb,small⟩ := h``` to access this."
   obtain ⟨hb,small⟩ := h
-  Hint "👉 Now use `constructor` to unpack the conditions for `b` to be minimal, and use `hb` to prove `b ∈ B`.
+  Hint "👉 Now use ```constructor``` to unpack the conditions for `b` to be minimal, and use `hb` to prove `b ∈ B`.
   Can you finish from there? You'll eventually need to use that `R` is anti-symmetric! Remember that this fact is called `po.anti` here."
   constructor
   exact hb

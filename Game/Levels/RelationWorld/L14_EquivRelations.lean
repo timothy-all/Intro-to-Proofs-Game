@@ -16,7 +16,7 @@ To get more equivalence relation practice, let's prove the three partition prope
 
 /--The empty set is never an equivalence class.-/
 Statement {u : Type*} (R: Rel_on u) (eq: isEquivalence R) : ∅ ∉ equivClassFamily R := by
-  Hint "👉 Let's argue by contradiction: `by_contra h`."
+  Hint "👉 Let's argue by contradiction: ```by_contra h```"
   by_contra h
   Hint "`∅ ∈ equivClassFamily R` means ∅ is the equivalence class of something - this is an existentially quantified given. 👉 Let's `obtain <a,ha> := h` to say it's the equivalence class of `a`."
   obtain ⟨a,ha⟩ := h
