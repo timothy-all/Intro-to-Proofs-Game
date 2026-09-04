@@ -74,10 +74,12 @@ Of course it is also true that `R = S → R.set = S.set`, but the proof of this 
 TheoremDoc Rel_double_inclusion as "REL: Rel_double_inclusion"
 
 
-/-- `R.inv` is the inverse of the relation `R`. More precisely, `R a b` if and only if `R.inv b a`. --/
+/-- `R.inv` is the inverse of the relation `R`. More precisely, `R a b` means `R.inv b a`. Further, these are *definitionally equal*; for example, if your goal is `⊢ R a b` and you know `h : R.inv b a`, `exact h` will close the goal. --/
 DefinitionDoc Rel.inv as "REL: Rel.inv"
 
-/-- If `R : Rel u v`, `R.pairs` is the set of ordered pairs `(x,y)` with the property that `R x y`.
+/-- If `R : Rel u v`, `R.pairs` is the set of ordered pairs `(x,y)` with the property that `R x y`. Precisely,
+```R.pairs = {(a,b) | R a b}```
+If `x : u × v`, the statement `x ∈ R.pairs` is definitionally equal to `R x.1 x.2`.
 -/
 DefinitionDoc Rel.pairs as "REL: Rel.pairs"
 
@@ -115,7 +117,7 @@ R.range = { b | ∃ a, R a b }
 -/
 DefinitionDoc Rel.range as "REL: Rel.range"
 
-/-- `Rel_on u` is shorthand for `Rel u u`.
+/-- `Rel_on u` is shorthand for `Rel u u`. So, if you have `R : Rel_on u`, all facts about `Rel`s can be used for `R`; for instance, `R.pairs` makes sense and works the exact same as if `R` were of type `Rel u u`.
 -/
 DefinitionDoc Rel_on as "REL: Rel_on"
 
@@ -136,59 +138,173 @@ You can also do `nth_rw 2 [h] at k` to do the same thing to hypothesis `k`. -/
 TacticDoc nth_rw
 
 
-/--Replaces the `set` of the identity relation on `u` with the more concrete set of ordered pairs of the form `(a,a)`.-/
+/--Replaces the `set` of the identity relation on `u` with the more concrete set of ordered pairs of the form `(a,a)`. In Lean,
+```
+Rel_id_pairs
+{u : Type} :
+  (Rel_id u).pairs = {(a,a) | a : u}
+```-/
 TheoremDoc Rel_id_pairs as "REL: Rel_id_pairs"
 
 
 
-/-- Makes a relation `R` reflexive. -/
+/-- Makes a relation `R` reflexive. In Lean,
+```
+isReflexive
+{u : Type*}
+(R: Rel_on u) :=
+  ∀ a, R a a
+```
+For instance, if we have `R : Rel_on u` and `h : isReflexive R`, we can "plug in" any `a : u` to `h` to get the proof that `R a a`. More directly, `h a` is the same as `R a a`.-/
 DefinitionDoc isReflexive as "REL: isReflexive"
 
-/-- Makes a relation `R` symmetric. -/
+/-- Makes a relation `R` symmetric. In Lean,
+```
+isSymmetric
+{u : Type*}
+(R: Rel_on u) :=
+  ∀ {a b}, (R a b) → (R b a)
+```
+For instance, if we have `R : Rel_on u` and `h : isSymmetric R`, we can "plug in" any `a : u` and `b : u` to `h` to get the proof that `R a b → R b a`. More directly, `h a b` is the same as `R a b → R b a`. Further, if we also know `k : R a b`, we can use `h` to get `R b a` by writing `h a b k`.-/
 DefinitionDoc isSymmetric as "REL: isSymmetric"
 
-/-- Makes a relation `R` anti-symmetric. -/
+/-- Makes a relation `R` anti-symmetric. In Lean,
+```
+isAntisymmetric
+{u : Type*}
+(R: Rel_on u)
+  := ∀ {a b}, ((R a b) ∧ (R b a)) → a = b
+```
+For instance, if we have `R : Rel_on u` and `h : isAntiSymmetric R`, we can "plug in" any `a : u` and `b : u` to `h` to get the proof that `(R a b ∧ R b a) → a = b`. More directly, `h a b` is the same as `(R a b ∧ R b a) → a = b`. -/
 DefinitionDoc isAntisymmetric as "REL: isAntiymmetric"
 
-/-- Makes a relation `R` transitive. -/
+/-- Makes a relation `R` transitive. In Lean,
+```
+ isTransitive
+ {u : Type*}
+ (R: Rel_on u)
+  := ∀ {a b c}, (R a b) → (R b c) → (R a c)
+```
+For instance, if we have `R : Rel_on u` and `h : isTransitive`, we can "plug in" any `a : u`, `b : u`, and `c : u` to `h` to get the proof that `R a b → R b c → R a c`. This definition uses *currying* to simplify its applications -- it is logically equivalent to the perhaps more familiar `(R a b ∧ R b c) → R a c`. For instance, if we know `k : R a b` and `l : R b c`, then `h k l` is the proof that `R a c`, without resorting to any `And.intro` shenanigans. -/
 DefinitionDoc isTransitive as "REL: isTransitive"
 
-/-- Makes a relation `R` an equivalence relation. -/
+/-- Makes a relation `R` an equivalence relation. If we know `R : Rel_on u` and `eq : isEquivalence R`, we can access the reflexive, symmetric, and transitive properties of `R` by writing `eq.refl`, `eq.symm`, and `eq.tran`, respectively. For example, if `a : u`, `eq.refl a` is the same as `R a a`.  -/
 DefinitionDoc isEquivalence as "REL: isEquivalence"
 
-/-- Makes a relation `R` a partial order. If `po: isPartialOrder R`, use `po.refl`, `po.anti`, `po.tran` to access the reflexive, anti-symmetric, and transitive properties, respectively. -/
+/-- Makes a relation `R` a partial order. If we know `R : Rel_on u` and `po: isPartialOrder R`, use `po.refl`, `po.anti`, `po.tran` to access the reflexive, anti-symmetric, and transitive properties, respectively. For example, if `a : u`, `po.refl a` is the same as `R a a`-/
 DefinitionDoc isPartialOrder as "REL: isPartialOrder"
 
-/-- If `R` is a relation on `u`, `isMinimal R b` means that `b` is a minimal element of `u`.
-
-If we want to specify that `b` is a minimal element of a subset `B` of `u`, write `isMinimal R b B`. -/
+/-- If `R` is a relation on `u`, `isMinimal R b` means that `b` is a minimal element of `u`. In Lean,
+```
+isMinimal
+{u : Type*}
+(R: Rel_on u)
+(b : u)
+(B : Set u := Set.univ) :=
+  b ∈ B ∧ ∀ x, x ∈ B → R x b → x = b
+```
+The statement `B : Set u := Set.univ` means that the *default value* passed to `isMinimal` for that argument is `Set.univ`. So, if we want to specify that `b` is an `R`-minimal element, we have `isMinimal R b` - the `Set.univ` is used implicitly. If we want to specify that `b` is a minimal element of a subset `B` of `u`, write `isMinimal R b B` - in this case, `B` overrides `Set.univ`. -/
 DefinitionDoc isMinimal as "REL: isMinimal"
 
-/-- If `R` is a relation on `u`, `isMaximal R b` means that `b` is a maximal element of `u`.
-
-If we want to specify that `b` is a maximal element of a subset `B` of `u`, write `isMaximal R b B`. -/
+/-- If `R` is a relation on `u`, `isMaximal R b` means that `b` is a maximal element of `u`. In Lean,
+```
+isMaximal
+{u : Type*}
+(R: Rel_on u)
+(b : u)
+(B : Set u := Set.univ) :=
+  b ∈ B ∧ ∀ x, x ∈ B → R b x → x = b
+```
+The statement `B : Set u := Set.univ` means that the *default value* passed to `isMaximal` for that argument is `Set.univ`. So, if we want to specify that `b` is an `R`-maximal element, we have `isMaximal R b` - the `Set.univ` is used implicitly. If we want to specify that `b` is a maximal element of a subset `B` of `u`, write `isMaximal R b B` - in this case, `B` overrides `Set.univ`. -/
 DefinitionDoc isMaximal as "REL: isMaximal"
 
-/-- If `R` is a relation on `u`, `isSmallest R b` means that `b` is the smallest element of `u`.
-
-If we want to specify that `b` is the smallest element of a subset `B` of `u`, write `isSmallest R b B`. -/
+/-- If `R` is a relation on `u`, `isSmallest R b` means that `b` is the smallest element of `u`. In Lean,
+```
+isSmallest
+{u : Type*}
+(R: Rel_on u)
+(b : u)
+(B : Set u := Set.univ) :=
+  b ∈ B ∧ ∀ x, x ∈ B → R b x
+```
+The statement `B : Set u := Set.univ` means that the *default value* passed to `isSmallest` for that argument is `Set.univ`. So, if we want to specify that `b` is the `R`-smallest element, we have `isSmallest R b` - the `Set.univ` is used implicitly. If we want to specify that `b` is the smallest element of a subset `B` of `u`, write `isSmallest R b B` - in this case, `B` overrides `Set.univ`. -/
 DefinitionDoc isSmallest as "REL: isSmallest"
 
-/-- If `R` is a relation on `u`, `isLargest R b` means that `b` is the largest element of `u`.
-
-If we want to specify that `b` is the largest element of a subset `B` of `u`, write `isLargest R b B`. -/
+/-- If `R` is a relation on `u`, `isLargest R b` means that `b` is the largest element of `u`. In Lean,
+```
+isLargest
+{u : Type*}
+(R: Rel_on u)
+(b : u)
+(B : Set u := Set.univ) :=
+  b ∈ B ∧ ∀ x, x ∈ B → R x b
+```
+The statement `B : Set u := Set.univ` means that the *default value* passed to `isLargest` for that argument is `Set.univ`. So, if we want to specify that `b` is the `R`-largest element, we have `isLargest R b` - the `Set.univ` is used implicitly. If we want to specify that `b` is the largest element of a subset `B` of `u`, write `isLargest R b B` - in this case, `B` overrides `Set.univ`.  -/
 DefinitionDoc isLargest as "REL: isLargest"
 
-/-- If `R` is a relation on `u`, `isLowerBound R l B` means that `l` is a lower bound for the subset `B` of `u`. -/
-DefinitionDoc isLowerBound as "REL: isLowerBound"
-
-/-- If `R` is a relation on `u`, `isUpperBound R s B` means that `u` is an upper bound for the subset `B` of `u`. -/
+/-- If `R` is a relation on `u`, `isUpperBound R b` means that `b` is an upper bound of `u`. In Lean,
+```
+isUpperBound
+{u : Type*}
+(R: Rel_on u)
+(b : u)
+(B : Set u := Set.univ) :=
+  ∀ x, x ∈ B → R x b
+```
+The statement `B : Set u := Set.univ` means that the *default value* passed to `isUpperBound` for that argument is `Set.univ`. So, if we want to specify that `b` is an `R`-upper bound, we have `isUpperBound R b` - the `Set.univ` is used implicitly. If we want to specify that `l` is an upper bound of a subset `B` of `u`, write `isUpperBound R b B` - in this case, `B` overrides `Set.univ`. -/
 DefinitionDoc isUpperBound as "REL: isUpperBound"
 
-/-- If `R` is a relation on `u`, `isInfimum R l B` means that `l` is the greatest lower bound for the subset `B` of `u`. -/
+/-- If `R` is a relation on `u`, `isLowerBound R b` means that `b` is a lower bound of `u`. In Lean,
+```
+isLowerBound
+{u : Type*}
+(R: Rel_on u)
+(l : u)
+(B : Set u := Set.univ) :=
+  ∀ x, x ∈ B → R l x
+```
+The statement `B : Set u := Set.univ` means that the *default value* passed to `isLowerBound` for that argument is `Set.univ`. So, if we want to specify that `l` is an `R`-lower bound, we have `isLowerBound R l` - the `Set.univ` is used implicitly. If we want to specify that `l` is a lower bound of a subset `B` of `u`, write `isLowerBound R l B` - in this case, `B` overrides `Set.univ`. -/
+DefinitionDoc isLowerBound as "REL: isLowerBound"
+
+/-- If `R` is a relation on `u`, `isInfimum R l B` means that `l` is the greatest lower bound for the subset `B` of `u`. To work with the greatest lower bound, we need to define the set of lower bounds - this is called `LowerBounds`:
+```
+LowerBounds
+{u : Type*}
+(R : Rel_on u)
+(B : Set u := Set.univ) :=
+  {l | isLowerBound R l B}
+```
+With this, we can define `isInfimum`:
+```
+isInfimum
+{u : Type*}
+(R: Rel_on u)
+(l : u)
+(B : Set u := Set.univ) :=
+  isLargest R l (LowerBounds R B)
+```
+Unpacking the definitions, `h : isInfimum R l B` means `l ∈ LowerBounds R B ∧ ∀ x, x ∈ (LowerBounds R B) → R x l`.
+-/
 DefinitionDoc isInfimum as "REL: isInfimum"
 
-/-- If `R` is a relation on `u`, `isSupremum R s B` means that `s` is the least upper bound for the subset `B` of `u`. -/
+/-- If `R` is a relation on `u`, `isSupremum R l B` means that `s` is the least upper bound for the subset `B` of `u`. To work with the least upper bound we need to define the set of upper bounds - this is called `UpperBounds`:
+```
+UpperBounds
+{u : Type*}
+(R : Rel_on u)
+(B : Set u := Set.univ) :=
+  {s | isUpperBound R s B}
+```
+With this, we can define `isSuprmum`:
+```
+isSupremum
+{u : Type*}
+(R: Rel_on u)
+(s : u)
+(B : Set u := Set.univ) :=
+  isSmallest R s (UpperBounds R B)
+```
+Unpacking the definitions, `h : isSupremum R s B` means `s ∈ UpperBounds R B ∧ ∀ x, x ∈ (UpperBounds R B) → R s x`. -/
 DefinitionDoc isSupremum as "REL: isSupremum"
 
 /-- `subsetOrder u` is the subset order relation on a type `u`. If `A` and `B` are sets of elements of `u` , then `(subsetOrder u) A B` is a fancy way of writing `A ⊆ B`.-/
